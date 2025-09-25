@@ -1,0 +1,23 @@
+{
+  "active_test_id": "8566f9e8-1537-4bde-a3ec-74d18b5d1fdd",
+  "student_name": "Viibib",
+  "started_at": 1758734380,
+  "answers": {
+    "1": "B",
+    "2": "A"
+  },
+  "current_q": 3,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1
+  },
+  "excluded_options": {
+    "1": [
+      "B"
+    ],
+    "2": []
+  },
+  "waiting_understanding": false,
+  "current_reference": "‘since 2021’ davomiyligini bildiradi; Present Perfect: have/has + past participle → “have lived”.",
+  "last_updated": 1758734441
+}

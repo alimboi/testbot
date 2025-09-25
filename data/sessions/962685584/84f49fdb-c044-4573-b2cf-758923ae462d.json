@@ -1,0 +1,29 @@
+{
+  "active_test_id": "84f49fdb-c044-4573-b2cf-758923ae462d",
+  "student_name": "Hahhaha",
+  "started_at": 1758347982,
+  "answers": {
+    "1": "D",
+    "2": "A",
+    "3": "D"
+  },
+  "current_q": 4,
+  "total_q": 20,
+  "wrong_attempts": {
+    "1": 2,
+    "3": 1
+  },
+  "excluded_options": {
+    "1": [
+      "D",
+      "A"
+    ],
+    "2": [],
+    "3": [
+      "D"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "Izoh mavjud emas",
+  "last_updated": 1758348029
+}

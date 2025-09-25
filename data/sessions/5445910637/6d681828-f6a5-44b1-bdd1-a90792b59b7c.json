@@ -1,0 +1,50 @@
+{
+  "active_test_id": "6d681828-f6a5-44b1-bdd1-a90792b59b7c",
+  "student_name": "A.b.i",
+  "started_at": 1758370984,
+  "answers": {
+    "1": "B",
+    "2": "D",
+    "3": "B",
+    "4": "C",
+    "5": "C",
+    "6": "B",
+    "7": "D",
+    "8": "D",
+    "9": "D",
+    "10": "A",
+    "11": "B",
+    "12": "B"
+  },
+  "current_q": 13,
+  "total_q": 20,
+  "wrong_attempts": {
+    "1": 2,
+    "8": 1,
+    "9": 1
+  },
+  "excluded_options": {
+    "1": [
+      "B",
+      "A"
+    ],
+    "2": [],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": [],
+    "7": [],
+    "8": [
+      "D"
+    ],
+    "9": [
+      "D"
+    ],
+    "10": [],
+    "11": [],
+    "12": []
+  },
+  "waiting_understanding": false,
+  "current_reference": "`-1` qaytaradi (element topilmadi).",
+  "last_updated": 1758371273
+}

@@ -1,0 +1,15 @@
+{
+  "owner_id": 7040724501,
+  "admins": {},
+  "group_admins": {
+    "1098805409": {
+      "groups": [
+        -4522468997
+      ],
+      "name": ". Shon",
+      "username": "pognet",
+      "can_create": true,
+      "can_activate": true
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "active_test_id": "c06a0eeb-6578-4831-b561-e112a7afeb6c",
+  "student_name": "Hsh",
+  "started_at": 1758778193,
+  "answers": {
+    "1": "C",
+    "2": "B"
+  },
+  "current_q": 3,
+  "total_q": 5,
+  "wrong_attempts": {
+    "2": 4
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "B",
+      "D"
+    ]
+  },
+  "waiting_understanding": true,
+  "current_reference": "**`animation-name`** animatsiyaga beriladigan tanloviy nom bo‘lib, @keyframes da yozilgan harakatlar shu nom bilan bog‘lanadi.",
+  "last_updated": 1758778338
+}

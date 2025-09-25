@@ -1,0 +1,37 @@
+{
+  "active_test_id": "500575f1-f6b2-428f-b085-9edbc745b448",
+  "student_name": "Damirbek",
+  "started_at": 1758736153,
+  "answers": {
+    "1": "A",
+    "2": "A",
+    "3": "C",
+    "4": "A",
+    "5": "B"
+  },
+  "current_q": 6,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 1,
+    "4": 3,
+    "5": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "A"
+    ],
+    "3": [],
+    "4": [
+      "A",
+      "B",
+      "C"
+    ],
+    "5": [
+      "B"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "splice(start, deleteCount) asl massivdan o‘chiradi va o‘chirilganlarni qaytaradi.",
+  "last_updated": 1758736985
+}

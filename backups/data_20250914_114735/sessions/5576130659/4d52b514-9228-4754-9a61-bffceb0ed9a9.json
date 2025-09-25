@@ -1,0 +1,22 @@
+{
+  "active_test_id": "4d52b514-9228-4754-9a61-bffceb0ed9a9",
+  "student_name": "Yusufbek",
+  "started_at": 1757593875,
+  "answers": {
+    "1": "A"
+  },
+  "current_q": 2,
+  "total_q": 5,
+  "wrong_attempts": {
+    "1": 2
+  },
+  "excluded_options": {
+    "1": [
+      "A",
+      "B"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "**@keyframes** animatsiya bosqichlarini belgilanadigan joy bo‘lib, elementning vaqt davomida qanday o‘zgarishini ko‘rsatishga xizmat qiladi.",
+  "last_updated": 1757593922
+}

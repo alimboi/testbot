@@ -1,0 +1,68 @@
+{
+  "-4770290796:5576130659": {
+    "state": "StudentStates:ConfirmingName",
+    "data": {
+      "active_test_id": "4d52b514-9228-4754-9a61-bffceb0ed9a9",
+      "student_name": "Mani"
+    }
+  },
+  "5576130659:5576130659": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "4d52b514-9228-4754-9a61-bffceb0ed9a9",
+      "student_name": "Yusufbek",
+      "started_at": 1757593875,
+      "answers": {
+        "1": "A"
+      },
+      "current_q": 2,
+      "total_q": 5,
+      "wrong_attempts": {
+        "1": 2
+      },
+      "excluded_options": {
+        "1": [
+          "A",
+          "B"
+        ]
+      },
+      "waiting_understanding": false,
+      "current_reference": "**@keyframes** animatsiya bosqichlarini belgilanadigan joy bo‘lib, elementning vaqt davomida qanday o‘zgarishini ko‘rsatishga xizmat qiladi."
+    }
+  },
+  "-4770290796:7090189650": {
+    "state": "StudentStates:EnteringName",
+    "data": {
+      "active_test_id": "4d52b514-9228-4754-9a61-bffceb0ed9a9"
+    }
+  },
+  "-4770290796:5445910637": {
+    "state": "StudentStates:Understanding",
+    "data": {
+      "active_test_id": "0040febb-a5ce-4251-b934-8bd70bf30c22",
+      "student_name": "Hop"
+    }
+  },
+  "8042345748:8042345748": {
+    "state": "StudentStates:Choosing",
+    "data": {}
+  },
+  "7569958631:7569958631": {
+    "state": "StudentStates:Choosing",
+    "data": {}
+  },
+  "6899786711:6899786711": {
+    "state": "StudentStates:Choosing",
+    "data": {}
+  },
+  "8128753260:8128753260": {
+    "state": "StudentStates:EnteringName",
+    "data": {
+      "active_test_id": "0040febb-a5ce-4251-b934-8bd70bf30c22"
+    }
+  },
+  "962685584:962685584": {
+    "state": "StudentStates:Choosing",
+    "data": {}
+  }
+}

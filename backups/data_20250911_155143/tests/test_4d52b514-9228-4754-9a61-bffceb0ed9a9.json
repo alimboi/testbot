@@ -1,0 +1,74 @@
+{
+  "test_id": "4d52b514-9228-4754-9a61-bffceb0ed9a9",
+  "test_name": "`@keyframes` qachon ishlatiladi?",
+  "questions": [
+    {
+      "index": 1,
+      "text": "`@keyframes` qachon ishlatiladi?",
+      "options": {
+        "A": "Faqat rasm hajmini o‘zgartirishda",
+        "B": "Shrift turini belgilashda",
+        "C": "Animatsiya bosqichlarini aniqlash va o‘zgarishini ko‘rsatishda",
+        "D": "Videoni ichki sahifada ko‘rsatishda"
+      }
+    },
+    {
+      "index": 2,
+      "text": "`animation-name` xossasi nimaga xizmat qiladi?",
+      "options": {
+        "A": "Animatsiya nomini belgilash uchun",
+        "B": "Animatsiya davrini bekor qilish uchun",
+        "C": "Media query shartini yozish uchun",
+        "D": "Shrift rangini boshqarish uchun"
+      }
+    },
+    {
+      "index": 3,
+      "text": "`animation-delay: 2s;` qanday natija beradi?",
+      "options": {
+        "A": "Animatsiyani ikki marta takrorlaydi",
+        "B": "Animatsiyani aylanma rejimga o‘tkazadi",
+        "C": "Animatsiyani chapga siljitish effektini beradi",
+        "D": "Animatsiya 2 soniya kechikib boshlanishini ta’minlaydi"
+      }
+    },
+    {
+      "index": 4,
+      "text": "`@media (min-width: 600px) and (max-width: 1200px)` yozilganda qaysi holatda stil qo‘llaniladi?",
+      "options": {
+        "A": "Ekran balandligi 600px dan katta bo‘lsa",
+        "B": "Ekran kengligi 600px dan katta va 1200px dan kichik bo‘lsa",
+        "C": "Ekran kengligi 1200px dan ortiq bo‘lsa",
+        "D": "Ekran ham portret, ham landshaft rejimida bo‘lsa"
+      }
+    },
+    {
+      "index": 5,
+      "text": "`@media not (orientation: landscape)` nimani anglatadi?",
+      "options": {
+        "A": "Faqat landshaft rejimida stilni qo‘llashini",
+        "B": "Landshaft va portret rejimini teng qo‘llashini",
+        "C": "Qurilma landshaft bo‘lmagan holatda uslubni qo‘llashini",
+        "D": "Media query ni butunlay o‘chirishni"
+      }
+    }
+  ],
+  "answers": {
+    "1": "C",
+    "2": "A",
+    "3": "D",
+    "4": "B",
+    "5": "C"
+  },
+  "references": {
+    "1": "**@keyframes** animatsiya bosqichlarini belgilanadigan joy bo‘lib, elementning vaqt davomida qanday o‘zgarishini ko‘rsatishga xizmat qiladi.",
+    "2": "**`animation-name`** animatsiyaga beriladigan tanloviy nom bo‘lib, @keyframes da yozilgan harakatlar shu nom bilan bog‘lanadi.",
+    "3": "**`animation-delay: 2s;`** animatsiyani ishga tushirishdan oldin 2 soniya kutib turish imkonini beradi, shunda bosqich kechikib boshlanadi.",
+    "4": "**`@media (min-width: 600px) and (max-width: 1200px)`** ekranning kengligi shu oraliqda bo‘lganda tanlangan CSS stillari qo‘llanilishini bildiradi.",
+    "5": "**`@media not (orientation: landscape)`** qurilma landshaft rejimida bo‘lmagan (ya’ni portret) holatda stillarni qo‘llashga imkon beradi."
+  },
+  "groups": [
+    -4522468997
+  ],
+  "group_id": -4522468997
+}

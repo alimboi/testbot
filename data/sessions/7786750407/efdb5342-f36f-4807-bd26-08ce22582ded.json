@@ -1,0 +1,41 @@
+{
+  "active_test_id": "efdb5342-f36f-4807-bd26-08ce22582ded",
+  "student_name": "Husnora",
+  "started_at": 1758281539,
+  "answers": {
+    "1": "A",
+    "2": "C",
+    "3": "A",
+    "4": "D",
+    "5": "B",
+    "6": "C",
+    "7": "B",
+    "8": "B"
+  },
+  "current_q": 8,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 1,
+    "3": 1,
+    "8": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "C"
+    ],
+    "3": [
+      "A"
+    ],
+    "4": [],
+    "5": [],
+    "6": [],
+    "7": [],
+    "8": [
+      "B"
+    ]
+  },
+  "waiting_understanding": true,
+  "current_reference": "`let` blok doirasida (block-scoped) bo‘ladi, `var` esa funksiyaga yoki globalga scope qilinadi.",
+  "last_updated": 1758282108
+}

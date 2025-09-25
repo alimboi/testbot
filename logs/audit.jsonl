@@ -1,0 +1,339 @@
+{"ts": 1755665954, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755666465, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755666696, "actor_id": 7040724501, "action": "test_create", "ok": true, "test_id": "f7d3859f-7c70-43b7-998e-727b075e61a3"}
+{"ts": 1755667178, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755667620, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755667632, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "f7d3859f-7c70-43b7-998e-727b075e61a3", "extra": {"had_record": true}}
+{"ts": 1755667648, "actor_id": 7040724501, "action": "test_create", "ok": true, "test_id": "4c1d14fc-8b4a-4965-9254-b2209058972c"}
+{"ts": 1755667660, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "4c1d14fc-8b4a-4965-9254-b2209058972c"}
+{"ts": 1755667663, "actor_id": 7040724501, "action": "test_deactivate", "ok": true, "test_id": "4c1d14fc-8b4a-4965-9254-b2209058972c"}
+{"ts": 1755667927, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755667954, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755668150, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755668419, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755668546, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755669109, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755669223, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755669345, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755669493, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755669701, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755669734, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755669993, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755670018, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755670460, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755670574, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "4c1d14fc-8b4a-4965-9254-b2209058972c"}
+{"ts": 1755671074, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755671103, "actor_id": 7040724501, "action": "test_deactivate", "ok": true, "test_id": "4c1d14fc-8b4a-4965-9254-b2209058972c"}
+{"ts": 1755671139, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "4c1d14fc-8b4a-4965-9254-b2209058972c"}
+{"ts": 1755671332, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755671346, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "4c1d14fc-8b4a-4965-9254-b2209058972c", "extra": {"groups": [-4522468997]}}
+{"ts": 1755678124, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755678647, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755678659, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "4c1d14fc-8b4a-4965-9254-b2209058972c"}
+{"ts": 1755678664, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "4c1d14fc-8b4a-4965-9254-b2209058972c", "extra": {"groups": [-4522468997]}}
+{"ts": 1755679748, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755679792, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "4c1d14fc-8b4a-4965-9254-b2209058972c", "extra": {"groups": [-4522468997]}}
+{"ts": 1755679842, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "4c1d14fc-8b4a-4965-9254-b2209058972c", "extra": {"had_record": true}}
+{"ts": 1755679962, "actor_id": 7040724501, "action": "test_create", "ok": true, "test_id": "f2e93214-4ffa-4006-88a2-2b30b1dc68ca"}
+{"ts": 1755679978, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "f2e93214-4ffa-4006-88a2-2b30b1dc68ca"}
+{"ts": 1755679983, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "f2e93214-4ffa-4006-88a2-2b30b1dc68ca", "extra": {"groups": [-4522468997]}}
+{"ts": 1755680163, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755680633, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755680824, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755691795, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755837487, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755837670, "actor_id": 0, "action": "group_auto_remove", "ok": true, "group_id": -4522468997}
+{"ts": 1755837677, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -4522468997}
+{"ts": 1755837686, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -4522468997}
+{"ts": 1755837691, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755837695, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755837822, "actor_id": 7040724501, "action": "test_deactivate", "ok": true, "test_id": "f2e93214-4ffa-4006-88a2-2b30b1dc68ca"}
+{"ts": 1755837824, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "f2e93214-4ffa-4006-88a2-2b30b1dc68ca"}
+{"ts": 1755837829, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "f2e93214-4ffa-4006-88a2-2b30b1dc68ca"}
+{"ts": 1755837893, "actor_id": 7040724501, "action": "test_create", "ok": true, "test_id": "8eddabf8-5065-4d5f-a3f4-49040a034d2b"}
+{"ts": 1755837922, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "8eddabf8-5065-4d5f-a3f4-49040a034d2b"}
+{"ts": 1755838184, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755838187, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755838337, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755838343, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755838500, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755838504, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755838516, "actor_id": 7040724501, "action": "test_deactivate", "ok": true, "test_id": "8eddabf8-5065-4d5f-a3f4-49040a034d2b"}
+{"ts": 1755838518, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "8eddabf8-5065-4d5f-a3f4-49040a034d2b"}
+{"ts": 1755838523, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "8eddabf8-5065-4d5f-a3f4-49040a034d2b", "extra": {"had_record": true}}
+{"ts": 1755838533, "actor_id": 7040724501, "action": "test_create", "ok": true, "test_id": "5147e344-24e6-4dbb-b031-e69bc9608342"}
+{"ts": 1755838807, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755838886, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755838968, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755838971, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755839058, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755839062, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755839067, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "5147e344-24e6-4dbb-b031-e69bc9608342", "extra": {"had_record": true}}
+{"ts": 1755839070, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "f2e93214-4ffa-4006-88a2-2b30b1dc68ca", "extra": {"had_record": true}}
+{"ts": 1755839082, "actor_id": 7040724501, "action": "test_create", "ok": true, "test_id": "10c34c02-3b2a-497b-86ae-5f0bff784fe4"}
+{"ts": 1755839166, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "10c34c02-3b2a-497b-86ae-5f0bff784fe4", "extra": {"groups": [-4522468997]}}
+{"ts": 1755839225, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "10c34c02-3b2a-497b-86ae-5f0bff784fe4"}
+{"ts": 1755841349, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755841389, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755841824, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755841827, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755842733, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755842737, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755842789, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755842794, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755842803, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "10c34c02-3b2a-497b-86ae-5f0bff784fe4", "extra": {"had_record": true}}
+{"ts": 1755842815, "actor_id": 7040724501, "action": "test_create", "ok": true, "test_id": "67555360-623b-4609-954f-1c16ddf8d8a4"}
+{"ts": 1755842827, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "67555360-623b-4609-954f-1c16ddf8d8a4"}
+{"ts": 1755842834, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "67555360-623b-4609-954f-1c16ddf8d8a4", "extra": {"groups": [-4522468997]}}
+{"ts": 1755843148, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755843154, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755844276, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755853124, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755853487, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755853492, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755854230, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1755854234, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1755921926, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1756096922, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1756097319, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1756541963, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1756542083, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757584801, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757585917, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757586124, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757586832, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757586836, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757587562, "actor_id": 7040724501, "action": "test_create", "ok": true, "test_id": "4d52b514-9228-4754-9a61-bffceb0ed9a9"}
+{"ts": 1757587577, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "4d52b514-9228-4754-9a61-bffceb0ed9a9"}
+{"ts": 1757587589, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "4d52b514-9228-4754-9a61-bffceb0ed9a9", "extra": {"groups": [-4522468997]}}
+{"ts": 1757587703, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757587707, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757588034, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757588037, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757591469, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757593749, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757593765, "actor_id": 0, "action": "group_auto_remove", "ok": true, "group_id": -4770290796}
+{"ts": 1757593773, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -4770290796}
+{"ts": 1757593824, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "4d52b514-9228-4754-9a61-bffceb0ed9a9", "extra": {"groups": [-4522468997, -4770290796]}}
+{"ts": 1757593859, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757593863, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757593959, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "4d52b514-9228-4754-9a61-bffceb0ed9a9", "extra": {"had_record": true}}
+{"ts": 1757593982, "actor_id": 7040724501, "action": "test_create", "ok": true, "test_id": "ee5020f3-e5b1-45be-a922-0396b173ed0c"}
+{"ts": 1757593989, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "ee5020f3-e5b1-45be-a922-0396b173ed0c"}
+{"ts": 1757594001, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "ee5020f3-e5b1-45be-a922-0396b173ed0c", "extra": {"groups": [-4770290796]}}
+{"ts": 1757594021, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "67555360-623b-4609-954f-1c16ddf8d8a4", "extra": {"had_record": true}}
+{"ts": 1757594101, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757594106, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757594138, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "ee5020f3-e5b1-45be-a922-0396b173ed0c", "extra": {"had_record": true}}
+{"ts": 1757594148, "actor_id": 7040724501, "action": "test_create", "ok": true, "test_id": "ade9a47c-3178-44cb-b35b-1df5c9771e41"}
+{"ts": 1757594158, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "ade9a47c-3178-44cb-b35b-1df5c9771e41"}
+{"ts": 1757594169, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "ade9a47c-3178-44cb-b35b-1df5c9771e41", "extra": {"groups": [-4770290796]}}
+{"ts": 1757611583, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757611710, "actor_id": 7040724501, "action": "test_deactivate", "ok": true, "test_id": "ade9a47c-3178-44cb-b35b-1df5c9771e41"}
+{"ts": 1757611747, "actor_id": 7040724501, "action": "test_create", "ok": true, "test_id": "e390f13d-46d0-4943-8492-886adae0f1c3"}
+{"ts": 1757611791, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757656567, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757656916, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757656921, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757656939, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "ade9a47c-3178-44cb-b35b-1df5c9771e41", "extra": {"had_record": true}}
+{"ts": 1757656946, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "e390f13d-46d0-4943-8492-886adae0f1c3"}
+{"ts": 1757657288, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757657292, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757657314, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "e390f13d-46d0-4943-8492-886adae0f1c3", "extra": {"groups": [-4522468997]}}
+{"ts": 1757658330, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757658334, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757658546, "actor_id": 7753996741, "action": "test_deactivate", "ok": true, "test_id": "e390f13d-46d0-4943-8492-886adae0f1c3"}
+{"ts": 1757658548, "actor_id": 7753996741, "action": "test_activate", "ok": true, "test_id": "e390f13d-46d0-4943-8492-886adae0f1c3"}
+{"ts": 1757658558, "actor_id": 7753996741, "action": "test_delete", "ok": true, "test_id": "e390f13d-46d0-4943-8492-886adae0f1c3"}
+{"ts": 1757658875, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757658878, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757658886, "actor_id": 7753996741, "action": "test_create", "ok": true, "test_id": "0040febb-a5ce-4251-b934-8bd70bf30c22"}
+{"ts": 1757658897, "actor_id": 7753996741, "action": "test_activate", "ok": true, "test_id": "0040febb-a5ce-4251-b934-8bd70bf30c22"}
+{"ts": 1757658908, "actor_id": 7753996741, "action": "test_assign_groups", "ok": true, "test_id": "0040febb-a5ce-4251-b934-8bd70bf30c22", "extra": {"groups": [-4522468997]}}
+{"ts": 1757660539, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757671059, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757675523, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757675526, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757678595, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757766930, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757766992, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "0040febb-a5ce-4251-b934-8bd70bf30c22", "extra": {"groups": [-4522468997, -4770290796]}}
+{"ts": 1757830050, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757830074, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -4770290796}
+{"ts": 1757830078, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -4770290796}
+{"ts": 1757830148, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757831832, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757831837, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757832181, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757832555, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757832559, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757833297, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757849751, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757849940, "actor_id": 7753996741, "action": "test_create", "ok": true, "test_id": "f9293cc2-56ef-4d45-9307-9dac59deda2f"}
+{"ts": 1757849955, "actor_id": 7753996741, "action": "test_activate", "ok": true, "test_id": "f9293cc2-56ef-4d45-9307-9dac59deda2f"}
+{"ts": 1757849964, "actor_id": 7753996741, "action": "test_assign_groups", "ok": true, "test_id": "f9293cc2-56ef-4d45-9307-9dac59deda2f", "extra": {"groups": [-1003055538272]}}
+{"ts": 1757850290, "actor_id": 7753996741, "action": "test_assign_groups", "ok": true, "test_id": "f9293cc2-56ef-4d45-9307-9dac59deda2f", "extra": {"groups": [-1003055538272]}}
+{"ts": 1757850358, "actor_id": 7753996741, "action": "test_delete", "ok": true, "test_id": "f9293cc2-56ef-4d45-9307-9dac59deda2f"}
+{"ts": 1757850371, "actor_id": 7753996741, "action": "test_create", "ok": true, "test_id": "8a6d3cce-e601-44bb-ba2c-4c48d706ef88"}
+{"ts": 1757850390, "actor_id": 7753996741, "action": "test_assign_groups", "ok": true, "test_id": "8a6d3cce-e601-44bb-ba2c-4c48d706ef88", "extra": {"groups": [-1003055538272]}}
+{"ts": 1757850392, "actor_id": 7753996741, "action": "test_activate", "ok": true, "test_id": "8a6d3cce-e601-44bb-ba2c-4c48d706ef88"}
+{"ts": 1757850462, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "8a6d3cce-e601-44bb-ba2c-4c48d706ef88"}
+{"ts": 1757850481, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "0040febb-a5ce-4251-b934-8bd70bf30c22", "extra": {"groups": [-4770290796]}}
+{"ts": 1757850494, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "0040febb-a5ce-4251-b934-8bd70bf30c22", "extra": {"groups": [-4522468997, -4770290796]}}
+{"ts": 1757850633, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757850637, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757852918, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757872434, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757873625, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757875218, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757875233, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757876581, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757876585, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757876599, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 7753996741, "group_id": -4522468997}}
+{"ts": 1757877460, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757877463, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757877468, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 7753996741, "group_id": -4522468997}}
+{"ts": 1757877524, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 962685584, "group_id": -4522468997}}
+{"ts": 1757877556, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757877561, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757878913, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757878916, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757878979, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757878984, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757879091, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757879094, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757879304, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757929635, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757929699, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 1098805409, "group_id": -4522468997}}
+{"ts": 1757929810, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757929814, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757930072, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 1098805409, "group_id": -4770290796}}
+{"ts": 1757930135, "actor_id": 0, "action": "group_auto_remove", "ok": true, "group_id": -1003055538272}
+{"ts": 1757930141, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -1003055538272}
+{"ts": 1757930151, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -1003055538272}
+{"ts": 1757930973, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757946789, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757946885, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -4883160240}
+{"ts": 1757946895, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -4883160240}
+{"ts": 1757946955, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "0040febb-a5ce-4251-b934-8bd70bf30c22", "extra": {"groups": [-4883160240, -4522468997, -4770290796]}}
+{"ts": 1757947061, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757947463, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757956670, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757956728, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "0040febb-a5ce-4251-b934-8bd70bf30c22", "extra": {"groups": [-1003055538272, -4770290796]}}
+{"ts": 1757957243, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "0040febb-a5ce-4251-b934-8bd70bf30c22"}
+{"ts": 1757957285, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "fa3ef83a-6ba1-4326-86ca-062c2603a116"}
+{"ts": 1757957319, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "ef289cf6-8a6c-41ea-a8fd-5dc8b40e6454"}
+{"ts": 1757957333, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "ef289cf6-8a6c-41ea-a8fd-5dc8b40e6454", "extra": {"groups": [-1003055538272]}}
+{"ts": 1757958307, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1757958317, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1757958326, "actor_id": 7040724501, "action": "test_deactivate", "ok": true, "test_id": "ef289cf6-8a6c-41ea-a8fd-5dc8b40e6454"}
+{"ts": 1757958328, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "ef289cf6-8a6c-41ea-a8fd-5dc8b40e6454"}
+{"ts": 1757958383, "actor_id": 7040724501, "action": "test_deactivate", "ok": true, "test_id": "ef289cf6-8a6c-41ea-a8fd-5dc8b40e6454"}
+{"ts": 1757958385, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "ef289cf6-8a6c-41ea-a8fd-5dc8b40e6454"}
+{"ts": 1757958779, "actor_id": 7753996741, "action": "test_delete", "ok": true, "test_id": "ef289cf6-8a6c-41ea-a8fd-5dc8b40e6454"}
+{"ts": 1757959144, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "c75046fe-f13c-42a8-92ae-a4510c875ab7"}
+{"ts": 1757959153, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "c75046fe-f13c-42a8-92ae-a4510c875ab7", "extra": {"groups": [-1003055538272, -4770290796]}}
+{"ts": 1758004717, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 7040724501, "group_id": -4522468997}}
+{"ts": 1758004720, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 5628988634, "group_id": -4770290796}}
+{"ts": 1758012413, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 962685584, "group_id": -1003055538272}}
+{"ts": 1758012413, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 1098805409, "group_id": -1003055538272}}
+{"ts": 1758012413, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 5149955011, "group_id": -1003055538272}}
+{"ts": 1758012413, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 7753996741, "group_id": -1003055538272}}
+{"ts": 1758012413, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 7040724501, "group_id": -1003055538272}}
+{"ts": 1758012415, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 962685584, "group_id": -4883160240}}
+{"ts": 1758012415, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 7040724501, "group_id": -4883160240}}
+{"ts": 1758012415, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 7753996741, "group_id": -4883160240}}
+{"ts": 1758012417, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 5576130659, "group_id": -4770290796}}
+{"ts": 1758012417, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 7906412099, "group_id": -4770290796}}
+{"ts": 1758012417, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 7569958631, "group_id": -4770290796}}
+{"ts": 1758012417, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 8128753260, "group_id": -4770290796}}
+{"ts": 1758012417, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 5445910637, "group_id": -4770290796}}
+{"ts": 1758012417, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 2090700141, "group_id": -4770290796}}
+{"ts": 1758012417, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 730391949, "group_id": -4770290796}}
+{"ts": 1758012417, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 7090189650, "group_id": -4770290796}}
+{"ts": 1758012417, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 8042345748, "group_id": -4770290796}}
+{"ts": 1758012417, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 7040724501, "group_id": -4770290796}}
+{"ts": 1758012417, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 6899786711, "group_id": -4770290796}}
+{"ts": 1758012417, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 7509286392, "group_id": -4770290796}}
+{"ts": 1758012417, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 7877908921, "group_id": -4770290796}}
+{"ts": 1758012417, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 5758610971, "group_id": -4770290796}}
+{"ts": 1758012417, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 6184529563, "group_id": -4770290796}}
+{"ts": 1758017888, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758018568, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758018603, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758018611, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758018747, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758019067, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758019202, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758019240, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758019289, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758019361, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758019513, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758020102, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758020257, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758020267, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758020403, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758020641, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758021672, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758022401, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758022481, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758023255, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758023331, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758023355, "actor_id": 7040724501, "action": "bot_start", "ok": true}
+{"ts": 1758023391, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758023413, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758032540, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758034959, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758044529, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758075126, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758075135, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758075154, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758091259, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758127468, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -4613659145}
+{"ts": 1758161417, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758276179, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "c75046fe-f13c-42a8-92ae-a4510c875ab7"}
+{"ts": 1758276222, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "233c93c3-7ff2-47a9-b086-42eb463f9c7a", "extra": {"groups": [-1003055538272]}}
+{"ts": 1758276257, "actor_id": 0, "action": "user_removed_from_group", "ok": true, "extra": {"user_id": 962685584, "group_id": -4883160240}}
+{"ts": 1758276280, "actor_id": 7040724501, "action": "test_activate", "ok": true, "test_id": "233c93c3-7ff2-47a9-b086-42eb463f9c7a"}
+{"ts": 1758276343, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "6dcd2fd9-b2c0-422c-8a84-f97008badc37"}
+{"ts": 1758277097, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758277099, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758277276, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "551d02af-e111-419d-b81b-8205be1e4876"}
+{"ts": 1758277317, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758277364, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758277651, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "233c93c3-7ff2-47a9-b086-42eb463f9c7a"}
+{"ts": 1758277656, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "def605b7-8bb3-44fd-b247-e95e6efafa1d"}
+{"ts": 1758277661, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "2ddf288b-5d75-4bd8-a767-079d342f44fc"}
+{"ts": 1758278556, "actor_id": 0, "action": "group_auto_remove", "ok": true, "group_id": -4770290796}
+{"ts": 1758278574, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -4770290796}
+{"ts": 1758278588, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -4770290796}
+{"ts": 1758278603, "actor_id": 0, "action": "group_auto_remove", "ok": true, "group_id": -4613659145}
+{"ts": 1758278612, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -4613659145}
+{"ts": 1758278618, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -4613659145}
+{"ts": 1758348090, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "efdb5342-f36f-4807-bd26-08ce22582ded"}
+{"ts": 1758348095, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "ad2457eb-c539-41ef-99d6-ad696950e751"}
+{"ts": 1758360609, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758368643, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758368681, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "2ae3b464-154f-4220-b796-7059b2304246"}
+{"ts": 1758369117, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -4824921268}
+{"ts": 1758369125, "actor_id": 0, "action": "group_auto_add", "ok": true, "group_id": -4824921268}
+{"ts": 1758459175, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758732991, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758733745, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "6d681828-f6a5-44b1-bdd1-a90792b59b7c"}
+{"ts": 1758733751, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "44474c7d-80f9-4226-ae9d-d3d07ddd4b64"}
+{"ts": 1758733758, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "84f49fdb-c044-4573-b2cf-758923ae462d"}
+{"ts": 1758741492, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758773399, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "47335539-150e-4cfc-98d5-5c2c4dc74e21"}
+{"ts": 1758773410, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "8566f9e8-1537-4bde-a3ec-74d18b5d1fdd"}
+{"ts": 1758773419, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "500575f1-f6b2-428f-b085-9edbc745b448"}
+{"ts": 1758773878, "actor_id": 7040724501, "action": "test_assign_groups", "ok": true, "test_id": "13cfd6fb-4038-43e9-a96c-5443f1e486b8", "extra": {"groups": [-1003055538272, -4770290796, -4613659145]}}
+{"ts": 1758774010, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "3746315b-cc7f-4ece-be3c-890d89215996"}
+{"ts": 1758777986, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758778000, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "311f0a4d-1d8c-4180-b0ae-cd3a70d143de"}
+{"ts": 1758778342, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758778429, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758778442, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758778967, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758779277, "actor_id": 7040724501, "action": "test_delete", "ok": true, "test_id": "c06a0eeb-6578-4831-b561-e112a7afeb6c"}
+{"ts": 1758779957, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758784257, "actor_id": 7040724501, "action": "bot_stop", "ok": true}
+{"ts": 1758785050, "actor_id": 7040724501, "action": "bot_stop", "ok": true}

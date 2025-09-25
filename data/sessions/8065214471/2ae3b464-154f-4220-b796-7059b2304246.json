@@ -1,0 +1,25 @@
+{
+  "active_test_id": "2ae3b464-154f-4220-b796-7059b2304246",
+  "student_name": "Rafinya",
+  "started_at": 1758368511,
+  "answers": {
+    "1": "B",
+    "2": "A",
+    "3": "D"
+  },
+  "current_q": 4,
+  "total_q": 26,
+  "wrong_attempts": {
+    "1": 1
+  },
+  "excluded_options": {
+    "1": [
+      "B"
+    ],
+    "2": [],
+    "3": []
+  },
+  "waiting_understanding": false,
+  "current_reference": "`setTimeout()` — bu funksionallikni bir marotaba kechiktirishga mo‘ljallangan usul bo‘lib, u kodni `delay` o‘tgach ishga tushirishga imkon yaratadi.",
+  "last_updated": 1758368669
+}

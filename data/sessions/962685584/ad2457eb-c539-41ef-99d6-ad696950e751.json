@@ -1,0 +1,21 @@
+{
+  "active_test_id": "ad2457eb-c539-41ef-99d6-ad696950e751",
+  "student_name": "Hahhahah",
+  "started_at": 1758278150,
+  "answers": {
+    "1": "D"
+  },
+  "current_q": 2,
+  "total_q": 29,
+  "wrong_attempts": {
+    "1": 1
+  },
+  "excluded_options": {
+    "1": [
+      "D"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "Elementning margin, border, padding va content qismlarini qanday joylashishini belgilaydi.",
+  "last_updated": 1758278161
+}

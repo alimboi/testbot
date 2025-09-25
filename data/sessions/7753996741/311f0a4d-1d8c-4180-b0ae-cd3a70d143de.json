@@ -1,0 +1,23 @@
+{
+  "active_test_id": "311f0a4d-1d8c-4180-b0ae-cd3a70d143de",
+  "student_name": "Ffff",
+  "started_at": 1758773480,
+  "answers": {
+    "1": "C",
+    "2": "C"
+  },
+  "current_q": 3,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "C"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "Maxsus nomlangan muzey uchun ‘the’; ‘lunch’ odatda artiklsiz umumiy ma’noda ishlatiladi.",
+  "last_updated": 1758773503
+}

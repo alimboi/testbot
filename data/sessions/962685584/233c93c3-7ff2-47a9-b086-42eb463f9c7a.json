@@ -1,0 +1,35 @@
+{
+  "active_test_id": "233c93c3-7ff2-47a9-b086-42eb463f9c7a",
+  "student_name": "Hahaha",
+  "started_at": 1758276301,
+  "answers": {
+    "1": "C",
+    "2": "B",
+    "3": "B",
+    "4": "D",
+    "5": "C"
+  },
+  "current_q": 6,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1,
+    "3": 1,
+    "5": 1
+  },
+  "excluded_options": {
+    "1": [
+      "C"
+    ],
+    "2": [],
+    "3": [
+      "B"
+    ],
+    "4": [],
+    "5": [
+      "C"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "`break` — mavjud siklni darhol to‘xtatadi.",
+  "last_updated": 1758276612
+}

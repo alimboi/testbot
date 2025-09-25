@@ -1,0 +1,446 @@
+{
+  "test_id": "10c34c02-3b2a-497b-86ae-5f0bff784fe4",
+  "test_name": "Elementga `padding: 15px 0;` yozish nati",
+  "questions": [
+    {
+      "index": 1,
+      "text": "Elementga `padding: 15px 0;` yozish natijasida nima sodir bo‘ladi?",
+      "options": {
+        "A": "Kontent va border orasida tepapast 15 px, chapo‘ng 0 px bo‘shliq hosil bo‘ladi",
+        "B": "Element tashqarisida tepapast 15 px margin paydo bo‘ladi",
+        "C": "Element sahifada 15 px pastga siljiydi",
+        "D": "Element balandligi 15 px ga majburiy kengayadi"
+      }
+    },
+    {
+      "index": 2,
+      "text": "Qaysi yozuv kengligi belgilangan blokni gorizontal markazga qo‘yadi?",
+      "options": {
+        "A": "`padding: auto 0;`",
+        "B": "`margin: auto 0;`",
+        "C": "`margin: 0 auto;`",
+        "D": "`padding: 0 auto;`"
+      }
+    },
+    {
+      "index": 3,
+      "text": "Flex konteynerga `flex-direction: row-reverse;` berilsa, tartib qanday bo‘ladi?",
+      "options": {
+        "A": "Elementlar pastdan yuqoriga ustun bo‘ylab joylashadi",
+        "B": "Elementlar chapdan o‘ngga bir qatorda joylashadi",
+        "C": "Elementlar yuqoridan pastga ustun ichida joylashadi",
+        "D": "Elementlar o‘ngdan chapga bir qatorda ketmaket joylashadi"
+      }
+    },
+    {
+      "index": 4,
+      "text": "`justify-content: space-between;` qanday bo‘shliq taqsimoti yaratadi?",
+      "options": {
+        "A": "Barcha elementlar markazga yig‘iladi",
+        "B": "Birinchi element chap, oxirgisi o‘ng chekkada, o‘rtadagi elementlar orasida teng masofa bo‘ladi",
+        "C": "Har bir elementning o‘ng tomoniga teng masofa, chap tomonga nol bo‘shliq beriladi",
+        "D": "Chekkalar va elementlar orasida mutlaq teng bo‘shliq hosil bo‘ladi"
+      }
+    },
+    {
+      "index": 5,
+      "text": "`align-items: center;` vertikal yo‘nalishda qanday natija beradi?",
+      "options": {
+        "A": "Elementlar konteyner balandligining o‘rtasiga tekislanadi",
+        "B": "Elementlar yuqori chetga yig‘iladi",
+        "C": "Elementlar pastki chetga yig‘iladi",
+        "D": "Har bir element alohida qatorda ajraladi"
+      }
+    },
+    {
+      "index": 6,
+      "text": "`flex-wrap: wrap;` berilganida, sig‘may qolgan elementlar nima qiladi?",
+      "options": {
+        "A": "Avtomatik yashiriladi",
+        "B": "Absolute joylashuvga o‘tadi",
+        "C": "Konteynerdan tashqariga chiqadi",
+        "D": "Yangi qatordan boshlab ko‘rinadi"
+      }
+    },
+    {
+      "index": 7,
+      "text": "`border-radius: 10px 20px 30px 40px;` qiymatlar tartibi qaysi?",
+      "options": {
+        "A": "Yuqorio‘ng, yuqorichap, pastkio‘ng, pastkichap",
+        "B": "Yuqorichap va pastkio‘ng, so‘ngra yuqorio‘ng va pastkichap",
+        "C": "Yuqorichap, yuqorio‘ng, pastkio‘ng, pastkichap",
+        "D": "Pastkio‘ng, yuqorio‘ng, pastkichap, yuqorichap"
+      }
+    },
+    {
+      "index": 8,
+      "text": "Rasmga `border-radius: 50%;` berilsa, qanday ko‘rinish paydo bo‘ladi?",
+      "options": {
+        "A": "Burchaklar 50 px radiusga ega bo‘ladi",
+        "B": "Rasm to‘liq doira shaklida ko‘rinadi",
+        "C": "Rasm balandligi 50 % kamayadi",
+        "D": "Rasmga 50 % shaffoflik beriladi"
+      }
+    },
+    {
+      "index": 9,
+      "text": "`position: static; top: 20px;` yozilganda element qayerga siljiydi?",
+      "options": {
+        "A": "Hech qayerga siljiydi, top ishlamaydi",
+        "B": "Tepaga 20 px siljiydi va joy bo‘sh qolmaydi",
+        "C": "Element absolute ga aylanadi",
+        "D": "Elementning margin qiymati o‘zgaradi"
+      }
+    },
+    {
+      "index": 10,
+      "text": "`position: relative; top: 10px; left: 10px;` berilsa, qanday ta’sir bo‘ladi?",
+      "options": {
+        "A": "Element yangi joyiga ko‘chadi va eski joy bo‘sh qolmaydi",
+        "B": "Element oqimdan butunlay chiqariladi",
+        "C": "Element 10 px pastga va 10 px o‘ngga siljiydi, eski joyi saqlanadi",
+        "D": "Element faqat zindex bo‘yicha ko‘tariladi"
+      }
+    },
+    {
+      "index": 11,
+      "text": "`position: absolute;` bo‘lgan element qaysi burchakka yopishadi?",
+      "options": {
+        "A": "Har doim `<html>` ning chapyuqori burchagiga",
+        "B": "Viewportning o‘ngpastki burchagiga",
+        "C": "Eng yaqin `<section>` ga avtomatik",
+        "D": "Eng yaqin `position` berilgan ota elementning chapyuqori burchagiga"
+      }
+    },
+    {
+      "index": 12,
+      "text": "Ketmaket ikki vertikal margin ustmaust kelsa, umumiy natija qanday?",
+      "options": {
+        "A": "Ikkala margin yig‘indisi olinadi",
+        "B": "Eng katta margin ishlaydi, kichigi bekor bo‘ladi",
+        "C": "O‘rtacha qiymat olinadi",
+        "D": "Marginlar to‘liq nollanadi"
+      }
+    },
+    {
+      "index": 13,
+      "text": "`justify-content: space-evenly;` yordamida elementlar qanday joylashadi?",
+      "options": {
+        "A": "Har bir element va chekkalar orasida teng bo‘shliq bo‘ladi",
+        "B": "Elementlar orasida teng, chekkalarda nol bo‘shliq bo‘ladi",
+        "C": "Barcha elementlar chapga yig‘iladi",
+        "D": "Oxirgi element markazda turadi"
+      }
+    },
+    {
+      "index": 14,
+      "text": "`flex-direction: column-reverse;` berilganda natija?",
+      "options": {
+        "A": "Elementlar o‘ngdan chapga ustun bo‘ylab joylashadi",
+        "B": "Elementlar yuqoridan pastga ustun bo‘ylab joylashadi",
+        "C": "Elementlar chapdan o‘ngga qatorda qoladi",
+        "D": "Elementlar pastdan yuqoriga ustun bo‘ylab teskari tartibda chiqadi"
+      }
+    },
+    {
+      "index": 15,
+      "text": "`padding: 15px 30px;` qanday ma’noga ega?",
+      "options": {
+        "A": "Tepaga 15, o‘ngga 30, pastga 0, chapga 0 px",
+        "B": "Tepaga 15, o‘ngga 0, pastga 30, chapga 0 px",
+        "C": "Tepagapastga 15 px, chapo‘ngga 30 px bo‘shliq",
+        "D": "Barcha tomonlarga 15 px, faqat chapga 30 px"
+      }
+    },
+    {
+      "index": 16,
+      "text": "Blokka `margin-left:auto; margin-right:auto;` yozish natijasi?",
+      "options": {
+        "A": "Element chap chekkaga yopishadi",
+        "B": "Element gorizontal markazga joylashadi",
+        "C": "Elementga 600 px qo‘shimcha bo‘shliq beriladi",
+        "D": "Element absolute bo‘ladi"
+      }
+    },
+    {
+      "index": 17,
+      "text": "`border-radius: 30px 60px;` qanday ta’rifga mos keladi?",
+      "options": {
+        "A": "Yuqorichap va pastkio‘ng 30 px, yuqorio‘ng va pastkichap 60 px radiusga ega bo‘ladi",
+        "B": "Barcha burchaklar 45 px radiusga ega bo‘ladi",
+        "C": "Barcha burchaklar 30 px radiusga ega bo‘ladi",
+        "D": "Yuqori burchaklarda 60 px, pastki burchaklarda 30 px radius bo‘ladi"
+      }
+    },
+    {
+      "index": 18,
+      "text": "`flex-wrap: nowrap;` qoldirilganda juda ko‘p elementlar sig‘masa?",
+      "options": {
+        "A": "Elementlar ustun bo‘lib ajraladi",
+        "B": "Sig‘magan elementlar yashiriladi",
+        "C": "Elementlar konteynerdan tashqariga chiqib ketishi mumkin",
+        "D": "Kontener balandligi ikki baravar oshadi"
+      }
+    },
+    {
+      "index": 19,
+      "text": "`.parent {position: relative}` va `.child {position: absolute; top:0; right:0}` bo‘lsa, `.child` qayerda chiqadi?",
+      "options": {
+        "A": "Hujjatning chappastki burchagida",
+        "B": "Brauzer oynasining markazida",
+        "C": "`.parent` ning chapyuqori burchagida",
+        "D": "`.parent` ning o‘ngyuqori burchagida"
+      }
+    },
+    {
+      "index": 20,
+      "text": "Elementlarni ustunga joylab chap chetga yig‘ish uchun qaysi davlat to‘g‘ri?",
+      "options": {
+        "A": "`display:flex; flex-direction: row; justify-content:flex-start;`",
+        "B": "`display:flex; flex-direction: column; align-items:flex-start;`",
+        "C": "`display:flex; flex-direction: column-reverse; justify-content:flex-end;`",
+        "D": "`display:flex; flex-direction: row-reverse; align-items:center;`"
+      }
+    },
+    {
+      "index": 21,
+      "text": "Quyidagi ta’riflardan qaysi biri **margin** ga tegishli?",
+      "options": {
+        "A": "Element chegarasi va qo‘shni element orasidagi tashqi hududni belgilaydi",
+        "B": "Kontent atrofidagi ichki hududni belgilaydi",
+        "C": "Borderni yo‘qotib elementni tekislaydi",
+        "D": "Matnni vertikal markazga qo‘yadi"
+      }
+    },
+    {
+      "index": 22,
+      "text": "`justify-content:center; flex-wrap:wrap;` berilganda ko‘p qatordagi elementlar qanday bo‘ladi?",
+      "options": {
+        "A": "Chap tomondan boshlab daraxt kabi joylashadi",
+        "B": "O‘ng tomonga yopishib ketadi",
+        "C": "Har bir qatorda elementlar markazga yig‘iladi",
+        "D": "Har qatorda birinchi va oxirgi element chekkada bo‘ladi"
+      }
+    },
+    {
+      "index": 23,
+      "text": "`margin: 10px 20px 30px;` tartibi qanday?",
+      "options": {
+        "A": "Tepa 10, o‘ng 30, past 20, chap 10 px",
+        "B": "Tepa 10, o‘ng 20, past 30, chap 20 px",
+        "C": "Tepa 30, o‘ng 20, past 10, chap 20 px",
+        "D": "Tepa 10, o‘ng 20, past 10, chap 30 px"
+      }
+    },
+    {
+      "index": 24,
+      "text": "Flex konteynerda itemlarni pastki chetga tekislash uchun to‘g‘ri yozuv?",
+      "options": {
+        "A": "`justify-content:flex-end;`",
+        "B": "`align-content:flex-end;`",
+        "C": "`justify-content:flex-start;`",
+        "D": "`align-items:flex-end;`"
+      }
+    },
+    {
+      "index": 25,
+      "text": "`position: absolute; top:50px; left:50px;` element oqimga qanday ta’sir qiladi?",
+      "options": {
+        "A": "Element oqimdan chiqariladi, boshqa elementlar bo‘sh joyni egallaydi",
+        "B": "Element eski joyini saqlab ustida ko‘rinadi",
+        "C": "Element oqimda qoladi, faqat 50 px margin oladi",
+        "D": "Element faqat scroll paytida ko‘rinadi"
+      }
+    },
+    {
+      "index": 26,
+      "text": "Flex konteynerning asosiy o‘qi gorizontal bo‘lishi uchun minimal yozuv?",
+      "options": {
+        "A": "`flex-direction: column;`",
+        "B": "`align-items: flex-start;`",
+        "C": "`display: flex;`",
+        "D": "`flex-direction: column-reverse;`"
+      }
+    },
+    {
+      "index": 27,
+      "text": "`border-radius: 25% 50%;` elementga qanday shakl beradi?",
+      "options": {
+        "A": "Burchaklar 25 px radiusga ega bo‘ladi",
+        "B": "Element to‘liq doira shakliga keladi",
+        "C": "Faqat yuqori burchaklar yumaloqlanadi",
+        "D": "Qaramaqarshi burchaklarda 25 % va qolganlarida 50 % radius bo‘lib, elliptik ko‘rinish yaratiladi"
+      }
+    },
+    {
+      "index": 28,
+      "text": "`justify-content: space-around;` bo‘shliqni qanday taqsimlaydi?",
+      "options": {
+        "A": "Elementlar orasida va chekkalarda bo‘shliq bo‘lmaydi",
+        "B": "Elementlar orasida va chekkalarda teng bo‘shliq qoldiradi",
+        "C": "Birinchi va oxirgi element chekkada, qolganlar markazda bo‘ladi",
+        "D": "Barcha elementlar chapga yopishtiriladi"
+      }
+    },
+    {
+      "index": 29,
+      "text": "`position: relative;` ga zindex berilmasa, stacking tartibi qanday?",
+      "options": {
+        "A": "Element odatdagi stacking tartibida qoladi",
+        "B": "Element doimo eng ustiga chiqadi",
+        "C": "Element orqa qatlamga o‘tadi",
+        "D": "Element absolute ga aylanadi"
+      }
+    },
+    {
+      "index": 30,
+      "text": "`justify-content:flex-end;` ning asosiy vazifasi?",
+      "options": {
+        "A": "Elementlarni vertikal markazga yig‘ish",
+        "B": "Elementlarni chap tomonga yo‘naltirish",
+        "C": "Elementlarni asosiy o‘q bo‘yicha o‘ng chekkaga yig‘ish",
+        "D": "Elementlar orasidagi bo‘shliqni nolga tenglashtirish"
+      }
+    },
+    {
+      "index": 31,
+      "text": "Kontent va border orasidagi masofani oshirish uchun qaysi xususiyat o‘zgartiriladi?",
+      "options": {
+        "A": "Marginni oshirish",
+        "B": "Widthni kamaytirish",
+        "C": "Borderga qo‘shimcha px qo‘shish",
+        "D": "Paddingni oshirish"
+      }
+    },
+    {
+      "index": 32,
+      "text": "Blokka `margin-left:-20px;` belgilansa odatda nima sodir bo‘ladi?",
+      "options": {
+        "A": "Element 20 px o‘ngga siljiydi",
+        "B": "Element 20 px chapga kirib, qo‘shni elementlar ustiga chiqishi mumkin",
+        "C": "Elementning paddingi kamayadi",
+        "D": "Element borderi qalinlashadi"
+      }
+    },
+    {
+      "index": 33,
+      "text": "Flex konteynerda default `flex-direction` qaysi?",
+      "options": {
+        "A": "`row` (chapdan o‘ngga)",
+        "B": "`column` (yuqoridan pastga)",
+        "C": "`row-reverse` (o‘ngdan chapga)",
+        "D": "`column-reverse` (pastdan yuqoriga)"
+      }
+    },
+    {
+      "index": 34,
+      "text": "`border-radius: 12px;` bitta qiymat berganda nima bo‘ladi?",
+      "options": {
+        "A": "Faqat yuqorio‘ng burchak yumaloqlanadi",
+        "B": "Faqat chap burchaklar yumaloqlanadi",
+        "C": "Barcha burchaklar 12 px radius bilan yumaloqlanadi",
+        "D": "Yuqori burchaklar 12 px, pastki burchaklar 0 px bo‘ladi"
+      }
+    },
+    {
+      "index": 35,
+      "text": "`position: absolute;` bo‘lgan element ortidan keladigan static elementga qanday ta’sir qiladi?",
+      "options": {
+        "A": "Ukasi ham absolute bo‘lib qoladi",
+        "B": "Ukasining kengligi nollanadi",
+        "C": "Ukasi avtomatik pastroqqa siljiydi",
+        "D": "Ukasi yuqoriga ko‘tarilib bo‘sh qolgan joyni egallashi mumkin"
+      }
+    },
+    {
+      "index": 36,
+      "text": "`flex-wrap: wrap; align-content:center;` bo‘lgan konteynerda necha qator bo‘lsa, qatorlar vertikal joylashuvi qanday bo‘ladi?",
+      "options": {
+        "A": "Qatorlar chapga yig‘iladi",
+        "B": "Qatorlar konteyner balandligida markazga yig‘iladi",
+        "C": "Qatorlar pastki chetga yig‘iladi",
+        "D": "Qatorlar o‘ngga yig‘iladi"
+      }
+    }
+  ],
+  "answers": {
+    "1": "A",
+    "2": "C",
+    "3": "D",
+    "4": "B",
+    "5": "A",
+    "6": "D",
+    "7": "C",
+    "8": "B",
+    "9": "A",
+    "10": "C",
+    "11": "D",
+    "12": "B",
+    "13": "A",
+    "14": "D",
+    "15": "C",
+    "16": "B",
+    "17": "A",
+    "18": "C",
+    "19": "D",
+    "20": "B",
+    "21": "A",
+    "22": "C",
+    "23": "B",
+    "24": "D",
+    "25": "A",
+    "26": "C",
+    "27": "D",
+    "28": "B",
+    "29": "A",
+    "30": "C",
+    "31": "D",
+    "32": "B",
+    "33": "A",
+    "34": "C",
+    "35": "D",
+    "36": "B"
+  },
+  "references": {
+    "1": "`padding` ichki bo‘shliqni belgilaydi; ikki qiymat berilganda vertikal va gorizontal bo‘shliqlarni boshqarish qulay bo‘ladi.",
+    "2": "`margin: 0 auto;` kengligi ma’lum bo‘lgan blokni markazga keltiradi, chunki chap va o‘ng margin avtomatik tenglashtiriladi.",
+    "3": "`row-reverse` asosiy o‘qni qatorda qoldiradi, lekin elementlar tartibini o‘ngdan chapga aylantiradi.",
+    "4": "`space-between` chekka elementlarni chekkalarga yopishtirib, qolgan elementlar orasida teng interval hosil qiladi.",
+    "5": "`align-items: center;` ikkinchi o‘q (vertikal) bo‘yicha elementlarni konteyner balandligining markaziga tekislaydi.",
+    "6": "`flex-wrap: wrap;` sig‘magan itemlarni yangi qatordan boshlaydi va ularga tabiiy oqimda joy beradi.",
+    "7": "To‘rtta qiymat bilan `border-radius` yuqorichapdan boshlab soat miliga teskari tartibda barcha burchaklarga radius tayinlaydi.",
+    "8": "100 % gorizontal va vertikal radius rasmni mukammal doiraga aylantiradi; 50 % ham xuddi shunday effekt beradi.",
+    "9": "`static` joylashuv top/right/bottom/left qiymatlarini e’tiborsiz qoldiradi, shuning uchun element siljimaydi.",
+    "10": "`relative` joylashuv elementni oqimdan ajratmaydi; siljish faqat vizual, bo‘sh joy saqlanadi.",
+    "11": "`absolute` joylashuv eng yaqin `position` berilgan ota blokni tayanch sifatida oladi; agar topilmasa, `<body>` ga yopishadi.",
+    "12": "Vertikal margin kollapsida brauzer eng katta margin qiymatini qoldirib, kichigini bekor qiladi.",
+    "13": "`space-evenly` chekkalar va elementlar orasida mutlaqo teng bo‘shliq taqsimlaydi, ekranni simmetrik qiladi.",
+    "14": "`column-reverse` ustunni teskari tartibda hosil qiladi: oxirgi item yuqoriga, birinchisi pastga tushadi.",
+    "15": "Ikki qiymatli `padding` shorthandi vertikal va gorizontal bo‘shliqni alohida belgilashga imkon beradi.",
+    "16": "Chap va o‘ng marginni `auto` qilish blokni markazga tortadi; bu usul flexsiz ham ishlaydi.",
+    "17": "Ikki qiymatli `border-radius` qaramaqarshi burchaklarni teng radius bilan birlashtirib, vizual muvozanat yaratadi.",
+    "18": "`nowrap` default holatda qatorni majburlab ushlab turadi, sig‘magan itemlar konteynerni tashlab chiqishi mumkin.",
+    "19": "Ota blok `relative` bo‘lganida, `absolute` farzand top/ right koordinatalarini shu ota blok burchagidan oladi.",
+    "20": "Ustun yo‘nalishi (`column`) va chapga tekislash (`align-items:flex-start`) kombinatsiyasi chapga yig‘ilgan ustun beradi.",
+    "21": "Margin tashqi hudud bo‘lib, elementlar orasidagi masofani belgilaydi; padding esa ichki hududga daxldor.",
+    "22": "`justify-content:center;` har bir qatordagi itemlarni gorizontal markazga to‘playdi, ko‘rinishni tartibli qiladi.",
+    "23": "Uch qiymatli margin shorthandi yuqori, chapo‘ng va pastki marginga ketmaket qiymat beradi.",
+    "24": "Vertikal tekislashda `align-items:flex-end;` elementlarni konteyner pastki chetiga tortadi.",
+    "25": "`absolute` joylashuv elementni oqimdan chiqarib yuboradi, shuning uchun uning bo‘sh joyi qolmaydi.",
+    "26": "`display:flex;` ning o‘zi yetarli, chunki default asosiy o‘q gorizontal (`row`).",
+    "27": "Ikki foizlik radius qaramaqarshi burchaklarda turlicha yumaloqlik berib, elliptik shakl yaratadi.",
+    "28": "`space-around` har bir element atrofida teng bo‘shliq hosil qilib, chekka va ichki intervalni balanslaydi.",
+    "29": "`relative` element zindex olmasa ham odatiy stacking tartibida qoladi, ya’ni boshqa elementlar bilan bir qatorda turadi.",
+    "30": "`flex-end` asosiy o‘q bo‘yicha itemlarni konteynerning o‘ng chekkasiga yig‘ib, tartibni aniqlik bilan ko‘rsatadi.",
+    "31": "Padding ichki bo‘shliqni kengaytiradi, kontentni borderdan uzoqlashtirib, qulay o‘qiladigan ko‘rinish yaratadi.",
+    "32": "Musbat bo‘lmagan chap margin elementni chapga siljitib, unga qo‘shni bloklar ustiga chiqish imkonini beradi.",
+    "33": "`flex-direction` ko‘rsatilmasa, browser default sifatida `row` ni tanlaydi va elementlar chapdan o‘ngga joylashadi.",
+    "34": "Bitta qiymatli `border-radius` barcha burchaklarga bir xil radius berib, elementni proporsional yumaloqlaydi.",
+    "35": "`absolute` element bo‘sh joy qoldirmagani sabab, keyingi static element yuqoriga ko‘tarilib, bo‘sh joyni egallashi mumkin.",
+    "36": "`align-content:center;` bir nechta flex qatorlarini konteyner balandligida markazga tortib, vizual balans hosil qiladi."
+  },
+  "groups": [
+    -4522468997
+  ],
+  "group_id": -4522468997
+}
