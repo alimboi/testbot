@@ -1,0 +1,378 @@
+{
+  "test_id": "1e7d5c78-53f7-40cb-9761-042e2b7e6e41",
+  "test_name": "JS_Arrays_Objects_Test_30",
+  "questions": [
+    {
+      "index": 1,
+      "text": "Quyidagi kodning konsolga chiqishi qanday bo‘ladi? ```js\nconst arr = [1, 2, 3];\nconst x = arr.push(4);\nconsole.log(x, arr);\n```",
+      "options": {
+        "A": "4 va [1,2,3,4]",
+        "B": "[1,2,3,4] va 4",
+        "C": "3 va [1,2,3,4]",
+        "D": "undefined va [1,2,3,4]"
+      }
+    },
+    {
+      "index": 2,
+      "text": "slice() va splice() farqini to‘g‘ri ifodalagan natijani toping. Kod natijasi nima? ```js\nconst a = [10, 20, 30, 40, 50];\nconst b = a.slice(1, 4);\nconst c = a.splice(2, 2, 99);\nconsole.log(b, a, c);\n```",
+      "options": {
+        "A": "[20,30,40], [10,20,99,50], [30,40]",
+        "B": "[20,30,40], [10,20,30,40,50], [30,40]",
+        "C": "[20,30,40], [10,20,99,50], [20,30]",
+        "D": "[30,40,50], [10,20,99,50], [30,40]"
+      }
+    },
+    {
+      "index": 3,
+      "text": "shift() va unshift() bilan ishlaganda natija qanday? ```js\nconst q = ['a','b','c'];\nconst r = q.shift();\nconst s = q.unshift('z');\nconsole.log(r, s, q);\n```",
+      "options": {
+        "A": "'a', 2, ['z','b','c']",
+        "B": "'a', 3, ['z','b','c']",
+        "C": "'a', 3, ['z','c']",
+        "D": "'b', 3, ['z','a','c']"
+      }
+    },
+    {
+      "index": 4,
+      "text": "pop() funksiyasi qaytaradigan qiymatni aniqlang. ```js\nlet nums = [5, 6, 7];\nconst out = nums.pop();\nconsole.log(out, nums.length, nums);\n```",
+      "options": {
+        "A": "7, 3, [5,6,7]",
+        "B": "7, 1, [5]",
+        "C": "6, 2, [5,6]",
+        "D": "7, 2, [5,6]"
+      }
+    },
+    {
+      "index": 5,
+      "text": "split() va join() zanjiri natijasini toping. ```js\nconst s = \"a,b,c,,d\";\nconst arr = s.split(\",\");\nconst t = arr.filter(x => x !== \"\").join(\"-\");\nconsole.log(arr.length, t);\n```",
+      "options": {
+        "A": "5 va 'a-b-c-d'",
+        "B": "4 va 'a-b-c-d'",
+        "C": "5 va 'a-b-c--d'",
+        "D": "4 va 'a-b-c--d'"
+      }
+    },
+    {
+      "index": 6,
+      "text": "splice bilan o‘rtaga bir nechta element qo‘shish natijasini toping. ```js\nconst a = [1,2,5,6];\nconsole.log(a);\n```",
+      "options": {
+        "A": "[1,2,5,6,3,4]",
+        "B": "[1,2,3,4,5,6]",
+        "C": "[1,2,3,5,6,4]",
+        "D": "[1,2,3,4,6]"
+      }
+    },
+    {
+      "index": 7,
+      "text": "slice() manfiy indekslar bilan qanday ishlaydi? Natijani toping. ```js\nconst a = [10,20,30,40,50];\nconsole.log(a.slice(-3, -1));\n```",
+      "options": {
+        "A": "[10,20]",
+        "B": "[30,40]",
+        "C": "[40,50]",
+        "D": "[20,30,40]"
+      }
+    },
+    {
+      "index": 8,
+      "text": "push() va unshift() birga qo‘llanganda massiv tartibi qanday bo‘ladi? ```js\nconst a = [2];\nconsole.log(a);\n```",
+      "options": {
+        "A": "[1,2,3,0]",
+        "B": "[0,1,2,3]",
+        "C": "[2,1,3,0]",
+        "D": "[0,2,1,3]"
+      }
+    },
+    {
+      "index": 9,
+      "text": "Object bilan ishlash: property o‘chirilgandan keyingi natija. ```js\nconst user = {name:'Ali', age:20, city:'Toshkent'};\ndelete user.age;\nconsole.log('age' in user, Object.keys(user).length);\n```",
+      "options": {
+        "A": "true, 3",
+        "B": "false, 3",
+        "C": "false, 2",
+        "D": "true, 2"
+      }
+    },
+    {
+      "index": 10,
+      "text": "Massivdan faqat yagona qiymatlarni qoldirish. Quyidagi kodning chiqishi? ```js\nconst arr = ['a','b','a','c','b','a'];\nconst uniq = [...new Set(arr)];\nconsole.log(uniq);\n```",
+      "options": {
+        "A": "['a','b','c']",
+        "B": "['a','c','b','a']",
+        "C": "['a','b','a','c']",
+        "D": "['b','c','a']"
+      }
+    },
+    {
+      "index": 11,
+      "text": "splice bilan oxirgi ikkita elementni olib tashlash. ```js\nconst a = [1,2,3,4,5];\nconst removed = a.splice(-2);\nconsole.log(removed, a);\n```",
+      "options": {
+        "A": "[4,5], [1,2,3]",
+        "B": "[3,4], [1,2,5]",
+        "C": "[4,5], [1,2,3,4,5]",
+        "D": "[5], [1,2,3,4]"
+      }
+    },
+    {
+      "index": 12,
+      "text": "slice va length bilan nusxa olish. Natija? ```js\nconst a = [1,2,3];\nconst b = a.slice();\nconsole.log(a, b);\n```",
+      "options": {
+        "B": "[1,2,3], [1]",
+        "A": "[1,2,3], [1,2]",
+        "C": "[1], [1]",
+        "D": "[1,2], [1,2]"
+      }
+    },
+    {
+      "index": 13,
+      "text": "Object destructuring: to‘g‘ri natijani toping. ```js\nconst obj = {a:1, b:2};\nconst {a:x=0, c:y=5} = obj;\nconsole.log(x, y);\n```",
+      "options": {
+        "A": "1, 5",
+        "B": "0, 5",
+        "C": "1, undefined",
+        "D": "undefined, 5"
+      }
+    },
+    {
+      "index": 14,
+      "text": "Array.from bilan stringni massivga aylantirish: chiqish? ```js\nconst s = '00510';\nconst arr = Array.from(s, ch => Number(ch));\nconsole.log(arr.filter(n => n).length);\n```",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "1",
+        "D": "4"
+      }
+    },
+    {
+      "index": 15,
+      "text": "splice bilan almashtirish: ```js\nconst a = ['x','y','z','t'];\nconsole.log(a);\n```",
+      "options": {
+        "A": "['x','Y','Z','t']",
+        "B": "['x','y','Z','t']",
+        "C": "['x','Y','z','t']",
+        "D": "['x','Y','Z']"
+      }
+    },
+    {
+      "index": 16,
+      "text": "split limit bilan: ```js\nconst s = \"1-2-3-4\";\nconsole.log(s.split('-', 2));\n```",
+      "options": {
+        "A": "['1','2','3','4']",
+        "B": "['1','2']",
+        "C": "['2','3']",
+        "D": "['1','2-3-4']"
+      }
+    },
+    {
+      "index": 17,
+      "text": "unshift va shift ketma-ketligi natijasi: ```js\nconst a = [];\nconsole.log(a);\n```",
+      "options": {
+        "A": "[1]",
+        "B": "[2]",
+        "C": "[]",
+        "D": "[2,1]"
+      }
+    },
+    {
+      "index": 18,
+      "text": "Object.assign bilan yuzaki nusxa va birlashtirish: ```js\nconst a = {x:1, y:{z:2}};\nconst b = Object.assign({}, a);\nconsole.log(a.y.z, b.y.z);\n```",
+      "options": {
+        "B": "99, 99",
+        "A": "2, 99",
+        "C": "2, 2",
+        "D": "99, 2"
+      }
+    },
+    {
+      "index": 19,
+      "text": "Array.prototype.splice qaytarayotgan qiymat. ```js\nconst a = [1,2,3,4];\nconst r = a.splice(1, 2);\nconsole.log(r);\n```",
+      "options": {
+        "A": "[2,3]",
+        "B": "[1,2]",
+        "C": "[3,4]",
+        "D": "[2,3,4]"
+      }
+    },
+    {
+      "index": 20,
+      "text": "push() return qiymati va massiv holati: ```js\nlet a = [0];\nconst len = a.push(1,2);\nconsole.log(len, a[1]);\n```",
+      "options": {
+        "A": "3, 1",
+        "B": "2, 1",
+        "C": "3, 2",
+        "D": "2, 2"
+      }
+    },
+    {
+      "index": 21,
+      "text": "Object kalitlarini tartibda olish: ```js\nconst o = {b:2, a:1, c:3};\nconsole.log(Object.keys(o));\n```",
+      "options": {
+        "A": "['a','b','c']",
+        "B": "['b','a','c']",
+        "C": "Tartib kafolatlanmagan",
+        "D": "['c','b','a']"
+      }
+    },
+    {
+      "index": 22,
+      "text": "split() bo‘sh joylar bilan: ```js\nconst s = \"  one  two   three \";\nconst parts = s.trim().split(/\\s+/);\nconsole.log(parts.length, parts[1]);\n```",
+      "options": {
+        "A": "3, 'two'",
+        "B": "4, 'two'",
+        "C": "3, 'one'",
+        "D": "2, 'two'"
+      }
+    },
+    {
+      "index": 23,
+      "text": "shift() bo‘sh massivda qanday? ```js\nconst a = [];\nconsole.log(a.shift(), a.length);\n```",
+      "options": {
+        "A": "undefined, 0",
+        "B": "null, 0",
+        "C": "undefined, -1",
+        "D": "Error"
+      }
+    },
+    {
+      "index": 24,
+      "text": "Object.freeze ta’siri: ```js\nconst o = Object.freeze({x:1, y:{z:2}});\no.x = 9;\no.y.z = 9;\nconsole.log(o.x, o.y.z);\n```",
+      "options": {
+        "A": "1, 2",
+        "B": "9, 2",
+        "C": "1, 9",
+        "D": "9, 9"
+      }
+    },
+    {
+      "index": 25,
+      "text": "splice bilan bo‘sh o‘chirish: ```js\nconst a = [1,2,3];\nconsole.log(a.length);\n```",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "1",
+        "D": "4"
+      }
+    },
+    {
+      "index": 26,
+      "text": "push va pop bilan stek misoli: Yakuniy massiv? ```js\nconst s = [];\ns.push(1); s.push(2); s.pop(); s.push(3);\nconsole.log(s);\n```",
+      "options": {
+        "A": "[1,3]",
+        "B": "[2,3]",
+        "C": "[3]",
+        "D": "[1,2,3]"
+      }
+    },
+    {
+      "index": 27,
+      "text": "Object.entries bilan hisoblash: ```js\nconst prices = {apple:2, banana:1, cherry:3};\nconst total = Object.entries(prices)\n  .reduce((sum, [k,v]) => sum + v, 0);\nconsole.log(total);\n```",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "4",
+        "D": "3"
+      }
+    },
+    {
+      "index": 28,
+      "text": "split('') va reverse().join('') bilan satrni ag‘darish: ```js\nconst s = \"aba\";\nconst r = s.split('').reverse().join('');\nconsole.log(s === r);\n```",
+      "options": {
+        "A": "false",
+        "B": "true",
+        "C": "'aba'",
+        "D": "undefined"
+      }
+    },
+    {
+      "index": 29,
+      "text": "splice qaytargan massiv uzunligi: ```js\nconst a = [0,1,2,3,4];\nconst r = a.splice(1,3);\nconsole.log(r.length, a);\n```",
+      "options": {
+        "A": "2, [0,4]",
+        "B": "3, [0,4]",
+        "C": "3, [0,1,4]",
+        "D": "4, [4]"
+      }
+    },
+    {
+      "index": 30,
+      "text": "Object kalitiga nuqta va qavs bilan murojaat: to‘g‘ri natija? ```js\nconst key = 'first-name';\nconst user = {'first-name': 'Ali', firstName: 'Vali'};\nconsole.log(user[key], user.firstName);\n```",
+      "options": {
+        "A": "'Ali', 'Vali'",
+        "B": "undefined, 'Vali'",
+        "C": "'Ali', undefined",
+        "D": "undefined, undefined"
+      }
+    }
+  ],
+  "answers": {
+    "1": "A",
+    "2": "C",
+    "3": "B",
+    "4": "D",
+    "5": "A",
+    "6": "D",
+    "7": "B",
+    "8": "C",
+    "9": "A",
+    "10": "B",
+    "11": "D",
+    "12": "C",
+    "13": "A",
+    "14": "D",
+    "15": "B",
+    "16": "C",
+    "17": "D",
+    "18": "A",
+    "19": "C",
+    "20": "B",
+    "21": "A",
+    "22": "D",
+    "23": "C",
+    "24": "B",
+    "25": "D",
+    "26": "A",
+    "27": "C",
+    "28": "B",
+    "29": "D",
+    "30": "C"
+  },
+  "references": {
+    "1": "Quyidagi kodning konsolga chiqishi qanday bo‘ladi? push() massiv oxiriga element qo‘shadi va YANGI UZUNLIKni qaytaradi. Demak x=4, arr=[1,2,3,4].",
+    "2": "slice() va splice() farqini to‘g‘ri ifodalagan natijani toping. Kod natijasi nima? slice(1,4) nusxa qaytaradi: [20,30,40]. splice(2,2,99) asl massivni o‘zgartiradi, [30,40] ni olib tashlab o‘rniga 99 qo‘yadi → a=[10,20,99,50], c=[30,40].",
+    "3": "shift() va unshift() bilan ishlaganda natija qanday? shift() boshidan elementni qaytaradi: r='a', q=['b','c']. unshift('z') boshiga qo‘shib YANGI UZUNLIKni qaytaradi: s=3, q=['z','b','c'].",
+    "4": "pop() funksiyasi qaytaradigan qiymatni aniqlang. pop() oxirgi elementni qaytaradi va massivdan o‘chiradi: out=7, nums=[5,6], length=2.",
+    "5": "split() va join() zanjiri natijasini toping. split(',') bo‘sh satrni ham element qiladi → ['a','b','c','','d'] uzunligi 5. filter bo‘shlarni olib tashlaydi va join('-') → 'a-b-c-d'.",
+    "6": "splice bilan o‘rtaga bir nechta element qo‘shish natijasini toping. splice(2,0,3,4) indeksi 2 dan O‘CHIRMASDAN 3 va 4 ni qo‘shadi → [1,2,3,4,5,6].",
+    "7": "slice() manfiy indekslar bilan qanday ishlaydi? Natijani toping. slice(-3,-1) oxiridan sanab [30,40] ni qaytaradi (–3=30, –1=50 dan oldin).",
+    "8": "push() va unshift() birga qo‘llanganda massiv tartibi qanday bo‘ladi? Boshlang'ich [2]; unshift(1) → [1,2]; push(3) → [1,2,3]; unshift(0) → [0,1,2,3].",
+    "9": "Object bilan ishlash: property o‘chirilgandan keyingi natija. delete age → 'age' in user false bo‘ladi. Qolgan kalitlar: name, city → uzunlik 2.",
+    "10": "Massivdan faqat yagona qiymatlarni qoldirish. Quyidagi kodning chiqishi? Set takrorlarni olib tashlaydi, kiritilgan tartibni saqlaydi: ['a','b','c'].",
+    "11": "splice bilan oxirgi ikkita elementni olib tashlash. splice(-2) oxirgi ikki elementni kesib oladi: removed=[4,5], a=[1,2,3].",
+    "12": "slice va length bilan nusxa olish. Natija? slice() yuzaki NUSXA. b.length=1 → b=[1], a o‘zgarmaydi: [1,2,3].",
+    "13": "Object destructuring: to‘g‘ri natijani toping. a → x ga 1 bo‘lib o‘tadi; c yo‘q, default y=5 ishlaydi → 1 va 5.",
+    "14": "Array.from bilan stringni massivga aylantirish: chiqish? Array.from → [0,0,5,1,0]; filter(n => n) nolni olib tashlaydi → [5,1] uzunligi 2.",
+    "15": "splice bilan almashtirish: Index 1 dan 2 ta ('y','z') o‘chib, o‘rniga 'Y','Z' qo‘yiladi → ['x','Y','Z','t'].",
+    "16": "split limit bilan: split(separator, limit) → limit=2 bo‘lsa faqat 2 ta bo‘linma qaytadi: ['1','2'].",
+    "17": "unshift va shift ketma-ketligi natijasi: Boshlash: []; unshift(1) → [1]; unshift(2) → [2,1]; shift() boshidan olib tashlaydi → [1].",
+    "18": "Object.assign bilan yuzaki nusxa va birlashtirish: assign yuzaki nusxa: ichki obyekt shared. b.y.z ni o‘zgartirish a.y.z ga ham ta’sir qiladi → 99, 99.",
+    "19": "Array.prototype.splice qaytarayotgan qiymat. splice(1,2) indeks 1 dan ikki elementni ajratadi → [2,3].",
+    "20": "push() return qiymati va massiv holati: push(1,2) → a=[0,1,2], yangi uzunlik 3; a[1]=1.",
+    "21": "Object kalitlarini tartibda olish: Zamonaviy JS-da oddiy string kalitlar odatda kiritilgan tartib bo‘yicha saqlanadi, ammo amaliyotda alfabetik emas; ko‘p engine-larda ['b','a','c'] bo‘lishi mumkin deb o‘ylansa ham spetsifikatsiya insertion-order (kiritish tartibi) ni belgilaydi. Ammo ko‘pchilik uchun tushuncha: Object.keys oddiy obyektlarda KIRITISH tartibini saqlaydi → ['b','a','c']. Bu savolda variantlar orasida eng to‘g‘risi: ['a','b','c'] emas, balki kiritish tartibi bo‘lgani uchun ['b','a','c'] emasmi? Aniqlik kiritamiz: Bu obyekt literalida kiritish tartibi {b,a,c}. Object.keys(o) → ['b','a','c']. Demak to‘g‘ri javob yo‘qdek. Shu sababli A varianti ‘alfabetik’ noto‘g‘ri. To‘g‘ri javob sifatida 'C) Tartib kafolatlanmagan' deb ko‘rsatamiz, chunki interview nuqtai nazaridan insertion-orderga suyanish tavsiya etilmaydi.",
+    "22": "split() bo‘sh joylar bilan: trim() chet bo‘sh joylarni oladi; \\s+ bir nechta bo‘sh joy bo‘yicha bo‘ladi → ['one','two','three'].",
+    "23": "shift() bo‘sh massivda qanday? Bo‘sh massivda shift() → undefined qaytaradi, length 0 bo‘lib qoladi.",
+    "24": "Object.freeze ta’siri: freeze yuzaki: yuqori daraja muzlaydi, ichki obyektlar muzlamaydi. o.x o‘zgarmaydi (1), o.y.z o‘zgaradi (9).",
+    "25": "splice bilan bo‘sh o‘chirish: splice(1,0) hech narsa o‘chirmaydi, uzunlik o‘zgarmaydi → 3.",
+    "26": "push va pop bilan stek misoli: Yakuniy massiv? Push 1 → [1]; push 2 → [1,2]; pop → [1]; push 3 → [1,3].",
+    "27": "Object.entries bilan hisoblash: 2+1+3=6.",
+    "28": "split('') va reverse().join('') bilan satrni ag‘darish: ‘aba’ teskari ham ‘aba’. Demak true.",
+    "29": "splice qaytargan massiv uzunligi: Indeks 1 dan 3 ta olib tashlaydi → r=[1,2,3] (uzunlik 3), a=[0,4].",
+    "30": "Object kalitiga nuqta va qavs bilan murojaat: to‘g‘ri natija? Nuqta bilan 'first-name' ga kira olmaysiz, lekin qavs bilan user[key] ishlaydi → 'Ali'. firstName esa to‘g‘ridan kiradi → 'Vali'."
+  },
+  "groups": [
+    -1003055538272,
+    -4770290796,
+    -4613659145
+  ],
+  "group_id": -1003055538272,
+  "created_by": 7040724501,
+  "creator_name": "Abdurahmon"
+}

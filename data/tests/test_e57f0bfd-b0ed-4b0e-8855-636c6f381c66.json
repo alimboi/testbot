@@ -1,0 +1,376 @@
+{
+  "test_id": "e57f0bfd-b0ed-4b0e-8855-636c6f381c66",
+  "test_name": "ingliz-grammatika-test",
+  "questions": [
+    {
+      "index": 1,
+      "text": "Qaysi variant gapni grammatik jihatdan to‘g‘ri yakunlaydi? “I ____ in Tashkent since 2021.”",
+      "options": {
+        "A": "live",
+        "B": "am living",
+        "C": "have lived",
+        "D": "lived"
+      }
+    },
+    {
+      "index": 2,
+      "text": "To‘g‘ri artikl(lar)ni tanlang: “We visited ___ British Museum and had ___ lunch nearby.”",
+      "options": {
+        "A": "the / a",
+        "B": "a / the",
+        "C": "the / —",
+        "D": "— / the"
+      }
+    },
+    {
+      "index": 3,
+      "text": "Qaysi variant ma’noga mos? “If it ___ tomorrow, we’ll stay at home.”",
+      "options": {
+        "A": "rains",
+        "B": "will rain",
+        "C": "is raining",
+        "D": "rained"
+      }
+    },
+    {
+      "index": 4,
+      "text": "Bo‘sh joyni to‘ldiring: “I’m not used ___ late on weekdays.”",
+      "options": {
+        "A": "to stay",
+        "B": "to staying",
+        "C": "stay",
+        "D": "staying"
+      }
+    },
+    {
+      "index": 5,
+      "text": "Qaysi gap passiv nisbatda?",
+      "options": {
+        "A": "They built a new bridge last year.",
+        "B": "They are building a new bridge.",
+        "C": "A new bridge was built last year.",
+        "D": "They have to build a new bridge."
+      }
+    },
+    {
+      "index": 6,
+      "text": "To‘g‘ri so‘roq shaklini tanlang: “___ she finished her homework yet?”",
+      "options": {
+        "A": "Has",
+        "B": "Did",
+        "C": "Does",
+        "D": "Is"
+      }
+    },
+    {
+      "index": 7,
+      "text": "To‘g‘ri predlogni tanlang: “I’m interested ___ learning Python.”",
+      "options": {
+        "A": "for",
+        "B": "in",
+        "C": "about",
+        "D": "on"
+      }
+    },
+    {
+      "index": 8,
+      "text": "Mos variantni tanlang: “This exercise is ___ than the previous one.”",
+      "options": {
+        "A": "difficult",
+        "B": "more difficult",
+        "C": "the most difficult",
+        "D": "much difficult"
+      }
+    },
+    {
+      "index": 9,
+      "text": "Bo‘sh joyni to‘ldiring: “She said that she ___ tired.”",
+      "options": {
+        "A": "is",
+        "B": "was",
+        "C": "has been",
+        "D": "will be"
+      }
+    },
+    {
+      "index": 10,
+      "text": "Qaysi gapda ‘too’ va ‘enough’ to‘g‘ri ishlatilgan?",
+      "options": {
+        "A": "It’s enough cold to wear a coat.",
+        "B": "It’s too cold to go swimming.",
+        "C": "She is enough tall to play basketball.",
+        "D": "He works hard enoughly."
+      }
+    },
+    {
+      "index": 11,
+      "text": "Bo‘sh joyni to‘ldiring: “I wish I ___ more time to study.”",
+      "options": {
+        "A": "have",
+        "B": "had",
+        "C": "will have",
+        "D": "am having"
+      }
+    },
+    {
+      "index": 12,
+      "text": "Qaysi variant qarindosh (relative) bog‘lovchidan to‘g‘ri foydalangan?",
+      "options": {
+        "A": "The man which lives next door is a doctor.",
+        "B": "The book who I borrowed was interesting.",
+        "C": "The city where I was born is small.",
+        "D": "That is the reason why I happy."
+      }
+    },
+    {
+      "index": 13,
+      "text": "Bo‘sh joyni to‘ldiring: “She ___ to the gym three times a week.”",
+      "options": {
+        "A": "go",
+        "B": "goes",
+        "C": "is going",
+        "D": "going"
+      }
+    },
+    {
+      "index": 14,
+      "text": "Qaysi qo‘shma fe’l (phrasal verb) mos keladi? “Please ___ the lights before you leave.”",
+      "options": {
+        "A": "turn on",
+        "B": "turn up",
+        "C": "turn off",
+        "D": "turn out"
+      }
+    },
+    {
+      "index": 15,
+      "text": "Bo‘sh joyni to‘ldiring: “He asked me if I ___ come earlier.”",
+      "options": {
+        "A": "can",
+        "B": "could",
+        "C": "will",
+        "D": "may"
+      }
+    },
+    {
+      "index": 16,
+      "text": "Modal fe’lni tanlang: “You ___ wear a helmet. It’s the rule.”",
+      "options": {
+        "A": "must",
+        "B": "should",
+        "C": "can",
+        "D": "might"
+      }
+    },
+    {
+      "index": 17,
+      "text": "Bo‘sh joyni to‘ldiring: “There aren’t ___ chairs for everyone.”",
+      "options": {
+        "A": "much",
+        "B": "many",
+        "C": "a little",
+        "D": "few"
+      }
+    },
+    {
+      "index": 18,
+      "text": "Qaysi gapda xatolik bor?",
+      "options": {
+        "A": "He doesn’t like spicy food.",
+        "B": "She don’t go to school on Sundays.",
+        "C": "They are playing football now.",
+        "D": "We have already finished the task."
+      }
+    },
+    {
+      "index": 19,
+      "text": "Bo‘sh joyni to‘ldiring (comparative + than): “This road is ___ than that one.”",
+      "options": {
+        "A": "more narrow",
+        "B": "narrower",
+        "C": "the most narrow",
+        "D": "narrow than"
+      }
+    },
+    {
+      "index": 20,
+      "text": "Qaysi variant ‘for/since’ to‘g‘ri qo‘llangan?",
+      "options": {
+        "A": "I have known her for 2019.",
+        "B": "I have known her since two years.",
+        "C": "I have known her since 2019.",
+        "D": "I have known her for I was a child."
+      }
+    },
+    {
+      "index": 21,
+      "text": "Bo‘sh joyni to‘ldiring: “By the time we arrived, the film ___.”",
+      "options": {
+        "A": "has started",
+        "B": "had started",
+        "C": "was starting",
+        "D": "would start"
+      }
+    },
+    {
+      "index": 22,
+      "text": "Qaysi gapda infinitive maqsadni bildiradi?",
+      "options": {
+        "A": "I stopped to drink water.",
+        "B": "I stopped drinking water.",
+        "C": "I enjoy to read books.",
+        "D": "She suggested to go."
+      }
+    },
+    {
+      "index": 23,
+      "text": "Bo‘sh joyni to‘ldiring: “We were tired, so we decided ___ a taxi.”",
+      "options": {
+        "A": "to take",
+        "B": "take",
+        "C": "taking",
+        "D": "to took"
+      }
+    },
+    {
+      "index": 24,
+      "text": "Qaysi variant to‘g‘ri so‘z tartibida? (adverb of frequency)",
+      "options": {
+        "A": "He goes always to work by bus.",
+        "B": "He always goes to work by bus.",
+        "C": "Always he goes to work by bus.",
+        "D": "He goes to work by bus always."
+      }
+    },
+    {
+      "index": 25,
+      "text": "To‘g‘ri variant: “This is the place ___ we first met.”",
+      "options": {
+        "A": "who",
+        "B": "which",
+        "C": "where",
+        "D": "what"
+      }
+    },
+    {
+      "index": 26,
+      "text": "Bo‘sh joyni to‘ldiring: “I’d rather ___ at home tonight.”",
+      "options": {
+        "A": "stay",
+        "B": "to stay",
+        "C": "staying",
+        "D": "stayed"
+      }
+    },
+    {
+      "index": 27,
+      "text": "Qaysi gapda ‘some/any’ to‘g‘ri ishlatilgan?",
+      "options": {
+        "A": "I don’t have some time.",
+        "B": "Do you have some minutes?",
+        "C": "We have any questions.",
+        "D": "There isn’t any milk left."
+      }
+    },
+    {
+      "index": 28,
+      "text": "Bo‘sh joyni to‘ldiring: “She speaks English ___ than me.”",
+      "options": {
+        "A": "more fluently",
+        "B": "most fluently",
+        "C": "fluentlier",
+        "D": "the more fluent"
+      }
+    },
+    {
+      "index": 29,
+      "text": "Qaysi variant parallel tuzilmani saqlaydi?",
+      "options": {
+        "A": "He likes reading, to swim, and jogging.",
+        "B": "He likes to read, swimming, and to jog.",
+        "C": "He likes reading, swimming, and jogging.",
+        "D": "He likes to reading, swimming, and jogging."
+      }
+    },
+    {
+      "index": 30,
+      "text": "Bo‘sh joyni to‘ldiring: “By next year, I ___ my driving test.”",
+      "options": {
+        "A": "will pass",
+        "B": "will have passed",
+        "C": "am passing",
+        "D": "have passed"
+      }
+    }
+  ],
+  "answers": {
+    "1": "C",
+    "2": "A",
+    "3": "B",
+    "4": "A",
+    "5": "C",
+    "6": "A",
+    "7": "B",
+    "8": "A",
+    "9": "B",
+    "10": "A",
+    "11": "B",
+    "12": "C",
+    "13": "B",
+    "14": "C",
+    "15": "B",
+    "16": "A",
+    "17": "B",
+    "18": "A",
+    "19": "B",
+    "20": "C",
+    "21": "B",
+    "22": "A",
+    "23": "B",
+    "24": "A",
+    "25": "C",
+    "26": "A",
+    "27": "D",
+    "28": "A",
+    "29": "C",
+    "30": "B"
+  },
+  "references": {
+    "1": "‘since 2021’ davomiyligini bildiradi; Present Perfect: have/has + past participle → “have lived”.",
+    "2": "Maxsus nomlangan muzey uchun ‘the’; ‘lunch’ odatda artiklsiz umumiy ma’noda ishlatiladi.",
+    "3": "1‑shart (First Conditional): if‑clause’da Present Simple, natijada ‘will + V’.",
+    "4": "‘be used to’ + noun/gerund; shu yerda gerund ‘staying’ kerak.",
+    "5": "“was built” – Past Simple Passive (be + past participle).",
+    "6": "Present Perfect bilan ‘Has/Have + subject + past participle’; ‘yet’ ko‘pincha P.Perfect bilan.",
+    "7": "Collocation: ‘interested in’.",
+    "8": "Ikki narsani qiyoslashda ko‘p bo‘g‘inli sifatlar bilan ‘more + adj’.",
+    "9": "Reported speech’da orqaga siljish: Present → Past (‘is’ → ‘was’).",
+    "10": "‘too + adj + to‑inf’; ‘adj + enough’ emas, ‘enough’ sifatdan keyin kelmaydi bu tuzilmada.",
+    "11": "Hozirgi haqiqiy holatga afsus bildirganda ‘wish + Past Simple’: “I wish I had …”.",
+    "12": "Joylar bilan ‘where’; odamlar ‘who/that’; narsalar ‘which/that’. ‘why’ + reason to‘g‘ri, lekin ‘I am happy’ kerak.",
+    "13": "Present Simple’da 3‑shaxs birlik: ‘goes’.",
+    "14": "Chiroqni o‘chirish – ‘turn off’.",
+    "15": "Reported yes/no question’da zamon orqaga siljishi: ‘can’ → ‘could’.",
+    "16": "Majburiyat: ‘must’ (yoki ‘have to’).",
+    "17": "Sanoqli ko‘plik bilan ‘many’.",
+    "18": "3‑shaxs birlikda ‘doesn’t’ kerak: “She doesn’t go …”.",
+    "19": "Bir bo‘g‘inli sifat + ‘‑er’: ‘narrower than’.",
+    "20": "‘since’ + boshlanish nuqtasi (yil/oy/kundan beri); ‘for’ + davr.",
+    "21": "O‘tgan vaqtda ‘by the time’ – Past Perfect: ‘had started’.",
+    "22": "‘stop to do’ – maqsad uchun to‘xtamoq; ‘stop doing’ – faoliyatni to‘xtatmoq.",
+    "23": "‘decide’ dan keyin ‘to‑infinitive’: ‘decide to take’.",
+    "24": "‘always’ odatda asosiy fe’l oldidan: ‘He always goes …’.",
+    "25": "Joy bilan ‘where’ mos.",
+    "26": "‘would rather’ + bare infinitive: ‘rather stay’.",
+    "27": "Inkorda va savolda ko‘pincha ‘any’; tasdiqda ‘some’. ‘Do you have any minutes?’ odatda ‘any’ bilan.",
+    "28": "Ravish (adverb) bilan ‘more + adverb’: ‘more fluently’.",
+    "29": "Parallelizm: bir xil grammatik shakl – gerund + gerund + gerund.",
+    "30": "Kelajakdagi muayyan vaqtdan oldin yakun: Future Perfect – ‘will have + V3’."
+  },
+  "groups": [
+    -1003055538272
+  ],
+  "group_id": -1003055538272,
+  "created_by": 7040724501,
+  "creator_name": "Abdurahmon"
+}

@@ -1,0 +1,21 @@
+{
+  "active_test_id": "30a7ca26-24f7-4b4f-b7b1-a186e91f9339",
+  "student_name": "Ssqp",
+  "started_at": 1758822800,
+  "answers": {
+    "1": "C"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1
+  },
+  "excluded_options": {
+    "1": [
+      "C"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "push() massiv oxiriga element qo‘shadi va uzunlik oshadi. arr.length=4, arr[3]=4.",
+  "last_updated": 1758822805
+}

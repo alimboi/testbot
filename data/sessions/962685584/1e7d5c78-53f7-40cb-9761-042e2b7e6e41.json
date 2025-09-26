@@ -1,0 +1,32 @@
+{
+  "active_test_id": "1e7d5c78-53f7-40cb-9761-042e2b7e6e41",
+  "student_name": "Aggah",
+  "started_at": 1758866876,
+  "answers": {
+    "1": "C",
+    "2": "C",
+    "3": "B",
+    "4": "B"
+  },
+  "current_q": 5,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1,
+    "4": 3
+  },
+  "excluded_options": {
+    "1": [
+      "C"
+    ],
+    "2": [],
+    "3": [],
+    "4": [
+      "B",
+      "A",
+      "C"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "pop() funksiyasi qaytaradigan qiymatni aniqlang. pop() oxirgi elementni qaytaradi va massivdan o‘chiradi: out=7, nums=[5,6], length=2.",
+  "last_updated": 1758867940
+}

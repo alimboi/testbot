@@ -35674,3 +35674,357 @@ aiogram.utils.exceptions.InvalidQueryID: Query is too old and response timeout e
 2025-09-25 16:45:24 INFO telethon.client.updates: Got difference for channel 1637307144 updates
 2025-09-25 16:45:24 INFO telethon.client.updates: Got difference for channel 1271491452 updates
 2025-09-25 16:45:25 INFO telethon.client.updates: Got difference for channel 1610700754 updates
+2025-09-25 22:52:09 INFO bot: Custom JSON storage initialized successfully (aiogram v3)
+2025-09-25 22:52:09 WARNING aiogram: Updates were skipped successfully.
+2025-09-25 22:52:09 INFO bot: Watchdog started
+2025-09-25 22:52:09 INFO telethon.network.mtprotosender: Connecting to 149.154.167.51:443/TcpFull...
+2025-09-25 22:52:09 INFO telethon.network.mtprotosender: Connection to 149.154.167.51:443/TcpFull complete!
+2025-09-25 22:52:10 INFO telethon_service: User Telethon client started as Abdurahmon (ID: 7040724501)
+2025-09-25 22:52:10 INFO bot: ✅ Owner Telethon initialized
+2025-09-25 22:52:10 INFO bot: Bot started successfully
+2025-09-25 22:52:20 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-25 22:52:22 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-25 22:52:22 INFO bot: Owner panel callback: panel:tests
+2025-09-25 22:52:22 INFO admin_handlers: Admin callback router: panel:tests
+2025-09-25 22:52:25 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-25 22:52:25 INFO bot: Test action callback: t:view:13cfd6fb-4038-43e9-a96c-5443f1e486b8
+2025-09-25 22:52:26 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-25 22:52:26 INFO bot: Test action callback: t:del:13cfd6fb-4038-43e9-a96c-5443f1e486b8
+2025-09-25 22:52:28 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-25 22:52:28 INFO bot: Test action callback: t:delconfirm:13cfd6fb-4038-43e9-a96c-5443f1e486b8
+2025-09-25 22:52:30 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-25 22:52:30 INFO bot: Test action callback: t:view:68119883-1920-463c-8be8-6166c9068f03
+2025-09-25 22:52:32 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-25 22:52:32 INFO bot: Test action callback: t:del:68119883-1920-463c-8be8-6166c9068f03
+2025-09-25 22:52:35 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-25 22:52:35 INFO bot: Test action callback: t:delconfirm:68119883-1920-463c-8be8-6166c9068f03
+2025-09-25 22:52:37 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-25 22:52:37 INFO bot: Test action callback: t:view:7f8f36e0-4ab4-41ec-8775-d944c4af9a00
+2025-09-25 22:52:39 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-25 22:52:39 INFO bot: Test action callback: t:del:7f8f36e0-4ab4-41ec-8775-d944c4af9a00
+2025-09-25 22:52:41 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-25 22:52:41 INFO bot: Test action callback: t:delconfirm:7f8f36e0-4ab4-41ec-8775-d944c4af9a00
+2025-09-25 22:52:47 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-25 22:52:50 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-25 22:52:50 INFO bot: New test flow callback: new_t:pick:30a7ca26-24f7-4b4f-b7b1-a186e91f9339:-1003055538272
+2025-09-25 22:52:54 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-25 22:52:54 INFO bot: New test flow callback: new_t:activate:30a7ca26-24f7-4b4f-b7b1-a186e91f9339
+2025-09-25 22:53:09 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-25 22:53:09 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-25 22:53:09 INFO utils: Test 30a7ca26-24f7-4b4f-b7b1-a186e91f9339 available for user 962685584 (groups: {-1003055538272})
+2025-09-25 22:53:09 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-25 22:53:09 INFO utils: Test 30a7ca26-24f7-4b4f-b7b1-a186e91f9339 available for user 962685584 (groups: {-1003055538272})
+2025-09-25 22:53:09 INFO student_handlers: User 962685584 - Groups from user_groups.json: [-1003055538272]
+2025-09-25 22:53:09 INFO student_handlers: User 962685584 - Groups from group_members.json: [-1003055538272]
+2025-09-25 22:53:09 INFO student_handlers: User 962685584 - Available tests: 1
+2025-09-25 22:53:12 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-25 22:53:12 INFO bot: Test selection callback: select_test:30a7ca26-24f7-4b4f-b7b1-a186e91f9339
+2025-09-25 22:53:12 INFO student_handlers: User 962685584 selected test 30a7ca26-24f7-4b4f-b7b1-a186e91f9339
+2025-09-25 22:53:18 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-25 22:53:19 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-25 22:53:20 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-25 22:53:22 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-25 22:53:22 INFO bot: Answer callback received: ans:1:C
+2025-09-25 22:53:22 INFO bot: Current user state: StudentStates:Answering
+2025-09-25 22:53:23 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-25 22:53:25 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-25 22:53:25 INFO bot: Answer callback received: ans:1:A
+2025-09-25 22:53:25 INFO bot: Current user state: StudentStates:Answering
+2025-09-25 23:07:48 INFO telethon.client.updates: Got difference for account updates
+2025-09-25 23:22:48 INFO telethon.client.updates: Got difference for account updates
+2025-09-26 10:34:19 WARNING bot: Bot connection lost: Aiohttp client throws an error: ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Name or service not known]
+2025-09-26 10:34:19 INFO bot: Captured 0 users with active sessions for reconnect notification
+2025-09-26 10:34:19 WARNING bot: Bot still offline: Aiohttp client throws an error: ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Name or service not known]
+2025-09-26 10:34:50 INFO bot: Bot connection restored
+2025-09-26 10:35:53 INFO telethon.network.mtprotosender: Closing current connection to begin reconnect...
+2025-09-26 10:35:53 INFO telethon.network.mtprotosender: Connecting to 149.154.167.51:443/TcpFull...
+2025-09-26 10:35:53 INFO telethon.network.mtprotosender: Connection to 149.154.167.51:443/TcpFull complete!
+2025-09-26 10:35:54 WARNING telethon.network.mtprotostate: Server resent the older message 7554267448532365313, ignoring
+2025-09-26 10:39:15 ERROR aiogram.dispatcher.dispatcher: Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiohttp/client.py", line 1167, in __aenter__
+    self._resp = await self._coro
+                 ^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiohttp/client.py", line 586, in _request
+    await resp.start(conn)
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 900, in start
+    with self._timer:
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiohttp/helpers.py", line 725, in __exit__
+    raise asyncio.TimeoutError from None
+TimeoutError
+2025-09-26 10:39:53 INFO telethon.network.mtprotosender: Closing current connection to begin reconnect...
+2025-09-26 10:39:53 INFO telethon.network.mtprotosender: Connecting to 149.154.167.51:443/TcpFull...
+2025-09-26 10:39:54 INFO telethon.network.mtprotosender: Connection to 149.154.167.51:443/TcpFull complete!
+2025-09-26 10:40:40 INFO telethon.client.updates: Got difference for account updates
+2025-09-26 10:40:41 INFO telethon.client.updates: Got difference for account updates
+2025-09-26 10:40:41 INFO telethon.client.updates: Got difference for channel 1239333237 updates
+2025-09-26 10:40:41 INFO telethon.client.updates: Got difference for channel 1637307144 updates
+2025-09-26 10:42:54 INFO telethon.network.mtprotosender: Closing current connection to begin reconnect...
+2025-09-26 10:42:54 INFO telethon.network.mtprotosender: Connecting to 149.154.167.51:443/TcpFull...
+2025-09-26 10:42:54 INFO telethon.network.mtprotosender: Connection to 149.154.167.51:443/TcpFull complete!
+2025-09-26 10:42:55 INFO telethon.client.updates: Got difference for account updates
+2025-09-26 10:46:23 ERROR aiogram.dispatcher.dispatcher: Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiohttp/client.py", line 1167, in __aenter__
+    self._resp = await self._coro
+                 ^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiohttp/client.py", line 586, in _request
+    await resp.start(conn)
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 900, in start
+    with self._timer:
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiohttp/helpers.py", line 725, in __exit__
+    raise asyncio.TimeoutError from None
+TimeoutError
+2025-09-26 10:47:25 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 10:47:27 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 10:50:58 INFO bot.audit: Update [message] from user 5718626045 (no_username) - ID: 
+2025-09-26 10:51:10 INFO bot.audit: Update [message] from user 7898282927 (@asqaral1yeval7) - ID: Маржона🤍
+2025-09-26 10:51:11 INFO utils: User 7898282927 is member of groups: {-4613659145}
+2025-09-26 10:51:11 INFO utils: Test 30a7ca26-24f7-4b4f-b7b1-a186e91f9339 NOT available for user 7898282927 (test groups: {-1003055538272}, user groups: {-4613659145})
+2025-09-26 10:55:41 INFO telethon.client.updates: Got difference for channel 1637307144 updates
+2025-09-26 10:56:18 INFO telethon.client.updates: Got difference for channel 1490331350 updates
+2025-09-26 10:58:54 INFO telethon.network.mtprotosender: Closing current connection to begin reconnect...
+2025-09-26 10:58:54 INFO telethon.network.mtprotosender: Connecting to 149.154.167.51:443/TcpFull...
+2025-09-26 10:58:54 INFO telethon.network.mtprotosender: Connection to 149.154.167.51:443/TcpFull complete!
+2025-09-26 10:58:54 INFO telethon.client.updates: Got difference for account updates
+2025-09-26 11:02:16 ERROR aiogram.dispatcher.dispatcher: Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiohttp/client.py", line 1167, in __aenter__
+    self._resp = await self._coro
+                 ^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiohttp/client.py", line 586, in _request
+    await resp.start(conn)
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiohttp/client_reqrep.py", line 900, in start
+    with self._timer:
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiohttp/helpers.py", line 725, in __exit__
+    raise asyncio.TimeoutError from None
+TimeoutError
+2025-09-26 11:02:40 INFO telethon.client.updates: Got difference for channel 1520889315 updates
+2025-09-26 11:07:05 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:07:10 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:07:10 INFO bot: New test flow callback: new_t:pick:1e7d5c78-53f7-40cb-9761-042e2b7e6e41:-1003055538272
+2025-09-26 11:07:17 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:07:17 INFO bot: New test flow callback: new_t:activate:1e7d5c78-53f7-40cb-9761-042e2b7e6e41
+2025-09-26 11:07:40 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:07:40 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-26 11:07:40 INFO utils: Test 30a7ca26-24f7-4b4f-b7b1-a186e91f9339 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:07:40 INFO utils: Test 1e7d5c78-53f7-40cb-9761-042e2b7e6e41 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:07:40 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-26 11:07:40 INFO utils: Test 30a7ca26-24f7-4b4f-b7b1-a186e91f9339 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:07:40 INFO utils: Test 1e7d5c78-53f7-40cb-9761-042e2b7e6e41 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:07:40 INFO student_handlers: User 962685584 - Groups from user_groups.json: [-1003055538272]
+2025-09-26 11:07:40 INFO student_handlers: User 962685584 - Groups from group_members.json: [-1003055538272]
+2025-09-26 11:07:40 INFO student_handlers: User 962685584 - Available tests: 2
+2025-09-26 11:07:43 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:07:43 INFO bot: Test selection callback: select_test:30a7ca26-24f7-4b4f-b7b1-a186e91f9339
+2025-09-26 11:07:46 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:07:47 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-26 11:07:47 INFO utils: Test 30a7ca26-24f7-4b4f-b7b1-a186e91f9339 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:07:47 INFO utils: Test 1e7d5c78-53f7-40cb-9761-042e2b7e6e41 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:07:47 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-26 11:07:47 INFO utils: Test 30a7ca26-24f7-4b4f-b7b1-a186e91f9339 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:07:47 INFO utils: Test 1e7d5c78-53f7-40cb-9761-042e2b7e6e41 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:07:47 INFO student_handlers: User 962685584 - Groups from user_groups.json: [-1003055538272]
+2025-09-26 11:07:47 INFO student_handlers: User 962685584 - Groups from group_members.json: [-1003055538272]
+2025-09-26 11:07:47 INFO student_handlers: User 962685584 - Available tests: 2
+2025-09-26 11:07:48 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:07:48 INFO bot: Test selection callback: select_test:1e7d5c78-53f7-40cb-9761-042e2b7e6e41
+2025-09-26 11:07:48 INFO student_handlers: User 962685584 selected test 1e7d5c78-53f7-40cb-9761-042e2b7e6e41
+2025-09-26 11:07:54 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:07:55 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:07:56 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:08:03 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:08:03 INFO bot: Answer callback received: ans:1:C
+2025-09-26 11:08:03 INFO bot: Current user state: StudentStates:Answering
+2025-09-26 11:08:05 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:08:07 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:08:07 INFO bot: Answer callback received: ans:1:A
+2025-09-26 11:08:07 INFO bot: Current user state: StudentStates:Answering
+2025-09-26 11:10:39 INFO telethon.client.updates: Got difference for channel 1239333237 updates
+2025-09-26 11:10:40 INFO telethon.client.updates: Got difference for channel 1637307144 updates
+2025-09-26 11:13:53 INFO telethon.client.updates: Got difference for account updates
+2025-09-26 11:13:53 INFO telethon.client.updates: Got difference for channel 1637307144 updates
+2025-09-26 11:13:53 INFO telethon.client.updates: Got difference for channel 1271491452 updates
+2025-09-26 11:21:58 INFO telethon.client.updates: Got difference for account updates
+2025-09-26 11:21:58 INFO telethon.client.updates: Got difference for channel 1610700754 updates
+2025-09-26 11:21:58 INFO telethon.client.updates: Got difference for channel 1271491452 updates
+2025-09-26 11:21:58 INFO telethon.client.updates: Got difference for channel 1637307144 updates
+2025-09-26 11:23:42 INFO bot: Bot shutting down...
+2025-09-26 11:23:42 INFO telethon.network.mtprotosender: Disconnecting from 149.154.167.51:443/TcpFull...
+2025-09-26 11:23:42 INFO telethon.network.mtprotosender: Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-09-26 11:23:42 INFO telethon_service: User Telethon client stopped
+2025-09-26 11:23:42 INFO bot: Telethon service stopped
+2025-09-26 11:23:42 INFO custom_storage: Storage closed successfully
+2025-09-26 11:23:42 INFO custom_storage: Storage closed successfully
+2025-09-26 11:23:42 WARNING aiogram: Goodbye!
+2025-09-26 11:23:43 INFO bot: Custom JSON storage initialized successfully (aiogram v3)
+2025-09-26 11:23:44 WARNING aiogram: Updates were skipped successfully.
+2025-09-26 11:23:44 INFO bot: Watchdog started
+2025-09-26 11:23:44 INFO telethon.network.mtprotosender: Connecting to 149.154.167.51:443/TcpFull...
+2025-09-26 11:23:44 INFO telethon.network.mtprotosender: Connection to 149.154.167.51:443/TcpFull complete!
+2025-09-26 11:23:45 INFO telethon_service: User Telethon client started as Abdurahmon (ID: 7040724501)
+2025-09-26 11:23:45 INFO bot: ✅ Owner Telethon initialized
+2025-09-26 11:23:45 INFO bot: Bot started successfully
+2025-09-26 11:24:01 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:24:02 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-26 11:24:02 INFO utils: Test 30a7ca26-24f7-4b4f-b7b1-a186e91f9339 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:24:02 INFO utils: Test 1e7d5c78-53f7-40cb-9761-042e2b7e6e41 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:24:02 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-26 11:24:02 INFO utils: Test 30a7ca26-24f7-4b4f-b7b1-a186e91f9339 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:24:02 INFO utils: Test 1e7d5c78-53f7-40cb-9761-042e2b7e6e41 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:24:02 INFO student_handlers: User 962685584 - Groups from user_groups.json: [-1003055538272]
+2025-09-26 11:24:02 INFO student_handlers: User 962685584 - Groups from group_members.json: [-1003055538272]
+2025-09-26 11:24:02 INFO student_handlers: User 962685584 - Available tests: 2
+2025-09-26 11:24:03 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:24:03 INFO bot: Test selection callback: select_test:1e7d5c78-53f7-40cb-9761-042e2b7e6e41
+2025-09-26 11:24:05 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:24:42 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:24:42 INFO bot: Answer callback received: ans:2:C
+2025-09-26 11:24:42 INFO bot: Current user state: StudentStates:Answering
+2025-09-26 11:25:09 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:25:09 INFO bot: Answer callback received: ans:3:B
+2025-09-26 11:25:09 INFO bot: Current user state: StudentStates:Answering
+2025-09-26 11:25:11 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:25:11 INFO bot: Answer callback received: ans:4:B
+2025-09-26 11:25:11 INFO bot: Current user state: StudentStates:Answering
+2025-09-26 11:25:13 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:25:29 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:25:29 INFO bot: Answer callback received: ans:4:A
+2025-09-26 11:25:29 INFO bot: Current user state: StudentStates:Answering
+2025-09-26 11:25:31 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:25:38 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:25:38 INFO bot: Answer callback received: ans:4:C
+2025-09-26 11:25:38 INFO bot: Current user state: StudentStates:Answering
+2025-09-26 11:25:40 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:26:07 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:26:12 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:26:12 INFO bot: New test flow callback: new_t:pick:e57f0bfd-b0ed-4b0e-8855-636c6f381c66:-1003055538272
+2025-09-26 11:26:13 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:26:13 INFO bot: New test flow callback: new_t:activate:e57f0bfd-b0ed-4b0e-8855-636c6f381c66
+2025-09-26 11:26:23 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:26:23 INFO bot: New test flow callback: new_t:activate:e57f0bfd-b0ed-4b0e-8855-636c6f381c66
+2025-09-26 11:26:31 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:26:31 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-26 11:26:31 INFO utils: Test 30a7ca26-24f7-4b4f-b7b1-a186e91f9339 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:26:31 INFO utils: Test 1e7d5c78-53f7-40cb-9761-042e2b7e6e41 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:26:31 INFO utils: Test e57f0bfd-b0ed-4b0e-8855-636c6f381c66 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:26:31 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-26 11:26:31 INFO utils: Test 30a7ca26-24f7-4b4f-b7b1-a186e91f9339 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:26:31 INFO utils: Test 1e7d5c78-53f7-40cb-9761-042e2b7e6e41 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:26:31 INFO utils: Test e57f0bfd-b0ed-4b0e-8855-636c6f381c66 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:26:31 INFO student_handlers: User 962685584 - Groups from user_groups.json: [-1003055538272]
+2025-09-26 11:26:31 INFO student_handlers: User 962685584 - Groups from group_members.json: [-1003055538272]
+2025-09-26 11:26:31 INFO student_handlers: User 962685584 - Available tests: 3
+2025-09-26 11:26:33 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:26:33 INFO bot: Test selection callback: select_test:e57f0bfd-b0ed-4b0e-8855-636c6f381c66
+2025-09-26 11:26:33 INFO student_handlers: User 962685584 selected test e57f0bfd-b0ed-4b0e-8855-636c6f381c66
+2025-09-26 11:26:36 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:26:38 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:26:40 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:26:43 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:26:43 INFO bot: Answer callback received: ans:1:C
+2025-09-26 11:26:43 INFO bot: Current user state: StudentStates:Answering
+2025-09-26 11:26:48 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:26:49 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-26 11:26:49 INFO utils: Test 30a7ca26-24f7-4b4f-b7b1-a186e91f9339 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:26:49 INFO utils: Test 1e7d5c78-53f7-40cb-9761-042e2b7e6e41 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:26:49 INFO utils: Test e57f0bfd-b0ed-4b0e-8855-636c6f381c66 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:26:49 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-26 11:26:49 INFO utils: Test 30a7ca26-24f7-4b4f-b7b1-a186e91f9339 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:26:49 INFO utils: Test 1e7d5c78-53f7-40cb-9761-042e2b7e6e41 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:26:49 INFO utils: Test e57f0bfd-b0ed-4b0e-8855-636c6f381c66 available for user 962685584 (groups: {-1003055538272})
+2025-09-26 11:26:49 INFO student_handlers: User 962685584 - Groups from user_groups.json: [-1003055538272]
+2025-09-26 11:26:49 INFO student_handlers: User 962685584 - Groups from group_members.json: [-1003055538272]
+2025-09-26 11:26:49 INFO student_handlers: User 962685584 - Available tests: 3
+2025-09-26 11:26:51 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:26:51 INFO bot: Test selection callback: select_test:1e7d5c78-53f7-40cb-9761-042e2b7e6e41
+2025-09-26 11:26:53 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:26:58 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:27:21 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-26 11:27:51 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:27:53 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:27:53 INFO bot: Owner panel callback: panel:tests
+2025-09-26 11:27:53 INFO admin_handlers: Admin callback router: panel:tests
+2025-09-26 11:27:58 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:27:58 INFO bot: Test action callback: t:view:30a7ca26-24f7-4b4f-b7b1-a186e91f9339
+2025-09-26 11:28:01 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:28:01 INFO bot: Test action callback: t:del:30a7ca26-24f7-4b4f-b7b1-a186e91f9339
+2025-09-26 11:28:03 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:28:03 INFO bot: Test action callback: t:delconfirm:30a7ca26-24f7-4b4f-b7b1-a186e91f9339
+2025-09-26 11:28:05 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:28:05 INFO bot: Test action callback: t:view:1e7d5c78-53f7-40cb-9761-042e2b7e6e41
+2025-09-26 11:28:07 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:28:07 INFO bot: Test action callback: t:assign:1e7d5c78-53f7-40cb-9761-042e2b7e6e41
+2025-09-26 11:28:12 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:28:12 INFO bot: Test action callback: t:pick:1e7d5c78-53f7-40cb-9761-042e2b7e6e41:-4770290796
+2025-09-26 11:28:15 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:28:15 INFO bot: Test action callback: t:pick:1e7d5c78-53f7-40cb-9761-042e2b7e6e41:-4613659145
+2025-09-26 11:28:21 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:28:21 INFO bot: Test action callback: t:assigndone:1e7d5c78-53f7-40cb-9761-042e2b7e6e41
+2025-09-26 11:31:26 ERROR utils: Failed to notify group -1003055538272: 
+2025-09-26 11:31:27 ERROR bot: Update {"update_id": 965694745, "callback_query": {"id": "2569565362626535591", "from": {"id": 7040724501, "is_bot": false, "first_name": "Abdurahmon", "username": "sofutocoding", "language_code": "en", "is_premium": true}, "message": {"message_id": 51280, "from": {"id": 7565024869, "is_bot": true, "first_name": "SofutoAcademyTestBot", "username": "SofutoAcademyTestbot"}, "chat": {"id": 7040724501, "first_name": "Abdurahmon", "username": "sofutocoding", "type": "private"}, "date": 1758867970, "edit_date": 1758867974, "reply_to_message": {"message_id": 51279, "from": {"id": 7040724501, "is_bot": false, "first_name": "Abdurahmon", "username": "sofutocoding", "language_code": "en", "is_premium": true}, "chat": {"id": 7040724501, "first_name": "Abdurahmon", "username": "sofutocoding", "type": "private"}, "date": 1758867967, "document": {"file_name": "ingliz-grammatika-test.docx", "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "file_id": "BQACAgIAAxkBAALIT2jWMf-QvMMuDxE9CMX19s_byFMCAALAdgAC8TW4SmyCqMWmy-TaNgQ", "file_unique_id": "AgADwHYAAvE1uEo", "file_size": 39794}}, "text": "✅ Test yaratildi: ingliz-grammatika-test\n\n📌 Tanlangan guruhlar: 1 ta\nTAYYOR tugmasini bosing:", "entities": [{"type": "bold", "offset": 18, "length": 22}], "reply_markup": {"inline_keyboard": [[{"text": "☑ Test", "callback_data": "new_t:pick:e57f0bfd-b0ed-4b0e-8855-636c6f381c66:-1003055538272"}], [{"text": "☐ Test222", "callback_data": "new_t:pick:e57f0bfd-b0ed-4b0e-8855-636c6f381c66:-4883160240"}], [{"text": "☐ Eng test", "callback_data": "new_t:pick:e57f0bfd-b0ed-4b0e-8855-636c6f381c66:-4824921268"}], [{"text": "☐ Sofuto Academy Group Theta", "callback_data": "new_t:pick:e57f0bfd-b0ed-4b0e-8855-636c6f381c66:-4770290796"}], [{"text": "☐ Sofuto Academy group Eta", "callback_data": "new_t:pick:e57f0bfd-b0ed-4b0e-8855-636c6f381c66:-4613659145"}], [{"text": "✅ Hammasini", "callback_data": "new_t:all:e57f0bfd-b0ed-4b0e-8855-636c6f381c66"}, {"text": "❌ Tozalash", "callback_data": "new_t:clear:e57f0bfd-b0ed-4b0e-8855-636c6f381c66"}], [{"text": "🚀 TAYYOR - Faollashtirish", "callback_data": "new_t:activate:e57f0bfd-b0ed-4b0e-8855-636c6f381c66"}]]}}, "chat_instance": "-3414693137917078300", "data": "new_t:activate:e57f0bfd-b0ed-4b0e-8855-636c6f381c66"}} caused error: Query is too old and response timeout expired or query id is invalid
+Traceback (most recent call last):
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 283, in process_update
+    return await self.callback_query_handlers.notify(update.callback_query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/bot.py", line 244, in cb_new_test_flow
+    await cb_new_test_action(cb, state)
+  File "/home/sofuto/Desktop/botadmin/admin_handlers.py", line 812, in cb_new_test_action
+    await cb.answer("Test faollashtirildi!")
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/types/callback_query.py", line 57, in answer
+    return await self.bot.answer_callback_query(callback_query_id=self.id,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/bot.py", line 2890, in answer_callback_query
+    return await self.request(api.Methods.ANSWER_CALLBACK_QUERY, payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/utils/exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.InvalidQueryID: Query is too old and response timeout expired or query id is invalid
+2025-09-26 11:36:55 INFO telethon.client.updates: Got difference for channel 2419120922 updates
+2025-09-26 11:37:18 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:37:21 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-26 11:41:19 INFO bot.audit: Update [message] from user 5718626045 (no_username) - ID: 

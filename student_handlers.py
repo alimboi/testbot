@@ -32,76 +32,115 @@ import re
 log = logging.getLogger("student_handlers")
 
 
-def sanitize_html_for_telegram(text: str) -> str:
+# --- Markdown fenced code  ```lang ... ```  →  HTML <pre><code> normalizer ---
+
+_FENCE_RE = re.compile(
+    r"```([A-Za-z0-9_+\-]*)[ \t]*\n?([\s\S]*?)\n?```",
+    re.MULTILINE
+)
+
+_CODEBLOCK_RE = re.compile(r'(<pre><code[^>]*>.*?</code></pre>)', re.IGNORECASE | re.DOTALL)
+
+def _normalize_fenced_code_to_html(text: str) -> str:
     """
-    Sanitize text for Telegram's HTML parser.
-    Removes or escapes problematic HTML tags while preserving allowed ones.
+    Convert Markdown-style fenced blocks into Telegram-safe HTML:
+        ```js console.log('hi') ```
+        ```python
+        print('x')
+        ```
+    becomes:
+        <pre><code class="language-js">console.log('hi')</code></pre>
+        <pre><code class="language-python">print(&#x27;x&#x27;)</code></pre>
     """
     if not text:
         return ""
-    
-    # First, decode any HTML entities to their actual characters
+
+    def _repl(m: re.Match) -> str:
+        lang = (m.group(1) or "").strip()
+        code = (m.group(2) or "")
+        # Ensure code is on its own lines (handles one-line ```js console.log(...) ```)
+        code = code.strip("\n")
+        # Escape code content so it’s safe when we later skip re-escaping placeholders
+        escaped = html.escape(code, quote=False)
+        class_attr = f' class="language-{lang}"' if lang else ""
+        return f"<pre><code{class_attr}>{escaped}</code></pre>"
+
+    return _FENCE_RE.sub(_repl, text)
+
+
+def sanitize_html_for_telegram(text: str) -> str:
+    """
+    Sanitize text for Telegram's HTML parser while preserving code blocks.
+    - Normalizes ```lang fences → <pre><code class="language-...">...</code></pre>
+    - Escapes dangerous chars outside allowed tags
+    - Preserves whitespace/newlines inside code blocks
+    Allowed tags: b, i, u, s, code, pre, a, tg-spoiler
+    """
+    if not text:
+        return ""
+
+    # 0) Normalize Markdown fences first (handles same-line code after ```lang and lone closing ```)
+    text = _normalize_fenced_code_to_html(text)
+
+    # 1) Temporarily extract code blocks to protect their content/whitespace
+    code_blocks = {}
+    def _stash_codeblock(m: re.Match) -> str:
+        idx = len(code_blocks)
+        key = f"__CODEBLOCK_{idx}__"
+        code_blocks[key] = m.group(1)
+        return key
+    text = _CODEBLOCK_RE.sub(_stash_codeblock, text)
+
+    # 2) Decode HTML entities
     text = html.unescape(text)
-    
-    # Remove any raw HTML tags that Telegram doesn't support
-    # Keep only Telegram-supported tags: b, i, u, s, code, pre, a, tg-spoiler
-    allowed_tags = ['b', 'i', 'u', 's', 'code', 'pre', 'a', 'tg-spoiler']
-    
-    # Remove script and style tags completely with their content
+
+    # 3) Strip disallowed containers entirely
     text = re.sub(r'<script[^>]*>.*?</script>', '', text, flags=re.IGNORECASE | re.DOTALL)
     text = re.sub(r'<style[^>]*>.*?</style>', '', text, flags=re.IGNORECASE | re.DOTALL)
-    
-    # Remove HTML, HEAD, BODY tags
     text = re.sub(r'</?(?:html|head|body|meta|link)[^>]*>', '', text, flags=re.IGNORECASE)
-    
-    # Remove any other non-allowed tags but keep their content
-    def replace_tag(match):
-        tag_name = match.group(1).lower()
-        if tag_name in allowed_tags:
-            return match.group(0)  # Keep allowed tags
-        return ''  # Remove non-allowed tags
-    
-    text = re.sub(r'</?([a-zA-Z][a-zA-Z0-9]*)[^>]*>', replace_tag, text)
-    
-    # Escape special characters that aren't part of allowed tags
-    # This is important for characters like <, >, & that aren't part of valid tags
-    def escape_special_chars(text):
-        # Temporarily replace allowed tags with placeholders
-        placeholders = {}
-        counter = 0
-        for tag in allowed_tags:
-            # Opening tags
-            pattern = f'<{tag}[^>]*>'
-            for match in re.finditer(pattern, text, re.IGNORECASE):
-                placeholder = f'__PLACEHOLDER_{counter}__'
-                placeholders[placeholder] = match.group(0)
-                text = text.replace(match.group(0), placeholder, 1)
-                counter += 1
-            # Closing tags
-            pattern = f'</{tag}>'
-            for match in re.finditer(pattern, text, re.IGNORECASE):
-                placeholder = f'__PLACEHOLDER_{counter}__'
-                placeholders[placeholder] = match.group(0)
-                text = text.replace(match.group(0), placeholder, 1)
-                counter += 1
-        
-        # Now escape the special characters
-        text = text.replace('&', '&amp;')
-        text = text.replace('<', '&lt;')
-        text = text.replace('>', '&gt;')
-        
-        # Restore the placeholders
-        for placeholder, original in placeholders.items():
-            text = text.replace(placeholder, original)
-        
-        return text
-    
-    text = escape_special_chars(text)
-    
-    # Clean up extra whitespace
-    text = re.sub(r'\s+', ' ', text).strip()
-    
+
+    # 4) Keep only Telegram-supported tags (keep attributes as-is)
+    allowed_tags = ['b', 'i', 'u', 's', 'code', 'pre', 'a', 'tg-spoiler']  # matches your previous allow-list :contentReference[oaicite:3]{index=3}
+    def _strip_unallowed_tags(m: re.Match) -> str:
+        tag = m.group(1).lower()
+        return m.group(0) if tag in allowed_tags else ''
+    text = re.sub(r'</?([a-zA-Z][a-zA-Z0-9]*)[^>]*>', _strip_unallowed_tags, text)
+
+    # 5) Escape &, <, > outside allowed tags
+    #    (Protect allowed tags with placeholders while escaping)
+    tag_placeholders = {}
+    ph_counter = 0
+    for tag in allowed_tags:
+        # opening
+        for m in re.finditer(fr'<{tag}[^>]*>', text, flags=re.IGNORECASE):
+            ph = f'__TAGPH_{ph_counter}__'; ph_counter += 1
+            tag_placeholders[ph] = m.group(0)
+            text = text.replace(m.group(0), ph, 1)
+        # closing
+        for m in re.finditer(fr'</{tag}>', text, flags=re.IGNORECASE):
+            ph = f'__TAGPH_{ph_counter}__'; ph_counter += 1
+            tag_placeholders[ph] = m.group(0)
+            text = text.replace(m.group(0), ph, 1)
+
+    text = text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+
+    # Restore allowed tags
+    for ph, original in tag_placeholders.items():
+        text = text.replace(ph, original)
+
+    # 6) Light whitespace normalization OUTSIDE code blocks (preserve newlines)
+    #    - collapse runs of spaces/tabs
+    text = re.sub(r'[ \t\f\v]+', ' ', text)
+    #    - collapse 3+ blank lines to max 2
+    text = re.sub(r'\n{3,}', '\n\n', text)
+    text = text.strip()
+
+    # 7) Restore code blocks (already escaped inside)
+    for ph, block in code_blocks.items():
+        text = text.replace(ph, block)
+
     return text
+
 
 
 # Rate limiting
@@ -239,27 +278,30 @@ def validate_test_id(test_id: str) -> bool:
 # ------------------------------------------------------------------------------
 
 def _format_question(q: dict, excluded_options: List[str] = None) -> str:
-    """Format question with options, excluding specified ones - WITH HTML SANITIZATION"""
+    """Format question with options, excluding specified ones — with HTML sanitization."""
     idx = q.get("index")
     text = q.get("text") or ""
     opts = q.get("options") or {}
     excluded_options = excluded_options or []
-    
-    # SANITIZE the question text to prevent HTML parsing errors
+
+    # Sanitize question text (this will also normalize ``` fences to <pre><code>…</code></pre>)
     text = sanitize_html_for_telegram(text)
-    
-    lines = [f"<b>Savol {idx}.</b> {text}"]
-    
+
+    # Put header on its own line to avoid jamming with a leading code block
+    lines = [f"<b>Savol {idx}.</b>"]
+    if text:
+        lines.append(text)
+
     for key in ("A", "B", "C", "D"):
         if key in opts:
-            # SANITIZE option text as well
             option_text = sanitize_html_for_telegram(opts[key])
             if key not in excluded_options:
                 lines.append(f"{key}) {option_text}")
             else:
                 lines.append(f"<s>{key}) ❌ Noto'g'ri</s>")
-    
+
     return "\n".join(lines)
+
 
 def _get_question(test: dict, qidx: int) -> Optional[dict]:
     for q in (test.get("questions") or []):
