@@ -1,5 +1,5 @@
 {
-  "test_id": "d832e575-247e-481a-ac40-dd4988be45d2",
+  "test_id": "955c9ac8-9de0-41ee-aaab-796337a2e7aa",
   "test_name": "JS_For_Loops_Test_20250927_164350",
   "questions": [
     {
@@ -368,7 +368,8 @@
     "30": "map transformatsiya natijasini qaytaradi. forEach maqsadi — iteratsiya, return qiymat ishlatilmaydi. Shuning uchun map to‘g‘ri."
   },
   "groups": [
-    -1003055538272
+    -1003055538272,
+    -4824921268
   ],
   "group_id": -1003055538272,
   "created_by": 7040724501,

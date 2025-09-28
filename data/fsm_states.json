@@ -320,52 +320,34 @@
       "excluded_options": {}
     }
   },
-  "962685584:962685584": {
-    "state": "StudentStates:Answering",
-    "data": {
-      "active_test_id": "d832e575-247e-481a-ac40-dd4988be45d2",
-      "student_name": "Cd",
-      "started_at": 1759046311,
-      "answers": {
-        "1": "A",
-        "2": "C",
-        "3": "C",
-        "4": "B",
-        "5": "A",
-        "6": "C",
-        "7": "B"
-      },
-      "current_q": 8,
-      "total_q": 30,
-      "wrong_attempts": {
-        "2": 2,
-        "4": 1
-      },
-      "excluded_options": {
-        "1": [],
-        "2": [
-          "C",
-          "D"
-        ],
-        "3": [],
-        "4": [
-          "B"
-        ],
-        "5": [],
-        "6": [],
-        "7": []
-      },
-      "waiting_understanding": false,
-      "current_reference": null
-    }
-  },
   "7040724501:7040724501": {
     "state": null,
     "data": {
-      "assign_tid": "d832e575-247e-481a-ac40-dd4988be45d2",
-      "assign_sel": [
-        -1003055538272
-      ]
+      "assign_tid": null,
+      "assign_sel": []
+    }
+  },
+  "962685584:962685584": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "955c9ac8-9de0-41ee-aaab-796337a2e7aa",
+      "student_name": "Hh",
+      "started_at": 1759050345,
+      "answers": {
+        "1": "C"
+      },
+      "current_q": 2,
+      "total_q": 30,
+      "wrong_attempts": {
+        "1": 1
+      },
+      "excluded_options": {
+        "1": [
+          "C"
+        ]
+      },
+      "waiting_understanding": false,
+      "current_reference": null
     }
   }
 }

@@ -219,6 +219,11 @@ async def cb_new_test_safe(cb: types.CallbackQuery, state: FSMContext):
     """Error-safe new test handler"""
     return await safe_student_operation(handle_new_test, cb, state)
 
+@dp.callback_query_handler(lambda c: c.data and c.data.startswith("asg:"))
+async def cb_assign_groups_flow(cb: types.CallbackQuery, state: FSMContext):
+    from admin_handlers import cb_assign_groups_action
+    await cb_assign_groups_action(cb, state)
+
 # 6. Resume / Restart from /start if unfinished session
 @dp.callback_query_handler(lambda c: c.data in {"st:cont", "st:restart"}, state=StudentStates.Choosing)
 async def cb_start_choice_safe(cb: types.CallbackQuery, state: FSMContext):

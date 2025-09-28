@@ -387,6 +387,7 @@
   },
   "-4824921268": {
     "members": [
+      962685584,
       7040724501,
       7753996741,
       7786750407
@@ -415,6 +416,15 @@
         "last_name": "",
         "username": "formerrider",
         "phone": "998909804849",
+        "is_premium": false,
+        "is_bot": false,
+        "is_admin": false
+      },
+      "962685584": {
+        "first_name": "Otam",
+        "last_name": "",
+        "username": "",
+        "phone": "998903371849",
         "is_premium": false,
         "is_bot": false,
         "is_admin": false

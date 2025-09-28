@@ -2270,116 +2270,87 @@ def get_users_with_active_sessions(max_age_hours: int = 6) -> List[int]:
         return []
 
 
-async def notify_groups_and_members(group_ids: List[int], test_name: str, test_id: str) -> Dict:
+async def notify_groups_and_members(group_ids: List[int], test_name: str, tid: str) -> Dict[str, int]:
     """
-    Notify groups and their members about a new test.
-    First tries private messages, then notifies groups with statistics.
+    Faol test yangi guruhlarga berilganda:
+      1) Guruh chatiga umumiy e'lon
+      2) Guruh a'zolariga shaxsiy DM
+
+    Return:
+      {
+        "groups_notified": <int>,
+        "total_notified": <int>,
+        "total_failed": <int>
+      }
     """
-    from config import bot
-    
-    results = {
-        'total_notified': 0,
-        'total_failed': 0,
-        'groups_notified': 0,
-        'group_details': {}
-    }
-    
-    bot_username = (await bot.get_me()).username
-    
-    for group_id in group_ids:
-        group_results = {
-            'members': 0,
-            'notified': 0,
-            'failed': 0,
-            'failed_users': []
-        }
-        
-        # Get group members
-        member_ids = get_group_member_ids(group_id)
-        member_data = get_group_member_data(group_id)
-        group_results['members'] = len(member_ids)
-        
-        # Try to send private messages
-        for user_id in member_ids:
-            try:
-                private_message = (
-                    f"🎯 <b>Yangi test faollashtirildi!</b>\n\n"
-                    f"📚 Test nomi: <b>{test_name}</b>\n"
-                    f"🏷 Test kodi: <code>{test_id}</code>\n\n"
-                    f"Testni boshlash uchun:\n"
-                    f"👉 @{bot_username} ga o'ting\n"
-                    f"👉 /start buyrug'ini yuboring\n\n"
-                    f"⏰ Test hozir faol!"
-                )
-                
-                await bot.send_message(user_id, private_message)
-                group_results['notified'] += 1
-                
-                # Small delay to avoid rate limits
-                await asyncio.sleep(0.05)
-                
-            except Exception as e:
-                group_results['failed'] += 1
-                user_info = member_data.get(str(user_id), {})
-                username = user_info.get('username', '')
-                name = f"{user_info.get('first_name', '')} {user_info.get('last_name', '')}".strip() or f"User {user_id}"
-                
-                group_results['failed_users'].append({
-                    'name': name,
-                    'username': username,
-                    'id': user_id
-                })
-                log.debug(f"Failed to notify user {user_id}: {e}")
-        
-        # Send message to group
+    # Normalize ids -> int
+    groups = []
+    for g in group_ids:
         try:
-            group_titles = load_group_titles()
-            group_title = group_titles.get(group_id, f"Guruh {group_id}")
-            
-            group_message = (
-                f"📢 <b>YANGI TEST BOSHLANDI!</b>\n\n"
-                f"📚 Test: <b>{test_name}</b>\n"
-                f"👥 Guruh: {group_title}\n"
-                f"🎯 Barcha guruh a'zolari uchun!\n\n"
-            )
-            
-            if group_results['notified'] > 0:
-                group_message += f"✅ {group_results['notified']} ta talabaga shaxsiy xabar yuborildi\n"
-            
-            if group_results['failed'] > 0:
-                group_message += f"\n⚠️ {group_results['failed']} ta talabaga xabar yetmadi:\n"
-                
-                # List first 5 unreachable users
-                for i, user in enumerate(group_results['failed_users'][:5]):
-                    username_str = f"@{user['username']}" if user['username'] else f"ID: {user['id']}"
-                    group_message += f"{i+1}. {user['name']} ({username_str})\n"
-                
-                if group_results['failed'] > 5:
-                    group_message += f"... va yana {group_results['failed'] - 5} kishi\n"
-                
-                group_message += "\n💡 Ular botni bloklagan yoki yoqmagan bo'lishi mumkin.\n"
-            
-            group_message += (
-                f"\nTestni boshlash uchun:\n"
-                f"👉 @{bot_username} botiga o'ting\n"
-                f"👉 /start buyrug'ini yuboring"
-            )
-            
-            await bot.send_message(group_id, group_message)
-            results['groups_notified'] += 1
-            
+            groups.append(int(g))
+        except Exception:
+            continue
+
+    if not groups:
+        return {"groups_notified": 0, "total_notified": 0, "total_failed": 0}
+
+    titles = load_group_titles()
+    members_map = load_group_members()  # { "chat_id_str": { "members": [...], "member_data": {...} } }
+
+    groups_notified = 0
+    total_notified = 0
+    total_failed = 0
+
+    # Guruh e'lon matni
+    def group_text(title: str) -> str:
+        return (
+            "🟢 <b>Test boshlandi</b>\n\n"
+            f"📚 {test_name}\n"
+            f"🆔 <code>{tid}</code>\n\n"
+            "Imtihonni boshlash uchun: botga yozing yoki /start buyrug‘ini bosing."
+        )
+
+    # DM matni
+    user_text = (
+        f"📚 <b>{test_name}</b> testi guruhingizda boshlandi.\n"
+        f"🆔 <code>{tid}</code>\n\n"
+        "Boshlash: shu botga /start yuboring yoki menyudagi tugmalardan foydalaning."
+    )
+
+    for gid in groups:
+        title = titles.get(gid, f"Guruh {gid}")
+
+        # 1) Guruhga xabar
+        try:
+            await bot.send_message(gid, group_text(title), disable_web_page_preview=True)
+            groups_notified += 1
         except Exception as e:
-            log.error(f"Failed to notify group {group_id}: {e}")
-        
-        # Update totals
-        results['total_notified'] += group_results['notified']
-        results['total_failed'] += group_results['failed']
-        results['group_details'][group_id] = group_results
-        
-        # Delay between groups
-        await asyncio.sleep(0.5)
-    
-    return results
+            log.warning(f"Group notify failed for {gid}: {e}")
+
+        # 2) A'zolarga DM
+        mems = members_map.get(str(gid), {}).get("members", []) or []
+        # Agar sinxronlanmagan bo‘lsa, shunchaki DM qismi bo‘sh qoladi.
+        # (xohlasang bu yerda fallback sifatida sync chaqirishingiz mumkin)
+
+        for uid in mems:
+            try:
+                await bot.send_message(uid, user_text, disable_web_page_preview=True)
+                total_notified += 1
+            except Exception as e:
+                total_failed += 1
+                # Flood limitlarga tushmaslik uchun logni yumshoq qilamiz
+                if total_failed <= 5:
+                    log.debug(f"DM failed for {uid}: {e}")
+
+        # Telegram floodni yumshatamiz
+        await asyncio.sleep(0.2)
+
+    return {
+        "groups_notified": groups_notified,
+        "total_notified": total_notified,
+        "total_failed": total_failed,
+    }
+
 async def validate_and_sync_new_user(user_id: int) -> Tuple[bool, List[int]]:
     
     """

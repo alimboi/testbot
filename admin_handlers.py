@@ -107,6 +107,236 @@ async def admin_panel(message: types.Message, admin_groups: List[int] = None):
 
 # ---------- Admins (read-only) ----------
 
+
+# -------- Assign existing test to groups (short callbacks, safe under 64B) --------
+
+def _assign_build_kb(tid: str, items: list, selected: set) -> types.InlineKeyboardMarkup:
+    """
+    items: List[Tuple[int, str]] -> [(group_id, title), ...]
+    selected: set of group_ids
+    """
+    kb = types.InlineKeyboardMarkup(row_width=1)
+    for gid, title in items:
+        mark = "☑" if gid in selected else "☐"
+        display = title[:30] + "..." if len(title) > 30 else title
+        # callback_data format: asg:toggle:<tid>:<gid>
+        kb.add(types.InlineKeyboardButton(
+            f"{mark} {display}", callback_data=f"asg:toggle:{tid}:{gid}"
+        ))
+
+    kb.row(
+        types.InlineKeyboardButton("✅ Hammasini", callback_data=f"asg:all:{tid}"),
+        types.InlineKeyboardButton("❌ Tozalash", callback_data=f"asg:clear:{tid}"),
+    )
+    kb.row(
+        types.InlineKeyboardButton("💾 Saqlash", callback_data=f"asg:save:{tid}"),
+        types.InlineKeyboardButton("⬅️ Bekor qilish", callback_data=f"asg:cancel:{tid}")
+    )
+    return kb
+
+
+async def _assign_show_ui(cb: types.CallbackQuery, state: FSMContext, tid: str):
+    """Open the assign UI with current selections pre-checked."""
+    user_id = cb.from_user.id
+
+    # faqat owner/admin + shu testni boshqarish huquqi bor bo‘lsa
+    if not (is_owner(user_id) or is_admin(user_id)) or not can_user_manage_test(user_id, tid):
+        return await cb.answer("Ruxsat yo‘q", show_alert=True)
+
+    test_data = read_test(tid)
+    if not test_data:
+        return await cb.answer("Test topilmadi", show_alert=True)
+
+    # Bot admin bo‘lgan guruhlar (xabar yuborish mumkin bo‘lishi uchun)
+    available_groups = await get_bot_admin_groups(user_id)
+    group_titles = load_group_titles()
+    items = [(gid, group_titles.get(gid, f"Guruh {gid}")) for gid in available_groups]
+
+    # Hozir tayinlanganlar
+    current_assigned = set()
+    for g in (test_data.get("groups") or []):
+        try:
+            current_assigned.add(int(g))
+        except Exception:
+            pass
+
+    selected = current_assigned.intersection(set(available_groups))
+
+    await state.update_data(assign_tid=tid, assign_sel=list(selected))
+
+    name = test_data.get("test_name", test_data.get("name", "Test"))
+    text = (
+        f"📌 <b>“{name}” testini guruhlarga tayinlash</b>\n\n"
+        "Guruhlarni tanlang, so‘ng <b>Saqlash</b> ni bosing.\n"
+        "Agar test <b>faol</b> bo‘lsa, <i>faqat yangi qo‘shilgan guruhlarga</i> xabar yuboriladi."
+    )
+    await cb.message.edit_text(text, reply_markup=_assign_build_kb(tid, items, selected))
+    await cb.answer()
+
+
+# admin_handlers.py
+# ... importlar tepasida o'zgartirish shart emas ...
+
+async def cb_assign_groups_action(cb: types.CallbackQuery, state: FSMContext):
+    """
+    Callback namespace: assign_t:*
+    - assign_t:toggle:<tid>:<gid>
+    - assign_t:all:<tid>
+    - assign_t:clear:<tid>
+    - assign_t:save:<tid>
+    - assign_t:cancel:<tid>
+
+    KERAKLI XULQ: Agar test ACTIVE bo‘lsa va yangi guruhlar qo‘shilsa,
+    o‘sha YANGI guruhlar va ularning a’zolariga bildirishnoma yuboriladi.
+    """
+    user_id = cb.from_user.id
+    data = cb.data or ""
+    parts = data.split(":")
+    if len(parts) < 3:
+        return await cb.answer("Noto‘g‘ri format")
+
+    action = parts[1]
+    tid = parts[2]
+
+    # Ruxsat
+    if not (is_owner(user_id) or is_admin(user_id)) or not can_user_manage_test(user_id, tid):
+        return await cb.answer("Ruxsat yo‘q", show_alert=True)
+
+    # Hozirgi test ma'lumotlari
+    test_data = read_test(tid)
+    if not test_data:
+        return await cb.answer("Test topilmadi", show_alert=True)
+
+    # Tanlash UI uchun mavjud guruhlar (bot admin bo‘lganlari)
+    available_groups = await get_bot_admin_groups(user_id)
+    group_titles = load_group_titles()
+    items = [(gid, group_titles.get(gid, f"Guruh {gid}")) for gid in available_groups]
+
+    # State o‘qish
+    s = await state.get_data()
+    stored_tid = s.get("assign_tid")
+    selected = set(s.get("assign_sel", []))
+
+    # Agar boshqa test boshlangan bo‘lsa — selektsiyani reset qilamiz
+    if stored_tid and stored_tid != tid:
+        selected = set()
+        await state.update_data(assign_tid=tid, assign_sel=[])
+
+    if action == "toggle":
+        if len(parts) < 4:
+            return await cb.answer("Noto‘g‘ri format")
+        try:
+            gid = int(parts[3])
+        except ValueError:
+            return await cb.answer("Guruh ID noto‘g‘ri")
+
+        if gid in selected:
+            selected.remove(gid)
+        else:
+            selected.add(gid)
+        await state.update_data(assign_tid=tid, assign_sel=list(selected))
+
+        name = test_data.get("test_name", "Test")
+        text = (
+            f"📌 <b>“{name}” testini guruhlarga tayinlash</b>\n\n"
+            "Guruhlarni tanlang, so‘ng <b>Saqlash</b> ni bosing.\n"
+            "Agar test <b>faol</b> bo‘lsa, <i>faqat yangi qo‘shilgan guruhlarga</i> xabar yuboriladi."
+        )
+        return await cb.message.edit_text(text, reply_markup=_assign_build_kb(tid, items, selected))
+
+    if action == "all":
+        selected = set(g for g, _ in items)
+        await state.update_data(assign_tid=tid, assign_sel=list(selected))
+        name = test_data.get("test_name", "Test")
+        text = (
+            f"📌 <b>“{name}” testini guruhlarga tayinlash</b>\n\n"
+            f"✅ Barcha guruhlar tanlandi: {len(selected)} ta"
+        )
+        await cb.answer("Barchasi tanlandi")
+        return await cb.message.edit_text(text, reply_markup=_assign_build_kb(tid, items, selected))
+
+    if action == "clear":
+        selected = set()
+        await state.update_data(assign_tid=tid, assign_sel=[])
+        name = test_data.get("test_name", "Test")
+        text = (
+            f"📌 <b>“{name}” testini guruhlarga tayinlash</b>\n\n"
+            "Tanlov tozalandi. Guruhlarni qaytadan tanlang."
+        )
+        await cb.answer("Tozalandi")
+        return await cb.message.edit_text(text, reply_markup=_assign_build_kb(tid, items, selected))
+
+    if action == "cancel":
+        await state.update_data(assign_tid=None, assign_sel=[])
+        await cb.answer("Bekor qilindi")
+        # test kartasiga qaytish
+        return await _open_test(cb, tid)
+
+    if action == "save":
+        # Eski tayinlanganlar
+        was_assigned = set()
+        for g in (test_data.get("groups") or []):
+            try:
+                was_assigned.add(int(g))
+            except Exception:
+                pass
+
+        new_assigned = set(selected)
+        newly_added = new_assigned - was_assigned
+
+        # Yangi ro‘yxatni saqlaymiz
+        assign_test_groups(tid, list(new_assigned))
+
+        # YANGI: saqlagandan keyin qayta o‘qib olamiz (aktivlik holati o‘zgargan bo‘lishi mumkin)
+        test_data = read_test(tid)
+        test_name = test_data.get("test_name", "Test")
+        from utils import get_active_tests
+        is_active = tid in set(get_active_tests()) 
+
+        notified_summary = None
+        if is_active and newly_added:
+            try:
+                await cb.message.answer("📢 Faol test: yangi guruhlarga xabar yuborilmoqda...")
+                # int ga normalize qilish
+                new_groups = [int(g) for g in newly_added]
+                notified_summary = await notify_groups_and_members(new_groups, test_name, tid)
+            except Exception as e:
+                logging.getLogger("admin_handlers").exception(f"notify_groups_and_members failed: {e}")
+                notified_summary = {"groups_notified": 0, "total_notified": 0, "total_failed": 0}
+
+        # State tozalash
+        await state.update_data(assign_tid=None, assign_sel=[])
+
+        # Hisobot
+        lines = [
+            "✅ <b>Tayinlash saqlandi</b>",
+            f"📚 Test: {test_name}",
+            f"👥 Jami tayinlangan guruhlar: {len(new_assigned)} ta",
+            f"➕ Yangi qo‘shilgan guruhlar: {len(newly_added)} ta",
+        ]
+
+        if is_active:
+            if newly_added and notified_summary is not None:
+                lines += [
+                    "",
+                    "📢 <b>Xabar natijalari</b>",
+                    f"• Guruhlarga xabar: {notified_summary.get('groups_notified', 0)}/{len(newly_added)}",
+                    f"• Shaxsiy xabar yuborildi: {notified_summary.get('total_notified', 0)} talaba",
+                ]
+                failed = notified_summary.get("total_failed", 0)
+                if failed:
+                    lines.append(f"• Yetib bormadi: {failed} talaba")
+            else:
+                lines += ["", "ℹ️ Test faol, lekin yangi guruh qo‘shilmadi yoki xabar yuborilmadi."]
+
+        await cb.message.answer("\n".join(lines))
+        await cb.answer("Saqlandi")
+        return await _open_test(cb, tid)
+
+    # noma’lum
+    return await cb.answer("Noma‘lum amal")
+
+
 async def cb_admin_action(cb: types.CallbackQuery, state: FSMContext):
     """Handle admin panel callbacks"""
     user_id = cb.from_user.id
@@ -821,302 +1051,114 @@ async def _refresh_to_test(cb: types.CallbackQuery, tid: str, toast: str):
     await _open_test(cb, tid)
 
 async def cb_test_action(cb: types.CallbackQuery, state: FSMContext):
-    """Handle test actions with proper checkbox updates"""
+    """
+    Unified test actions handler (owner/admin).
+    Supports:
+      - t:view:<tid>
+      - t:act:<tid> / t:deact:<tid>
+      - t:assign:<tid>  (opens assign UI; saving handled by cb_assign_groups_action)
+      - t:del:<tid> / t:delconfirm:<tid>
+    """
     user_id = cb.from_user.id
-    
-    # Check permissions
-    if not is_owner(user_id) and not is_admin(user_id):
-        await cb.answer("Ruxsat yo'q", show_alert=True)
-        return
-
     data = (cb.data or "").strip()
     parts = data.split(":")
 
     if len(parts) < 3 or parts[0] != "t":
-        return await cb.answer("Noto'g'ri buyruq", show_alert=True)
+        return await cb.answer("Noto‘g‘ri buyruq", show_alert=True)
 
-    action = parts[1]
-    tid = parts[2]
-    
-    # Check if admin can manage this test
-    if not is_owner(user_id):
-        if not can_user_manage_test(user_id, tid):
-            await cb.answer("Siz bu testni boshqara olmaysiz", show_alert=True)
-            return
+    action, tid = parts[1], parts[2]
 
-    try:
-        # ----- view -----
-        if action == "view":
-            await cb.answer()
-            return await _open_test(cb, tid)
+    if not (is_owner(user_id) or is_admin(user_id)):
+        return await cb.answer("Ruxsat yo‘q", show_alert=True)
+    if not can_user_manage_test(user_id, tid):
+        return await cb.answer("Bu testni boshqara olmaysiz", show_alert=True)
 
-        # ----- activate -----
-        if action == "act":
-            await cb.answer()
-            set_test_active(tid, True)
-            log_action(cb.from_user.id, "test_activate", ok=True, test_id=tid)
-            
-            # Get test info
-            test_data = read_test(tid)
-            test_name = test_data.get("test_name", "Test")
-            assigned_groups = []
-            for g in test_data.get("groups", []):
-                try:
-                    assigned_groups.append(int(g))
-                except:
-                    pass
-                
-            if assigned_groups:
-                await cb.message.answer("⏳ Test faollashtirilmoqda va xabarlar yuborilmoqda...")
-                
-                # Notify groups and members
-                notification_results = await notify_groups_and_members(assigned_groups, test_name, tid)
-                
-                # Show results
-                total_notified = notification_results['total_notified']
-                total_failed = notification_results['total_failed']
-                groups_notified = notification_results['groups_notified']
-                
-                result_message = (
-                    f"✅ Test faollashtirildi!\n\n"
-                    f"📢 {groups_notified}/{len(assigned_groups)} guruhga xabar yuborildi\n"
-                    f"📨 {total_notified} talabaga shaxsiy xabar\n"
-                )
-                
-                if total_failed > 0:
-                    result_message += f"⚠️ {total_failed} talabaga xabar yetmadi"
-                
-                await cb.message.answer(result_message)
-            else:
-                await cb.message.answer("⚠️ Test faollashtirildi, lekin guruh tayinlanmagan.")
-            
-            return await _refresh_to_test(cb, tid, "Faollashtirildi")
+    # ----- view -----
+    if action == "view":
+        await cb.answer()
+        return await _open_test(cb, tid)
 
-        # ----- deactivate -----
-        if action == "deact":
-            await cb.answer()
-            set_test_active(tid, False)
-            log_action(cb.from_user.id, "test_deactivate", ok=True, test_id=tid)
-            return await _refresh_to_test(cb, tid, "O'chirildi")
+    # ----- activate -----
+    if action == "act":
+        set_test_active(tid, True)
+        log_action(cb.from_user.id, "test_activate", ok=True, test_id=tid)
+        test_data = read_test(tid)
+        test_name = test_data.get("test_name", test_data.get("name", "Test"))
 
-        # ----- delete -----
-        if action == "del":
-            await cb.answer()
-            kb = types.InlineKeyboardMarkup()
-            kb.add(
-                types.InlineKeyboardButton("❌ Ha, o'chirish", callback_data=f"t:delconfirm:{tid}"),
-                types.InlineKeyboardButton("🔙 Bekor qilish", callback_data=f"t:view:{tid}")
+        # tayinlangan guruhlar
+        assigned_groups = []
+        for g in test_data.get("groups", []):
+            try:
+                assigned_groups.append(int(g))
+            except:
+                pass
+
+        if assigned_groups:
+            await cb.message.answer("⏳ Test faollashtirilmoqda va xabarlar yuborilmoqda...")
+            notification_results = await notify_groups_and_members(assigned_groups, test_name, tid)
+            total_notified = notification_results['total_notified']
+            total_failed = notification_results['total_failed']
+            groups_notified = notification_results['groups_notified']
+            msg = (
+                f"✅ Test faollashtirildi!\n\n"
+                f"📢 {groups_notified}/{len(assigned_groups)} guruhga xabar yuborildi\n"
+                f"📨 {total_notified} talabaga shaxsiy xabar\n"
             )
-            try:
-                await cb.message.edit_text(
-                    f"⚠️ <b>Testni o'chirishni tasdiqlang</b>\n\nTest ID: <code>{tid}</code>\n\nBu amal qaytarib bo'lmaydi!",
-                    reply_markup=kb
-                )
-            except MessageNotModified:
-                pass
-            return
+            if total_failed > 0:
+                msg += f"⚠️ {total_failed} talabaga xabar yetmadi"
+            await cb.message.answer(msg)
+        else:
+            await cb.message.answer("⚠️ Test faollashtirildi, lekin guruh tayinlanmagan.")
 
-        # ----- delete confirm -----
-        if action == "delconfirm":
-            await cb.answer()
-            idx = load_tests_index()
-            tests = idx.get("tests", {})
-            rec = tests.pop(tid, None)
-            save_tests_index(idx)
-            
-            try:
-                p = test_path(tid)
-                if p.exists():
-                    os.remove(p)
-            except Exception as e:
-                log.warning(f"Could not delete test file: {e}")
-            
-            log_action(cb.from_user.id, "test_delete", ok=True, test_id=tid)
-            await cb.message.answer("🗑 Test o'chirildi")
-            return await cb_panel_tests(cb)
+        await cb.answer("Faollashtirildi")
+        return await _open_test(cb, tid)
 
-        # ----- assign: open group picker -----
-        if action == "assign":
-            await cb.answer()
-            await state.finish()
-            
-            # Get available groups
-            if is_owner(cb.from_user.id):
-                gids = load_group_ids()
-            else:
-                gids = get_user_admin_groups(cb.from_user.id)
-                
-            if not gids:
-                await cb.message.answer("❌ Sizda guruhlar yo'q.")
-                return await _open_test(cb, tid)
+    # ----- deactivate -----
+    if action == "deact":
+        set_test_active(tid, False)
+        log_action(cb.from_user.id, "test_deactivate", ok=True, test_id=tid)
+        await cb.answer("Faolsizlantirildi")
+        return await _open_test(cb, tid)
 
-            items = await _resolve_group_titles(gids)
-            
-            # Get current assigned groups
-            test_data = read_test(tid)
-            current_groups = test_data.get("groups", [])
-            preselected = set()
-            for g in current_groups:
-                try:
-                    preselected.add(int(g))
-                except (ValueError, TypeError):
-                    pass
-            
-            # Initialize state with preselected groups
-            await state.update_data(assign_tid=tid, sel=list(preselected))
-            
-            txt = f"<b>Guruhlarga tayinlash</b>\nTest: <code>{tid}</code>\nGuruhlarni tanlash uchun bosing, keyin <b>Tayyor</b> tugmasini bosing."
-            kb = _assign_groups_kb(tid, items, preselected)
-            
-            try:
-                await cb.message.edit_text(txt, reply_markup=kb)
-            except MessageNotModified:
-                pass
-            return
+    # ----- delete -----
+    if action == "del":
+        kb = types.InlineKeyboardMarkup()
+        kb.add(
+            types.InlineKeyboardButton("❌ Ha, o'chirish", callback_data=f"t:delconfirm:{tid}"),
+            types.InlineKeyboardButton("🔙 Bekor qilish", callback_data=f"t:view:{tid}")
+        )
+        try:
+            await cb.message.edit_text(
+                f"⚠️ <b>Testni o'chirishni tasdiqlang</b>\n\nTest ID: <code>{tid}</code>\n\nBu amal qaytarib bo'lmaydi!",
+                reply_markup=kb
+            )
+        except MessageNotModified:
+            pass
+        return
 
-        # ----- pick: toggle group selection -----
-        if action == "pick":
-            if len(parts) < 4:
-                return await cb.answer("Noto'g'ri guruh ID")
-            
-            try:
-                gid = int(parts[3])
-            except ValueError:
-                return await cb.answer("Yaroqsiz guruh ID")
+    # ----- delete confirm -----
+    if action == "delconfirm":
+        idx = load_tests_index()
+        tests = idx.get("tests", {})
+        tests.pop(tid, None)
+        save_tests_index(idx)
+        try:
+            p = test_path(tid)
+            if p.exists():
+                os.remove(p)
+        except Exception as e:
+            log.warning(f"Could not delete test file: {e}")
+        log_action(cb.from_user.id, "test_delete", ok=True, test_id=tid)
+        await cb.message.answer("🗑 Test o'chirildi")
+        await cb.answer("O‘chirildi")
+        return await cb_panel_tests(cb)
 
-            # Get current state
-            s = await state.get_data()
-            
-            # Ensure we're working with the right test
-            if s.get("assign_tid") != tid:
-                await state.update_data(assign_tid=tid, sel=[])
-                s = await state.get_data()
+    # ----- assign (OPEN UI) -----
+    if action == "assign":
+        await cb.answer()
+        return await _assign_show_ui(cb, state, tid)
 
-            # Get current selection
-            sel = set()
-            try:
-                current_sel = s.get("sel", [])
-                if current_sel:
-                    sel = set(map(int, current_sel))
-            except (ValueError, TypeError):
-                pass
-            
-            # Toggle selection
-            if gid in sel:
-                sel.remove(gid)
-                await cb.answer(f"❌ Guruh {gid} olib tashlandi")
-            else:
-                sel.add(gid)
-                await cb.answer(f"✅ Guruh {gid} tanlandi")
-            
-            # Update state
-            await state.update_data(sel=list(sel))
-            
-            # Refresh UI with updated checkboxes
-            if is_owner(cb.from_user.id):
-                gids = load_group_ids()
-            else:
-                gids = get_user_admin_groups(cb.from_user.id)
-            
-            items = await _resolve_group_titles(gids)
-            txt = f"<b>Guruhlarga tayinlash</b>\nTest: <code>{tid}</code>\nTanlangan: {len(sel)} ta guruh"
-            
-            # Update the keyboard with new selection
-            kb = _assign_groups_kb(tid, items, sel)
-            
-            try:
-                await cb.message.edit_text(txt, reply_markup=kb)
-            except MessageNotModified:
-                # If text didn't change, force update by adding a zero-width space
-                txt += "​"  # Zero-width space
-                try:
-                    await cb.message.edit_text(txt, reply_markup=kb)
-                except:
-                    pass
-            return
-
-        # ----- pickall: select all groups -----
-        if action == "pickall":
-            await cb.answer("Barcha guruhlar tanlandi")
-            
-            if is_owner(cb.from_user.id):
-                gids = load_group_ids()
-            else:
-                gids = get_user_admin_groups(cb.from_user.id)
-            
-            try:
-                sel = list(map(int, gids))
-            except (ValueError, TypeError):
-                sel = []
-            
-            await state.update_data(assign_tid=tid, sel=sel)
-            items = await _resolve_group_titles(gids)
-            txt = f"<b>Guruhlarga tayinlash</b>\nTest: <code>{tid}</code>\nBarcha guruhlar tanlandi: {len(sel)} ta"
-            
-            try:
-                await cb.message.edit_text(txt, reply_markup=_assign_groups_kb(tid, items, set(sel)))
-            except MessageNotModified:
-                pass
-            return
-
-        # ----- clear: deselect all -----
-        if action == "clear":
-            await cb.answer("Tanlov tozalandi")
-            await state.update_data(assign_tid=tid, sel=[])
-            
-            if is_owner(cb.from_user.id):
-                gids = load_group_ids()
-            else:
-                gids = get_user_admin_groups(cb.from_user.id)
-            
-            items = await _resolve_group_titles(gids)
-            txt = f"<b>Guruhlarga tayinlash</b>\nTest: <code>{tid}</code>\nHech narsa tanlanmagan"
-            
-            try:
-                await cb.message.edit_text(txt, reply_markup=_assign_groups_kb(tid, items, set()))
-            except MessageNotModified:
-                pass
-            return
-
-        # ----- assigndone: save the assignment -----
-        if action == "assigndone":
-            s = await state.get_data()
-            
-            # Verify we have the right test
-            if s.get("assign_tid") != tid:
-                await cb.answer("Sessiya topilmadi", show_alert=True)
-                return await _open_test(cb, tid)
-
-            # Get selected groups
-            try:
-                sel = list(map(int, s.get("sel", [])))
-            except (ValueError, TypeError):
-                sel = []
-            
-            if not sel:
-                await cb.answer("❌ Kamida bitta guruhni tanlang!", show_alert=True)
-                return
-
-            # SAVE THE ASSIGNMENT
-            assign_test_groups(tid, sel)
-            log_action(cb.from_user.id, "test_assign_groups", ok=True, test_id=tid, extra={"groups": sel})
-            
-            # Clear state
-            await state.finish()
-            
-            # Show success message
-            await cb.answer("✅ Muvaffaqiyatli saqlandi!")
-            await cb.message.answer(f"✅ Test {len(sel)} ta guruhga tayinlandi")
-            
-            # Return to test view
-            return await _open_test(cb, tid)
-
-        # Unknown action
-        return await cb.answer(f"Noma'lum amal: {action}")
-
-    except Exception as e:
-        log.error(f"Error in test action {action}: {e}")
-        await cb.answer(f"Xatolik: {e}", show_alert=True)
+    return await cb.answer("Noma’lum amal")
 
 # ---------- Groups actions (callbacks) ----------
 

@@ -1,0 +1,21 @@
+{
+  "active_test_id": "955c9ac8-9de0-41ee-aaab-796337a2e7aa",
+  "student_name": "Hh",
+  "started_at": 1759050345,
+  "answers": {
+    "1": "C"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1
+  },
+  "excluded_options": {
+    "1": [
+      "C"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759050352
+}

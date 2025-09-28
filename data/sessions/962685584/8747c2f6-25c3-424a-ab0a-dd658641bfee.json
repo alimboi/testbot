@@ -1,0 +1,17 @@
+{
+  "active_test_id": "8747c2f6-25c3-424a-ab0a-dd658641bfee",
+  "student_name": "Ayaya",
+  "started_at": 1759047802,
+  "answers": {
+    "1": "A"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {},
+  "excluded_options": {
+    "1": []
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759047804
+}

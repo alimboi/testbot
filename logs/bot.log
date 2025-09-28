@@ -36269,3 +36269,202 @@ aiogram.utils.exceptions.ButtonDataInvalid: Button_data_invalid
 2025-09-28 13:08:09 INFO custom_storage: Storage closed successfully
 2025-09-28 13:08:09 INFO custom_storage: Storage closed successfully
 2025-09-28 13:08:09 WARNING aiogram: Goodbye!
+2025-09-28 13:08:56 INFO bot: Custom JSON storage initialized successfully (aiogram v3)
+2025-09-28 13:08:57 WARNING aiogram: Updates were skipped successfully.
+2025-09-28 13:08:57 INFO bot: Watchdog started
+2025-09-28 13:08:57 INFO telethon.network.mtprotosender: Connecting to 149.154.167.51:443/TcpFull...
+2025-09-28 13:08:57 INFO telethon.network.mtprotosender: Connection to 149.154.167.51:443/TcpFull complete!
+2025-09-28 13:08:58 INFO telethon_service: User Telethon client started as Abdurahmon (ID: 7040724501)
+2025-09-28 13:08:58 INFO bot: ✅ Owner Telethon initialized
+2025-09-28 13:08:58 INFO bot: Bot started successfully
+2025-09-28 13:12:28 INFO bot: Bot shutting down...
+2025-09-28 13:12:28 INFO telethon.network.mtprotosender: Disconnecting from 149.154.167.51:443/TcpFull...
+2025-09-28 13:12:28 INFO telethon.network.mtprotosender: Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-09-28 13:12:28 INFO telethon_service: User Telethon client stopped
+2025-09-28 13:12:28 INFO bot: Telethon service stopped
+2025-09-28 13:12:28 INFO custom_storage: Storage closed successfully
+2025-09-28 13:12:28 INFO custom_storage: Storage closed successfully
+2025-09-28 13:12:28 WARNING aiogram: Goodbye!
+2025-09-28 13:12:29 INFO bot: Custom JSON storage initialized successfully (aiogram v3)
+2025-09-28 13:12:30 WARNING aiogram: Updates were skipped successfully.
+2025-09-28 13:12:30 INFO bot: Watchdog started
+2025-09-28 13:12:30 INFO telethon.network.mtprotosender: Connecting to 149.154.167.51:443/TcpFull...
+2025-09-28 13:12:30 INFO telethon.network.mtprotosender: Connection to 149.154.167.51:443/TcpFull complete!
+2025-09-28 13:12:31 INFO telethon_service: User Telethon client started as Abdurahmon (ID: 7040724501)
+2025-09-28 13:12:31 INFO bot: ✅ Owner Telethon initialized
+2025-09-28 13:12:31 INFO bot: Bot started successfully
+2025-09-28 13:12:33 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:12:35 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:12:35 INFO bot: Owner panel callback: panel:tests
+2025-09-28 13:12:35 INFO admin_handlers: Admin callback router: panel:tests
+2025-09-28 13:12:36 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:12:36 INFO bot: Test action callback: t:view:d832e575-247e-481a-ac40-dd4988be45d2
+2025-09-28 13:12:38 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:12:38 INFO bot: Test action callback: t:assign:d832e575-247e-481a-ac40-dd4988be45d2
+2025-09-28 13:12:52 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:12:58 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:17:36 INFO bot: Bot shutting down...
+2025-09-28 13:17:36 INFO telethon.network.mtprotosender: Disconnecting from 149.154.167.51:443/TcpFull...
+2025-09-28 13:17:36 INFO telethon.network.mtprotosender: Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-09-28 13:17:36 INFO telethon_service: User Telethon client stopped
+2025-09-28 13:17:36 INFO bot: Telethon service stopped
+2025-09-28 13:17:36 INFO custom_storage: Storage closed successfully
+2025-09-28 13:17:36 INFO custom_storage: Storage closed successfully
+2025-09-28 13:17:36 WARNING aiogram: Goodbye!
+2025-09-28 13:17:36 INFO bot: Custom JSON storage initialized successfully (aiogram v3)
+2025-09-28 13:17:37 WARNING aiogram: Updates were skipped successfully.
+2025-09-28 13:17:37 INFO bot: Watchdog started
+2025-09-28 13:17:37 INFO telethon.network.mtprotosender: Connecting to 149.154.167.51:443/TcpFull...
+2025-09-28 13:17:38 INFO telethon.network.mtprotosender: Connection to 149.154.167.51:443/TcpFull complete!
+2025-09-28 13:17:39 INFO telethon_service: User Telethon client started as Abdurahmon (ID: 7040724501)
+2025-09-28 13:17:39 INFO bot: ✅ Owner Telethon initialized
+2025-09-28 13:17:39 INFO bot: Bot started successfully
+2025-09-28 13:17:40 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:17:42 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:17:42 INFO bot: Owner panel callback: panel:tests
+2025-09-28 13:17:42 INFO admin_handlers: Admin callback router: panel:tests
+2025-09-28 13:17:43 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:17:43 INFO bot: Test action callback: t:view:d832e575-247e-481a-ac40-dd4988be45d2
+2025-09-28 13:17:46 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:17:46 INFO bot: Test action callback: t:del:d832e575-247e-481a-ac40-dd4988be45d2
+2025-09-28 13:17:48 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:17:48 INFO bot: Test action callback: t:delconfirm:d832e575-247e-481a-ac40-dd4988be45d2
+2025-09-28 13:17:55 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:18:00 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:18:00 INFO bot: New test flow callback: new_t:pick:81d40de2-fd52-4065-ae7d-2f3350eaaba9:-1003055538272
+2025-09-28 13:18:07 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:18:07 INFO bot: New test flow callback: new_t:activate:81d40de2-fd52-4065-ae7d-2f3350eaaba9
+2025-09-28 13:18:14 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:18:16 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:18:16 INFO bot: Owner panel callback: panel:tests
+2025-09-28 13:18:16 INFO admin_handlers: Admin callback router: panel:tests
+2025-09-28 13:18:18 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:18:18 INFO bot: Test action callback: t:view:81d40de2-fd52-4065-ae7d-2f3350eaaba9
+2025-09-28 13:18:20 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:18:20 INFO bot: Test action callback: t:assign:81d40de2-fd52-4065-ae7d-2f3350eaaba9
+2025-09-28 13:18:28 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:18:32 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:20:40 INFO bot.audit: Update [message] from user 7753996741 (@formerrider) - ID: Mr
+2025-09-28 13:20:55 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:20:55 INFO bot: Test action callback: t:del:81d40de2-fd52-4065-ae7d-2f3350eaaba9
+2025-09-28 13:20:58 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:20:58 INFO bot: Test action callback: t:delconfirm:81d40de2-fd52-4065-ae7d-2f3350eaaba9
+2025-09-28 13:21:28 INFO bot.audit: Update [unknown] with no user info
+2025-09-28 13:21:28 INFO bot: Member update in group -4824921268: User 7753996741 (Mr) status change: member -> administrator
+2025-09-28 13:21:28 INFO bot: User 7753996741 became admin in group -4824921268
+2025-09-28 13:21:28 INFO utils: Synced 2 admins for group -4824921268
+2025-09-28 13:21:54 INFO bot.audit: Update [unknown] with no user info
+2025-09-28 13:21:54 INFO bot: Member update in group -4824921268: User 962685584 (Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi) status change: left -> member
+2025-09-28 13:21:54 INFO bot: User 962685584 (Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi) joined group -4824921268
+2025-09-28 13:21:55 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:21:56 INFO bot: Updated member data for user 962685584 in group -4824921268
+2025-09-28 13:22:19 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:22:24 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:22:24 INFO bot: New test flow callback: new_t:pick:8747c2f6-25c3-424a-ab0a-dd658641bfee:-1003055538272
+2025-09-28 13:22:28 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:22:28 INFO bot: New test flow callback: new_t:activate:8747c2f6-25c3-424a-ab0a-dd658641bfee
+2025-09-28 13:22:39 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:22:41 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:22:41 INFO bot: Owner panel callback: panel:tests
+2025-09-28 13:22:41 INFO admin_handlers: Admin callback router: panel:tests
+2025-09-28 13:22:43 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:22:43 INFO bot: Test action callback: t:view:8747c2f6-25c3-424a-ab0a-dd658641bfee
+2025-09-28 13:22:45 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:22:45 INFO bot: Test action callback: t:assign:8747c2f6-25c3-424a-ab0a-dd658641bfee
+2025-09-28 13:22:50 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:22:56 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:23:06 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 13:23:07 INFO utils: User 962685584 is member of groups: {-1003055538272, -4824921268}
+2025-09-28 13:23:07 INFO utils: Test 8747c2f6-25c3-424a-ab0a-dd658641bfee available for user 962685584 (groups: {-1003055538272, -4824921268})
+2025-09-28 13:23:07 INFO utils: User 962685584 is member of groups: {-1003055538272, -4824921268}
+2025-09-28 13:23:07 INFO utils: Test 8747c2f6-25c3-424a-ab0a-dd658641bfee available for user 962685584 (groups: {-1003055538272, -4824921268})
+2025-09-28 13:23:07 INFO student_handlers: User 962685584 - Groups from user_groups.json: [-1003055538272, -4824921268]
+2025-09-28 13:23:07 INFO student_handlers: User 962685584 - Groups from group_members.json: [-1003055538272, -4824921268]
+2025-09-28 13:23:07 INFO student_handlers: User 962685584 - Available tests: 1
+2025-09-28 13:23:10 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 13:23:10 INFO bot: Test selection callback: select_test:8747c2f6-25c3-424a-ab0a-dd658641bfee
+2025-09-28 13:23:11 INFO student_handlers: User 962685584 selected test 8747c2f6-25c3-424a-ab0a-dd658641bfee
+2025-09-28 13:23:14 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 13:23:21 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 13:23:22 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 13:23:24 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 13:23:24 INFO bot: Answer callback received: ans:1:A
+2025-09-28 13:23:24 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 13:46:40 INFO telethon.client.updates: Got difference for account updates
+2025-09-28 13:49:38 INFO telethon.client.updates: Got difference for channel 1490331350 updates
+2025-09-28 13:55:57 INFO telethon.client.updates: Got difference for channel 1271491452 updates
+2025-09-28 14:01:41 INFO telethon.client.updates: Got difference for account updates
+2025-09-28 14:01:41 INFO telethon.client.updates: Got difference for channel 1239333237 updates
+2025-09-28 14:01:41 INFO telethon.client.updates: Got difference for channel 1520889315 updates
+2025-09-28 14:04:01 INFO bot: Bot shutting down...
+2025-09-28 14:04:01 INFO telethon.network.mtprotosender: Disconnecting from 149.154.167.51:443/TcpFull...
+2025-09-28 14:04:01 INFO telethon.network.mtprotosender: Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-09-28 14:04:01 INFO telethon_service: User Telethon client stopped
+2025-09-28 14:04:01 INFO bot: Telethon service stopped
+2025-09-28 14:04:01 INFO custom_storage: Storage closed successfully
+2025-09-28 14:04:01 INFO custom_storage: Storage closed successfully
+2025-09-28 14:04:01 WARNING aiogram: Goodbye!
+2025-09-28 14:04:03 INFO bot: Custom JSON storage initialized successfully (aiogram v3)
+2025-09-28 14:04:04 WARNING aiogram: Updates were skipped successfully.
+2025-09-28 14:04:04 INFO bot: Watchdog started
+2025-09-28 14:04:04 INFO telethon.network.mtprotosender: Connecting to 149.154.167.51:443/TcpFull...
+2025-09-28 14:04:04 INFO telethon.network.mtprotosender: Connection to 149.154.167.51:443/TcpFull complete!
+2025-09-28 14:04:05 INFO telethon_service: User Telethon client started as Abdurahmon (ID: 7040724501)
+2025-09-28 14:04:05 INFO bot: ✅ Owner Telethon initialized
+2025-09-28 14:04:05 INFO bot: Bot started successfully
+2025-09-28 14:04:08 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 14:04:13 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 14:04:15 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 14:04:15 INFO bot: Owner panel callback: panel:tests
+2025-09-28 14:04:15 INFO admin_handlers: Admin callback router: panel:tests
+2025-09-28 14:04:16 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 14:04:16 INFO bot: Test action callback: t:view:8747c2f6-25c3-424a-ab0a-dd658641bfee
+2025-09-28 14:04:19 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 14:04:19 INFO bot: Test action callback: t:del:8747c2f6-25c3-424a-ab0a-dd658641bfee
+2025-09-28 14:04:20 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 14:04:20 INFO bot: Test action callback: t:delconfirm:8747c2f6-25c3-424a-ab0a-dd658641bfee
+2025-09-28 14:04:30 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 14:04:35 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 14:04:35 INFO bot: New test flow callback: new_t:pick:955c9ac8-9de0-41ee-aaab-796337a2e7aa:-1003055538272
+2025-09-28 14:04:40 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 14:04:40 INFO bot: New test flow callback: new_t:activate:955c9ac8-9de0-41ee-aaab-796337a2e7aa
+2025-09-28 14:05:08 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 14:05:09 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 14:05:09 INFO bot: Owner panel callback: panel:tests
+2025-09-28 14:05:09 INFO admin_handlers: Admin callback router: panel:tests
+2025-09-28 14:05:10 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 14:05:10 INFO bot: Test action callback: t:view:955c9ac8-9de0-41ee-aaab-796337a2e7aa
+2025-09-28 14:05:12 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 14:05:12 INFO bot: Test action callback: t:assign:955c9ac8-9de0-41ee-aaab-796337a2e7aa
+2025-09-28 14:05:18 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 14:05:24 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 14:05:36 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 14:05:37 INFO utils: User 962685584 is member of groups: {-1003055538272, -4824921268}
+2025-09-28 14:05:37 INFO utils: Test 955c9ac8-9de0-41ee-aaab-796337a2e7aa available for user 962685584 (groups: {-1003055538272, -4824921268})
+2025-09-28 14:05:37 INFO utils: User 962685584 is member of groups: {-1003055538272, -4824921268}
+2025-09-28 14:05:37 INFO utils: Test 955c9ac8-9de0-41ee-aaab-796337a2e7aa available for user 962685584 (groups: {-1003055538272, -4824921268})
+2025-09-28 14:05:37 INFO student_handlers: User 962685584 - Groups from user_groups.json: [-1003055538272, -4824921268]
+2025-09-28 14:05:37 INFO student_handlers: User 962685584 - Groups from group_members.json: [-1003055538272, -4824921268]
+2025-09-28 14:05:37 INFO student_handlers: User 962685584 - Available tests: 1
+2025-09-28 14:05:38 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 14:05:38 INFO bot: Test selection callback: select_test:955c9ac8-9de0-41ee-aaab-796337a2e7aa
+2025-09-28 14:05:38 INFO student_handlers: User 962685584 selected test 955c9ac8-9de0-41ee-aaab-796337a2e7aa
+2025-09-28 14:05:40 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 14:05:43 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 14:05:44 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 14:05:45 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 14:05:48 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 14:05:48 INFO bot: Answer callback received: ans:1:C
+2025-09-28 14:05:48 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 14:05:50 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 14:05:52 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 14:05:52 INFO bot: Answer callback received: ans:1:A
+2025-09-28 14:05:52 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 14:20:08 INFO bot: Bot shutting down...
+2025-09-28 14:20:08 INFO telethon.network.mtprotosender: Disconnecting from 149.154.167.51:443/TcpFull...
+2025-09-28 14:20:08 INFO telethon.network.mtprotosender: Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-09-28 14:20:08 INFO telethon_service: User Telethon client stopped
+2025-09-28 14:20:08 INFO bot: Telethon service stopped
+2025-09-28 14:20:08 INFO custom_storage: Storage closed successfully
+2025-09-28 14:20:08 INFO custom_storage: Storage closed successfully
+2025-09-28 14:20:08 WARNING aiogram: Goodbye!
