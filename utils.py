@@ -1231,222 +1231,10 @@ _ANS_PAIR = re.compile(r"^\s*(\d+)\s*[\.\)\-]?\s*([A-Da-d])\s*$")
 _ANS_TOK = re.compile(r"^\s*(\d+)([A-Da-d])\s*$")
 _REF_LINE = re.compile(r"^\s*(\d+)[\.\)]\s*(.+)$")
 
-def parse_questions_from_text(block: str) -> List[dict]:
-    """Enhanced parser that handles code blocks and multi-line questions"""
-    lines = [ln.rstrip() for ln in block.splitlines()]
-    items: List[dict] = []
-    cur = None
-    in_code_block = False
-    code_lines = []
 
-    def push():
-        if not cur:
-            return
-        # Join any accumulated code lines to the question text
-        if code_lines:
-            cur["text"] = cur["text"] + "\n" + "\n".join(code_lines)
-            code_lines.clear()
-        opts = cur.get("options", {})
-        if len(opts) >= 2:
-            items.append(cur)
 
-    for i, ln in enumerate(lines):
-        # Skip empty lines but preserve them in code blocks
-        if not ln.strip():
-            if in_code_block and cur:
-                code_lines.append(ln)
-            continue
-        
-        # Check for question header
-        q_match = re.match(r'^\s*(\d+)\s*[\.\\)]\s*(.+)$', ln)
-        
-        # Check for option line
-        opt_match = re.match(r'^\s*([A-Da-d])\s*[\.\\)]\s*(.+)$', ln)
-        
-        # Determine if this is a new question
-        if q_match:
-            # Check if this might be code that looks like a question number
-            # by looking at the next line
-            next_line = lines[i+1] if i+1 < len(lines) else ""
-            next_is_option = bool(re.match(r'^\s*([A-Da-d])\s*[\.\\)]\s*', next_line))
-            
-            # It's a real question if:
-            # 1. We have no current question, OR
-            # 2. The next line is an option, OR
-            # 3. The number is sequential
-            expected_num = len(items) + 1 if not cur else cur["index"] + 1
-            actual_num = int(q_match.group(1))
-            
-            is_new_question = (
-                not cur or 
-                next_is_option or 
-                (actual_num == expected_num)
-            )
-            
-            if is_new_question:
-                # Save previous question if exists
-                if cur:
-                    push()
-                
-                # Start new question
-                idx = int(q_match.group(1))
-                text = q_match.group(2).strip()
-                cur = {"index": idx, "text": text, "options": {}}
-                in_code_block = False
-                code_lines = []
-                continue
-        
-        # Check for option line
-        if opt_match and cur:
-            # Save any accumulated code lines before starting options
-            if code_lines:
-                cur["text"] = cur["text"] + "\n" + "\n".join(code_lines)
-                code_lines = []
-                in_code_block = False
-            
-            key = opt_match.group(1).upper()
-            val = opt_match.group(2).strip()
-            cur["options"][key] = val
-            continue
-        
-        # If we're here, this is a continuation line
-        if cur:
-            # Detect code patterns
-            is_code = any([
-                ln.strip().startswith('const '),
-                ln.strip().startswith('let '),
-                ln.strip().startswith('var '),
-                ln.strip().startswith('function '),
-                'console.log' in ln,
-                '.push(' in ln,
-                '.pop(' in ln,
-                '.shift(' in ln,
-                '.unshift(' in ln,
-                '.splice(' in ln,
-                '.slice(' in ln,
-                '.split(' in ln,
-                '.join(' in ln,
-                '=>' in ln,
-                '= [' in ln,
-                '= {' in ln,
-                ln.strip().endswith(';'),
-                ln.strip().endswith('{') or ln.strip().endswith('}'),
-                ln.strip().startswith('//') or ln.strip().startswith('/*'),
-            ])
-            
-            if is_code or in_code_block:
-                in_code_block = True
-                code_lines.append(ln)
-            elif cur["options"]:
-                # We're in options section, continue last option
-                last_key = sorted(cur["options"].keys())[-1]
-                cur["options"][last_key] = (cur["options"][last_key] + " " + ln.strip()).strip()
-            else:
-                # Continue question text
-                if code_lines:
-                    # Flush code lines first
-                    cur["text"] = cur["text"] + "\n" + "\n".join(code_lines)
-                    code_lines = []
-                    in_code_block = False
-                # Add as regular text
-                cur["text"] = (cur["text"] + " " + ln.strip()).strip()
 
-    # Don't forget the last question
-    if cur:
-        push()
 
-    # Renumber if needed
-    if items:
-        for i, it in enumerate(items, 1):
-            it["index"] = i
-    
-    return items
-
-def parse_questions_from_text_v2(block: str) -> List[dict]:
-    """Alternative approach: preserve exact formatting between question and options"""
-    lines = block.splitlines()
-    items = []
-    current_q = None
-    buffer = []
-    
-    for i, line in enumerate(lines):
-        # Check if this is a question header
-        q_match = re.match(r'^\s*(\d+)\s*[\.\\)]\s*(.*)$', line)
-        
-        if q_match:
-            # Look ahead to see if options follow soon
-            has_options_ahead = False
-            for j in range(i+1, min(i+15, len(lines))):  # Look up to 15 lines ahead
-                if re.match(r'^\s*[A-Da-d]\s*[\.\\)]\s*', lines[j]):
-                    has_options_ahead = True
-                    break
-            
-            if has_options_ahead:
-                # Save previous question if exists
-                if current_q and buffer:
-                    current_q["text"] = current_q["text"] + "\n" + "\n".join(buffer)
-                    buffer = []
-                if current_q and len(current_q.get("options", {})) >= 2:
-                    items.append(current_q)
-                
-                # Start new question
-                current_q = {
-                    "index": int(q_match.group(1)),
-                    "text": q_match.group(2).strip() if q_match.group(2) else "",
-                    "options": {}
-                }
-                buffer = []
-                continue
-        
-        # Check if this is an option
-        opt_match = re.match(r'^\s*([A-Da-d])\s*[\.\\)]\s*(.*)$', line)
-        if opt_match and current_q is not None:
-            # Save any buffer to question text
-            if buffer and not current_q["options"]:
-                if current_q["text"]:
-                    current_q["text"] = current_q["text"] + "\n" + "\n".join(buffer)
-                else:
-                    current_q["text"] = "\n".join(buffer)
-                buffer = []
-            
-            key = opt_match.group(1).upper()
-            val = opt_match.group(2).strip() if opt_match.group(2) else ""
-            
-            # Check if we're continuing a previous option or starting new
-            if key in current_q["options"]:
-                # Continuing previous option (shouldn't happen usually)
-                current_q["options"][key] = current_q["options"][key] + " " + val
-            else:
-                # New option
-                current_q["options"][key] = val
-            continue
-        
-        # Continuation line
-        if current_q:
-            if current_q["options"]:
-                # We're in options, append to last option
-                last_key = max(current_q["options"].keys())
-                if line.strip():
-                    current_q["options"][last_key] = current_q["options"][last_key] + " " + line.strip()
-            else:
-                # We're still in question text, buffer it
-                buffer.append(line.rstrip())
-    
-    # Don't forget the last question
-    if current_q:
-        if buffer and not current_q["options"]:
-            if current_q["text"]:
-                current_q["text"] = current_q["text"] + "\n" + "\n".join(buffer)
-            else:
-                current_q["text"] = "\n".join(buffer)
-        if len(current_q.get("options", {})) >= 2:
-            items.append(current_q)
-    
-    # Renumber questions
-    for i, item in enumerate(items, 1):
-        item["index"] = i
-    
-    return items
 
 def parse_answers_from_text(block: str) -> Dict[str, str]:
     """Enhanced answer parser that handles various formats"""
@@ -1496,6 +1284,329 @@ def parse_answers_from_text(block: str) -> Dict[str, str]:
     
     return ans
 
+
+def parse_questions_from_text(text: str) -> List[dict]:
+    """
+    Robust parser for numbered questions with options A–D that:
+      - Preserves ALL lines between the question header and the first option (keeps code fences, blank lines).
+      - Treats a line like '2)' or '3.' as a new question ONLY if options (A–D) appear shortly after (lookahead).
+      - Allows multi-line options until the next option or a new question header (with lookahead guard).
+
+    Returns a list of dicts: {"index": int, "text": str, "options": {"A": ..., "B": ...}}
+    """
+    text = (text or "").replace("\r\n", "\n").replace("\r", "\n")
+    lines = [ln.rstrip() for ln in text.split("\n")]
+
+    q_re    = re.compile(r'^\s*(\d+)\s*[.)]\s*(.*)$')            # "3) ..." or "3. ..."
+    opt_re  = re.compile(r'^\s*([A-Da-d])\s*[.)]\s+(.*)$')        # "A) ..." (note the required space)
+    fence_re = re.compile(r'^\s*```')                             # code-fence toggle
+
+    items: List[dict] = []
+    cur: Optional[dict] = None
+    in_code = False
+
+    def has_options_ahead(start_idx: int, window: int = 12) -> bool:
+        end = min(len(lines), start_idx + window)
+        for j in range(start_idx, end):
+            if opt_re.match(lines[j]):
+                return True
+        return False
+
+    def push_current():
+        nonlocal cur
+        if not cur:
+            return
+        # valid only if it has at least 2 options and some text
+        if (cur.get("text") or "").strip() and len(cur.get("options", {})) >= 2:
+            items.append(cur)
+        cur = None
+
+    i = 0
+    # main loop
+    while i < len(lines):
+        ln = lines[i]
+
+        # toggle code fence
+        if fence_re.match(ln):
+            if cur is None:
+                # ignore stray fences before first question
+                i += 1
+                continue
+            if cur and not cur["options"]:
+                # still in question text
+                cur["text"] = (cur["text"] + ("\n" if cur["text"] else "") + ln)
+            else:
+                # inside options: append to last option if any
+                if cur["options"]:
+                    last_key = sorted(cur["options"].keys())[-1]
+                    cur["options"][last_key] += ("\n" + ln)
+            in_code = not in_code
+            i += 1
+            continue
+
+        # New question header?
+        m_q = q_re.match(ln) if not in_code else None
+        if m_q:
+            # Only treat as a new question if there are options in the near future
+            if has_options_ahead(i + 1):
+                push_current()
+                idx = int(m_q.group(1))
+                first = (m_q.group(2) or "").strip()
+                cur = {"index": idx, "text": first, "options": {}}
+
+                # Collect subsequent lines into question text until options start
+                i += 1
+                while i < len(lines):
+                    probe = lines[i]
+                    if opt_re.match(probe):
+                        break
+                    # If another numeric header appears, it’s only a real split if options follow it too
+                    if q_re.match(probe) and has_options_ahead(i + 1):
+                        break
+                    # keep structure (include blanks)
+                    if cur["text"]:
+                        cur["text"] += ("\n" + probe)
+                    else:
+                        cur["text"] = probe
+                    i += 1
+                continue
+            else:
+                # looks like numbered text inside question/code — treat as continuation
+                if cur:
+                    cur["text"] = (cur["text"] + ("\n" if cur["text"] else "") + ln)
+                i += 1
+                continue
+
+        # Option header?
+        m_opt = opt_re.match(ln) if not in_code else None
+        if m_opt and cur:
+            key = m_opt.group(1).upper()
+            val = (m_opt.group(2) or "").strip()
+
+            # Collect multi-line option body
+            i += 1
+            parts = [val] if val else []
+            while i < len(lines):
+                nxt = lines[i]
+                if opt_re.match(nxt):
+                    break
+                if q_re.match(nxt) and has_options_ahead(i + 1):
+                    break
+                parts.append(nxt)  # keep raw; trim later
+                i += 1
+            cur["options"][key] = "\n".join(s.rstrip() for s in parts).strip()
+            continue
+
+        # Otherwise, continuation of question text (before options)
+        if cur:
+            cur["text"] = (cur["text"] + ("\n" if cur["text"] else "") + ln)
+
+        i += 1
+
+    # flush last
+    push_current()
+
+    # Re-number sequentially for consistency
+    for j, q in enumerate(items, 1):
+        q["index"] = j
+
+    return items
+
+
+def parse_questions_from_text_v2(text: str) -> List[dict]:
+    """
+    Fallback parser that reuses your existing parse_questions_from_text_enhanced(...).
+    Kept separate so smart_parse_questions can compare results and pick the better one.
+    """
+    try:
+        return parse_questions_from_text_enhanced(text)
+    except Exception:
+        return []
+    
+def smart_parse_questions(text: str) -> List[dict]:
+    """
+    Try the robust parser first, fall back to v2 (enhanced) and pick the better result.
+    'Better' = more questions that each have text + at least 2 options.
+    """
+    def score(lst: List[dict]) -> Tuple[int, int]:
+        # (#valid, total)
+        valid = 0
+        for q in lst or []:
+            if (q.get("text") or "").strip() and len((q.get("options") or {})) >= 2:
+                valid += 1
+        return valid, len(lst or [])
+
+    a = parse_questions_from_text(text)
+    b = parse_questions_from_text_v2(text)
+
+    sa = score(a)
+    sb = score(b)
+
+    if sa > sb:
+        return a
+    if sb > sa:
+        return b
+    # tie-breaker: prefer the one with more lines in first question text (tends to keep code blocks)
+    def first_q_len(lst: List[dict]) -> int:
+        if not lst:
+            return 0
+        return len((lst[0].get("text") or "").splitlines())
+    return a if first_q_len(a) >= first_q_len(b) else b
+
+
+def smart_parse_questions_v2(text: str) -> List[dict]:
+    """Compatibility alias."""
+    return smart_parse_questions(text)
+
+
+
+def parse_questions_from_text_enhanced(block: str) -> List[dict]:
+    """Fixed parser that properly handles multi-line questions with code blocks"""
+    lines = [ln.rstrip() for ln in block.splitlines()]
+    items = []
+    i = 0
+    
+    while i < len(lines):
+        line = lines[i].strip()
+        
+        # Skip empty lines
+        if not line:
+            i += 1
+            continue
+        
+        # Check for question header (1. 2. etc)
+        q_match = re.match(r'^(\d+)\s*[\.\\)]\s*(.*)$', line)
+        
+        if q_match:
+            qnum = int(q_match.group(1))
+            question_text_parts = []
+            
+            # Add initial question text if present
+            initial_text = q_match.group(2).strip()
+            if initial_text:
+                question_text_parts.append(initial_text)
+            
+            i += 1
+            
+            # Collect ALL question text until we find options
+            while i < len(lines):
+                current_line = lines[i]
+                
+                # Check if this line starts an option (a) b) c) d))
+                if re.match(r'^\s*[A-Da-d]\s*[\.\\)]\s*', current_line):
+                    break
+                
+                # Check if this is the next question
+                next_q = re.match(r'^\s*(\d+)\s*[\.\\)]\s*', current_line)
+                if next_q and int(next_q.group(1)) > qnum:
+                    break
+                
+                # Add this line to question text
+                question_text_parts.append(current_line.rstrip())
+                i += 1
+            
+            # Join question text preserving structure
+            full_question = '\n'.join(question_text_parts).strip()
+            
+            # Collect options
+            options = {}
+            while i < len(lines):
+                opt_line = lines[i].strip()
+                opt_match = re.match(r'^([A-Da-d])\s*[\.\\)]\s*(.*)$', opt_line)
+                
+                if opt_match:
+                    key = opt_match.group(1).upper()
+                    value = opt_match.group(2).strip()
+                    
+                    # Collect multi-line option text
+                    i += 1
+                    option_parts = [value] if value else []
+                    
+                    while i < len(lines):
+                        next_line = lines[i].strip()
+                        
+                        # Stop if next option or question
+                        if (re.match(r'^[A-Da-d]\s*[\.\\)]\s*', next_line) or 
+                            re.match(r'^\d+\s*[\.\\)]\s*', next_line)):
+                            break
+                        
+                        if next_line:
+                            option_parts.append(next_line)
+                        i += 1
+                    
+                    options[key] = ' '.join(option_parts).strip()
+                else:
+                    break
+            
+            # Only add if we have valid question and options
+            if full_question and len(options) >= 2:
+                items.append({
+                    "index": qnum,
+                    "text": full_question,
+                    "options": options
+                })
+        else:
+            i += 1
+    
+    return items
+
+
+
+
+
+
+# Replace the existing parse_combined_file function
+def parse_combined_file_enhanced(file_path: str) -> Optional[dict]:
+    """Enhanced DOCX parser with better code block handling"""
+    try:
+        doc = Document(file_path)
+    except Exception as e:
+        raise ValueError(f"Cannot open DOCX: {e}")
+
+    qtxt, atxt, rtxt = _split_sections_from_doc(doc)
+    
+    # Use enhanced parser
+    questions = smart_parse_questions_v2(qtxt)
+    answers = parse_answers_from_text(atxt)
+    refs = parse_references_from_text(rtxt)
+
+    if not questions:
+        raise ValueError("No questions parsed. Ensure 'Savollar' section and proper numbering.")
+    
+    # Validate answers
+    for k, v in answers.items():
+        if v not in {"A", "B", "C", "D"}:
+            raise ValueError(f"Answer {k} has invalid option '{v}'")
+
+    # Generate test name from first question or filename
+    test_name = Path(file_path).stem
+    if questions and questions[0]["text"]:
+        first_q_text = questions[0]["text"][:50].replace('\n', ' ').strip()
+        if first_q_text:
+            test_name = first_q_text
+
+    return {
+        "test_name": test_name,
+        "questions": questions,
+        "answers": answers,
+        "references": refs,
+    }
+
+def parse_docx_bytes_enhanced(raw: bytes) -> Tuple[str, dict]:
+    """Enhanced DOCX parser wrapper"""
+    with tempfile.NamedTemporaryFile(suffix=".docx", delete=False) as tmp:
+        tmp.write(raw)
+        tmp.flush()
+        tmp_path = tmp.name
+    try:
+        parsed = parse_combined_file_enhanced(tmp_path)
+        name = parsed.get("test_name") or "Test"
+        return name, parsed
+    finally:
+        try:
+            os.unlink(tmp_path)
+        except Exception:
+            pass
 
 def parse_references_from_text(block: str) -> Dict[str, str]:
     """Enhanced reference parser that preserves code formatting"""
@@ -1590,64 +1701,54 @@ def _split_sections_from_doc(doc: Document) -> Tuple[str, str, str]:
         "\n".join(sections["refs"])
     )
 
-def smart_parse_questions(text: str) -> List[dict]:
-    """Smart parser that tries multiple strategies"""
-    # Try the enhanced parser first
-    result = parse_questions_from_text(text)
-    
-    # Validate the result
-    if result and all(q.get("text") and len(q.get("options", {})) >= 2 for q in result):
-        return result
-    
-    # If first parser failed, try alternative approach
-    result_v2 = parse_questions_from_text_v2(text)
-    if result_v2 and all(q.get("text") and len(q.get("options", {})) >= 2 for q in result_v2):
-        return result_v2
-    
-    # Return best result
-    return result if len(result) >= len(result_v2) else result_v2
+
 
 
 # Additional helper to validate and fix incomplete questions
-def validate_and_fix_questions(questions: List[dict], full_text: str) -> List[dict]:
-    """Post-process questions to ensure completeness"""
-    for q in questions:
-        # Check if question seems incomplete (too short for a code question)
-        if len(q["text"]) < 50 and "kod" in q["text"].lower():
-            # Try to find more content in the original text
-            q_num = q["index"]
-            
-            # Find question in original text
-            pattern = rf'\b{q_num}\s*[\.\\)]\s*(.*?)(?=\n\s*[A-Da-d]\s*[\.\\)])'
-            match = re.search(pattern, full_text, re.DOTALL)
-            
-            if match:
-                full_question = match.group(1).strip()
-                if len(full_question) > len(q["text"]):
-                    q["text"] = full_question
-    
-    return questions
+
 
 def parse_combined_file(file_path: str) -> Optional[dict]:
+    """
+    Parse a single DOCX that contains three sections:
+      - Savollar: numbered questions with options A–D
+      - Javoblar: mapping of question number -> correct option letter
+      - Izohlar (optional): references/notes
+
+    This version intentionally routes question parsing through the "smart" parser and
+    then post-fixes questions to avoid truncation of multi-line/code questions.
+    """
     try:
         doc = Document(file_path)
     except Exception as e:
         raise ValueError(f"Cannot open DOCX: {e}")
 
     qtxt, atxt, rtxt = _split_sections_from_doc(doc)
-    questions = parse_questions_from_text(qtxt)
+
+    # Use the safer pipeline to avoid cutting off question text (e.g., Q3).
+    questions = smart_parse_questions(qtxt)
+    questions = validate_and_fix_questions(questions, qtxt)
+
     answers = parse_answers_from_text(atxt)
     refs = parse_references_from_text(rtxt)
 
     if not questions:
-        raise ValueError("No questions parsed. Ensure 'Savollar' section and numbering like '1) ...' with options A-D.")
+        raise ValueError(
+            "No questions parsed. Ensure 'Savollar' section exists and questions are like '1) ...' "
+            "with options A–D on their own lines."
+        )
+
+    # Validate answers format
     for k, v in answers.items():
         if v not in {"A", "B", "C", "D"}:
             raise ValueError(f"Answer {k} has invalid option '{v}'")
 
+    # Derive a test name (fallback to filename)
     test_name = Path(file_path).stem
-    if questions:
-        test_name = questions[0]["text"][:40] or test_name
+    if questions and (questions[0].get("text") or "").strip():
+        # Use a snippet from the first question as a friendlier name (optional)
+        snippet = questions[0]["text"].strip().splitlines()[0]
+        if snippet:
+            test_name = snippet[:80]
 
     return {
         "test_name": test_name,
@@ -1656,20 +1757,38 @@ def parse_combined_file(file_path: str) -> Optional[dict]:
         "references": refs,
     }
 
+
+def validate_and_fix_questions(questions: List[dict], raw_q_text: str) -> List[dict]:
+    """
+    Light normalizer:
+      - Keep only options A..D (uppercased), drop extras.
+      - Drop questions with <2 options or empty text.
+      - Trim whitespace but preserve internal newlines.
+      - Renumber sequentially.
+    """
+    fixed: List[dict] = []
+    for q in questions or []:
+        text = (q.get("text") or "").strip("\n")
+        opts = {k.upper(): (v or "").strip("\n") for k, v in (q.get("options") or {}).items()}
+        # keep only A-D in order
+        clean_opts = {}
+        for k in ("A", "B", "C", "D"):
+            if k in opts and opts[k].strip():
+                clean_opts[k] = opts[k]
+
+        if text and len(clean_opts) >= 2:
+            fixed.append({"index": q.get("index") or 0, "text": text, "options": clean_opts})
+
+    # renumber 1..N
+    for i, q in enumerate(fixed, 1):
+        q["index"] = i
+
+    return fixed
+
+
 def parse_docx_bytes(raw: bytes) -> Tuple[str, dict]:
-    with tempfile.NamedTemporaryFile(suffix=".docx", delete=False) as tmp:
-        tmp.write(raw)
-        tmp.flush()
-        tmp_path = tmp.name
-    try:
-        parsed = parse_combined_file(tmp_path)
-        name = parsed.get("test_name") or "Test"
-        return name, parsed
-    finally:
-        try:
-            os.unlink(tmp_path)
-        except Exception:
-            pass
+    """Compat wrapper: eski nom → parse_docx_bytes_enhanced."""
+    return parse_docx_bytes_enhanced(raw)
 
 def score_user_answers(user_answers: Dict[str, str], correct: Dict[str, str]) -> Tuple[int, int]:
     total = len(correct or {})
@@ -1682,7 +1801,15 @@ def score_user_answers(user_answers: Dict[str, str], correct: Dict[str, str]) ->
     return ok, total
 
 
-
+def validate_test_id(test_id: str) -> bool:
+    """
+    Test ID uchun yagona, qat’iy validator.
+    Harf/raqam, chiziqcha (-) va pastki chiziq (_) ruxsat.
+    Uzunligi: 1..100
+    """
+    if not isinstance(test_id, str) or not test_id or len(test_id) > 100:
+        return False
+    return bool(re.match(r'^[A-Za-z0-9_-]+$', test_id))
 
 
 

@@ -36028,3 +36028,244 @@ aiogram.utils.exceptions.InvalidQueryID: Query is too old and response timeout e
 2025-09-26 11:37:18 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
 2025-09-26 11:37:21 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
 2025-09-26 11:41:19 INFO bot.audit: Update [message] from user 5718626045 (no_username) - ID: 
+2025-09-28 12:15:54 INFO bot: Custom JSON storage initialized successfully (aiogram v3)
+2025-09-28 12:15:55 WARNING aiogram: Updates were skipped successfully.
+2025-09-28 12:15:55 INFO bot: Watchdog started
+2025-09-28 12:15:55 INFO telethon.network.mtprotosender: Connecting to 149.154.167.51:443/TcpFull...
+2025-09-28 12:15:56 INFO telethon.network.mtprotosender: Connection to 149.154.167.51:443/TcpFull complete!
+2025-09-28 12:15:56 INFO telethon_service: User Telethon client started as Abdurahmon (ID: 7040724501)
+2025-09-28 12:15:56 INFO bot: ✅ Owner Telethon initialized
+2025-09-28 12:15:56 INFO bot: Bot started successfully
+2025-09-28 12:16:00 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:32:48 INFO telethon.client.updates: Got difference for account updates
+2025-09-28 12:46:59 INFO bot: Bot shutting down...
+2025-09-28 12:46:59 INFO telethon.network.mtprotosender: Disconnecting from 149.154.167.51:443/TcpFull...
+2025-09-28 12:46:59 INFO telethon.network.mtprotosender: Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-09-28 12:46:59 INFO telethon_service: User Telethon client stopped
+2025-09-28 12:46:59 INFO bot: Telethon service stopped
+2025-09-28 12:46:59 INFO custom_storage: Storage closed successfully
+2025-09-28 12:46:59 INFO custom_storage: Storage closed successfully
+2025-09-28 12:46:59 WARNING aiogram: Goodbye!
+2025-09-28 12:47:00 INFO bot: Custom JSON storage initialized successfully (aiogram v3)
+2025-09-28 12:47:01 WARNING aiogram: Updates were skipped successfully.
+2025-09-28 12:47:01 INFO bot: Watchdog started
+2025-09-28 12:47:01 INFO telethon.network.mtprotosender: Connecting to 149.154.167.51:443/TcpFull...
+2025-09-28 12:47:01 INFO telethon.network.mtprotosender: Connection to 149.154.167.51:443/TcpFull complete!
+2025-09-28 12:47:02 INFO telethon_service: User Telethon client started as Abdurahmon (ID: 7040724501)
+2025-09-28 12:47:02 INFO bot: ✅ Owner Telethon initialized
+2025-09-28 12:47:02 INFO bot: Bot started successfully
+2025-09-28 12:47:09 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:47:15 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:47:15 INFO bot: New test flow callback: new_t:pick:b68f3d96-6464-410c-a187-565de016b87e:-1003055538272
+2025-09-28 12:47:21 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:47:21 INFO bot: New test flow callback: new_t:activate:b68f3d96-6464-410c-a187-565de016b87e
+2025-09-28 12:48:59 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:49:00 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-28 12:49:00 INFO utils: Test b68f3d96-6464-410c-a187-565de016b87e available for user 962685584 (groups: {-1003055538272})
+2025-09-28 12:49:00 INFO utils: Test 1e7d5c78-53f7-40cb-9761-042e2b7e6e41 available for user 962685584 (groups: {-1003055538272, -4770290796, -4613659145})
+2025-09-28 12:49:00 INFO utils: Test e57f0bfd-b0ed-4b0e-8855-636c6f381c66 available for user 962685584 (groups: {-1003055538272})
+2025-09-28 12:49:00 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-28 12:49:00 INFO utils: Test b68f3d96-6464-410c-a187-565de016b87e available for user 962685584 (groups: {-1003055538272})
+2025-09-28 12:49:00 INFO utils: Test 1e7d5c78-53f7-40cb-9761-042e2b7e6e41 available for user 962685584 (groups: {-1003055538272, -4770290796, -4613659145})
+2025-09-28 12:49:00 INFO utils: Test e57f0bfd-b0ed-4b0e-8855-636c6f381c66 available for user 962685584 (groups: {-1003055538272})
+2025-09-28 12:49:00 INFO student_handlers: User 962685584 - Groups from user_groups.json: [-1003055538272]
+2025-09-28 12:49:00 INFO student_handlers: User 962685584 - Groups from group_members.json: [-1003055538272]
+2025-09-28 12:49:00 INFO student_handlers: User 962685584 - Available tests: 3
+2025-09-28 12:49:12 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:49:12 INFO bot: Test selection callback: select_test:b68f3d96-6464-410c-a187-565de016b87e
+2025-09-28 12:49:12 INFO student_handlers: User 962685584 selected test b68f3d96-6464-410c-a187-565de016b87e
+2025-09-28 12:49:15 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:49:16 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:49:18 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:49:21 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:49:21 INFO bot: Answer callback received: ans:1:A
+2025-09-28 12:49:21 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 12:49:24 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:49:24 INFO bot: Answer callback received: ans:2:A
+2025-09-28 12:49:24 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 12:49:24 ERROR student_handlers: Error in _process_answer: Can't parse entities: unsupported start tag "=arr.length" at byte offset 98
+2025-09-28 12:50:07 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:50:07 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-28 12:50:07 INFO utils: Test b68f3d96-6464-410c-a187-565de016b87e available for user 962685584 (groups: {-1003055538272})
+2025-09-28 12:50:07 INFO utils: Test 1e7d5c78-53f7-40cb-9761-042e2b7e6e41 available for user 962685584 (groups: {-1003055538272, -4770290796, -4613659145})
+2025-09-28 12:50:07 INFO utils: Test e57f0bfd-b0ed-4b0e-8855-636c6f381c66 available for user 962685584 (groups: {-1003055538272})
+2025-09-28 12:50:07 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-28 12:50:07 INFO utils: Test b68f3d96-6464-410c-a187-565de016b87e available for user 962685584 (groups: {-1003055538272})
+2025-09-28 12:50:07 INFO utils: Test 1e7d5c78-53f7-40cb-9761-042e2b7e6e41 available for user 962685584 (groups: {-1003055538272, -4770290796, -4613659145})
+2025-09-28 12:50:07 INFO utils: Test e57f0bfd-b0ed-4b0e-8855-636c6f381c66 available for user 962685584 (groups: {-1003055538272})
+2025-09-28 12:50:07 INFO student_handlers: User 962685584 - Groups from user_groups.json: [-1003055538272]
+2025-09-28 12:50:07 INFO student_handlers: User 962685584 - Groups from group_members.json: [-1003055538272]
+2025-09-28 12:50:07 INFO student_handlers: User 962685584 - Available tests: 3
+2025-09-28 12:50:09 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:50:09 INFO bot: Test selection callback: select_test:b68f3d96-6464-410c-a187-565de016b87e
+2025-09-28 12:50:11 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:50:14 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:50:14 INFO bot: Answer callback received: ans:2:D
+2025-09-28 12:50:14 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 12:50:14 ERROR student_handlers: Error in _process_answer: Can't parse entities: unsupported start tag "=arr.length" at byte offset 98
+2025-09-28 12:57:12 INFO bot: Bot shutting down...
+2025-09-28 12:57:12 INFO telethon.network.mtprotosender: Disconnecting from 149.154.167.51:443/TcpFull...
+2025-09-28 12:57:12 INFO telethon.network.mtprotosender: Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-09-28 12:57:12 INFO telethon_service: User Telethon client stopped
+2025-09-28 12:57:12 INFO bot: Telethon service stopped
+2025-09-28 12:57:12 INFO custom_storage: Storage closed successfully
+2025-09-28 12:57:12 INFO custom_storage: Storage closed successfully
+2025-09-28 12:57:12 WARNING aiogram: Goodbye!
+2025-09-28 12:57:13 INFO bot: Custom JSON storage initialized successfully (aiogram v3)
+2025-09-28 12:57:19 WARNING aiogram: Updates were skipped successfully.
+2025-09-28 12:57:19 INFO bot: Watchdog started
+2025-09-28 12:57:19 INFO telethon.network.mtprotosender: Connecting to 149.154.167.51:443/TcpFull...
+2025-09-28 12:57:19 INFO telethon.network.mtprotosender: Connection to 149.154.167.51:443/TcpFull complete!
+2025-09-28 12:57:20 INFO telethon_service: User Telethon client started as Abdurahmon (ID: 7040724501)
+2025-09-28 12:57:20 INFO bot: ✅ Owner Telethon initialized
+2025-09-28 12:57:20 INFO bot: Bot started successfully
+2025-09-28 12:57:23 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:25 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:25 INFO bot: Owner panel callback: panel:tests
+2025-09-28 12:57:25 INFO admin_handlers: Admin callback router: panel:tests
+2025-09-28 12:57:27 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:27 INFO bot: Test action callback: t:view:3fb026c8-20fc-4ef2-80e4-a5d847c591c2
+2025-09-28 12:57:28 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:28 INFO bot: Test action callback: t:del:3fb026c8-20fc-4ef2-80e4-a5d847c591c2
+2025-09-28 12:57:29 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:29 INFO bot: Test action callback: t:delconfirm:3fb026c8-20fc-4ef2-80e4-a5d847c591c2
+2025-09-28 12:57:32 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:32 INFO bot: Test action callback: t:view:07e4ae0d-1873-463e-9245-7b4eb342e1ff
+2025-09-28 12:57:34 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:34 INFO bot: Test action callback: t:del:07e4ae0d-1873-463e-9245-7b4eb342e1ff
+2025-09-28 12:57:35 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:35 INFO bot: Test action callback: t:delconfirm:07e4ae0d-1873-463e-9245-7b4eb342e1ff
+2025-09-28 12:57:37 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:37 INFO bot: Test action callback: t:view:e57f0bfd-b0ed-4b0e-8855-636c6f381c66
+2025-09-28 12:57:39 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:39 INFO bot: Test action callback: t:del:e57f0bfd-b0ed-4b0e-8855-636c6f381c66
+2025-09-28 12:57:40 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:40 INFO bot: Test action callback: t:delconfirm:e57f0bfd-b0ed-4b0e-8855-636c6f381c66
+2025-09-28 12:57:42 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:42 INFO bot: Test action callback: t:view:b68f3d96-6464-410c-a187-565de016b87e
+2025-09-28 12:57:44 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:44 INFO bot: Test action callback: t:del:b68f3d96-6464-410c-a187-565de016b87e
+2025-09-28 12:57:46 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:46 INFO bot: Test action callback: t:delconfirm:b68f3d96-6464-410c-a187-565de016b87e
+2025-09-28 12:57:47 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:47 INFO bot: Test action callback: t:view:1e7d5c78-53f7-40cb-9761-042e2b7e6e41
+2025-09-28 12:57:49 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:49 INFO bot: Test action callback: t:del:1e7d5c78-53f7-40cb-9761-042e2b7e6e41
+2025-09-28 12:57:51 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:57:51 INFO bot: Test action callback: t:delconfirm:1e7d5c78-53f7-40cb-9761-042e2b7e6e41
+2025-09-28 12:57:59 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:58:05 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:58:05 INFO bot: New test flow callback: new_t:pick:d832e575-247e-481a-ac40-dd4988be45d2:-1003055538272
+2025-09-28 12:58:09 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 12:58:09 INFO bot: New test flow callback: new_t:activate:d832e575-247e-481a-ac40-dd4988be45d2
+2025-09-28 12:58:25 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:58:25 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-28 12:58:25 INFO utils: Test d832e575-247e-481a-ac40-dd4988be45d2 available for user 962685584 (groups: {-1003055538272})
+2025-09-28 12:58:25 INFO utils: User 962685584 is member of groups: {-1003055538272}
+2025-09-28 12:58:25 INFO utils: Test d832e575-247e-481a-ac40-dd4988be45d2 available for user 962685584 (groups: {-1003055538272})
+2025-09-28 12:58:25 INFO student_handlers: User 962685584 - Groups from user_groups.json: [-1003055538272]
+2025-09-28 12:58:25 INFO student_handlers: User 962685584 - Groups from group_members.json: [-1003055538272]
+2025-09-28 12:58:25 INFO student_handlers: User 962685584 - Available tests: 1
+2025-09-28 12:58:26 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:58:26 INFO bot: Test selection callback: select_test:d832e575-247e-481a-ac40-dd4988be45d2
+2025-09-28 12:58:26 INFO student_handlers: User 962685584 selected test d832e575-247e-481a-ac40-dd4988be45d2
+2025-09-28 12:58:28 INFO bot.audit: Update [message] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:58:30 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:58:31 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:58:33 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:58:33 INFO bot: Answer callback received: ans:1:A
+2025-09-28 12:58:33 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 12:58:34 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:58:34 INFO bot: Answer callback received: ans:2:C
+2025-09-28 12:58:34 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 12:58:36 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:58:39 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:58:39 INFO bot: Answer callback received: ans:2:D
+2025-09-28 12:58:39 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 12:58:41 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:58:44 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:58:44 INFO bot: Answer callback received: ans:2:B
+2025-09-28 12:58:44 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 12:58:49 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:58:49 INFO bot: Answer callback received: ans:3:C
+2025-09-28 12:58:49 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 12:58:53 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:58:53 INFO bot: Answer callback received: ans:4:B
+2025-09-28 12:58:53 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 12:58:54 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:58:57 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:58:57 INFO bot: Answer callback received: ans:4:D
+2025-09-28 12:58:57 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 12:59:02 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 12:59:02 INFO bot: Answer callback received: ans:5:A
+2025-09-28 12:59:02 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 13:00:08 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 13:00:08 INFO bot: Answer callback received: ans:6:C
+2025-09-28 13:00:08 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 13:00:29 INFO bot.audit: Update [callback] from user 962685584 (no_username) - ID: Nizomiddin Marxumov. Oqqorgon Bosh Imom Xatibi
+2025-09-28 13:00:29 INFO bot: Answer callback received: ans:7:B
+2025-09-28 13:00:29 INFO bot: Current user state: StudentStates:Answering
+2025-09-28 13:05:44 INFO bot: Bot shutting down...
+2025-09-28 13:05:44 INFO telethon.network.mtprotosender: Disconnecting from 149.154.167.51:443/TcpFull...
+2025-09-28 13:05:44 INFO telethon.network.mtprotosender: Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-09-28 13:05:44 INFO telethon_service: User Telethon client stopped
+2025-09-28 13:05:44 INFO bot: Telethon service stopped
+2025-09-28 13:05:44 INFO custom_storage: Storage closed successfully
+2025-09-28 13:05:44 INFO custom_storage: Storage closed successfully
+2025-09-28 13:05:44 WARNING aiogram: Goodbye!
+2025-09-28 13:05:45 INFO bot: Custom JSON storage initialized successfully (aiogram v3)
+2025-09-28 13:05:46 WARNING aiogram: Updates were skipped successfully.
+2025-09-28 13:05:46 INFO bot: Watchdog started
+2025-09-28 13:05:46 INFO telethon.network.mtprotosender: Connecting to 149.154.167.51:443/TcpFull...
+2025-09-28 13:05:46 INFO telethon.network.mtprotosender: Connection to 149.154.167.51:443/TcpFull complete!
+2025-09-28 13:05:47 INFO telethon_service: User Telethon client started as Abdurahmon (ID: 7040724501)
+2025-09-28 13:05:47 INFO bot: ✅ Owner Telethon initialized
+2025-09-28 13:05:47 INFO bot: Bot started successfully
+2025-09-28 13:05:54 INFO bot.audit: Update [message] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:05:58 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:05:58 INFO bot: Owner panel callback: panel:tests
+2025-09-28 13:05:58 INFO admin_handlers: Admin callback router: panel:tests
+2025-09-28 13:06:00 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:06:00 INFO bot: Test action callback: t:view:d832e575-247e-481a-ac40-dd4988be45d2
+2025-09-28 13:06:03 INFO bot.audit: Update [callback] from user 7040724501 (@sofutocoding) - ID: Abdurahmon
+2025-09-28 13:06:03 INFO bot: Test action callback: t:assign:d832e575-247e-481a-ac40-dd4988be45d2
+2025-09-28 13:06:06 ERROR bot: Update {"update_id": 965696394, "callback_query": {"id": "2569565365262970408", "from": {"id": 7040724501, "is_bot": false, "first_name": "Abdurahmon", "username": "sofutocoding", "language_code": "en", "is_premium": true}, "message": {"message_id": 54012, "from": {"id": 7565024869, "is_bot": true, "first_name": "SofutoAcademyTestBot", "username": "SofutoAcademyTestbot"}, "chat": {"id": 7040724501, "first_name": "Abdurahmon", "username": "sofutocoding", "type": "private"}, "date": 1759046754, "edit_date": 1759046760, "text": "JS_For_Loops_Test_20250927_164350\nd832e575-247e-481a-ac40-dd4988be45d2\n\nStatus: 🟢 FAOL", "entities": [{"type": "bold", "offset": 0, "length": 33}, {"type": "code", "offset": 34, "length": 36}, {"type": "bold", "offset": 72, "length": 7}], "reply_markup": {"inline_keyboard": [[{"text": "🔴 Faolsizlantirish", "callback_data": "t:deact:d832e575-247e-481a-ac40-dd4988be45d2"}], [{"text": "📌 Guruhlarga tayinlash", "callback_data": "t:assign:d832e575-247e-481a-ac40-dd4988be45d2"}], [{"text": "🗑 O‘chirish", "callback_data": "t:del:d832e575-247e-481a-ac40-dd4988be45d2"}], [{"text": "⬅️ Ro‘yxatga", "callback_data": "panel:tests"}]]}}, "chat_instance": "-3414693137917078300", "data": "t:assign:d832e575-247e-481a-ac40-dd4988be45d2"}} caused error: Button_data_invalid
+Traceback (most recent call last):
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/dispatcher/dispatcher.py", line 283, in process_update
+    return await self.callback_query_handlers.notify(update.callback_query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/bot.py", line 280, in cb_test_actions
+    await cb_test_action(cb, state)
+  File "/home/sofuto/Desktop/botadmin/admin_handlers.py", line 1084, in cb_test_action
+    return await _assign_show_ui(cb, state, tid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/admin_handlers.py", line 894, in _assign_show_ui
+    await cb.message.edit_text(text, reply_markup=_assign_build_kb(tid, items, selected))
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/types/message.py", line 2919, in edit_text
+    return await self.bot.edit_message_text(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/bot.py", line 3122, in edit_message_text
+    result = await self.request(api.Methods.EDIT_MESSAGE_TEXT, payload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/bot/api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+  File "/home/sofuto/Desktop/botadmin/venv/lib/python3.11/site-packages/aiogram/utils/exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ButtonDataInvalid: Button_data_invalid
+2025-09-28 13:08:09 INFO bot: Bot shutting down...
+2025-09-28 13:08:09 INFO telethon.network.mtprotosender: Disconnecting from 149.154.167.51:443/TcpFull...
+2025-09-28 13:08:09 INFO telethon.network.mtprotosender: Disconnection from 149.154.167.51:443/TcpFull complete!
+2025-09-28 13:08:09 INFO telethon_service: User Telethon client stopped
+2025-09-28 13:08:09 INFO bot: Telethon service stopped
+2025-09-28 13:08:09 INFO custom_storage: Storage closed successfully
+2025-09-28 13:08:09 INFO custom_storage: Storage closed successfully
+2025-09-28 13:08:09 WARNING aiogram: Goodbye!

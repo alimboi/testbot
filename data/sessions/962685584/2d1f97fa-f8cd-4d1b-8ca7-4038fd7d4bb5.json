@@ -1,0 +1,23 @@
+{
+  "active_test_id": "2d1f97fa-f8cd-4d1b-8ca7-4038fd7d4bb5",
+  "student_name": "Hahha",
+  "started_at": 1758870226,
+  "answers": {
+    "1": "B",
+    "2": "C"
+  },
+  "current_q": 3,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1
+  },
+  "excluded_options": {
+    "1": [
+      "B"
+    ],
+    "2": []
+  },
+  "waiting_understanding": false,
+  "current_reference": "Flex konteynerda asosiy o‘q bo‘yicha markazlash: quyidagi HTML/CSS natijasi asosiy o‘q bo‘yicha qanday joylashuvni beradi? Flexda justify-content asosiy o‘q (default: gorizontal) bo‘yicha, align-items esa kesishuvchi o‘q (vertikal) bo‘yicha joylashadi. center + flex-start → gorizontal markaz, vertikal yuqori.",
+  "last_updated": 1758870368
+}

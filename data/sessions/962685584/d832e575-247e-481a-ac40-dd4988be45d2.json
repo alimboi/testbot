@@ -1,0 +1,37 @@
+{
+  "active_test_id": "d832e575-247e-481a-ac40-dd4988be45d2",
+  "student_name": "Cd",
+  "started_at": 1759046311,
+  "answers": {
+    "1": "A",
+    "2": "C",
+    "3": "C",
+    "4": "B",
+    "5": "A",
+    "6": "C",
+    "7": "B"
+  },
+  "current_q": 8,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 2,
+    "4": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "C",
+      "D"
+    ],
+    "3": [],
+    "4": [
+      "B"
+    ],
+    "5": [],
+    "6": [],
+    "7": []
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759046429
+}

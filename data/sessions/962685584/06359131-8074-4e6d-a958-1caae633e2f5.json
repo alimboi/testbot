@@ -1,0 +1,87 @@
+{
+  "active_test_id": "06359131-8074-4e6d-a958-1caae633e2f5",
+  "student_name": "Hhaha",
+  "started_at": 1758881026,
+  "answers": {
+    "1": "A",
+    "2": "D",
+    "3": "C",
+    "4": "A",
+    "5": "C",
+    "6": "C",
+    "7": "D",
+    "8": "A",
+    "9": "C",
+    "10": "B",
+    "11": "C",
+    "12": "A",
+    "13": "B",
+    "14": "B",
+    "15": "C",
+    "16": "B",
+    "17": "B",
+    "18": "C",
+    "19": "B",
+    "20": "A",
+    "21": "C",
+    "22": "C",
+    "23": "B",
+    "24": "A"
+  },
+  "current_q": 25,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 1,
+    "5": 1,
+    "14": 1,
+    "16": 1,
+    "20": 1,
+    "21": 3,
+    "22": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "D"
+    ],
+    "3": [],
+    "4": [],
+    "5": [
+      "C"
+    ],
+    "6": [],
+    "7": [],
+    "8": [],
+    "9": [],
+    "10": [],
+    "11": [],
+    "12": [],
+    "13": [],
+    "14": [
+      "B"
+    ],
+    "15": [],
+    "16": [
+      "B"
+    ],
+    "17": [],
+    "18": [],
+    "19": [],
+    "20": [
+      "A"
+    ],
+    "21": [
+      "C",
+      "B",
+      "A"
+    ],
+    "22": [
+      "C"
+    ],
+    "23": [],
+    "24": []
+  },
+  "waiting_understanding": false,
+  "current_reference": "var function-scope bo‘lib, if ichidan tashqarida ham mavjud. let block-scope — if blokidan tashqarida ko‘rinmaydi. Shuning uchun a number, b undefined ko‘rinadi.",
+  "last_updated": 1758892285
+}

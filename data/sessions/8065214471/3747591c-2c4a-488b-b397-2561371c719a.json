@@ -1,0 +1,38 @@
+{
+  "active_test_id": "3747591c-2c4a-488b-b397-2561371c719a",
+  "student_name": "Rahmatulloh",
+  "started_at": 1758871649,
+  "answers": {
+    "1": "A",
+    "2": "D",
+    "3": "B",
+    "4": "D",
+    "5": "A",
+    "6": "B"
+  },
+  "current_q": 7,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 3,
+    "6": 3
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "D",
+      "A",
+      "B"
+    ],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": [
+      "B",
+      "A",
+      "C"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "splice bilan o‘rtaga bir nechta element qo‘shish natijasini toping. splice(2,0,3,4) indeksi 2 dan O‘CHIRMASDAN 3 va 4 ni qo‘shadi → [1,2,3,4,5,6].",
+  "last_updated": 1758872786
+}

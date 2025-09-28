@@ -1,0 +1,42 @@
+{
+  "active_test_id": "fb89420c-7ec5-4829-bddf-8e359e7c605f",
+  "student_name": "Rahmatulloh",
+  "started_at": 1758886442,
+  "answers": {
+    "1": "A",
+    "2": "B",
+    "3": "D",
+    "4": "B",
+    "5": "A",
+    "6": "B",
+    "7": "A",
+    "8": "D"
+  },
+  "current_q": 9,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1,
+    "2": 1,
+    "8": 2
+  },
+  "excluded_options": {
+    "1": [
+      "A"
+    ],
+    "2": [
+      "B"
+    ],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": [],
+    "7": [],
+    "8": [
+      "D",
+      "B"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "`-` belgisi bo‘lgan kalit uchun qavsli yozuv kerak: `user[key]`. `user.first-name` – bu `user.first` minus `name` (undefined) natijada `NaN`.",
+  "last_updated": 1758886714
+}

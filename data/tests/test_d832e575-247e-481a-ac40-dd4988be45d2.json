@@ -1,0 +1,376 @@
+{
+  "test_id": "d832e575-247e-481a-ac40-dd4988be45d2",
+  "test_name": "JS_For_Loops_Test_20250927_164350",
+  "questions": [
+    {
+      "index": 1,
+      "text": "Quyidagi for sikli nechta raqamni konsolga chiqaradi?\n```js\nlet count = 0;\nfor (let i = 2; i < 10; i += 2) {\n  console.log(i);\n  count++;\n}\nconsole.log(\"count:\", count);\n```",
+      "options": {
+        "A": "Konsolga 2,4,6,8 va so‘ng \"count: 4\" chiqadi",
+        "B": "Faqat \"count: 4\" chiqadi",
+        "C": "Hech narsa chiqmaydi",
+        "D": "Konsolga 2,4,6,8 va so‘ng \"count: 5\" chiqadi"
+      }
+    },
+    {
+      "index": 2,
+      "text": "Massivdagi elementlar yig‘indisini to‘g‘ri hisoblaydigan kodni tanlang.\n```js\nconst arr = [1, 2, 3, 4];\n```",
+      "options": {
+        "A": "let s=0; for (let i=0;i<=arr.length;i++){ s+=arr[i]; } console.log(s);",
+        "B": "let s=0; for (let i=0;i<arr.length;i++){ s+=arr[i]; } console.log(s);",
+        "C": "let s=0; for (let i=1;i<=arr.length;i++){ s+=arr[i]; } console.log(s);",
+        "D": "let s=0; for (let x of arr.length){ s+=x; } console.log(s);"
+      }
+    },
+    {
+      "index": 3,
+      "text": "forEach bilan massivdagi juft sonlarni nechta ekanligini sanaydigan kod natijasi?\n```js\nconst a = [3,6,1,8,4];\nlet c = 0;\na.forEach(n => { if (n % 2 === 0) c++; });\nconsole.log(c);\n```",
+      "options": {
+        "A": "5",
+        "B": "2",
+        "C": "3",
+        "D": "4"
+      }
+    },
+    {
+      "index": 4,
+      "text": "Quyidagi kod nima chiqaradi?\n```js\nconst arr = [10, 20, 30];\nfor (let i = 0; i < arr.length; i++) {\n  if (i === 1) continue;\n  console.log(arr[i]);\n}\n```",
+      "options": {
+        "A": "30 va 20",
+        "B": "Faqat 20",
+        "C": "10, 20, 30",
+        "D": "10 va 30"
+      }
+    },
+    {
+      "index": 5,
+      "text": "Nested for: nechta yulduzcha chiqadi?\n```js\nlet s = \"\";\nfor (let i = 0; i < 3; i++) {\n  for (let j = 0; j < 2; j++) {\n    s += \"*\";\n  }\n}\nconsole.log(s.length);\n```",
+      "options": {
+        "A": "6",
+        "B": "5",
+        "C": "2",
+        "D": "3"
+      }
+    },
+    {
+      "index": 6,
+      "text": "for...of va forEach farqini aniqlang: qaysi biri break ni qo‘llab-quvvatlaydi?\n```js\nconst nums = [1,2,3,4];\n```",
+      "options": {
+        "A": "faqat forEach da break ishlaydi",
+        "B": "Hech qaysisida break ishlamaydi",
+        "C": "for...of break ishlaydi, forEach da break ishlamaydi",
+        "D": "Har ikkalasida ham break ishlaydi"
+      }
+    },
+    {
+      "index": 7,
+      "text": "Index bilan forEach ishlatish: quyidagi natija nima?\n```js\nconst a = ['a','b','c'];\na.forEach((v,i)=>{ if(i===1) console.log(v); });\n```",
+      "options": {
+        "A": "a",
+        "B": "b",
+        "C": "c",
+        "D": "Hech narsa"
+      }
+    },
+    {
+      "index": 8,
+      "text": "Massiv ichidagi massiv: nechta satr hosil bo‘ladi?\n```js\nconst grid = [[1,2],[3,4],[5,6]];\nlet rows = 0;\nfor (let i = 0; i < grid.length; i++) {\n  rows++;\n}\nconsole.log(rows);\n```",
+      "options": {
+        "A": "2",
+        "B": "6",
+        "C": "3",
+        "D": "0"
+      }
+    },
+    {
+      "index": 9,
+      "text": "Ichki massiv elementlarini yig‘ish: natija?\n```js\nconst grid = [[1,2],[3],[4,5]];\nlet sum = 0;\nfor (let i = 0; i < grid.length; i++) {\n  for (let j = 0; j < grid[i].length; j++) {\n    sum += grid[i][j];\n  }\n}\nconsole.log(sum);\n```",
+      "options": {
+        "A": "9",
+        "B": "10",
+        "C": "12",
+        "D": "15"
+      }
+    },
+    {
+      "index": 10,
+      "text": "Off-by-one xatosini toping. Qaysi kod xato?\n```js\nconst a = [0,1,2,3];\n```",
+      "options": {
+        "A": "for (let i=0;i<=a.length;i++){ console.log(a[i]); }",
+        "B": "for (let i=a.length-1;i>=0;i--){ console.log(a[i]); }",
+        "C": "for (let i=1;i<a.length;i++){ console.log(a[i]); }",
+        "D": "for (let i=0;i<a.length;i++){ console.log(a[i]); }"
+      }
+    },
+    {
+      "index": 11,
+      "text": "break ishlatilganda natija?\n```js\nconst xs=[5,7,9,11];\nfor (let i=0;i<xs.length;i++){\n  if(xs[i]===9) break;\n}\nconsole.log(\"done\");\n```",
+      "options": {
+        "A": "\"9\" chiqadi",
+        "B": "\"done\" chiqmaydi",
+        "C": "\"done\" chiqadi",
+        "D": "Xato: break faqat while da ishlaydi"
+      }
+    },
+    {
+      "index": 12,
+      "text": "continue bilan natija?\n```js\nfor (let i=0;i<4;i++){\n  if(i===2) continue;\n  console.log(i);\n}\n```",
+      "options": {
+        "A": "0,1,3",
+        "B": "1,2,3",
+        "C": "0,1,2,3",
+        "D": "Faqat 2"
+      }
+    },
+    {
+      "index": 13,
+      "text": "forEach callback ichida return nima qiladi?\n```js\n[1,2,3].forEach(n=>{\n  if(n===2) return;\n  console.log(n);\n});\n```",
+      "options": {
+        "A": "throw ga teng",
+        "B": "Keyingi 2 ta elementni ham o‘tkazadi",
+        "C": "Butun aylanmani to‘xtatadi (break)",
+        "D": "Faqat shu iteratsiyani o‘tkazadi, lekin tashqi sikl to‘xtamaydi"
+      }
+    },
+    {
+      "index": 14,
+      "text": "for...of bilan indeksga ehtiyoj bo‘lsa qanday qilinadi?\n```js\nconst arr = ['x','y','z'];\n```",
+      "options": {
+        "A": "for...of avtomatik (i,v) beradi",
+        "B": "entries() dan foydalanish: for (const [i,v] of arr.entries()){}",
+        "C": "forEach indeks bermaydi",
+        "D": "arr.keys() dan foydalanish: for (const [i,v] of arr.keys()){}"
+      }
+    },
+    {
+      "index": 15,
+      "text": "Massivni teskari tartibda yozish: qaysi kod konsolga 3,2,1 chiqaradi?\n```js\nconst a=[1,2,3];\n```",
+      "options": {
+        "A": "for(let i=a.length;i>=0;i--){ console.log(a[i]); }",
+        "B": "for(let i=0;i<=a.length;i++){ console.log(a[i]); }",
+        "C": "for(let i=0;i<a.length;i++){ console.log(a[i-1]); }",
+        "D": "for(let i=a.length-1;i>=0;i--){ console.log(a[i]); }"
+      }
+    },
+    {
+      "index": 16,
+      "text": "Nested forEach va for — natija?\n```js\nconst g=[[1,2],[3,4]];\nlet out=[];\ng.forEach(row=>{\n  for(let i=0;i<row.length;i++){\n    out.push(row[i]*2);\n  }\n});\nconsole.log(out.join(','));\n```",
+      "options": {
+        "A": "2,6",
+        "B": "2,4,6,8",
+        "C": "1,2,3,4",
+        "D": "4,8"
+      }
+    },
+    {
+      "index": 17,
+      "text": "for...of da indeks kerak bo‘lsa qaysi noto‘g‘ri?\n```js\nconst a=['p','q'];\n```",
+      "options": {
+        "A": "for (const [i,v] of a.entries()) console.log(i,v);",
+        "B": "for (const i of a.keys()) console.log(i, a[i]);",
+        "C": "a.forEach((v,i)=>console.log(i,v));",
+        "D": "for (const i of a) console.log(i, a[i]);"
+      }
+    },
+    {
+      "index": 18,
+      "text": "Ichma-ich massivdagi juft sonlar yig‘indisi?\n```js\nconst m=[[2,5],[4],[1,3,6]];\nlet s=0;\nfor (let r of m) {\n  for (let x of r) if (x%2===0) s+=x;\n}\nconsole.log(s);\n```",
+      "options": {
+        "A": "6",
+        "B": "8",
+        "C": "10",
+        "D": "12"
+      }
+    },
+    {
+      "index": 19,
+      "text": "forEach sinxronmi? Natija qachon chiqadi?\n```js\nconst a=[1,2,3];\na.forEach(n=>console.log(n));\nconsole.log('end');\n```",
+      "options": {
+        "A": "'1','2','3' dan so‘ng 'end'",
+        "B": "'end' dan so‘ng '1','2','3'",
+        "C": "Faqat 'end'",
+        "D": "Hech narsa"
+      }
+    },
+    {
+      "index": 20,
+      "text": "for bilan massivga push qilish: yakuniy uzunlik?\n```js\nconst r=[];\nfor(let i=1;i<=5;i++){ r.push(i*i); }\nconsole.log(r.length);\n```",
+      "options": {
+        "A": "0",
+        "B": "4",
+        "C": "6",
+        "D": "5"
+      }
+    },
+    {
+      "index": 21,
+      "text": "forEach bilan break kerak bo‘lsa nima qilinadi?\n```js\nconst a=[1,2,3,4];\n```",
+      "options": {
+        "A": "throw ishlatiladi va ushlanmaydi",
+        "B": "some/every/find kabi metodlardan foydalaniladi",
+        "C": "forEach dan keyin break yoziladi",
+        "D": "return ishlatiladi"
+      }
+    },
+    {
+      "index": 22,
+      "text": "for ( ; ; ) bo‘sh boshqaruv qismlari bilan: qaysi biri xato?\n```js\nlet i=0;\n```",
+      "options": {
+        "A": "for(; ; i++){ if(i===2) break; } // to‘g‘ri: faqat increment",
+        "B": "for(i<3;;i++){ console.log(i); } // xato",
+        "C": "for(;;){ break; } // to‘g‘ri: cheksiz sikl",
+        "D": "for(;i<3;){ i++; } // to‘g‘ri: faqat shart"
+      }
+    },
+    {
+      "index": 23,
+      "text": "for...in va for...of farqi: massivlar uchun qaysi biri tavsiya etiladi?\n```js\nconst arr=[10,20];\n```",
+      "options": {
+        "A": "for...of qiymatlar bo‘yicha aylanadi va ko‘p hollarda tavsiya etiladi",
+        "B": "for...in qiymatlar bo‘yicha aylanadi va tavsiya etiladi",
+        "C": "Ikkalasi ham teng darajada tavsiya etiladi",
+        "D": "Hech biri tavsiya etilmaydi"
+      }
+    },
+    {
+      "index": 24,
+      "text": "Scope: for ichidagi let o‘zgaruvchi tashqarida mavjudmi?\n```js\nfor(let k=0;k<1;k++){}\nconsole.log(typeof k);\n```",
+      "options": {
+        "A": "\"object\"",
+        "B": "\"undefined\"",
+        "C": "Xato beradi",
+        "D": "\"number\""
+      }
+    },
+    {
+      "index": 25,
+      "text": "forEach ichida massivni o‘zgartirish: natija?\n```js\nconst a=[1,2,3];\na.forEach((v,i)=>{ a[i]=v*3; });\nconsole.log(a.join('-'));\n```",
+      "options": {
+        "A": "Xato",
+        "B": "3-3-3",
+        "C": "3-6-9",
+        "D": "1-2-3"
+      }
+    },
+    {
+      "index": 26,
+      "text": "Nested indekslar: natija?\n```js\nconst m=[[0,1],[2,3,4]];\nlet s='';\nfor(let i=0;i<m.length;i++){\n  for(let j=0;j<m[i].length;j++){\n    if((i+j)%2===0) s+=m[i][j];\n  }\n}\nconsole.log(s);\n```",
+      "options": {
+        "A": "0134",
+        "B": "024",
+        "C": "123",
+        "D": "Hech narsa"
+      }
+    },
+    {
+      "index": 27,
+      "text": "forEach indeks bilan filtr: natija?\n```js\nconst a=['x','y','z','w'];\nlet r=[];\na.forEach((v,i)=>{ if(i%2===0) r.push(v); });\nconsole.log(r.join(','));\n```",
+      "options": {
+        "A": "x,z",
+        "B": "y,w",
+        "C": "z,w",
+        "D": "x,y,z"
+      }
+    },
+    {
+      "index": 28,
+      "text": "for va continue bilan ichki sikl: nechta log?\n```js\nlet c=0;\nfor(let i=0;i<3;i++){\n  for(let j=0;j<3;j++){\n    if(j===1) continue;\n    c++;\n  }\n}\nconsole.log(c);\n```",
+      "options": {
+        "A": "3",
+        "B": "9",
+        "C": "4",
+        "D": "6"
+      }
+    },
+    {
+      "index": 29,
+      "text": "for...of bilan stringdagi harflar sanog‘i?\n```js\nlet s='abaac';\nlet cnt=0;\nfor(const ch of s){ if(ch==='a') cnt++; }\nconsole.log(cnt);\n```",
+      "options": {
+        "A": "1",
+        "B": "3",
+        "C": "2",
+        "D": "4"
+      }
+    },
+    {
+      "index": 30,
+      "text": "forEach vs map: qaysi biri yangi massiv qaytaradi?\n```js\nconst a=[1,2];\n```",
+      "options": {
+        "A": "map yangi massiv qaytaradi, forEach qaytarmaydi",
+        "B": "Hech biri qaytarmaydi",
+        "C": "forEach yangi massiv qaytaradi, map qaytarmaydi",
+        "D": "Ikkalasi ham yangi massiv qaytaradi"
+      }
+    }
+  ],
+  "answers": {
+    "1": "A",
+    "2": "B",
+    "3": "C",
+    "4": "D",
+    "5": "A",
+    "6": "C",
+    "7": "B",
+    "8": "C",
+    "9": "D",
+    "10": "A",
+    "11": "C",
+    "12": "A",
+    "13": "D",
+    "14": "B",
+    "15": "D",
+    "16": "B",
+    "17": "D",
+    "18": "D",
+    "19": "A",
+    "20": "D",
+    "21": "B",
+    "22": "B",
+    "23": "A",
+    "24": "B",
+    "25": "C",
+    "26": "B",
+    "27": "A",
+    "28": "D",
+    "29": "B",
+    "30": "A"
+  },
+  "references": {
+    "1": "for (let i = 2; i < 10; i += 2) — i qiymatlari: 2,4,6,8. Har takrorlashda count++ bo‘lgani uchun count = 4 bo‘ladi. Shuning uchun 4 ta son va yakunda 'count: 4' chiqadi. Chegara (i < 10) 10 ni kiritmaydi.",
+    "2": "Indekslash 0 dan length-1 gacha bo‘lishi kerak. i<=arr.length xato — oxirgi takrorlashda undefined qo‘shiladi. for...of arr ning o‘zida aylanishi kerak, arr.length emas. Shuning uchun to‘g‘ri javob i=0; i<arr.length.",
+    "3": "Massiv: 3(toq), 6(juft), 1(toq), 8(juft), 4(juft). Juftlar: 6,8,4 — jami 3 ta. forEach har bir elementni ko‘radi, c++ faqat juft bo‘lsa.",
+    "4": "continue i===1 bo‘lganda iteratsiyani o‘tkazib yuboradi. Indekslar: 0→10, 1→o‘tkazib yuboriladi, 2→30. Shuning uchun 10 va 30 konsolga chiqadi.",
+    "5": "Tashqi sikl 3 marta, ichki sikl 2 marta ishlaydi. Har ichki siklda bitta '*' qo‘shiladi → 3×2 = 6 ta. Shuning uchun s.length = 6.",
+    "6": "for...of — klassik sikl sintaksisiga yaqin va break/continue ishlaydi. forEach — callback asosida, break/continue yo‘q. Shuning uchun break faqat for...of da mumkin.",
+    "7": "forEach callbacki (value, index) parametrlarini oladi. i===1 bo‘lganda v='b'. Shuning uchun 'b' konsolga chiqadi.",
+    "8": "grid.length = 3 (uchta ichki massiv). Har tashqi iteratsiyada rows++ qilinadi. Shuning uchun rows = 3.",
+    "9": "Elementlar: 1+2+3+4+5 = 15. Nested for barcha ichki elementlarni ko‘radi. Shuning uchun sum=15.",
+    "10": "i<=a.length — oxirida a[a.length] undefined bo‘ladi. To‘g‘ri chegaralar odatda i<a.length. Shuning uchun birinchi variant off-by-one xatoga ega.",
+    "11": "break siklni to‘xtatadi, lekin keyingi kod ishlashda davom etadi. Shuning uchun sikldan so‘ng 'done' albatta chiqadi.",
+    "12": "i===2 bo‘lganda qolgan qismi o‘tkazib yuboriladi. Qolgan iteratsiyalar: 0,1,(skip 2),3. Shuning uchun 0,1,3 chiqadi.",
+    "13": "forEach callbackidagi return faqat callbackdan chiqadi. Sikl davom etadi, break emas. Shuning uchun 1 va 3 chiqadi, 2 iteratsiyasi o‘tkaziladi.",
+    "14": "entries() juftlik (index,value) qaytaradi. for...of arr.keys() indeks beradi, lekin value emas. forEach esa (value,index) beradi — bor.",
+    "15": "Oxirgi indeks length-1 bo‘ladi. i>=0 bo‘lib kamaytirish kerak. Shuning uchun birinchi variant to‘g‘ri.",
+    "16": "Har element 2 ga ko‘paytiriladi va out ga qo‘shiladi. Tartib bo‘yicha: 1→2,2→4,3→6,4→8. Natija '2,4,6,8'.",
+    "17": "for (const i of a) — bu yerda i value bo‘ladi, indeks emas. Shuning uchun a[i] noto‘g‘ri natija beradi. Qolgan variantlar indeksni to‘g‘ri oladi.",
+    "18": "Juftlar: 2,4,6. 2+4+6 = 12. for...of ichma-ich barcha qiymatlarni o‘qiydi.",
+    "19": "forEach sinxron bo‘lib, ketma-ket ishlaydi. Avval elementlar, so‘ng 'end' chiqadi. Promise/async ishlatilmagan.",
+    "20": "i=1..5 bo‘lgani uchun push 5 marta ishlaydi. Natijada uzunlik 5 bo‘ladi.",
+    "21": "forEach break ni qo‘llamaydi. some/every/find shart bajarilganda erta to‘xtaydi. Bu amaliy yechim sifatida qo‘llanadi.",
+    "22": "for (init; condition; increment) — init qismida ifoda bo‘lishi kerak. for(i<3;;i++) — init qismida faqat shart berilgan, bu mantiqan noto‘g‘ri yozuv. Shuning uchun 4-variant xato.",
+    "23": "for...in kalitlar (indekslar) bo‘yicha aylanadi va prototip xususiyatlarini ham ko‘rishi mumkin. for...of qiymatlar bo‘yicha — massiv uchun qulayroq. Shuning uchun for...of ko‘proq tavsiya etiladi.",
+    "24": "let blok scopesiga ega. Sikl qavslaridan tashqarida k yo‘q. typeof k => 'undefined'.",
+    "25": "forEach massiv elementini joyida o‘zgartirishi mumkin. Har bir element 3 ga ko‘paytiriladi. Shuning uchun '3-6-9'.",
+    "26": "Indeks juftligi: (0,0)->0 (kiritiladi), (0,1)->1 (o‘tadi). (1,0)->2 (kiritiladi), (1,1)->3 (o‘tadi), (1,2)->4 (kiritiladi). Natija '0','2','4' → '024'. join ishlatilmagan, shunchaki qo‘shilgan satr.",
+    "27": "Indekslar 0,1,2,3. Juft indeksdagilar: 0→x, 2→z. Shuning uchun 'x,z'.",
+    "28": "Ichki siklda j=0 va j=2 ishlaydi (j=1 o‘tkaziladi). Har tashqi aylanishda 2 ta ++ bo‘ladi → 3*2=6. Natija 6.",
+    "29": "Satr: a b a a c — 'a' 3 marta. for...of string bo‘yicha harflarni beradi. Natija 3.",
+    "30": "map transformatsiya natijasini qaytaradi. forEach maqsadi — iteratsiya, return qiymat ishlatilmaydi. Shuning uchun map to‘g‘ri."
+  },
+  "groups": [
+    -1003055538272
+  ],
+  "group_id": -1003055538272,
+  "created_by": 7040724501,
+  "creator_name": "Abdurahmon"
+}

@@ -1,0 +1,41 @@
+{
+  "active_test_id": "263f54d2-faf2-43af-9546-8df415b8f2c7",
+  "student_name": "Bahrom",
+  "started_at": 1758992671,
+  "answers": {
+    "1": "B",
+    "2": "B",
+    "3": "D",
+    "4": "D",
+    "5": "C",
+    "6": "D"
+  },
+  "current_q": 6,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1,
+    "3": 1,
+    "5": 1,
+    "6": 2
+  },
+  "excluded_options": {
+    "1": [
+      "B"
+    ],
+    "2": [],
+    "3": [
+      "D"
+    ],
+    "4": [],
+    "5": [
+      "C"
+    ],
+    "6": [
+      "D",
+      "B"
+    ]
+  },
+  "waiting_understanding": true,
+  "current_reference": "for...of — klassik sikl sintaksisiga yaqin va break/continue ishlaydi. forEach — callback asosida, break/continue yo‘q. Shuning uchun break faqat for...of da mumkin.",
+  "last_updated": 1758992920
+}

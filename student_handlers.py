@@ -1129,95 +1129,115 @@ async def on_answer(cb: types.CallbackQuery, state: FSMContext):
     await _process_answer(cb, state, qidx, opt)
 
 async def _process_answer(cb: types.CallbackQuery, state: FSMContext, qidx: int, opt: str):
-    """Process answer with learning mode and session saving - WITH IMPROVED ERROR HANDLING"""
+    """
+    Process answer with learning mode + robust HTML handling.
+    - Sanitizes any explanation HTML to avoid Telegram parse errors
+    - Stores sanitized reference in session
+    - Falls back to plain text if HTML fails to send
+    """
     try:
         s = await state.get_data()
         tid = s.get("active_test_id")
         if not tid:
             return await safe_callback_answer(cb, "Avval /start yuboring.", show_alert=True)
-        
+
         test = read_test(tid)
         if not test or not test.get("questions"):
             await state.finish()
             return await safe_callback_answer(cb, "Test topilmadi yoki o'chirilgan.", show_alert=True)
-        
+
         current_q = int(s.get("current_q", 1))
         total_q = int(s.get("total_q", len(test.get("questions") or [])))
-        
+
         if qidx != current_q:
             return await safe_callback_answer(cb, "Bu savol uchun javob allaqachon tanlangan.", show_alert=True)
-        
+
         answers: Dict[str, str] = s.get("answers", {})
         excluded_options: Dict[str, List[str]] = s.get("excluded_options", {})
         wrong_attempts: Dict[str, int] = s.get("wrong_attempts", {})
-        
+
         correct_answers = test.get("answers") or {}
         correct_answer = correct_answers.get(str(qidx))
+
         refs = test.get("references") or {}
-        reference = refs.get(str(qidx), "Izoh mavjud emas")
-        
+        reference_raw = refs.get(str(qidx), "Izoh mavjud emas")
+        # 🔒 Sanitize reference to avoid "Can't parse entities" errors
+        reference_sanitized = sanitize_html_for_telegram(reference_raw)
+
         q_key = str(qidx)
         if q_key not in excluded_options:
             excluded_options[q_key] = []
-        
         if q_key not in answers:
             answers[q_key] = opt
-        
+
+        # ✅ Correct answer
         if opt == correct_answer:
-            # Try to answer callback, but don't fail if it's expired
             try:
                 await cb.answer("✅ To'g'ri javob!")
             except Exception as e:
                 if "Query is too old" not in str(e):
                     log.error(f"Callback answer error: {e}")
-            
+
             if current_q < total_q:
                 next_q = current_q + 1
                 await state.update_data(
                     current_q=next_q,
                     answers=answers,
-                    excluded_options=excluded_options
+                    excluded_options=excluded_options,
+                    waiting_understanding=False,
+                    current_reference=None
                 )
-                
                 await _save_session(cb.from_user.id, tid, await state.get_data())
-                
+
                 await cb.message.answer("── * 30")
                 await _send_question(cb, test, next_q)
             else:
                 await _finish_test(cb, state, test)
-        else:
-            if opt not in excluded_options[q_key]:
-                excluded_options[q_key].append(opt)
-            wrong_attempts[q_key] = wrong_attempts.get(q_key, 0) + 1
-            
-            await state.update_data(
-                excluded_options=excluded_options,
-                wrong_attempts=wrong_attempts,
-                answers=answers,
-                waiting_understanding=True,
-                current_reference=reference
+            return
+
+        # ❌ Wrong answer
+        if opt not in excluded_options[q_key]:
+            excluded_options[q_key].append(opt)
+        wrong_attempts[q_key] = wrong_attempts.get(q_key, 0) + 1
+
+        await state.update_data(
+            excluded_options=excluded_options,
+            wrong_attempts=wrong_attempts,
+            answers=answers,
+            waiting_understanding=True,
+            current_reference=reference_sanitized  # store sanitized
+        )
+        await _save_session(cb.from_user.id, tid, await state.get_data())
+
+        try:
+            await cb.answer("❌ Noto'g'ri javob")
+        except Exception as e:
+            if "Query is too old" not in str(e):
+                log.error(f"Callback answer error: {e}")
+
+        msg_html = (
+            f"❌ <b>Noto'g'ri javob!</b>\n\n"
+            f"📖 <b>Izoh:</b>\n{reference_sanitized}\n\n"
+            f"Tushundingizmi?"
+        )
+        try:
+            await cb.message.answer(msg_html, reply_markup=_create_understanding_keyboard())
+        except Exception as send_err:
+            # Final fallback: send as plain text (no HTML parsing)
+            log.warning(f"HTML send failed, falling back to plain text: {send_err}")
+            msg_plain = (
+                "❌ Noto'g'ri javob!\n\n"
+                "📖 Izoh:\n" + reference_raw + "\n\n"
+                "Tushundingizmi?"
             )
-            
-            await _save_session(cb.from_user.id, tid, await state.get_data())
-            
-            # Try to answer callback, but don't fail if it's expired
-            try:
-                await cb.answer("❌ Noto'g'ri javob")
-            except Exception as e:
-                if "Query is too old" not in str(e):
-                    log.error(f"Callback answer error: {e}")
-            
-            msg = (
-                f"❌ <b>Noto'g'ri javob!</b>\n\n"
-                f"📖 <b>Izoh:</b>\n{reference}\n\n"
-                f"Tushundingizmi?"
+            await cb.message.answer(
+                msg_plain,
+                reply_markup=_create_understanding_keyboard(),
+                parse_mode=None
             )
-            
-            await cb.message.answer(msg, reply_markup=_create_understanding_keyboard())
-            
+
     except Exception as e:
-        log.error(f"Error in _process_answer: {e}")
-        # Don't try to answer callback if there was an error - it might be the source of the problem
+        log.error(f"Error in _process_answer: {e}", exc_info=True)
         try:
             await cb.message.answer("Xatolik yuz berdi. Iltimos /start yuboring.")
         except Exception as msg_error:

@@ -1,0 +1,23 @@
+{
+  "active_test_id": "06359131-8074-4e6d-a958-1caae633e2f5",
+  "student_name": "hgfhjg",
+  "started_at": 1758883400,
+  "answers": {
+    "1": "A",
+    "2": "C"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 2
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "C"
+    ]
+  },
+  "waiting_understanding": true,
+  "current_reference": "name — parametr; 'Ali' — argument sifatida uzatiladi. String biriktirish natijasi \"Hi, Ali\" bo‘ladi. Parametr nomi chiqmaydi, balki uzatilgan qiymat chiqadi.",
+  "last_updated": 1758883436
+}

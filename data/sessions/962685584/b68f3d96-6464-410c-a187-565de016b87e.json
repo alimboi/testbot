@@ -1,0 +1,24 @@
+{
+  "active_test_id": "b68f3d96-6464-410c-a187-565de016b87e",
+  "student_name": "Hshhap",
+  "started_at": 1759045758,
+  "answers": {
+    "1": "A",
+    "2": "A"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 2
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "A",
+      "D"
+    ]
+  },
+  "waiting_understanding": true,
+  "current_reference": "Indekslash 0 dan length-1 gacha bo‘lishi kerak. i<=arr.length xato — oxirgi takrorlashda undefined qo‘shiladi. for...of arr ning o‘zida aylanishi kerak, arr.length emas. Shuning uchun to‘g‘ri javob i=0; i<arr.length.",
+  "last_updated": 1759045814
+}

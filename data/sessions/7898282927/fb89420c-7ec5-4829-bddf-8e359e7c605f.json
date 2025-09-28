@@ -1,0 +1,27 @@
+{
+  "active_test_id": "fb89420c-7ec5-4829-bddf-8e359e7c605f",
+  "student_name": "Маржон",
+  "started_at": 1758886334,
+  "answers": {
+    "1": "A",
+    "2": "B"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 3,
+    "2": 2
+  },
+  "excluded_options": {
+    "1": [
+      "A",
+      "C"
+    ],
+    "2": [
+      "B"
+    ]
+  },
+  "waiting_understanding": true,
+  "current_reference": "`prompt()`da `Cancel` bosilsa qiymat `null` bo‘ladi. Shuning uchun `name === null` bo‘lsa 'cancelled' deb chiqariladi, aks holda `trim()` bilan boshoxir bo‘shliqlar olinib ekranga yoziladi.",
+  "last_updated": 1758886577
+}

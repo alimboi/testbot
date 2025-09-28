@@ -1,0 +1,25 @@
+{
+  "active_test_id": "06359131-8074-4e6d-a958-1caae633e2f5",
+  "student_name": "Mirzaaxmedov Mustafo",
+  "started_at": 1758886259,
+  "answers": {
+    "1": "A",
+    "2": "B",
+    "3": "B"
+  },
+  "current_q": 4,
+  "total_q": 30,
+  "wrong_attempts": {
+    "3": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [],
+    "3": [
+      "B"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "return bajarilgach funktsiya darhol tugaydi. Shuning uchun console.log(\"after\") ishlamaydi. Natijada faqat 10 konsolga chiqariladi.",
+  "last_updated": 1758886318
+}
