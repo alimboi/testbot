@@ -1,0 +1,22 @@
+{
+  "active_test_id": "b473429f-2b2f-4b55-8747-9f3aff1b76fc",
+  "student_name": "Damirbek",
+  "started_at": 1759166829,
+  "answers": {
+    "1": "C"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 2
+  },
+  "excluded_options": {
+    "1": [
+      "C",
+      "D"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759166887
+}

@@ -11,6 +11,15 @@
       "username": "formerrider",
       "can_create": true,
       "can_activate": true
+    },
+    "7935288458": {
+      "groups": [
+        -1003055538272
+      ],
+      "name": "ᴊᴍᴅ",
+      "username": "JamshidKhaydarov",
+      "can_create": true,
+      "can_activate": true
     }
   }
 }

@@ -1,0 +1,19 @@
+{
+  "active_test_id": "b473429f-2b2f-4b55-8747-9f3aff1b76fc",
+  "student_name": "Rahmatulloh",
+  "started_at": 1759165865,
+  "answers": {
+    "1": "A",
+    "2": "C"
+  },
+  "current_q": 3,
+  "total_q": 30,
+  "wrong_attempts": {},
+  "excluded_options": {
+    "1": [],
+    "2": []
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759165959
+}

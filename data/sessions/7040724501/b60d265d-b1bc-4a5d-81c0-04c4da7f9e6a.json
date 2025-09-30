@@ -1,0 +1,24 @@
+{
+  "active_test_id": "b60d265d-b1bc-4a5d-81c0-04c4da7f9e6a",
+  "student_name": "salom",
+  "started_at": 1759144872,
+  "answers": {
+    "1": "A",
+    "2": "C"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 2
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "C",
+      "D"
+    ]
+  },
+  "waiting_understanding": true,
+  "current_reference": "Izoh mavjud emas",
+  "last_updated": 1759145088
+}

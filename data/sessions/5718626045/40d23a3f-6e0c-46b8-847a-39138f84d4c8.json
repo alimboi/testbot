@@ -1,0 +1,48 @@
+{
+  "active_test_id": "40d23a3f-6e0c-46b8-847a-39138f84d4c8",
+  "student_name": "...",
+  "started_at": 1759085103,
+  "answers": {
+    "1": "D",
+    "2": "A",
+    "3": "C",
+    "4": "B",
+    "5": "B",
+    "6": "B",
+    "7": "D"
+  },
+  "current_q": 8,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1,
+    "2": 1,
+    "4": 1,
+    "5": 1,
+    "6": 1,
+    "7": 1
+  },
+  "excluded_options": {
+    "1": [
+      "D"
+    ],
+    "2": [
+      "A"
+    ],
+    "3": [],
+    "4": [
+      "B"
+    ],
+    "5": [
+      "B"
+    ],
+    "6": [
+      "B"
+    ],
+    "7": [
+      "D"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759087096
+}

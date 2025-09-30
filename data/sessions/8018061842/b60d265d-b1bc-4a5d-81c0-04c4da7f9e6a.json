@@ -1,0 +1,46 @@
+{
+  "active_test_id": "b60d265d-b1bc-4a5d-81c0-04c4da7f9e6a",
+  "student_name": "Abdulloh Rahmatullayev",
+  "started_at": 1759144903,
+  "answers": {
+    "1": "A",
+    "2": "A",
+    "3": "D",
+    "4": "D",
+    "5": "A",
+    "6": "C",
+    "7": "D",
+    "8": "B",
+    "9": "B",
+    "10": "D"
+  },
+  "current_q": 11,
+  "total_q": 30,
+  "wrong_attempts": {
+    "7": 1,
+    "8": 2,
+    "10": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": [],
+    "7": [
+      "D"
+    ],
+    "8": [
+      "B",
+      "D"
+    ],
+    "9": [],
+    "10": [
+      "D"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759145126
+}

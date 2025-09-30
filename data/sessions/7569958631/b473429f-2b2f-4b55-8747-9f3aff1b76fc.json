@@ -1,0 +1,21 @@
+{
+  "active_test_id": "b473429f-2b2f-4b55-8747-9f3aff1b76fc",
+  "student_name": "Nurmuhammad",
+  "started_at": 1759209351,
+  "answers": {
+    "1": "C"
+  },
+  "current_q": 1,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1
+  },
+  "excluded_options": {
+    "1": [
+      "C"
+    ]
+  },
+  "waiting_understanding": true,
+  "current_reference": "forEach hech qanday qiymat qaytarmaydi, ya’ni natija undefined bo‘ladi. U massivni aylanish uchun ishlatiladi, qaytgan massiv bermaydi. Berilgan kodda arr o‘zgarmaydi va [1,2,3] bo‘lib qoladi. Shuning uchun console.log(undefined, [1,2,3]).",
+  "last_updated": 1759210305
+}

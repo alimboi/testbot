@@ -1,0 +1,377 @@
+{
+  "test_id": "f773dfdc-0de7-400f-8e53-0411c43e9ef0",
+  "test_name": "JS_Array_Test_UZ_Array_Methods_30",
+  "questions": [
+    {
+      "index": 1,
+      "text": "Quyidagi kod natijasi nima bo‘ladi?\n```js\nconst arr = [1, 2];\narr.push(3);\nconsole.log(arr.length, arr[2]);\n```",
+      "options": {
+        "A": "3 2",
+        "B": "2 undefined",
+        "C": "2 3",
+        "D": "3 3"
+      }
+    },
+    {
+      "index": 2,
+      "text": "slice() qanday ishlaydi? Quyidagi chiqish qanday bo‘ladi?\n```js\nconst a = ['a','b','c','d'];\nconst b = a.slice(1, 3);\nconsole.log(a, b);\n```",
+      "options": {
+        "A": "['a','b','c'] va ['b','c','d']",
+        "B": "['b','c'] va ['a','b','c','d']",
+        "C": "['a','b','c','d'] va ['b','c']",
+        "D": "['a','b','c','d'] va ['a','b']"
+      }
+    },
+    {
+      "index": 3,
+      "text": "trim() qaysi natijani beradi?\n```js\nconst s = '  hello  ';\nconst t = s.trim();\nconsole.log('[' + t + ']', s.length, t.length);\n```",
+      "options": {
+        "A": "[hello] 7 5",
+        "B": "[hello] 9 7",
+        "C": "[  hello  ] 9 9",
+        "D": "[hello] 9 5"
+      }
+    },
+    {
+      "index": 4,
+      "text": "join() ajratuvchi bilan birlashtirganda natija qanday?\n```js\nconst a = [1, 2, 3];\nconsole.log(a.join('-'));\n```",
+      "options": {
+        "A": "['1','2','3']",
+        "B": "1,2,3",
+        "C": "1-2-3",
+        "D": "1-23"
+      }
+    },
+    {
+      "index": 5,
+      "text": "pop() va indekslar:\n```js\nconst arr = ['x','y','z'];\nconst p = arr.pop();\nconsole.log(p, arr.length, arr[2]);\n```",
+      "options": {
+        "A": "z 3 'z'",
+        "B": "y 2 'z'",
+        "C": "z 2 'z'",
+        "D": "z 2 undefined"
+      }
+    },
+    {
+      "index": 6,
+      "text": "unshift() nima qaytaradi va massiv qanday bo‘ladi?\n```js\nconst arr = [2, 3];\nconst n = arr.unshift(1);\nconsole.log(n, arr[0], arr.join(','));\n```",
+      "options": {
+        "A": "3 1 2,3,1",
+        "B": "3 1 1,2,3",
+        "C": "3 2 1,2,3",
+        "D": "2 1 1,2,3"
+      }
+    },
+    {
+      "index": 7,
+      "text": "shift() qaytargan qiymat va holat:\n```js\nconst arr = [10, 20, 30];\nconst f = arr.shift();\nconsole.log(f, arr[0], arr.length);\n```",
+      "options": {
+        "A": "10 20 2",
+        "B": "10 10 3",
+        "C": "20 10 2",
+        "D": "20 20 2"
+      }
+    },
+    {
+      "index": 8,
+      "text": "split('') bilan belgilar bo‘linishi:\n```js\nconst s = 'JS';\nconsole.log(s.split(''));\n```",
+      "options": {
+        "A": "['J S']",
+        "B": "['','J','S','']",
+        "C": "['J','S']",
+        "D": "['JS']"
+      }
+    },
+    {
+      "index": 9,
+      "text": "slice() da manfiy indekslar:\n```js\nconst a = [0,1,2,3,4];\nconsole.log(a.slice(-3));\n```",
+      "options": {
+        "A": "[0,1]",
+        "B": "[3,4]",
+        "C": "[4]",
+        "D": "[2,3,4]"
+      }
+    },
+    {
+      "index": 10,
+      "text": "push() qaytargan qiymat va massiv:\n```js\nconst arr = [1];\nconst r = arr.push(2);\nconsole.log(r, arr);\n```",
+      "options": {
+        "A": "2 [1,2]",
+        "B": "1 [1,2]",
+        "C": "2 [2,1]",
+        "D": "[1,2] 2"
+      }
+    },
+    {
+      "index": 11,
+      "text": "Quyidagidan qaysi biri 'birinchi elementni butunlay olib tashlash' uchun to‘g‘ri? (to‘g‘ri kodni tanlang)\n```js\nconst arr = [7,8,9];\n```",
+      "options": {
+        "A": "arr.slice(1, arr.length)",
+        "B": "arr.join(',')",
+        "C": "arr.slice(1)",
+        "D": "arr.shift()"
+      }
+    },
+    {
+      "index": 12,
+      "text": "Xatoni toping:\n```js\nlet s = 123;\nconsole.log(s.trim());\n```",
+      "options": {
+        "A": "TypeError: s.trim is not a function",
+        "B": "123",
+        "C": "[]",
+        "D": "'123'"
+      }
+    },
+    {
+      "index": 13,
+      "text": "Bo‘sh massivni join qilish:\n```js\nconst a = [];\nconsole.log(a.join('-'));\n```",
+      "options": {
+        "A": "'undefined'",
+        "B": "'' (bo‘sh satr)",
+        "C": "[]",
+        "D": "'-'"
+      }
+    },
+    {
+      "index": 14,
+      "text": "pop() bo‘sh massivda:\n```js\nconst a = [];\nconsole.log(a.pop(), a.length);\n```",
+      "options": {
+        "A": "null 0",
+        "B": "undefined -1",
+        "C": "Error 0",
+        "D": "undefined 0"
+      }
+    },
+    {
+      "index": 15,
+      "text": "unshift() bir nechta element bilan:\n```js\nconst a = [3];\nconst len = a.unshift(1, 2);\nconsole.log(len, a);\n```",
+      "options": {
+        "A": "2 [1,2,3]",
+        "B": "2 [2,1,3]",
+        "C": "3 [1,2,3]",
+        "D": "3 [3,1,2]"
+      }
+    },
+    {
+      "index": 16,
+      "text": "split() limit parametri bilan:\n```js\nconst s = 'a,b,c';\nconsole.log(s.split(',', 2));\n```",
+      "options": {
+        "A": "['a','b,']",
+        "B": "['a,','b']",
+        "C": "['a','b','c']",
+        "D": "['a','b']"
+      }
+    },
+    {
+      "index": 17,
+      "text": "Ichki massiv bilan join():\n```js\nconst a = [1, [2,3]];\nconsole.log(a.join('-'));\n```",
+      "options": {
+        "A": "1-2,3",
+        "B": "1-[2,3]",
+        "C": "1-2-3",
+        "D": "['1','2,3']"
+      }
+    },
+    {
+      "index": 18,
+      "text": "slice() start > end bo‘lsa:\n```js\nconst a = [1,2,3,4];\nconsole.log(a.slice(3,2));\n```",
+      "options": {
+        "A": "[3]",
+        "B": "[2,3]",
+        "C": "Error",
+        "D": "[]"
+      }
+    },
+    {
+      "index": 19,
+      "text": "Boshiga element qo‘shish uchun qaysi kod to‘g‘ri?\n```js\nconst arr = [4,5];\n```",
+      "options": {
+        "A": "arr.push(3)",
+        "B": "arr.pop(3)",
+        "C": "arr.unshift(3)",
+        "D": "arr.shift(3)"
+      }
+    },
+    {
+      "index": 20,
+      "text": "trim() o‘rtadagi bo‘sh joylarga ta’sir qiladimi?\n```js\nconst s = ' hi  there ';\nconsole.log('[' + s.trim() + ']');\n```",
+      "options": {
+        "A": "[ hi  there ]",
+        "B": "[hi  there]",
+        "C": "[hi there]",
+        "D": "Error"
+      }
+    },
+    {
+      "index": 21,
+      "text": "split(' ') da ketma-ket bo‘sh joylar:\n```js\nconst s = 'a  b';\nconsole.log(s.split(' '));\n```",
+      "options": {
+        "A": "['a','b']",
+        "B": "['a','', '', 'b']",
+        "C": "['a','','b']",
+        "D": "['a',' b']"
+      }
+    },
+    {
+      "index": 22,
+      "text": "push va pop ketma-ketligi:\n```js\nconst a = [1,2];\na.push(3);\na.pop();\na.push(4);\nconsole.log(a.join(','));\n```",
+      "options": {
+        "A": "1,4",
+        "B": "2,1,4",
+        "C": "1,2,3",
+        "D": "1,2,4"
+      }
+    },
+    {
+      "index": 23,
+      "text": "slice() nusxasi va o‘zgarishlar:\n```js\nconst a = ['x','y','z'];\nconst b = a.slice();\na.pop();\nconsole.log(b.join(''), a.join(''));\n```",
+      "options": {
+        "A": "xy xyz",
+        "B": "xyz xyz",
+        "C": "xyz xy",
+        "D": "xz xy"
+      }
+    },
+    {
+      "index": 24,
+      "text": "split('') uzunligi:\n```js\nconst s = 'hello';\nconsole.log(s.split('').length);\n```",
+      "options": {
+        "A": "5",
+        "B": "Error",
+        "C": "6",
+        "D": "4"
+      }
+    },
+    {
+      "index": 25,
+      "text": "shift() va pop() birgalikda:\n```js\nconst a = [1,2,3,4];\nconst x = a.shift();\nconst y = a.pop();\nconsole.log(x, y, a.join('-'));\n```",
+      "options": {
+        "A": "4 1 2-3",
+        "B": "1 3 2-4",
+        "C": "1 4 2-3",
+        "D": "2 4 1-3"
+      }
+    },
+    {
+      "index": 26,
+      "text": "join() + raqam qo‘shish:\n```js\nconst a = [1,2,3];\nconsole.log(a.join() + 1);\n```",
+      "options": {
+        "A": "'1231'",
+        "B": "'1,2,31'",
+        "C": "'1,2,3'",
+        "D": "7"
+      }
+    },
+    {
+      "index": 27,
+      "text": "slice() da manfiy start va end:\n```js\nconst a = [1,2,3,4,5];\nconsole.log(a.slice(-4, -1));\n```",
+      "options": {
+        "A": "[3,4,5]",
+        "B": "[1,2,3,4]",
+        "C": "[2,3,4]",
+        "D": "[5]"
+      }
+    },
+    {
+      "index": 28,
+      "text": "Xatoni toping (split noto‘g‘ri tipda):\n```js\nconst a = [1,2];\nconsole.log(a.split(','));\n```",
+      "options": {
+        "A": "['1','2']",
+        "B": "TypeError: a.split is not a function",
+        "C": "['1,','2']",
+        "D": "'1,2'"
+      }
+    },
+    {
+      "index": 29,
+      "text": "Oxirgi elementni olib tashlamasdan olish (peek): qaysi ifoda to‘g‘ri?\n```js\nconst arr = [5,6,7];\n```",
+      "options": {
+        "A": "arr.join(',')",
+        "B": "arr.pop()",
+        "C": "arr.shift()",
+        "D": "arr[arr.length - 1]"
+      }
+    },
+    {
+      "index": 30,
+      "text": "trim() va split() ketma-ketligi:\n```js\nconst s = '  a,b , c  ';\nconst t = s.trim().split(',');\nconsole.log(t);\n```",
+      "options": {
+        "A": "['a,','b ,',' c']",
+        "B": "['a','b','c']",
+        "C": "['a','b ',' c']",
+        "D": "['  a','b ',' c  ']"
+      }
+    }
+  ],
+  "answers": {
+    "1": "D",
+    "2": "C",
+    "3": "D",
+    "4": "C",
+    "5": "D",
+    "6": "B",
+    "7": "A",
+    "8": "C",
+    "9": "D",
+    "10": "A",
+    "11": "D",
+    "12": "A",
+    "13": "B",
+    "14": "D",
+    "15": "C",
+    "16": "D",
+    "17": "A",
+    "18": "D",
+    "19": "C",
+    "20": "B",
+    "21": "C",
+    "22": "D",
+    "23": "C",
+    "24": "A",
+    "25": "C",
+    "26": "B",
+    "27": "C",
+    "28": "B",
+    "29": "D",
+    "30": "C"
+  },
+  "references": {
+    "1": "push() massiv oxiriga element qo‘shadi va massiv uzunligini qaytaradi. arr push(3) qilingach, uzunlik 3 bo‘ladi. arr[2] yangi qo‘shilgan 3 ga teng. Shuning uchun chiqish: 3 3.",
+    "2": "slice(start, end) yangi massiv qaytaradi, asl massivni o‘zgartirmaydi. 1 dan 3 gacha (3 kirmaydi) bo‘lak: ['b','c'] bo‘ladi. a o‘zgarmaydi: ['a','b','c','d']. Shu sabab: ['a','b','c','d'] va ['b','c'].",
+    "3": "trim() satr boshidagi va oxiridagi bo‘sh joylarni kesadi. Satr uzunligi: 2+5+2 = 9, trim qilinganda 'hello' (5) qoladi. Shunday qilib: [hello] 9 5 chiqadi. O‘rtadagi bo‘sh joylarga tegmaydi.",
+    "4": "join(sep) massiv elementlarini satrga birlashtiradi. Sep sifatida '-' berilsa: '1-2-3' hosil bo‘ladi. join massivni o‘zgartirmaydi, faqat satr qaytaradi. Shuning uchun to‘g‘ri javob: 1-2-3.",
+    "5": "pop() oxirgi elementni olib, o‘sha elementni qaytaradi. ['x','y','z'] dan 'z' olib tashlanadi, uzunlik 2 bo‘ladi. arr[2] endi mavjud emas: undefined. Natija: z 2 undefined.",
+    "6": "unshift() boshiga qo‘shadi va yangi uzunlikni qaytaradi. [2,3] ga 1 qo‘shilgach, arr -> [1,2,3], uzunlik 3 bo‘ladi. arr[0] = 1 va join(',') => '1,2,3'. Demak: 3 1 1,2,3.",
+    "7": "shift() birinchi elementni olib tashlab, o‘sha elementni qaytaradi. [10,20,30] -> 10 olinadi, arr -> [20,30], uzunlik 2. arr[0] endi 20 bo‘ladi. Shunday qilib: 10 20 2.",
+    "8": "split('') satrni belgilar bo‘yicha ajratadi. 'JS' -> ['J','S'] bo‘ladi. split massiv qaytaradi, asl satr o‘zgarmaydi. Shuning uchun to‘g‘ri javob: ['J','S'].",
+    "9": "Manfiy start oxirdan hisoblaydi: -3 -> oxirdan 3-ta oldingi indeks (2). slice(-3) => [2,3,4]. Asl massiv o‘zgarmaydi. Natija: [2,3,4].",
+    "10": "push() yangi uzunlikni qaytaradi, massivga oxiriga qo‘shadi. [1] -> push(2) -> arr [1,2], qaytgan r = 2. console.log(r, arr) => 2 [1,2]. Shuning uchun to‘g‘ri javob shu.",
+    "11": "shift() birinchi elementni olib tashlab, massivni o‘zgartiradi. slice() nusxa qaytaradi, asl massivni o‘zgartirmaydi. join() satr qaytaradi, massiv tarkibini o‘zgartirmaydi. Shuning uchun to‘g‘ri javob: arr.shift().",
+    "12": "trim() satr metodidir. Number turida trim yo‘q, shuning uchun TypeError yuz beradi. trim ishlashi uchun s ni satrga aylantirish kerak: String(s).trim(). Demak xato: s.trim is not a function.",
+    "13": "Bo‘sh massiv join qilinsa bo‘sh satr qaytadi. Hech qanday element yo‘q — demak ajratuvchi ham qo‘shilmaydi. Natija: '' (bo‘sh satr). Asl massiv esa o‘zgarmaydi.",
+    "14": "Bo‘sh massivdan pop qilinsa undefined qaytadi. Uzunlik 0 bo‘lib qoladi — xatolik tashlanmaydi. Shuning uchun chiqish: undefined 0. pop faqat mavjud oxirgi elementni oladi.",
+    "15": "unshift(1,2) boshiga 1 va 2 ni qo‘shadi. a -> [1,2,3] bo‘ladi, qaytgan uzunlik 3. Shuning uchun: 3 [1,2,3]. unshift massivning boshidan ishlaydi.",
+    "16": "split(sep, limit) — ajratadi va maksimal element sonini cheklaydi. ',' bo‘yicha ajratib, 2 ta element olinadi: ['a','b']. Qolgan qismi tashlab yuboriladi. Shu bois to‘g‘ri javob: ['a','b'].",
+    "17": "join massiv elementlarini satrga aylantiradi. Ichki massiv toString() orqali '2,3' ga aylanadi. Shuning uchun natija: '1-2,3'. join rekursiv ochmaydi, faqat toStringdan foydalanadi.",
+    "18": "slice(start, end) da start >= end bo‘lsa bo‘sh massiv qaytadi. Hech qanday xatolik tashlanmaydi. Asl massiv o‘zgarmaydi. Demak: [].",
+    "19": "Boshiga qo‘shish uchun unshift() ishlatiladi. push() oxiriga qo‘shadi, shift()/pop() esa olib tashlaydi. Shuning uchun to‘g‘ri javob: arr.unshift(3). Qolganlari vazifaga mos emas.",
+    "20": "trim() faqat bosh va oxirdagi bo‘sh joylarni olib tashlaydi. O‘rtadagi bo‘sh joylar saqlanib qoladi. Shuning uchun: [hi  there]. Satrning ichki bo‘sh joylari o‘zgarmaydi.",
+    "21": "split(' ') aniq bitta bo‘sh joydan ajratadi. Ketma-ket bo‘sh joylarga to‘g‘ri kelgan joyda bo‘sh satr ham hosil bo‘ladi. 'a__b' (ikki bo‘sh joy) -> ['a','','b']. Shuning uchun to‘g‘ri javob shu.",
+    "22": "push(3) qo‘shadi, pop() uni olib tashlaydi. Keyin push(4) -> [1,2,4]. join(',') => '1,2,4'. Demak to‘g‘ri javob: 1,2,4.",
+    "23": "slice() chuqur bo‘lmagan nusxa qaytaradi va a ni o‘zgartirmaydi. a.pop() -> a: ['x','y'], b esa eski nusxa: ['x','y','z']. join('') bilan b -> 'xyz', a -> 'xy'. Natija: xyz xy.",
+    "24": "'hello' 5 ta belgidan iborat. split('') -> ['h','e','l','l','o']. Uzunlik 5 bo‘ladi. Shuning uchun to‘g‘ri javob: 5.",
+    "25": "shift() birinchi (1) ni oladi, pop() oxirgi (4) ni oladi. Qolgan a: [2,3], join('-') -> '2-3'. Shunday qilib: 1 4 2-3. Massiv o‘zgarganini unutmang.",
+    "26": "join() satr qaytaradi: '1,2,3'. Satrga 1 qo‘shilsa konkatenatsiya bo‘ladi: '1,2,31'. Sonli qo‘shish emas, chunki tip satr. Natija: '1,2,31'.",
+    "27": "a.slice(-4, -1) — -4 -> indeks 1, -1 -> indeks 4. 1 dan 4 gacha (4 kirmaydi) => [2,3,4]. Asl massiv o‘zgarmaydi. Shu bois: [2,3,4].",
+    "28": "split() satr metodidir, massivda mavjud emas. Shuning uchun a.split(...) TypeError beradi. Massivni satrga aylantirmoqchi bo‘lsangiz join() dan foydalaning. Yoki String(a) qiling.",
+    "29": "Oxirgi element indeks orqali olinadi: arr[arr.length - 1]. pop() olib tashlab qaytaradi — bu talabga zid. shift() birinchi elementni oladi, join() satr. Demak to‘g‘ri yechim: arr[arr.length - 1].",
+    "30": "trim() faqat bosh-oxirdagi bo‘sh joylarni kesadi: 'a,b , c'. split(',') bo‘yicha ajratilganda bo‘sh joylar element ichida saqlanadi. Shunday qilib: ['a','b ',' c']. Ichki bo‘sh joylarni tozalash uchun keyin yana trim qilish kerak."
+  },
+  "groups": [
+    -4770290796,
+    -4613659145
+  ],
+  "group_id": -4770290796,
+  "created_by": 7040724501,
+  "creator_name": "Abdurahmon"
+}

@@ -1,0 +1,49 @@
+{
+  "active_test_id": "f773dfdc-0de7-400f-8e53-0411c43e9ef0",
+  "student_name": "Dpstonbek xamroqulov",
+  "started_at": 1759145797,
+  "answers": {
+    "1": "D",
+    "2": "C",
+    "3": "D",
+    "4": "C",
+    "5": "D",
+    "6": "A",
+    "7": "A",
+    "8": "C",
+    "9": "A",
+    "10": "A",
+    "11": "B"
+  },
+  "current_q": 11,
+  "total_q": 30,
+  "wrong_attempts": {
+    "6": 1,
+    "9": 3,
+    "11": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": [
+      "A"
+    ],
+    "7": [],
+    "8": [],
+    "9": [
+      "A",
+      "B",
+      "C"
+    ],
+    "10": [],
+    "11": [
+      "B"
+    ]
+  },
+  "waiting_understanding": true,
+  "current_reference": "shift() birinchi elementni olib tashlab, massivni o‘zgartiradi. slice() nusxa qaytaradi, asl massivni o‘zgartirmaydi. join() satr qaytaradi, massiv tarkibini o‘zgartirmaydi. Shuning uchun to‘g‘ri javob: arr.shift().",
+  "last_updated": 1759149466
+}

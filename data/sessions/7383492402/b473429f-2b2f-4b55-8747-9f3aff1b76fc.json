@@ -1,0 +1,32 @@
+{
+  "active_test_id": "b473429f-2b2f-4b55-8747-9f3aff1b76fc",
+  "student_name": "Ismoil",
+  "started_at": 1759165732,
+  "answers": {
+    "1": "B",
+    "2": "C",
+    "3": "B",
+    "4": "A",
+    "5": "B"
+  },
+  "current_q": 6,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1,
+    "4": 1
+  },
+  "excluded_options": {
+    "1": [
+      "B"
+    ],
+    "2": [],
+    "3": [],
+    "4": [
+      "A"
+    ],
+    "5": []
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759166086
+}

@@ -6,15 +6,12 @@
       5445910637,
       5576130659,
       5758610971,
-      6184529563,
       6899786711,
       7040724501,
       7090189650,
       7509286392,
       7569958631,
-      7877908921,
       7906412099,
-      8042345748,
       8128753260
     ],
     "member_data": {
@@ -45,15 +42,6 @@
         "is_bot": false,
         "is_admin": false
       },
-      "8042345748": {
-        "first_name": "Muhriddin student",
-        "last_name": "",
-        "username": "",
-        "phone": "998945328255",
-        "is_premium": false,
-        "is_bot": false,
-        "is_admin": false
-      },
       "730391949": {
         "first_name": "MO Baxromjon",
         "last_name": "",
@@ -64,9 +52,9 @@
         "is_admin": false
       },
       "5576130659": {
-        "first_name": "skv.s7",
+        "first_name": "Юсупов",
         "last_name": "",
-        "username": "skvx7",
+        "username": "vipstaal",
         "phone": "998940169242",
         "is_premium": false,
         "is_bot": false,
@@ -90,15 +78,6 @@
         "is_bot": false,
         "is_admin": false
       },
-      "7877908921": {
-        "first_name": "Yusufbek Student",
-        "last_name": "",
-        "username": "",
-        "phone": "998994092625",
-        "is_premium": false,
-        "is_bot": false,
-        "is_admin": false
-      },
       "5758610971": {
         "first_name": "Moxinur Opa.",
         "last_name": "",
@@ -109,7 +88,7 @@
         "is_admin": false
       },
       "5445910637": {
-        "first_name": "A.B.I",
+        "first_name": "Baxtiyor Student",
         "last_name": "",
         "username": "Akbar_aliev",
         "phone": "998934893289",
@@ -122,15 +101,6 @@
         "last_name": "",
         "username": "bek_23_12",
         "phone": "998950652312",
-        "is_premium": false,
-        "is_bot": false,
-        "is_admin": false
-      },
-      "6184529563": {
-        "first_name": "yusupov_w_",
-        "last_name": "",
-        "username": "yusupov_w",
-        "phone": "",
         "is_premium": false,
         "is_bot": false,
         "is_admin": false
@@ -154,27 +124,45 @@
         "is_admin": false
       }
     },
-    "last_sync": 1758369525,
+    "last_sync": 1759084322,
     "sync_method": "user_telethon",
-    "total_count": 16
+    "total_count": 13
   },
   "-1003055538272": {
     "members": [
       962685584,
       1098805409,
       1699564745,
-      5149955011,
       5618656235,
       7040724501,
-      7753996741
+      7753996741,
+      7935288458
     ],
     "member_data": {
+      "7753996741": {
+        "first_name": "Onajonim",
+        "last_name": "",
+        "username": "formerrider",
+        "phone": "998909804849",
+        "is_premium": false,
+        "is_bot": false,
+        "is_admin": false
+      },
       "7040724501": {
         "first_name": "Abdurahmon",
         "last_name": "",
         "username": "sofutocoding",
         "phone": "998909396669",
         "is_premium": true,
+        "is_bot": false,
+        "is_admin": false
+      },
+      "962685584": {
+        "first_name": "Otam",
+        "last_name": "",
+        "username": "",
+        "phone": "998903371849",
+        "is_premium": false,
         "is_bot": false,
         "is_admin": false
       },
@@ -196,24 +184,6 @@
         "is_bot": false,
         "is_admin": false
       },
-      "962685584": {
-        "first_name": "Otam",
-        "last_name": "",
-        "username": "",
-        "phone": "998903371849",
-        "is_premium": false,
-        "is_bot": false,
-        "is_admin": false
-      },
-      "7753996741": {
-        "first_name": "Onajonim",
-        "last_name": "",
-        "username": "formerrider",
-        "phone": "998909804849",
-        "is_premium": false,
-        "is_bot": false,
-        "is_admin": false
-      },
       "5149955011": {
         "first_name": "Student Davron",
         "last_name": "",
@@ -231,9 +201,18 @@
         "is_premium": false,
         "is_bot": false,
         "is_admin": false
+      },
+      "7935288458": {
+        "first_name": "Jamshid. Student From Tatu",
+        "last_name": "",
+        "username": "JamshidKhaydarov",
+        "phone": "998909000638",
+        "is_premium": false,
+        "is_bot": false,
+        "is_admin": false
       }
     },
-    "last_sync": 1758369521,
+    "last_sync": 1759084315,
     "sync_method": "user_telethon",
     "total_count": 8
   },
@@ -262,7 +241,7 @@
         "is_admin": false
       }
     },
-    "last_sync": 1758369522,
+    "last_sync": 1759084319,
     "sync_method": "user_telethon",
     "total_count": 3
   },
@@ -381,7 +360,7 @@
         "is_admin": false
       }
     },
-    "last_sync": 1758369527,
+    "last_sync": 1759084324,
     "sync_method": "user_telethon",
     "total_count": 12
   },
@@ -393,6 +372,24 @@
       7786750407
     ],
     "member_data": {
+      "962685584": {
+        "first_name": "Otam",
+        "last_name": "",
+        "username": "",
+        "phone": "998903371849",
+        "is_premium": false,
+        "is_bot": false,
+        "is_admin": false
+      },
+      "7753996741": {
+        "first_name": "Onajonim",
+        "last_name": "",
+        "username": "formerrider",
+        "phone": "998909804849",
+        "is_premium": false,
+        "is_bot": false,
+        "is_admin": false
+      },
       "7786750407": {
         "first_name": "Dilfuza",
         "last_name": "Mo husnora",
@@ -410,13 +407,28 @@
         "is_premium": true,
         "is_bot": false,
         "is_admin": false
-      },
-      "7753996741": {
-        "first_name": "Onajonim",
+      }
+    },
+    "last_sync": 1759084321,
+    "sync_method": "user_telethon",
+    "total_count": 5
+  },
+  "-1002419120922": {
+    "members": [
+      6109323365,
+      6613661192,
+      6903723204,
+      7040724501,
+      7537365577,
+      7809172034
+    ],
+    "member_data": {
+      "7040724501": {
+        "first_name": "Abdurahmon",
         "last_name": "",
-        "username": "formerrider",
-        "phone": "998909804849",
-        "is_premium": false,
+        "username": "sofutocoding",
+        "phone": "998909396669",
+        "is_premium": true,
         "is_bot": false,
         "is_admin": false
       },
@@ -428,10 +440,62 @@
         "is_premium": false,
         "is_bot": false,
         "is_admin": false
+      },
+      "6109323365": {
+        "first_name": "Dilshod",
+        "last_name": "",
+        "username": "Dilshodbek846",
+        "phone": "998908246434",
+        "is_premium": false,
+        "is_bot": false,
+        "is_admin": false
+      },
+      "7537365577": {
+        "first_name": "Mirzabek",
+        "last_name": "",
+        "username": "mirzabektursunaliyev",
+        "phone": "998909183231",
+        "is_premium": true,
+        "is_bot": false,
+        "is_admin": false
+      },
+      "7809172034": {
+        "first_name": "Yaxyobek",
+        "last_name": "",
+        "username": "yaxyobek08",
+        "phone": "998942942308",
+        "is_premium": false,
+        "is_bot": false,
+        "is_admin": false
+      },
+      "6613661192": {
+        "first_name": "🌙꯭🕌꯭Ξ꯭⋅ᴏ꯭ⷪᴢ꯭ᷦᴏ꯭ⷪᴅ꯭ͩʙ꯭ᷩᴇ꯭ⷷᴋ꯭ᷜ𝆹꯭𝅥𝆭🕋꯭𝆹꯭𝅥𝆭",
+        "last_name": "Ozodbek student",
+        "username": "",
+        "phone": "998992702099",
+        "is_premium": false,
+        "is_bot": false,
+        "is_admin": false
+      },
+      "6903723204": {
+        "first_name": "Амрвв 🐈‍⬛)",
+        "last_name": "Html,css done",
+        "username": "whoIsAmrvv",
+        "phone": "",
+        "is_premium": false,
+        "is_bot": false,
+        "is_admin": false
       }
     },
-    "last_sync": 1758369524,
+    "last_sync": 1759084555,
     "sync_method": "user_telethon",
-    "total_count": 3
+    "total_count": 9
+  },
+  "-4549232008": {
+    "members": [
+      5149955011,
+      5718626045,
+      7383492402
+    ]
   }
 }

@@ -1147,83 +1147,136 @@ def assign_test_groups(test_id: str, groups: List[int]):
     obj["group_id"] = (norm[0] if norm else None)
     write_test(test_id, obj)
 
-def tests_for_group(group_id: int, only_active=True) -> List[dict]:
+def tests_for_group(group_id: int, only_active: bool = True) -> List[dict]:
+    """
+    Guruh bo'yicha testlar ro'yxati.
+    only_active=True bo'lsa:
+      - test global aktiv bo'lishi shart
+      - agar test.active_groups mavjud bo'lsa, group_id o'shanda bo'lishi shart
+    """
     act = set(get_active_tests()) if only_active else None
-    out = []
+    out: List[dict] = []
+
     for p in get_all_tests():
         try:
             data = json.loads(p.read_text(encoding="utf-8"))
         except Exception:
             continue
+
         tid = data.get("test_id") or p.stem.replace("test_", "")
-        grps = data.get("groups") or []
+
+        # Test tayinlangan guruhlar
+        grps: List[int] = []
+        for g in (data.get("groups") or []):
+            try:
+                grps.append(int(g))
+            except Exception:
+                pass
         gid = data.get("group_id")
         if gid and not grps:
-            grps = [gid]
-        if int(group_id) in [int(x) for x in grps]:
-            if only_active and act is not None and tid not in act:
+            try:
+                grps = [int(gid)]
+            except Exception:
+                grps = []
+
+        if int(group_id) not in grps:
+            continue
+
+        if only_active:
+            # Global aktiv shart
+            if act is not None and tid not in act:
                 continue
-            data["test_id"] = tid
-            out.append(data)
+            # Guruh bo'yicha aktiv filtri
+            active_groups = set()
+            for g in (data.get("active_groups") or []):
+                try:
+                    active_groups.add(int(g))
+                except Exception:
+                    pass
+            if active_groups and (int(group_id) not in active_groups):
+                continue
+
+        data["test_id"] = tid
+        out.append(data)
+
     return out
 
+
+
 def available_tests_for_user(user_id: int) -> List[dict]:
+    """
+    Foydalanuvchiga ko'rinadigan (faol) testlar ro'yxati.
+    -- Global aktiv: ACTIVE_TEST_FILE dagi testlar
+    -- Guruh bo'yicha aktiv: test.json ichidagi "active_groups"
+       * Agar "active_groups" bo'sh/yo'q bo'lsa, tayinlangan barcha guruhlar uchun aktiv hisoblanadi.
+       * Agar "active_groups" bor bo'lsa, faqat o'sha guruhlar uchun aktiv.
+    """
     user_groups = set(get_user_groups(user_id))
-    
+
+    # group_members.json bo'yicha ham tekshiramiz
     gm = load_group_members()
     for gid_str, rec in gm.items():
         try:
             gid = int(gid_str)
-            members = set(int(x) for x in rec.get("members", []))
+            members = set(int(x) for x in rec.get("members", []) or [])
             if user_id in members:
                 user_groups.add(gid)
         except (ValueError, TypeError):
             continue
-    
+
     if not user_groups:
         log.warning(f"User {user_id} has no group memberships")
         return []
-    
-    log.info(f"User {user_id} is member of groups: {user_groups}")
-    
-    out = []
+
+    log.info(f"User {user_id} is member of groups: {sorted(user_groups)}")
+
+    out: List[dict] = []
     active_tests = set(get_active_tests())
-    
+
     for p in get_all_tests():
         try:
             data = json.loads(p.read_text(encoding="utf-8"))
         except Exception:
             continue
-            
+
         tid = data.get("test_id") or p.stem.replace("test_", "")
-        
+
+        # 1) Global aktiv filtri
         if tid not in active_tests:
             continue
-        
+
+        # 2) Test tayinlangan guruhlar
         test_groups = set()
         for g in (data.get("groups") or []):
             try:
                 test_groups.add(int(g))
             except (ValueError, TypeError):
                 pass
-        
         if data.get("group_id"):
             try:
                 test_groups.add(int(data["group_id"]))
             except (ValueError, TypeError):
                 pass
-        
         if not test_groups:
             continue
-        
-        if user_groups.intersection(test_groups):
+
+        # 3) Guruh bo'yicha faollik
+        active_groups = set()
+        for g in (data.get("active_groups") or []):
+            try:
+                active_groups.add(int(g))
+            except Exception:
+                pass
+
+        effective_groups = (test_groups & active_groups) if active_groups else test_groups
+
+        if user_groups & effective_groups:
             data["test_id"] = tid
             out.append(data)
-            log.info(f"Test {tid} available for user {user_id} (groups: {test_groups})")
-        else:
-            log.info(f"Test {tid} NOT available for user {user_id} (test groups: {test_groups}, user groups: {user_groups})")
-    
+            log.info(f"Test {tid} available for user {user_id} (effective groups: {sorted(effective_groups)})")
+
     return out
+
 
 _Q_HEADER = re.compile(r"^\s*(\d+)[\.\)]\s*(.+)$")
 _OPT_LINE = re.compile(r"^\s*([A-Da-d])[\.\)]\s*(.+)$")
@@ -2350,6 +2403,23 @@ async def notify_groups_and_members(group_ids: List[int], test_name: str, tid: s
         "total_notified": total_notified,
         "total_failed": total_failed,
     }
+
+def get_test_active_groups(test_id: str) -> List[int]:
+    obj = read_test(test_id) or {}
+    out = []
+    for g in obj.get("active_groups", []) or []:
+        try:
+            out.append(int(g))
+        except Exception:
+            pass
+    return sorted(set(out))
+
+def set_test_active_groups(test_id: str, groups: List[int]):
+    obj = read_test(test_id) or {"test_id": test_id}
+    norm = sorted(set(int(x) for x in groups))
+    obj["active_groups"] = norm
+    write_test(test_id, obj)
+
 
 async def validate_and_sync_new_user(user_id: int) -> Tuple[bool, List[int]]:
     

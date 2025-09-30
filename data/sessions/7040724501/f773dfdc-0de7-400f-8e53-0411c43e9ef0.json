@@ -1,0 +1,21 @@
+{
+  "active_test_id": "f773dfdc-0de7-400f-8e53-0411c43e9ef0",
+  "student_name": "sjdlfkjs",
+  "started_at": 1759145685,
+  "answers": {
+    "1": "C"
+  },
+  "current_q": 1,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1
+  },
+  "excluded_options": {
+    "1": [
+      "C"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "push() massiv oxiriga element qo‘shadi va massiv uzunligini qaytaradi. arr push(3) qilingach, uzunlik 3 bo‘ladi. arr[2] yangi qo‘shilgan 3 ga teng. Shuning uchun chiqish: 3 3.",
+  "last_updated": 1759145700
+}

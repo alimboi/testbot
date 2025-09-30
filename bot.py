@@ -42,6 +42,7 @@ except ImportError as e:
 # Admin/Owner panel handlers
 from admin_handlers import (
     owner_panel,
+    admin_panel, 
     callbacks_router,
     owner_receive_docx,
     msg_receive_group_ids,
@@ -145,10 +146,12 @@ async def cmd_cancel(message: types.Message, state: FSMContext):
 # /start must work even if you're inside some state
 # IN bot.py, MODIFY the cmd_start_any handler (around line 100):
 
+# bot.py
+
 @dp.message_handler(commands=['start'], state='*')
 async def cmd_start_any(message: types.Message, state: FSMContext):
     await state.finish()  # exit any pending input state
-    
+
     # If in group, redirect to private
     if message.chat.type in ("group", "supergroup"):
         bot_info = await bot.get_me()
@@ -163,14 +166,67 @@ async def cmd_start_any(message: types.Message, state: FSMContext):
             )
         )
         return
-    
+
     # Private chat - continue normally
     ensure_data()
-    
-    if is_owner(message.from_user.id):
-        await owner_panel(message)
-    else:
-        await student_start(message, state)
+    user_id = message.from_user.id
+
+    # Faqat owner yoki admin bo'lsa rol tanlashni chiqaramiz
+    from utils import is_admin  # tepada importlar orasida ham bor, lekin xavfsiz tomoni shu yerda ham chaqiramiz
+    if is_owner(user_id) or is_admin(user_id):
+        kb = types.InlineKeyboardMarkup(row_width=1)
+        kb.add(
+            types.InlineKeyboardButton("👨‍🏫 Admin/Owner sifatida", callback_data="start:role:admin"),
+            types.InlineKeyboardButton("🎓 O‘quvchi sifatida", callback_data="start:role:student")
+        )
+        await message.answer(
+            "Sizda admin/owner huquqlari mavjud. Qaysi rejimda davom etasiz?",
+            reply_markup=kb
+        )
+        return
+
+    # Oddiy foydalanuvchi — to'g'ridan-to'g'ri testlar oqimi
+    await student_start(message, state)
+
+
+
+# bot.py
+
+@dp.callback_query_handler(lambda c: c.data == "start:role:admin", state="*")
+async def cb_start_role_admin(cb: types.CallbackQuery, state: FSMContext):
+    await state.finish()
+    user_id = cb.from_user.id
+
+    try:
+        if is_owner(user_id):
+            # Owner panel (owner_panel owner_id parametrini qabul qiladi — siz allaqachon tuzatganingizdek)
+            await owner_panel(cb.message, user_id=user_id)
+            await cb.answer("Owner panel ochildi")
+            return
+
+        from utils import is_admin, get_user_admin_groups
+        if is_admin(user_id):
+            await admin_panel(cb.message, get_user_admin_groups(user_id))
+            await cb.answer("Admin panel ochildi")
+            return
+
+        # Admin/owner bo'lmasa, o'quvchi sifatida davom
+        await cb.answer("Siz admin/owner emassiz. O‘quvchi sifatida davom eting.", show_alert=True)
+        await student_start(cb.message, state)
+
+    except Exception as e:
+        await cb.answer("Xatolik yuz berdi", show_alert=True)
+        await student_start(cb.message, state)
+
+
+@dp.callback_query_handler(lambda c: c.data == "start:role:student", state="*")
+async def cb_start_role_student(cb: types.CallbackQuery, state: FSMContext):
+    await state.finish()
+    # Talaba oqimiga o‘tkazamiz (ismni so‘rashi, test tanlash va hok.)
+    await student_start(cb.message, state)
+    await cb.answer()
+
+
 
 # -------------------------
 # Student flow (public) - ENHANCED WITH RATE LIMITING AND ERROR HANDLING
@@ -218,6 +274,15 @@ async def cb_understand_safe(cb: types.CallbackQuery, state: FSMContext):
 async def cb_new_test_safe(cb: types.CallbackQuery, state: FSMContext):
     """Error-safe new test handler"""
     return await safe_student_operation(handle_new_test, cb, state)
+
+@dp.callback_query_handler(lambda c: c.data and (
+    c.data.startswith("ag:") or c.data.startswith("dg:") or
+    c.data.startswith("actg:") or c.data.startswith("deactg:")
+))
+async def cb_act_groups(cb: types.CallbackQuery, state: FSMContext):
+    from admin_handlers import cb_act_groups_action
+    await cb_act_groups_action(cb, state)
+
 
 @dp.callback_query_handler(lambda c: c.data and c.data.startswith("asg:"))
 async def cb_assign_groups_flow(cb: types.CallbackQuery, state: FSMContext):

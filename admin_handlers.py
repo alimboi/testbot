@@ -48,13 +48,285 @@ _file_lock = asyncio.Lock()
 
 # ---------- Owner panel ----------
 
-async def owner_panel(message: types.Message):
-    if not is_owner(message.from_user.id):
+
+def _act_build_kb(tid: str, items: list, selected: set, mode: str) -> types.InlineKeyboardMarkup:
+    """
+    items: [(gid, title), ...]
+    selected: set(gid)
+    mode: 'activate' | 'deactivate'
+    QISQA callback_data:
+      - Activate (ag):  ag:t:<idx>  | ag:s | ag:c
+      - Deactivate (dg): dg:t:<idx> | dg:s | dg:c
+    """
+    ns = "ag" if mode == "activate" else "dg"
+    kb = types.InlineKeyboardMarkup(row_width=1)
+    for i, (gid, title) in enumerate(items):
+        mark = "☑" if gid in selected else "☐"
+        display = title[:30] + "..." if len(title) > 30 else title
+        kb.add(
+            types.InlineKeyboardButton(
+                f"{mark} {display}",
+                callback_data=f"{ns}:t:{i}"
+            )
+        )
+    kb.row(
+        types.InlineKeyboardButton("✅ Tayyor", callback_data=f"{ns}:s"),
+        types.InlineKeyboardButton("⬅️ Bekor", callback_data=f"{ns}:c"),
+    )
+    return kb
+
+
+
+async def _activate_show_ui(cb: types.CallbackQuery, state: FSMContext, tid: str):
+    from utils import read_test, load_group_titles, get_test_active_groups
+    test_data = read_test(tid)
+    if not test_data:
+        return await cb.answer("Test topilmadi", show_alert=True)
+
+    # Testga tayinlangan guruhlar -> int
+    assigned = set()
+    for g in (test_data.get("groups") or []):
+        try:
+            assigned.add(int(g))
+        except Exception:
+            pass
+    if not assigned:
+        return await cb.answer("Avval testni guruhlarga tayinlang.", show_alert=True)
+
+    titles = load_group_titles()
+    items = [(gid, titles.get(gid, f"Guruh {gid}")) for gid in sorted(assigned)]
+
+    # Active guruhlar -> int
+    active = set()
+    for g in (get_test_active_groups(tid) or []):
+        try:
+            active.add(int(g))
+        except Exception:
+            pass
+
+    selected = active & assigned  # faqat shu testga tayinlanganlar kesimida
+
+    await state.update_data(act_tid=tid, act_mode="activate", act_sel=list(selected))
+    name = test_data.get("test_name", "Test")
+    text = f"🟢 <b>“{name}” — Faollashtirish</b>\nGuruhlarni belgilang va <b>Tayyor</b> ni bosing."
+    await cb.message.edit_text(text, reply_markup=_act_build_kb(tid, items, selected, "activate"))
+    await cb.answer()
+
+
+
+
+async def _deactivate_show_ui(cb: types.CallbackQuery, state: FSMContext, tid: str):
+    from utils import read_test, load_group_titles, get_test_active_groups
+    test_data = read_test(tid)
+    if not test_data:
+        return await cb.answer("Test topilmadi", show_alert=True)
+
+    # Testga tayinlangan guruhlar -> int
+    assigned = set()
+    for g in (test_data.get("groups") or []):
+        try:
+            assigned.add(int(g))
+        except Exception:
+            pass
+    if not assigned:
+        return await cb.answer("Test guruhlarga tayinlanmagan.", show_alert=True)
+
+    titles = load_group_titles()
+    items = [(gid, titles.get(gid, f"Guruh {gid}")) for gid in sorted(assigned)]
+
+    # Active guruhlar -> int
+    active = set()
+    for g in (get_test_active_groups(tid) or []):
+        try:
+            active.add(int(g))
+        except Exception:
+            pass
+
+    selected = active & assigned  # faqat shu testga tayinlanganlar kesimida
+
+    await state.update_data(act_tid=tid, act_mode="deactivate", act_sel=list(selected))
+    name = test_data.get("test_name", "Test")
+    text = f"🔴 <b>“{name}” — Faolsizlantirish</b>\nFaolsiz bo‘ladigan guruhlarni belgilang va <b>Tayyor</b> ni bosing."
+    await cb.message.edit_text(text, reply_markup=_act_build_kb(tid, items, selected, "deactivate"))
+    await cb.answer()
+
+
+
+async def cb_act_groups_action(cb: types.CallbackQuery, state: FSMContext):
+    """
+    YANGI:
+      ag:t:<idx> | ag:s | ag:c
+      dg:t:<idx> | dg:s | dg:c
+    KOMPATIBIL:
+      actg:toggle:<tid>:<gid> | actg:save:<tid> | actg:cancel:<tid>
+      deactg:toggle:<tid>:<gid> | deactg:save:<tid> | deactg:cancel:<tid>
+    """
+    from utils import (
+        is_owner, is_admin, can_user_manage_test,
+        read_test, load_group_titles,
+        get_test_active_groups, set_test_active_groups,
+        set_test_active, notify_groups_and_members,
+        get_active_tests,
+    )
+
+    data = cb.data or ""
+    user_id = cb.from_user.id
+
+    # --- Aniqlash (yangi yoki eski format) ---
+    is_new = data.startswith("ag:") or data.startswith("dg:")
+    is_old = data.startswith("actg:") or data.startswith("deactg:")
+
+    if not (is_new or is_old):
+        return await cb.answer("Noma'lum amal")
+
+    # Mode va action
+    if is_new:
+        ns, action, *rest = data.split(":")
+        mode = "activate" if ns == "ag" else "deactivate"
+        idx = None
+        if action == "t" and rest:
+            try:
+                idx = int(rest[0])
+            except Exception:
+                return await cb.answer("Noto‘g‘ri index")
+        # Test ID va tanlov state’dan olinadi
+        s = await state.get_data()
+        tid = s.get("act_tid")
+        if not tid:
+            return await cb.answer("Sessiya muddati tugagan. Qayta oching.", show_alert=True)
+
+    else:
+        # Eski uzun format
+        parts = data.split(":")
+        mode = "activate" if data.startswith("actg:") else "deactivate"
+        if len(parts) < 3:
+            return await cb.answer("Noto‘g‘ri format")
+        action = parts[1]  # toggle | save | cancel
+        tid = parts[2]
+        idx = None  # eski formatda idx o‘rniga to‘g‘ridan-to‘g‘ri gid keladi
+
+    # Ruxsat
+    if not (is_owner(user_id) or is_admin(user_id)) or not can_user_manage_test(user_id, tid):
+        return await cb.answer("Ruxsat yo‘q", show_alert=True)
+
+    test_data = read_test(tid)
+    if not test_data:
+        return await cb.answer("Test topilmadi", show_alert=True)
+
+    # Testga tayinlangan guruhlar -> int
+    assigned = set()
+    for g in (test_data.get("groups") or []):
+        try:
+            assigned.add(int(g))
+        except Exception:
+            pass
+
+    titles = load_group_titles()
+    items = [(gid, titles.get(gid, f"Guruh {gid}")) for gid in sorted(assigned)]
+    item_gids = set(g for g, _ in items)  # UI dagi gid’lar (int)
+
+    # State dagi tanlovlar -> int
+    s = await state.get_data()
+    selected = set()
+    for g in s.get("act_sel", []):
+        try:
+            selected.add(int(g))
+        except Exception:
+            pass
+
+    # Oldindan active bo‘lgan guruhlar -> int (faqat UI dagilari kesimida)
+    active_prev = set()
+    for g in (get_test_active_groups(tid) or []):
+        try:
+            active_prev.add(int(g))
+        except Exception:
+            pass
+    active_prev &= item_gids
+
+    # --- ACTIONLAR ---
+    if action in ("t", "toggle"):
+        # toggle (yangi: index; eski: gid)
+        if is_new:
+            if idx is None or idx < 0 or idx >= len(items):
+                return await cb.answer("Index diapazondan tashqarida")
+            gid = items[idx][0]  # int
+        else:
+            try:
+                gid = int(data.split(":")[3])
+            except Exception:
+                return await cb.answer("Guruh ID noto‘g‘ri")
+
+        if gid in selected:
+            selected.discard(gid)
+        else:
+            selected.add(gid)
+        await state.update_data(act_sel=list(selected))
+
+        name = test_data.get("test_name", "Test")
+        head = "🟢 Faollashtirish" if mode == "activate" else "🔴 Faolsizlantirish"
+        text = f"{head}\n<b>{name}</b>\nTanlang va <b>Tayyor</b> ni bosing."
+        kb = _act_build_kb(tid, items, selected, mode)
+        return await cb.message.edit_text(text, reply_markup=kb)
+
+    if action in ("c", "cancel"):
+        await state.update_data(act_tid=None, act_mode=None, act_sel=[])
+        await cb.answer("Bekor qilindi")
+        return await _open_test(cb, tid)
+
+    if action in ("s", "save"):
+        if mode == "activate":
+            # activate UI’da 'selected' = FAOL bo‘ladiganlar
+            new_active = (selected & item_gids)
+            newly_added = new_active - active_prev
+            set_test_active_groups(tid, list(sorted(new_active)))
+            set_test_active(tid, bool(new_active))
+
+            if newly_added:
+                await cb.message.answer("📢 Faollashtirish: tanlangan guruhlarga xabar yuborilmoqda...")
+                summary = await notify_groups_and_members(list(newly_added), test_data.get("test_name", "Test"), tid)
+                await cb.message.answer(
+                    f"✅ Faollashtirildi.\n"
+                    f"📢 Guruhlarga xabar: {summary.get('groups_notified',0)}/{len(newly_added)}\n"
+                    f"📨 Shaxsiy xabarlar: {summary.get('total_notified',0)}"
+                )
+            else:
+                await cb.message.answer("✅ Faollashtirildi (yangi guruh yo‘q).")
+
+        else:
+            # deactivate UI’da 'selected' = O‘CHIRILADIGAN guruhlar
+            to_remove = selected & item_gids
+            new_active = active_prev - to_remove
+            set_test_active_groups(tid, list(sorted(new_active)))
+            set_test_active(tid, bool(new_active))
+            await cb.message.answer("✅ Tanlangan guruhlar uchun test faolsizlantirildi.")
+
+        await state.update_data(act_tid=None, act_mode=None, act_sel=[])
+        await cb.answer("Saqlandi")
+        return await _open_test(cb, tid)
+
+    return await cb.answer("Noma'lum amal")
+
+
+
+
+# admin_handlers.py
+
+async def owner_panel(message: types.Message, user_id: int | None = None):
+    """
+    Owner panelini ko'rsatadi.
+    Callbackdan chaqirilganda message.from_user bot bo'lgani uchun,
+    real foydalanuvchi ID sini parametr sifatida olishimiz kerak.
+    """
+    # Agar user_id berilgan bo'lsa, shuni tekshiramiz; bo'lmasa message.from_user ga tayanamiz
+    uid = user_id if user_id is not None else (message.from_user.id if message.from_user else None)
+    if uid is not None and not is_owner(uid):
+        await message.answer("Ruxsat yo'q")
         return
+
     ensure_data()
-    
     from keyboards import owner_home_kb
     await message.answer("Owner panel", reply_markup=owner_home_kb())
+
 
 async def cb_panel_home(cb: types.CallbackQuery):
     if not is_owner(cb.from_user.id):
@@ -362,31 +634,23 @@ async def cb_admin_action(cb: types.CallbackQuery, state: FSMContext):
     if data == "admin:groups":
         admin_groups = get_user_admin_groups(user_id)
         group_titles = load_group_titles()
-        
+        gm = load_group_members()
+
         lines = ["<b>Sizning guruhlaringiz:</b>\n"]
         for gid in admin_groups:
-            title = group_titles.get(gid, f"Guruh {gid}")
-            
-            # Get member count
-            gm = load_group_members()
+            title = group_titles.get(gid, group_titles.get(int(gid), f"Guruh {gid}"))
             members = gm.get(str(gid), {}).get("members", [])
-            
-            lines.append(f"• {title}")
-            lines.append(f"  ID: <code>{gid}</code>")
-            lines.append(f"  A'zolar: {len(members)} ta\n")
-        
+            # faqat nom (va ixtiyoriy: a'zo soni)
+            lines.append(f"• {title} — {len(members)} a'zo")
+            lines.append("")  # bo'sh qatordan keyin
+
         kb = types.InlineKeyboardMarkup()
         kb.add(types.InlineKeyboardButton("⬅️ Orqaga", callback_data="admin:home"))
-        
+
         await cb.message.edit_text("\n".join(lines), reply_markup=kb)
         await cb.answer()
         return
-    
-    # Admin new test
-    if data == "admin:new_test":
-        await cb.message.answer("DOCX formatida test faylini yuboring.\n\nFayl tuzilishi:\n• Savollar\n• Javoblar\n• Izohlar (ixtiyoriy)")
-        await cb.answer()
-        return
+
     
     # Admin stats
     if data == "admin:stats":
@@ -479,23 +743,26 @@ async def cb_panel_groups(cb: types.CallbackQuery):
     
     gids = load_group_ids()
     titles = load_group_titles()
+    gm = load_group_members()
     
-    lines = ["<b>Groups:</b>\n"]
+    lines = ["<b>Guruhlar:</b>\n"]
     if gids:
         for gid in gids:
-            title = titles.get(gid, "No name")
-            lines.append(f"• {title}")
-            lines.append(f"  ID: <code>{gid}</code>")
+            # nomni olamiz (fallback: Guruh {gid})
+            title = titles.get(gid, titles.get(int(gid), f"Guruh {gid}"))
+            member_count = len(gm.get(str(gid), {}).get("members", []))
+            # faqat nom (va ixtiyoriy: a'zo soni)
+            lines.append(f"• {title} — {member_count} a'zo")
     else:
-        lines.append("— none —")
+        lines.append("— ro‘yxat bo‘sh —")
     
     text = "\n".join(lines)
-    
     try:
         await cb.message.edit_text(text, reply_markup=_groups_manage_kb())
         await cb.answer()
     except MessageNotModified:
         await cb.answer()
+
 
 async def _groups_write_all(ids):
     async with _file_lock:
@@ -1055,10 +1322,13 @@ async def cb_test_action(cb: types.CallbackQuery, state: FSMContext):
     Unified test actions handler (owner/admin).
     Supports:
       - t:view:<tid>
-      - t:act:<tid> / t:deact:<tid>
-      - t:assign:<tid>  (opens assign UI; saving handled by cb_assign_groups_action)
+      - t:act:<tid> / t:deact:<tid>  (✅ endi UIga yo'naltiriladi)
+      - t:assign:<tid>               (assign UI)
       - t:del:<tid> / t:delconfirm:<tid>
     """
+    from utils import is_owner, is_admin, can_user_manage_test, load_tests_index, save_tests_index, test_path, read_test
+    from audit import log_action
+
     user_id = cb.from_user.id
     data = (cb.data or "").strip()
     parts = data.split(":")
@@ -1078,47 +1348,15 @@ async def cb_test_action(cb: types.CallbackQuery, state: FSMContext):
         await cb.answer()
         return await _open_test(cb, tid)
 
-    # ----- activate -----
+    # ----- activate → UI -----
     if action == "act":
-        set_test_active(tid, True)
-        log_action(cb.from_user.id, "test_activate", ok=True, test_id=tid)
-        test_data = read_test(tid)
-        test_name = test_data.get("test_name", test_data.get("name", "Test"))
+        await cb.answer()
+        return await _activate_show_ui(cb, state, tid)
 
-        # tayinlangan guruhlar
-        assigned_groups = []
-        for g in test_data.get("groups", []):
-            try:
-                assigned_groups.append(int(g))
-            except:
-                pass
-
-        if assigned_groups:
-            await cb.message.answer("⏳ Test faollashtirilmoqda va xabarlar yuborilmoqda...")
-            notification_results = await notify_groups_and_members(assigned_groups, test_name, tid)
-            total_notified = notification_results['total_notified']
-            total_failed = notification_results['total_failed']
-            groups_notified = notification_results['groups_notified']
-            msg = (
-                f"✅ Test faollashtirildi!\n\n"
-                f"📢 {groups_notified}/{len(assigned_groups)} guruhga xabar yuborildi\n"
-                f"📨 {total_notified} talabaga shaxsiy xabar\n"
-            )
-            if total_failed > 0:
-                msg += f"⚠️ {total_failed} talabaga xabar yetmadi"
-            await cb.message.answer(msg)
-        else:
-            await cb.message.answer("⚠️ Test faollashtirildi, lekin guruh tayinlanmagan.")
-
-        await cb.answer("Faollashtirildi")
-        return await _open_test(cb, tid)
-
-    # ----- deactivate -----
+    # ----- deactivate → UI -----
     if action == "deact":
-        set_test_active(tid, False)
-        log_action(cb.from_user.id, "test_deactivate", ok=True, test_id=tid)
-        await cb.answer("Faolsizlantirildi")
-        return await _open_test(cb, tid)
+        await cb.answer()
+        return await _deactivate_show_ui(cb, state, tid)
 
     # ----- delete -----
     if action == "del":
@@ -1132,7 +1370,7 @@ async def cb_test_action(cb: types.CallbackQuery, state: FSMContext):
                 f"⚠️ <b>Testni o'chirishni tasdiqlang</b>\n\nTest ID: <code>{tid}</code>\n\nBu amal qaytarib bo'lmaydi!",
                 reply_markup=kb
             )
-        except MessageNotModified:
+        except Exception:
             pass
         return
 
@@ -1147,7 +1385,7 @@ async def cb_test_action(cb: types.CallbackQuery, state: FSMContext):
             if p.exists():
                 os.remove(p)
         except Exception as e:
-            log.warning(f"Could not delete test file: {e}")
+            logging.getLogger("admin_handlers").warning(f"Could not delete test file: {e}")
         log_action(cb.from_user.id, "test_delete", ok=True, test_id=tid)
         await cb.message.answer("🗑 Test o'chirildi")
         await cb.answer("O‘chirildi")
@@ -1159,6 +1397,7 @@ async def cb_test_action(cb: types.CallbackQuery, state: FSMContext):
         return await _assign_show_ui(cb, state, tid)
 
     return await cb.answer("Noma’lum amal")
+
 
 # ---------- Groups actions (callbacks) ----------
 

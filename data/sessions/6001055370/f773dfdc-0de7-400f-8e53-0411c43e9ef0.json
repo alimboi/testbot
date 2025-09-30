@@ -1,0 +1,47 @@
+{
+  "active_test_id": "f773dfdc-0de7-400f-8e53-0411c43e9ef0",
+  "student_name": "Diyor",
+  "started_at": 1759147378,
+  "answers": {
+    "1": "B",
+    "2": "C",
+    "3": "D",
+    "4": "A",
+    "5": "C",
+    "6": "D",
+    "7": "D"
+  },
+  "current_q": 8,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 2,
+    "4": 2,
+    "5": 1,
+    "6": 1,
+    "7": 1
+  },
+  "excluded_options": {
+    "1": [
+      "B",
+      "A"
+    ],
+    "2": [],
+    "3": [],
+    "4": [
+      "A",
+      "D"
+    ],
+    "5": [
+      "C"
+    ],
+    "6": [
+      "D"
+    ],
+    "7": [
+      "D"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759147967
+}
