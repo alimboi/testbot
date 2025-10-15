@@ -1,0 +1,54 @@
+{
+  "active_test_id": "9cfb35d9-4bd0-4631-96c1-d71d2ce82803",
+  "student_name": "Bahrom",
+  "started_at": 1759579217,
+  "answers": {
+    "1": "C",
+    "2": "A",
+    "3": "B",
+    "4": "B",
+    "5": "D",
+    "6": "A",
+    "7": "A",
+    "8": "B",
+    "9": "A"
+  },
+  "current_q": 10,
+  "total_q": 30,
+  "wrong_attempts": {
+    "3": 3,
+    "5": 2,
+    "6": 4,
+    "8": 1,
+    "9": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [],
+    "3": [
+      "B",
+      "C",
+      "A"
+    ],
+    "4": [],
+    "5": [
+      "D",
+      "B"
+    ],
+    "6": [
+      "A",
+      "C",
+      "D"
+    ],
+    "7": [],
+    "8": [
+      "B"
+    ],
+    "9": [
+      "A"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759580186
+}

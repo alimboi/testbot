@@ -1,0 +1,23 @@
+{
+  "active_test_id": "d24394c6-5526-4b9c-bed1-49164473eb19",
+  "student_name": "ad",
+  "started_at": 1759501678,
+  "answers": {
+    "1": "A",
+    "2": "C"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "C"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "Ternary shart bilan to'g'ri natija tanlandi. To'g'ri variant shartga mos qiymatni qaytaradi. a: return yo'q. c: ternaryda mantiq xatosi. d: ternary ishlatilgan, lekin return yo'q.",
+  "last_updated": 1759504801
+}

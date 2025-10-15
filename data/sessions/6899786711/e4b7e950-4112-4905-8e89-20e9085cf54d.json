@@ -1,0 +1,30 @@
+{
+  "active_test_id": "e4b7e950-4112-4905-8e89-20e9085cf54d",
+  "student_name": "Alisher ortiqboyev",
+  "started_at": 1760504704,
+  "answers": {
+    "1": "B",
+    "2": "D",
+    "3": "C",
+    "4": "D"
+  },
+  "current_q": 5,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1,
+    "2": 1
+  },
+  "excluded_options": {
+    "1": [
+      "B"
+    ],
+    "2": [
+      "D"
+    ],
+    "3": [],
+    "4": []
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1760504877
+}

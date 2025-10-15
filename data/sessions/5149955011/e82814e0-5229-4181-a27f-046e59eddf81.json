@@ -1,0 +1,32 @@
+{
+  "active_test_id": "e82814e0-5229-4181-a27f-046e59eddf81",
+  "student_name": "kimdir",
+  "started_at": 1759558393,
+  "answers": {
+    "1": "A",
+    "2": "D",
+    "3": "A",
+    "4": "C",
+    "5": "C"
+  },
+  "current_q": 6,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1,
+    "5": 1
+  },
+  "excluded_options": {
+    "1": [
+      "A"
+    ],
+    "2": [],
+    "3": [],
+    "4": [],
+    "5": [
+      "C"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759558613
+}

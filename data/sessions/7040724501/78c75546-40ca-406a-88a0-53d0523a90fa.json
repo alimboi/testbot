@@ -1,0 +1,23 @@
+{
+  "active_test_id": "78c75546-40ca-406a-88a0-53d0523a90fa",
+  "student_name": "sdfa",
+  "started_at": 1760462468,
+  "answers": {
+    "1": "D",
+    "2": "D"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "D"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "Qoida: filter yoki shart bilan for...of/reduce ishlatilib yig‘indiga qo‘shiladi. Misol: reduce(a,v)=&gt; shartli qo‘shish. To‘g‘ri: reduce bilan shartli yig‘indi. Xatolar: for...in indeks beradi; forEach da s aniqlanmagan; &lt;100 bilan &lt;=100 chalkashtirilmasin.",
+  "last_updated": 1760463653
+}

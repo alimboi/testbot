@@ -137,6 +137,39 @@ dp.middleware.setup(AuditMiddleware())
 # Global navigation helpers
 # -------------------------
 
+
+
+@dp.message_handler(lambda m: m.chat.type in ("group", "supergroup") and (m.text or "").split()[0].lower().startswith("/start"), state="*")
+async def cmd_start_in_group(message: types.Message, state: FSMContext):
+    """Handle /start in groups - redirect to private chat"""
+    try:
+        await state.finish()
+    except Exception:
+        pass
+    
+    try:
+        me = await bot.get_me()
+        
+        # Create inline keyboard with button to start bot in private
+        kb = types.InlineKeyboardMarkup()
+        kb.add(
+            types.InlineKeyboardButton(
+                "💬 Botni shaxsiy chatda boshlash",
+                url=f"https://t.me/{me.username}?start=from_group_{message.chat.id}"
+            )
+        )
+        
+        await message.reply(
+            "👋 Salom!\n\n"
+            "Men guruhlarda ishlamayman. Testlarni boshlash uchun menga shaxsiy xabar yuboring.\n\n"
+            "👇 Quyidagi tugmani bosing:",
+            reply_markup=kb,
+            disable_web_page_preview=True
+        )
+    except Exception as e:
+        log.error(f"Error in group /start handler: {e}")
+
+
 # /cancel or /back should always exit any state
 @dp.message_handler(commands=['cancel', 'back'], state='*')
 async def cmd_cancel(message: types.Message, state: FSMContext):
@@ -589,6 +622,246 @@ async def cmd_notify_test(message: types.Message):
         
     except Exception as e:
         await message.reply(f"Notification error: {e}")
+
+
+
+
+
+
+# Add these debug commands to bot.py (around line 600)
+
+@dp.message_handler(commands=['mytests'])
+async def cmd_my_tests(message: types.Message):
+    """Debug command - show detailed test access info for current user"""
+    user_id = message.from_user.id
+    
+    try:
+        from utils import (
+            available_tests_for_user, get_user_groups, 
+            load_group_members, get_active_tests, read_test,
+            load_group_titles
+        )
+        
+        lines = [f"🔍 <b>Test Access Debug - User {user_id}</b>\n"]
+        
+        # 1. User's groups
+        user_groups_json = get_user_groups(user_id)
+        lines.append(f"📁 Groups from user_groups.json: {user_groups_json}")
+        
+        gm = load_group_members()
+        groups_from_members = []
+        for gid_str, rec in gm.items():
+            try:
+                gid = int(gid_str)
+                if user_id in rec.get("members", []):
+                    groups_from_members.append(gid)
+            except:
+                pass
+        lines.append(f"👥 Groups from group_members.json: {groups_from_members}")
+        
+        all_user_groups = set(user_groups_json + groups_from_members)
+        lines.append(f"✅ <b>Total unique groups:</b> {sorted(all_user_groups)}\n")
+        
+        # 2. Show group names
+        group_titles = load_group_titles()
+        lines.append("<b>Group Names:</b>")
+        for gid in sorted(all_user_groups):
+            title = group_titles.get(gid, f"Guruh {gid}")
+            lines.append(f"  • {title} (ID: {gid})")
+        lines.append("")
+        
+        # 3. Active tests
+        active_test_ids = get_active_tests()
+        lines.append(f"🧪 <b>Globally Active Tests:</b> {len(active_test_ids)}\n")
+        
+        # 4. Check each active test
+        accessible_tests = []
+        inaccessible_tests = []
+        
+        for tid in active_test_ids:
+            test = read_test(tid)
+            if not test:
+                continue
+            
+            test_name = test.get("test_name", "Unknown")
+            
+            # Test groups
+            test_groups = set()
+            for g in test.get("groups", []):
+                try:
+                    test_groups.add(int(g))
+                except:
+                    pass
+            
+            # Active groups
+            active_groups = set()
+            for g in test.get("active_groups", []):
+                try:
+                    active_groups.add(int(g))
+                except:
+                    pass
+            
+            effective_groups = active_groups if active_groups else test_groups
+            common_groups = all_user_groups & effective_groups
+            
+            test_info = {
+                "id": tid,
+                "name": test_name,
+                "assigned_groups": sorted(test_groups),
+                "active_groups": sorted(active_groups) if active_groups else "All assigned",
+                "effective_groups": sorted(effective_groups),
+                "common_groups": sorted(common_groups),
+                "accessible": bool(common_groups)
+            }
+            
+            if common_groups:
+                accessible_tests.append(test_info)
+            else:
+                inaccessible_tests.append(test_info)
+        
+        # 5. Show accessible tests
+        lines.append(f"✅ <b>Accessible Tests:</b> {len(accessible_tests)}\n")
+        for t in accessible_tests:
+            lines.append(f"📚 <b>{t['name']}</b>")
+            lines.append(f"   ID: <code>{t['id']}</code>")
+            lines.append(f"   Assigned to groups: {t['assigned_groups']}")
+            lines.append(f"   Active in groups: {t['active_groups']}")
+            lines.append(f"   Your common groups: {t['common_groups']}")
+            lines.append("")
+        
+        # 6. Show inaccessible tests (for debugging)
+        if inaccessible_tests:
+            lines.append(f"❌ <b>Inaccessible Tests:</b> {len(inaccessible_tests)}\n")
+            for t in inaccessible_tests:
+                lines.append(f"📚 {t['name']}")
+                lines.append(f"   ID: <code>{t['id']}</code>")
+                lines.append(f"   Assigned to groups: {t['assigned_groups']}")
+                lines.append(f"   Active in groups: {t['active_groups']}")
+                lines.append(f"   Why you can't access: No common groups")
+                lines.append("")
+        
+        # 7. Compare with available_tests_for_user function
+        available = available_tests_for_user(user_id)
+        lines.append(f"🔍 <b>available_tests_for_user() returned:</b> {len(available)} tests")
+        
+        # Send response
+        text = "\n".join(lines)
+        if len(text) > 4000:
+            # Split into chunks
+            chunks = [text[i:i+3900] for i in range(0, len(text), 3900)]
+            for chunk in chunks:
+                await message.reply(chunk)
+        else:
+            await message.reply(text)
+        
+    except Exception as e:
+        await message.reply(f"❌ Debug error: {e}")
+        log.error(f"Error in /mytests debug command: {e}", exc_info=True)
+
+
+@dp.message_handler(commands=['testinfo'])
+async def cmd_test_info(message: types.Message):
+    """Debug command - show detailed info about a specific test"""
+    args = message.get_args()
+    
+    if not args:
+        return await message.reply(
+            "Usage: /testinfo <test_id>\n"
+            "Example: /testinfo abc123-def456"
+        )
+    
+    test_id = args.strip()
+    
+    try:
+        from utils import read_test, get_active_tests, load_group_titles
+        
+        test = read_test(test_id)
+        if not test:
+            return await message.reply(f"❌ Test not found: {test_id}")
+        
+        active_tests = get_active_tests()
+        is_active = test_id in active_tests
+        group_titles = load_group_titles()
+        
+        lines = [f"🧪 <b>Test Info: {test.get('test_name', 'Unknown')}</b>\n"]
+        lines.append(f"ID: <code>{test_id}</code>")
+        lines.append(f"Status: {'🟢 Active' if is_active else '🔴 Inactive'}")
+        lines.append(f"Questions: {len(test.get('questions', []))}")
+        lines.append("")
+        
+        # Assigned groups
+        test_groups = []
+        for g in test.get("groups", []):
+            try:
+                gid = int(g)
+                title = group_titles.get(gid, f"Guruh {gid}")
+                test_groups.append(f"{title} ({gid})")
+            except:
+                pass
+        
+        lines.append(f"<b>Assigned Groups:</b> {len(test.get('groups', []))}")
+        if test_groups:
+            for tg in test_groups:
+                lines.append(f"  • {tg}")
+        else:
+            lines.append("  (No groups assigned)")
+        lines.append("")
+        
+        # Active groups
+        active_groups = test.get("active_groups", [])
+        if active_groups:
+            lines.append(f"<b>Active Groups:</b> {len(active_groups)}")
+            for g in active_groups:
+                try:
+                    gid = int(g)
+                    title = group_titles.get(gid, f"Guruh {gid}")
+                    lines.append(f"  • {title} ({gid})")
+                except:
+                    pass
+        else:
+            lines.append("<b>Active Groups:</b> All assigned groups")
+        
+        await message.reply("\n".join(lines))
+        
+    except Exception as e:
+        await message.reply(f"❌ Error: {e}")
+        log.error(f"Error in /testinfo command: {e}", exc_info=True)
+
+
+@dp.message_handler(commands=['fixmyaccess'])
+async def cmd_fix_my_access(message: types.Message):
+    """Force sync user's group membership and test access"""
+    user_id = message.from_user.id
+    
+    try:
+        from utils import validate_and_sync_new_user, load_group_titles
+        
+        await message.reply("🔄 Checking your group membership...")
+        
+        # Force sync
+        has_valid_groups, valid_groups = await validate_and_sync_new_user(user_id)
+        
+        if not has_valid_groups:
+            return await message.reply(
+                "❌ You are not a member of any registered groups.\n"
+                "Please join a group first, then try again."
+            )
+        
+        group_titles = load_group_titles()
+        group_names = [group_titles.get(gid, f"Guruh {gid}") for gid in valid_groups]
+        
+        await message.reply(
+            f"✅ <b>Groups synced successfully!</b>\n\n"
+            f"You are a member of {len(valid_groups)} groups:\n"
+            + "\n".join([f"• {name}" for name in group_names]) + "\n\n"
+            "Now try /start to see available tests."
+        )
+        
+    except Exception as e:
+        await message.reply(f"❌ Sync failed: {e}")
+        log.error(f"Error in /fixmyaccess: {e}", exc_info=True)
+
+
 
 @dp.message_handler(commands=['telethon'])
 async def cmd_telethon_status(message: types.Message):

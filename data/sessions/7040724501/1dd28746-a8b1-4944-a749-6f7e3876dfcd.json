@@ -1,0 +1,32 @@
+{
+  "active_test_id": "1dd28746-a8b1-4944-a749-6f7e3876dfcd",
+  "student_name": "Shuq",
+  "started_at": 1759476750,
+  "answers": {
+    "1": "B",
+    "2": "D",
+    "3": "A",
+    "4": "C",
+    "5": "B",
+    "6": "D"
+  },
+  "current_q": 7,
+  "total_q": 30,
+  "wrong_attempts": {
+    "6": 2
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": [
+      "D",
+      "B"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759477553
+}

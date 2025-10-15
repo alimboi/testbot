@@ -1,0 +1,21 @@
+{
+  "active_test_id": "31ce9dcd-4c71-424d-baf2-94df3b138b33",
+  "student_name": "john doe",
+  "started_at": 1759400322,
+  "answers": {
+    "1": "A"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1
+  },
+  "excluded_options": {
+    "1": [
+      "A"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759400350
+}

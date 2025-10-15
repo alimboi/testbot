@@ -1,0 +1,48 @@
+{
+  "active_test_id": "9cfb35d9-4bd0-4631-96c1-d71d2ce82803",
+  "student_name": "Alisher ortiqboyev",
+  "started_at": 1759581503,
+  "answers": {
+    "1": "D",
+    "2": "A",
+    "3": "A",
+    "4": "B",
+    "5": "C",
+    "6": "D",
+    "7": "B",
+    "8": "D",
+    "9": "C",
+    "10": "D"
+  },
+  "current_q": 11,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1,
+    "3": 1,
+    "6": 1,
+    "7": 1
+  },
+  "excluded_options": {
+    "1": [
+      "D"
+    ],
+    "2": [],
+    "3": [
+      "A"
+    ],
+    "4": [],
+    "5": [],
+    "6": [
+      "D"
+    ],
+    "7": [
+      "B"
+    ],
+    "8": [],
+    "9": [],
+    "10": []
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759583196
+}

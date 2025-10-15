@@ -1,0 +1,27 @@
+{
+  "active_test_id": "4282c3a7-69ae-4cdd-905a-7af048f8b543",
+  "student_name": "Azizbek",
+  "started_at": 1759428340,
+  "answers": {
+    "1": "B",
+    "2": "D",
+    "3": "A",
+    "4": "C",
+    "5": "B",
+    "6": "A"
+  },
+  "current_q": 7,
+  "total_q": 30,
+  "wrong_attempts": {},
+  "excluded_options": {
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": []
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759429680
+}

@@ -1,0 +1,23 @@
+{
+  "active_test_id": "e82814e0-5229-4181-a27f-046e59eddf81",
+  "student_name": "Alisher Navoiy",
+  "started_at": 1759558485,
+  "answers": {
+    "1": "B",
+    "2": "C"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "C"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "filter tanlangan elementlarni qaytaradi. B da return yo‘q; C map booleanlar qaytaradi; D filter natijasini qaytarmaydi. A to‘g‘ri: shartni qoldirib, massiv qaytaradi. Return oqimi zarur.",
+  "last_updated": 1759559009
+}

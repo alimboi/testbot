@@ -1,0 +1,42 @@
+{
+  "active_test_id": "4282c3a7-69ae-4cdd-905a-7af048f8b543",
+  "student_name": "safg",
+  "started_at": 1759428133,
+  "answers": {
+    "1": "B",
+    "2": "B",
+    "3": "A",
+    "4": "B",
+    "5": "B",
+    "6": "C",
+    "7": "D",
+    "8": "C"
+  },
+  "current_q": 9,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 2,
+    "4": 1,
+    "6": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "B",
+      "C"
+    ],
+    "3": [],
+    "4": [
+      "B"
+    ],
+    "5": [],
+    "6": [
+      "C"
+    ],
+    "7": [],
+    "8": []
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759429155
+}

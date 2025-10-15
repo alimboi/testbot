@@ -1,0 +1,43 @@
+{
+  "active_test_id": "c2fcdc58-df2e-4e09-92ca-7eecefe92310",
+  "student_name": "asfd",
+  "started_at": 1759563981,
+  "answers": {
+    "1": "A",
+    "2": "D",
+    "3": "C",
+    "4": "D",
+    "5": "D",
+    "6": "B",
+    "7": "C",
+    "8": "D",
+    "9": "A",
+    "10": "B"
+  },
+  "current_q": 11,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 2,
+    "5": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "D",
+      "A"
+    ],
+    "3": [],
+    "4": [],
+    "5": [
+      "D"
+    ],
+    "6": [],
+    "7": [],
+    "8": [],
+    "9": [],
+    "10": []
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759565623
+}

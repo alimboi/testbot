@@ -1,0 +1,25 @@
+{
+  "active_test_id": "6fc034a4-2b2c-478e-83ab-4e78da9fc337",
+  "student_name": "Ejdh",
+  "started_at": 1759427320,
+  "answers": {
+    "1": "B",
+    "2": "C"
+  },
+  "current_q": 3,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 3
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "C",
+      "A",
+      "B"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "clearInterval ni callback ichida shart bajarilganda chaqirish kerak. A to‘g‘ri; B -1 ko‘rsatadi; C tashqarida tekshiruv ishlamaydi; D umuman to‘xtatmaydi.",
+  "last_updated": 1759427407
+}

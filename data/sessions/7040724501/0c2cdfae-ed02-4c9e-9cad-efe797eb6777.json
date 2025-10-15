@@ -1,0 +1,21 @@
+{
+  "active_test_id": "0c2cdfae-ed02-4c9e-9cad-efe797eb6777",
+  "student_name": "ksadf",
+  "started_at": 1759563060,
+  "answers": {
+    "1": "A"
+  },
+  "current_q": 1,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1
+  },
+  "excluded_options": {
+    "1": [
+      "A"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "Izoh mavjud emas",
+  "last_updated": 1759563102
+}

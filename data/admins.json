@@ -2,22 +2,12 @@
   "owner_id": 7040724501,
   "admins": {},
   "group_admins": {
-    "7753996741": {
+    "1031716071": {
       "groups": [
-        -1003055538272,
-        -4824921268
+        -4613659145
       ],
-      "name": "Mr B",
-      "username": "formerrider",
-      "can_create": true,
-      "can_activate": true
-    },
-    "7935288458": {
-      "groups": [
-        -1003055538272
-      ],
-      "name": "ᴊᴍᴅ",
-      "username": "JamshidKhaydarov",
+      "name": "Damirbek Serikov",
+      "username": "",
       "can_create": true,
       "can_activate": true
     }

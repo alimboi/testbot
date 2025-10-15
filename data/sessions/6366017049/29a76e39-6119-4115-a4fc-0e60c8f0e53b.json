@@ -1,0 +1,47 @@
+{
+  "started_at": 1759937064,
+  "answers": {
+    "1": "B",
+    "2": "B",
+    "3": "D",
+    "4": "A",
+    "5": "C",
+    "6": "A",
+    "7": "B",
+    "8": "B",
+    "9": "D",
+    "10": "A",
+    "11": "B"
+  },
+  "current_q": 12,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1,
+    "7": 1,
+    "11": 1
+  },
+  "excluded_options": {
+    "1": [
+      "B"
+    ],
+    "2": [],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": [],
+    "7": [
+      "B"
+    ],
+    "8": [],
+    "9": [],
+    "10": [],
+    "11": [
+      "B"
+    ]
+  },
+  "student_name": "Nigina",
+  "active_test_id": "29a76e39-6119-4115-a4fc-0e60c8f0e53b",
+  "last_updated": 1759938764,
+  "waiting_understanding": false,
+  "current_reference": null
+}

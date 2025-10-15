@@ -1,0 +1,17 @@
+{
+  "active_test_id": "e4b7e950-4112-4905-8e89-20e9085cf54d",
+  "student_name": "sjaldfkj",
+  "started_at": 1760504546,
+  "answers": {
+    "1": "A"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {},
+  "excluded_options": {
+    "1": []
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1760504557
+}

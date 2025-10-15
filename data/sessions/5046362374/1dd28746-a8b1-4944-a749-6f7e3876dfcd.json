@@ -1,0 +1,32 @@
+{
+  "active_test_id": "1dd28746-a8b1-4944-a749-6f7e3876dfcd",
+  "student_name": "park mireya",
+  "started_at": 1759482755,
+  "answers": {
+    "1": "D",
+    "2": "D",
+    "3": "B"
+  },
+  "current_q": 4,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 3,
+    "3": 3
+  },
+  "excluded_options": {
+    "1": [
+      "D",
+      "A",
+      "C"
+    ],
+    "2": [],
+    "3": [
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "Callback berilganda m = a &gt; b ? a : b qiymatiga qo‘llanadi. If/else va ?: orqali tarmoqlanish: &gt;M, ===M, aks holda m-1. To‘g‘ri variant ushbu ketma-ketlik natijasini beradi; boshqalarda -1 yoki cb noto‘g‘ri qo‘llangan.",
+  "last_updated": 1759483049
+}

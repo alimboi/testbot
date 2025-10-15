@@ -1,0 +1,380 @@
+{
+  "test_id": "e4b7e950-4112-4905-8e89-20e9085cf54d",
+  "test_name": "forloopforeach",
+  "questions": [
+    {
+      "index": 1,
+      "text": "Massiv elementlarining qiymatlarini to‘g‘ridan-to‘g‘ri ketma-ket olish uchun qaysi iteratsiya mos?",
+      "options": {
+        "A": "for...of",
+        "B": "for...in",
+        "C": "for (let i = 0; i < arr.length; i++) { }",
+        "D": "Object.keys(arr) bilan aylanish"
+      }
+    },
+    {
+      "index": 2,
+      "text": "Quyidagi mahsulotlar narxlarining yig‘indisini hisoblang va total o‘zgaruvchiga yozing.\n```javascript\nconst products = [{p: 120}, {p: 80}, {p: 50}];\nlet total = 0;\n// kerakli kodni to'ldiring\n// total nihoyatida 250 bo'lishi kerak\n```",
+      "options": {
+        "A": "```javascript\nfor (let i in products) {\n  total += i.p;\n}\n```",
+        "B": "```javascript\nfor (const item of products) {\n  total += item.p;\n}\n```",
+        "C": "```javascript\nproducts.forEach(i => {\n  total = i.p;\n});\n```",
+        "D": "```javascript\nconst sum = products.map(x => x.p);\ntotal += sum;\n```"
+      }
+    },
+    {
+      "index": 3,
+      "text": "Kod nomlar uzunligi 3 dan katta bo‘lganlarini katta harflarga o‘tkazishi kerak, ammo xato bor. Xatoni to‘g‘rilab to‘g‘ri natija chiqadigan variantni tanlang.\n```javascript\nconst names = [\"Ali\",\"Olim\",\"Laylo\",\"Zo\"];\nconst out = names.map(n => n.length > 3);\nfor (const n of out) {\n  n = n.toUpperCase();\n}\n```",
+      "options": {
+        "A": "```javascript\nconst out = names.filter(n => n.length > 3).map(n => n.toUpperCase());\n```",
+        "B": "```javascript\nconst out = names.forEach(n => n.toUpperCase());\n```",
+        "C": "```javascript\nlet out = [];\nfor (let i in names) {\n  if (names[i].length > 3) out.push(names[i].toUpperCase());\n}\n```",
+        "D": "```javascript\nconst out = names.map(n => n.toUpperCase()).filter(n => n.length > 3 === true);\n```"
+      }
+    },
+    {
+      "index": 4,
+      "text": "includes metodi qanday qiymat qaytaradi va qaysi holatda true bo‘ladi?",
+      "options": {
+        "A": "Har doim topilgan indeksni qaytaradi; element bo‘lsa indeks ≥ 0",
+        "B": "Elementlar sonini qaytaradi; bo‘lsa > 0",
+        "C": "Hech qachon boolean qaytarmaydi",
+        "D": "Boolean qaytaradi; izlanayotgan qiymat massivda mavjud bo‘lsa true"
+      }
+    },
+    {
+      "index": 5,
+      "text": "Foydalanuvchi role massivida 'admin' mavjudligini tekshirib, hasAdmin ga natijani yozing.\n```javascript\nconst roles = [\"user\",\"editor\",\"admin\"];\nlet hasAdmin;\n// kerakli kodni to'ldiring\n```",
+      "options": {
+        "A": "```javascript\nhasAdmin = roles.includes(\"admin\");\n```",
+        "B": "```javascript\nhasAdmin = roles.filter(r => r === \"admin\");\n```",
+        "C": "```javascript\nfor (let r in roles) {\n  hasAdmin = r === \"admin\";\n}\n```",
+        "D": "```javascript\nhasAdmin = !!roles.map(r => r === \"admin\");\n```"
+      }
+    },
+    {
+      "index": 6,
+      "text": "Quyidagi kod bajarilganda kutiladigan yakuniy chiqishni tanlang.\n```javascript\nconst cart = [ {q:2, p:50000}, {q:1, p:120000}, {q:3, p:10000} ];\nconst total = cart.reduce((s, item) => s + item.q * item.p, 0);\nconsole.log(total);\n```",
+      "options": {
+        "A": "```javascript\nconsole.log(50000);\n```",
+        "B": "```javascript\nconsole.log(180000);\n```",
+        "C": "```javascript\nconsole.log(200000);\n```",
+        "D": "```javascript\nconsole.log(300000);\n```"
+      }
+    },
+    {
+      "index": 7,
+      "text": "Raqamlar ustiga 1 qo‘shib yangi massiv hosil qilish kerak, ammo kod xato. To‘g‘ri ishlaydigan tuzatmani tanlang.\n```javascript\nconst arr = [1,2,3];\nconst out = [];\narr.forEach(n => {\n  out = out.push(n + 1);\n});\n```",
+      "options": {
+        "A": "```javascript\nconst out = arr.forEach(n => n + 1);\n```",
+        "B": "```javascript\nconst out = [];\nfor (const n of arr) {\n  out.push(n + 1);\n}\n```",
+        "C": "```javascript\nconst out = arr.map(n => out.push(n + 1));\n```",
+        "D": "```javascript\nlet out;\nfor (let i in arr) {\n  out = arr[i] + 1;\n}\n```"
+      }
+    },
+    {
+      "index": 8,
+      "text": "Mahsulot obyektidagi kalitlar sonini count ga yozing.\n```javascript\nconst product = { id: 7, name: \"Kitob\", price: 30000 };\nlet count = 0;\n// kerakli kod\n```",
+      "options": {
+        "A": "```javascript\nfor (const v of product) {\n  count++;\n}\n```",
+        "B": "```javascript\nproduct.map(k => { count++; });\n```",
+        "C": "```javascript\nfor (let i = 0; i < product.length; i++) {\n  count++;\n}\n```",
+        "D": "```javascript\nfor (const k in product) {\n  count++;\n}\n```"
+      }
+    },
+    {
+      "index": 9,
+      "text": "Baholardan 60 va undan yuqori bo‘lganlarini passing ga saqlang.\n```javascript\nconst scores = [55, 60, 77, 40, 90];\nlet passing;\n// kerakli kod\n```",
+      "options": {
+        "A": "```javascript\npassing = scores.filter(s => s >= 60);\n```",
+        "B": "```javascript\npassing = scores.map(s => s >= 60);\n```",
+        "C": "```javascript\nfor (let i in scores) {\n  if (scores[i] >= 60) passing = scores[i];\n}\n```",
+        "D": "```javascript\npassing = !!scores.includes(60);\n```"
+      }
+    },
+    {
+      "index": 10,
+      "text": "Kod kamida bitta mahsulot narxi 100 dan katta bo‘lsa true qaytarishi kerak, ammo mantiq xato. To‘g‘ri variantni tanlang.\n```javascript\nconst prices = [50, 80, 120];\nconst ok = prices.every(p => p > 100);\n```",
+      "options": {
+        "A": "```javascript\nconst ok = prices.filter(p => p > 100);\n```",
+        "B": "```javascript\nconst ok = prices.includes(p => p > 100);\n```",
+        "C": "```javascript\nconst ok = prices.some(p => p > 100);\n```",
+        "D": "```javascript\nlet ok = false;\nfor (let i in prices) {\n  ok = prices[i] > 100;\n}\n```"
+      }
+    },
+    {
+      "index": 11,
+      "text": "for...in massivda asosan nimani iteratsiya qiladi?",
+      "options": {
+        "A": "Qiymatlar",
+        "B": "Indekslar (kalitlar)",
+        "C": "Har doim obyekt kalitlari va qiymatlarini",
+        "D": "Hech narsa"
+      }
+    },
+    {
+      "index": 12,
+      "text": "Massiv indekslarini alohida massivga yig‘ing.\n```javascript\nconst list = [\"a\",\"b\",\"c\"];\nconst idx = [];\n// kerakli kod\n```",
+      "options": {
+        "A": "```javascript\nfor (const v of list) {\n  idx.push(v);\n}\n```",
+        "B": "```javascript\nidx = list.map((v,i) => v);\n```",
+        "C": "```javascript\nfor (let i = 0; i < list.length; i++) {\n  idx.push(list[i]);\n}\n```",
+        "D": "```javascript\nfor (const i in list) {\n  idx.push(Number(i));\n}\n```"
+      }
+    },
+    {
+      "index": 13,
+      "text": "Bo‘sh massivda reduce ishlatilganda xato chiqmoqda. 0 dan boshlanadigan to‘g‘ri tuzatmani tanlang.\n```javascript\nconst nums = [];\nconst s = nums.reduce((a,b) => a + b);\n```",
+      "options": {
+        "A": "```javascript\nconst s = nums.reduce((a,b) => a + b, 0);\n```",
+        "B": "```javascript\nconst s = nums.map((a,b) => a + b, 0);\n```",
+        "C": "```javascript\nlet s = 0;\nnums.forEach(a => s = a);\n```",
+        "D": "```javascript\nconst s = nums.every(n => n + 0);\n```"
+      }
+    },
+    {
+      "index": 14,
+      "text": "map va filter farqi nimada?",
+      "options": {
+        "A": "Har ikkalasi boolean massiv qaytaradi",
+        "B": "Har ikkalasi elementlarni o‘chiradi",
+        "C": "map uzunlikni saqlaydi, filter shartga mos elementlarni qaytaradi",
+        "D": "filter har doim uzunlikni saqlaydi"
+      }
+    },
+    {
+      "index": 15,
+      "text": "Ismlar uzunliklarini lengths ga yozing.\n```javascript\nconst names = [\"Ali\",\"Madina\",\"Bobur\"];\nlet lengths;\n// kerakli kod\n```",
+      "options": {
+        "A": "```javascript\nlengths = names.filter(n => n.length);\n```",
+        "B": "```javascript\nlengths = names.map(n => n.length);\n```",
+        "C": "```javascript\nfor (let i in names) {\n  lengths = names[i].length;\n}\n```",
+        "D": "```javascript\nlengths = [];\nfor (const n of names) {\n  if (n.length) lengths.push(n);\n}\n```"
+      }
+    },
+    {
+      "index": 16,
+      "text": "Har bir buyurtmada quantity > 0 ekanligini tekshirib, ok ga yozing.\n```javascript\nconst orders = [{q:1},{q:2},{q:3}];\nlet ok;\n// kerakli kod\n```",
+      "options": {
+        "A": "```javascript\nok = orders.every(o => o.q > 0);\n```",
+        "B": "```javascript\nok = orders.some(o => o.q > 0);\n```",
+        "C": "```javascript\nok = orders.map(o => o.q > 0);\n```",
+        "D": "```javascript\nfor (let i in orders) {\n  ok = orders[i].q > 0;\n}\n```"
+      }
+    },
+    {
+      "index": 17,
+      "text": "Quyidagi kod 'editor' roli mavjudligini tekshirmoqchi, ammo xato bor. To‘g‘ri tuzatmani tanlang.\n```javascript\nconst roles = [{name:\"user\"},{name:\"editor\"}];\nconst res = roles.includes(\"editor\");\n```",
+      "options": {
+        "A": "```javascript\nconst res = roles.every(r => r.name === \"editor\");\n```",
+        "B": "```javascript\nconst res = roles.includes({name:\"editor\"});\n```",
+        "C": "```javascript\nconst res = roles.map(r => r.name === \"editor\");\n```",
+        "D": "```javascript\nconst res = roles.some(r => r.name === \"editor\");\n```"
+      }
+    },
+    {
+      "index": 18,
+      "text": "Juft sonlar yig‘indisini s ga yig‘ing.\n```javascript\nconst arr = [1,2,3,4,5,6];\nlet s = 0;\n// kerakli kod\n```",
+      "options": {
+        "A": "```javascript\nfor (const n of arr) {\n  if (n % 2 === 0) s = n;\n}\n```",
+        "B": "```javascript\nfor (let i in arr) {\n  if (arr[i] % 2 === 0) s = arr[i];\n}\n```",
+        "C": "```javascript\nfor (let i = 0; i < arr.length; i++) {\n  if (arr[i] % 2 === 0) s += arr[i];\n}\n```",
+        "D": "```javascript\narr.filter(n => n % 2 === 0);\n```"
+      }
+    },
+    {
+      "index": 19,
+      "text": "Agar kamida bitta baho 56 dan past bo‘lsa, failed ni true qiling.\n```javascript\nconst scores = [56, 75, 44, 88];\nlet failed;\n// kerakli kod\n```",
+      "options": {
+        "A": "```javascript\nfailed = scores.every(s => s < 56);\n```",
+        "B": "```javascript\nfailed = scores.some(s => s < 56);\n```",
+        "C": "```javascript\nfailed = !!scores.map(s => s < 56);\n```",
+        "D": "```javascript\nfor (const s of scores) {\n  failed = s < 56;\n}\n```"
+      }
+    },
+    {
+      "index": 20,
+      "text": "Narxlar yig‘indisini hisoblash kerak, lekin kod noto‘g‘ri yozilgan. To‘g‘ri variantni tanlang.\n```javascript\nconst items = [{p:10},{p:20},{p:5}];\nlet total = 0;\nfor (let i in items) {\n  total += i.p;\n}\n```",
+      "options": {
+        "A": "```javascript\nfor (let i = 0; i < items.length; i++) {\n  total = items[i].p;\n}\n```",
+        "B": "```javascript\nfor (const v in items) {\n  total += items[v];\n}\n```",
+        "C": "```javascript\nitems.map(it => total += it.p);\n```",
+        "D": "```javascript\nfor (const it of items) {\n  total += it.p;\n}\n```"
+      }
+    },
+    {
+      "index": 21,
+      "text": "reduce da boshlang‘ich qiymat berishning foydasi nimada?",
+      "options": {
+        "A": "Hech qanday ta’siri yo‘q",
+        "B": "map ishlashini tezlashtiradi",
+        "C": "Bo‘sh massivda xatoni oldini oladi va akkumulatordan boshlanish nuqtasini belgilaydi",
+        "D": "Har doim natijani massivga aylantiradi"
+      }
+    },
+    {
+      "index": 22,
+      "text": "Qiymatlar yig‘indisini 100 dan boshlang‘ich qiymat bilan hisoblang.\n```javascript\nconst vals = [10,20,30];\nlet sum;\n// kerakli kod\n```",
+      "options": {
+        "A": "```javascript\nsum = vals.reduce((a,b) => a + b, 100);\n```",
+        "B": "```javascript\nsum = vals.reduce((a,b) => a + b);\n```",
+        "C": "```javascript\nsum = vals.map(v => v + 100);\n```",
+        "D": "```javascript\nfor (const v of vals) {\n  sum = 100 + v;\n}\n```"
+      }
+    },
+    {
+      "index": 23,
+      "text": "Faqat uzunligi 4 dan katta ismlar massivi kerak. Kod xato. To‘g‘ri tuzatmani tanlang.\n```javascript\nconst names = [\"Ali\",\"Aziza\",\"Lola\",\"Sardor\"];\nconst res = names.forEach(n => n.length > 4);\n```",
+      "options": {
+        "A": "```javascript\nconst res = names.every(n => n.length > 4);\n```",
+        "B": "```javascript\nconst res = names.includes(n => n.length > 4);\n```",
+        "C": "```javascript\nconst res = names.map(n => n.length > 4);\n```",
+        "D": "```javascript\nconst res = names.filter(n => n.length > 4);\n```"
+      }
+    },
+    {
+      "index": 24,
+      "text": "every va some orasidagi asosiy semantika farqi nimada?",
+      "options": {
+        "A": "Ikkalasi ham kamida bittasini tekshiradi",
+        "B": "every hamma element shartga mos bo‘lsa true, some kamida bittasi mos bo‘lsa true",
+        "C": "some uzunlikni doim 1 ga kamaytiradi",
+        "D": "every doim boolean emas"
+      }
+    },
+    {
+      "index": 25,
+      "text": "emails massivida barcha email '.uz' bilan tugashini tekshiring va ok ga yozing.\n```javascript\nconst emails = [\"a@x.uz\",\"b@y.uz\",\"c@z.com\"];\nlet ok;\n// kerakli kod\n```",
+      "options": {
+        "A": "```javascript\nok = emails.some(e => e.endsWith(\".uz\"));\n```",
+        "B": "```javascript\nok = emails.map(e => e.endsWith(\".uz\"));\n```",
+        "C": "```javascript\nok = emails.every(e => e.endsWith(\".uz\"));\n```",
+        "D": "```javascript\nfor (const e of emails) {\n  ok = e.endsWith(\".uz\");\n}\n```"
+      }
+    },
+    {
+      "index": 26,
+      "text": "Raqamlarni 2 baravar qilib newArr ga yozing.\n```javascript\nconst nums = [2,5,7];\nlet newArr;\n// kerakli kod\n```",
+      "options": {
+        "A": "```javascript\nnewArr = nums.map(n => n * 2);\n```",
+        "B": "```javascript\nnewArr = [];\nfor (let i in nums) {\n  newArr = nums[i] * 2;\n}\n```",
+        "C": "```javascript\nnewArr = nums.filter(n => n * 2);\n```",
+        "D": "```javascript\nfor (const n of nums) {\n  nums.push(n * 2);\n}\n```"
+      }
+    },
+    {
+      "index": 27,
+      "text": "Quyidagi kod qiymatlar ustida aylanishi kerak, lekin xato bor. To‘g‘ri variantni tanlang.\n```javascript\nconst arr = [10, 20, 30];\nlet out = 0;\nfor (const v in arr) {\n  out += v;\n}\n```",
+      "options": {
+        "A": "```javascript\nfor (let i = 0; i < arr.length; i++) {\n  out += i;\n}\n```",
+        "B": "```javascript\nfor (const v in arr) {\n  out += arr;\n}\n```",
+        "C": "```javascript\narr.forEach(v => out = v);\n```",
+        "D": "```javascript\nfor (const v of arr) {\n  out += v;\n}\n```"
+      }
+    },
+    {
+      "index": 28,
+      "text": "tags ichida 'sale' mavjud bo‘lsa hasSale true bo‘lsin.\n```javascript\nconst tags = [\"new\",\"sale\",\"popular\"];\nlet hasSale = false;\n// kerakli kod\n```",
+      "options": {
+        "A": "```javascript\nfor (let i in tags) {\n  hasSale = i === \"sale\";\n}\n```",
+        "B": "```javascript\nif (tags.includes(\"sale\")) {\n  hasSale = true;\n}\n```",
+        "C": "```javascript\nhasSale = tags.filter(t => t === \"sale\");\n```",
+        "D": "```javascript\nhasSale = !!tags.map(t => t === \"sale\");\n```"
+      }
+    },
+    {
+      "index": 29,
+      "text": "forEach qaytargan qiymat bilan bog‘liq to‘g‘ri fikr qaysi?",
+      "options": {
+        "A": "Hech qanday qiymat qaytarmaydi (undefined), odatda yon ta’sirlar uchun ishlatiladi",
+        "B": "Yangi massiv qaytaradi",
+        "C": "Har safar boolean qaytaradi",
+        "D": "reduce bilan bir xil natija"
+      }
+    },
+    {
+      "index": 30,
+      "text": "Quyidagi kod bajarilganda kutiladigan yakuniy chiqishni tanlang.\n```javascript\nconst users = [\n  {name:\"A\", active:true},\n  {name:\"B\", active:false},\n  {name:\"C\", active:true}\n];\nconst anyInactive = users.some(u => !u.active);\nconst allActive = users.every(u => u.active);\nconsole.log(anyInactive && !allActive);\n```",
+      "options": {
+        "A": "```javascript\nconsole.log(false);\n```",
+        "B": "```javascript\nconsole.log(0);\n```",
+        "C": "```javascript\nconsole.log(true);\n```",
+        "D": "```javascript\nconsole.log(\"true\");\n```"
+      }
+    }
+  ],
+  "answers": {
+    "1": "A",
+    "2": "B",
+    "3": "C",
+    "4": "D",
+    "5": "A",
+    "6": "C",
+    "7": "B",
+    "8": "D",
+    "9": "A",
+    "10": "C",
+    "11": "B",
+    "12": "D",
+    "13": "A",
+    "14": "C",
+    "15": "B",
+    "16": "A",
+    "17": "D",
+    "18": "C",
+    "19": "B",
+    "20": "D",
+    "21": "C",
+    "22": "A",
+    "23": "D",
+    "24": "B",
+    "25": "C",
+    "26": "A",
+    "27": "D",
+    "28": "B",
+    "29": "A",
+    "30": "C"
+  },
+  "references": {
+    "1": "Asosiy qoida: for...of qiymatlar ustida aylanadi. To‘g‘ri: for...of massiv element qiymatlarini beradi. Noto‘g‘ri: for...in indekslarni beradi; for klassik indeks bilan; Object.keys massiv uchun shart emas.",
+    "2": "Asosiy qoida: for...of obyekt elementlarini to‘g‘ri o‘qiydi. To‘g‘ri: item.p yig‘iladi. Noto‘g‘ri: for...in da i indeks; forEach da total ustiga yozib qo‘yiladi; map massiv beradi.",
+    "3": "Asosiy qoida: filter tanlab oladi, map o‘zgartiradi. To‘g‘ri: shart bilan filter qilib, map bilan toUpperCase. Noto‘g‘ri: forEach qiymat qaytarmaydi; for...in ham ishlaydi, lekin variant a aniqroq; map so‘ng filter noto‘g‘ri shart.",
+    "4": "Asosiy qoida: includes boolean qaytaradi. To‘g‘ri: mavjud bo‘lsa true. Boshqalar: indeks, son yoki boolean emas deb noto‘g‘ri.",
+    "5": "Asosiy qoida: includes qiymat mavjudligini tekshiradi. To‘g‘ri: roles.includes('admin'). Noto‘g‘ri: filter massiv qaytaradi; for...in r indeks; map massiv bo‘lib qoladi.",
+    "6": "Asosiy qoida: reduce akkumulatorda yig‘adi. To‘g‘ri: 2*50000 + 1*120000 + 3*10000 = 200000. Noto‘g‘ri variantlar arifmetik natijaga mos emas.",
+    "7": "Asosiy qoida: forEach qaytarmaydi; push qiymat qaytadi. To‘g‘ri: for...of bilan push. Noto‘g‘ri: forEach natija bermaydi; map ichida push natijani buzadi; for-in indekslarni ishlatadi.",
+    "8": "Asosiy qoida: obyekt ustida for...in kalitlarni aylanadi. To‘g‘ri: for (const k in product) count++. Boshqalar: for...of obyektga mos emas; map yo‘q; length yo‘q.",
+    "9": "Asosiy qoida: filter shartga mos elementlarni qaytaradi. To‘g‘ri: >= 60 bilan filter. Noto‘g‘ri: map booleanlar massivini beradi; for-in faqat oxirgi qiymatni yozadi; includes mantiqqa mos emas.",
+    "10": "Asosiy qoida: some kamida bitta shartga mosligini tekshiradi. To‘g‘ri: some(p>100). Noto‘g‘ri: filter massiv; includes funksiyani qabul qilmaydi; for-in har safar ustiga yozadi.",
+    "11": "Asosiy qoida: for...in indekslarni aylanadi. To‘g‘ri: indekslar. Boshqalar noto‘g‘ri.",
+    "12": "Asosiy qoida: for...in indekslarni beradi. To‘g‘ri: Number(i) bilan push. Boshqalar: for...of qiymatlar; map qiymatlarning o‘zi; for i < length qiymat push.",
+    "13": "Asosiy qoida: reduce bo‘sh massivda boshlang‘ich qiymat kerak. To‘g‘ri: initial 0. Boshqalar mos emas.",
+    "14": "Asosiy qoida: map uzunlikni saqlaydi, filter esa tanlab qaytaradi. To‘g‘ri c. Boshqalar noto‘g‘ri.",
+    "15": "Asosiy qoida: map transformatsiya qiladi. To‘g‘ri: n.length. Boshqalar: filter shartli o‘tkazadi; for-in oxirgi qiymatni yozadi; shart emas.",
+    "16": "Asosiy qoida: every hamma elementni tekshiradi. To‘g‘ri: o.q>0. Boshqalar: some kamida bitta; map booleanlar; for-in oxirgi qiymat.",
+    "17": "Asosiy qoida: includes obyektlarni topishda mos emas; some bilan shart tekshiriladi. To‘g‘ri: some(...). Qolganlari noto‘g‘ri.",
+    "18": "Asosiy qoida: for indeks orqali tekshirib qo‘shish. To‘g‘ri: s += juftlar. Boshqalar oxirgi qiymatni yozadi yoki hech narsa qilmaydi.",
+    "19": "Asosiy qoida: some kamida bitta past baho borligini bildiradi. To‘g‘ri: some(s<56). Boshqalar noto‘g‘ri.",
+    "20": "Asosiy qoida: for...of qiymatlar bilan ishlaydi. To‘g‘ri: it of items, total += it.p. Boshqalar summani buzadi.",
+    "21": "Asosiy qoida: initial reduce ni xavfsiz va nazoratli qiladi. To‘g‘ri: bo‘sh massivda xatoni oldini oladi. Boshqalar noto‘g‘ri.",
+    "22": "Asosiy qoida: reduce initial bilan boshlaydi. To‘g‘ri: 100 bilan. Boshqalar noto‘g‘ri.",
+    "23": "Asosiy qoida: forEach yangi massiv bermaydi; filter kerak. To‘g‘ri: filter(n.length>4). Boshqalar noto‘g‘ri.",
+    "24": "Asosiy qoida: every vs some semantika. To‘g‘ri: every hamma, some kamida bitta.",
+    "25": "Asosiy qoida: every hammasini tekshiradi. To‘g‘ri: endsWith('.uz') every. Boshqalar noto‘g‘ri.",
+    "26": "Asosiy qoida: map transformatsiya. To‘g‘ri: n*2. Qolganlari noto‘g‘ri.",
+    "27": "Asosiy qoida: for...of qiymatlarni beradi. To‘g‘ri: out += v. Qolganlari indeks yoki noto‘g‘ri.",
+    "28": "Asosiy qoida: includes mavjudlikni tekshiradi. To‘g‘ri: if (includes). Qolganlari noto‘g‘ri.",
+    "29": "Asosiy qoida: forEach qiymat qaytarmaydi. To‘g‘ri: undefined qaytaradi. Boshqalar noto‘g‘ri.",
+    "30": "Asosiy qoida: some va every kombinatsiyasi. To‘g‘ri: kamida bitta inactive bor va hammasi active emas, natija true."
+  },
+  "groups": [
+    -1003055538272,
+    -1002419120922,
+    -4770290796,
+    -4613659145,
+    -4549232008
+  ],
+  "group_id": -1003055538272,
+  "created_by": 7040724501,
+  "creator_name": "Abdurahmon"
+}

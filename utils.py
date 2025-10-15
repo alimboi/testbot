@@ -1203,79 +1203,72 @@ def tests_for_group(group_id: int, only_active: bool = True) -> List[dict]:
 
 
 
-def available_tests_for_user(user_id: int) -> List[dict]:
+# utils.py
+def available_tests_for_user(user_id: int) -> List[Dict]:
     """
-    Foydalanuvchiga ko'rinadigan (faol) testlar ro'yxati.
-    -- Global aktiv: ACTIVE_TEST_FILE dagi testlar
-    -- Guruh bo'yicha aktiv: test.json ichidagi "active_groups"
-       * Agar "active_groups" bo'sh/yo'q bo'lsa, tayinlangan barcha guruhlar uchun aktiv hisoblanadi.
-       * Agar "active_groups" bor bo'lsa, faqat o'sha guruhlar uchun aktiv.
+    Return ALL active tests available to this user across ALL their groups.
+    Membership is unified from user_groups.json and group_members.json.
     """
-    user_groups = set(get_user_groups(user_id))
+    try:
+        # 1) Collect groups from user_groups.json
+        groups_from_user_map = set(get_user_groups(user_id))
 
-    # group_members.json bo'yicha ham tekshiramiz
-    gm = load_group_members()
-    for gid_str, rec in gm.items():
-        try:
-            gid = int(gid_str)
-            members = set(int(x) for x in rec.get("members", []) or [])
-            if user_id in members:
-                user_groups.add(gid)
-        except (ValueError, TypeError):
-            continue
+        # 2) Collect groups from group_members.json
+        gm = load_group_members()
+        groups_from_member_map = {
+            int(gid_str)
+            for gid_str, rec in (gm or {}).items()
+            if user_id in (rec or {}).get("members", [])
+        }
 
-    if not user_groups:
-        log.warning(f"User {user_id} has no group memberships")
+        # Union of both sources
+        user_groups = groups_from_user_map | groups_from_member_map
+        if not user_groups:
+            return []
+
+        # 3) Consider only active tests
+        active_ids = set(get_active_tests() or [])
+
+        results: List[Dict] = []
+        seen: Set[str] = set()
+
+        # Iterate active tests only (faster & clearer)
+        for tid in sorted(active_ids):
+            test = read_test(tid)
+            if not test:
+                continue
+
+            # Test groups may be under "groups" (list) or legacy "group_id"
+            raw_groups = set(int(x) for x in (test.get("groups") or []))
+            legacy_gid = test.get("group_id")
+            if legacy_gid is not None:
+                raw_groups.add(int(legacy_gid))
+
+            # Optional "active_groups" gating (if present)
+            active_groups = set(int(x) for x in (test.get("active_groups") or []))
+            effective_groups = (raw_groups & active_groups) if active_groups else raw_groups
+
+            # User can access?
+            if user_groups & effective_groups:
+                if tid in seen:
+                    continue
+                seen.add(tid)
+                results.append({
+                    "test_id": tid,
+                    "test_name": test.get("test_name") or "Test",
+                    "groups": sorted(effective_groups) or sorted(raw_groups),
+                    "activated_at": test.get("activated_at", 0),
+                    "total_q": len(test.get("questions") or []),
+                })
+
+        # Newest first if we have timestamps
+        results.sort(key=lambda r: r.get("activated_at", 0), reverse=True)
+        return results
+
+    except Exception as e:
+        log.error(f"available_tests_for_user failed for {user_id}: {e}", exc_info=True)
         return []
 
-    log.info(f"User {user_id} is member of groups: {sorted(user_groups)}")
-
-    out: List[dict] = []
-    active_tests = set(get_active_tests())
-
-    for p in get_all_tests():
-        try:
-            data = json.loads(p.read_text(encoding="utf-8"))
-        except Exception:
-            continue
-
-        tid = data.get("test_id") or p.stem.replace("test_", "")
-
-        # 1) Global aktiv filtri
-        if tid not in active_tests:
-            continue
-
-        # 2) Test tayinlangan guruhlar
-        test_groups = set()
-        for g in (data.get("groups") or []):
-            try:
-                test_groups.add(int(g))
-            except (ValueError, TypeError):
-                pass
-        if data.get("group_id"):
-            try:
-                test_groups.add(int(data["group_id"]))
-            except (ValueError, TypeError):
-                pass
-        if not test_groups:
-            continue
-
-        # 3) Guruh bo'yicha faollik
-        active_groups = set()
-        for g in (data.get("active_groups") or []):
-            try:
-                active_groups.add(int(g))
-            except Exception:
-                pass
-
-        effective_groups = (test_groups & active_groups) if active_groups else test_groups
-
-        if user_groups & effective_groups:
-            data["test_id"] = tid
-            out.append(data)
-            log.info(f"Test {tid} available for user {user_id} (effective groups: {sorted(effective_groups)})")
-
-    return out
 
 
 _Q_HEADER = re.compile(r"^\s*(\d+)[\.\)]\s*(.+)$")
@@ -2026,7 +2019,6 @@ async def handle_student_error(cb_or_msg, error: Exception, context: str = "oper
     except Exception as e:
         log.error(f"Failed to send error message: {e}")
 
-        # Add these wrapper functions to utils.py to maintain compatibility with student_handlers.py
 
 def save_test_session(user_id: int, test_id: str, session_data: dict) -> bool:
     """Synchronous wrapper for save_test_session_safe"""

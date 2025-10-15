@@ -1,0 +1,21 @@
+{
+  "active_test_id": "b5e8c691-5ee7-4f9c-8970-6c4aa091fce7",
+  "student_name": "Маржон",
+  "started_at": 1759253917,
+  "answers": {
+    "1": "B",
+    "2": "D",
+    "3": "C"
+  },
+  "current_q": 4,
+  "total_q": 30,
+  "wrong_attempts": {},
+  "excluded_options": {
+    "1": [],
+    "2": [],
+    "3": []
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759254213
+}

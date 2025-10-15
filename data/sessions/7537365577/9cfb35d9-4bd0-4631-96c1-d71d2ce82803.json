@@ -1,0 +1,66 @@
+{
+  "active_test_id": "9cfb35d9-4bd0-4631-96c1-d71d2ce82803",
+  "student_name": "Mirzabek",
+  "started_at": 1759571072,
+  "answers": {
+    "1": "A",
+    "2": "C",
+    "3": "D",
+    "4": "B",
+    "5": "C",
+    "6": "D",
+    "7": "C",
+    "8": "A",
+    "9": "A",
+    "10": "D",
+    "11": "B"
+  },
+  "current_q": 11,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 2,
+    "2": 1,
+    "6": 1,
+    "7": 3,
+    "8": 2,
+    "9": 3,
+    "11": 2
+  },
+  "excluded_options": {
+    "1": [
+      "A",
+      "B"
+    ],
+    "2": [
+      "C"
+    ],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": [
+      "D"
+    ],
+    "7": [
+      "C",
+      "D",
+      "B"
+    ],
+    "8": [
+      "A",
+      "B"
+    ],
+    "9": [
+      "A",
+      "D",
+      "B"
+    ],
+    "10": [],
+    "11": [
+      "B",
+      "D"
+    ]
+  },
+  "waiting_understanding": true,
+  "current_reference": "Qisqa qoida: forEach metodini vazifaga mos qo‘llash. Qisqa misol: arr.filter(x=&gt;x%2===0).length; setInterval(...); clearInterval(id). Nega to‘g‘ri: to‘g‘ri variant aniq natija qaytaradi yoki to‘g‘ri to‘xtatadi. Nozik xato: map/filter chalkashuvi, forEach return yo‘qligi, id ni saqlamaslik.",
+  "last_updated": 1759571271
+}

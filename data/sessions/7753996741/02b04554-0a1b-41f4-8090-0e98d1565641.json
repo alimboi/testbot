@@ -1,0 +1,23 @@
+{
+  "active_test_id": "02b04554-0a1b-41f4-8090-0e98d1565641",
+  "student_name": "Haaa",
+  "started_at": 1759940111,
+  "answers": {
+    "1": "D"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 3
+  },
+  "excluded_options": {
+    "1": [
+      "D",
+      "B",
+      "A"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "Открытый тег нужно закрывать тем же именем. Правильно: Текст. b) имя закрывающего тега не совпадает; c) неверный синтаксис атрибута; d) нет закрытия.",
+  "last_updated": 1759940132
+}

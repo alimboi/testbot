@@ -1,0 +1,23 @@
+{
+  "active_test_id": "d272dc7f-17d0-41ab-a1c2-39555451da35",
+  "student_name": "asdfasdf",
+  "started_at": 1759577209,
+  "answers": {
+    "1": "A",
+    "2": "C"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "C"
+    ]
+  },
+  "waiting_understanding": true,
+  "current_reference": "Havola uchun <a> tagi va href atributi talab etiladi. To‘g‘ri yechim matnni <a href=\"/home\">...</a> ichida beradi. hrefsiz <a> nafigatsiya qilmaydi; da href ishlamaydi; ichida matnsiz <a> foydasiz.",
+  "last_updated": 1759577212
+}

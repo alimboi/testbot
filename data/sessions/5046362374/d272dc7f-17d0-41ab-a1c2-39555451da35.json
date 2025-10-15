@@ -1,0 +1,29 @@
+{
+  "active_test_id": "d272dc7f-17d0-41ab-a1c2-39555451da35",
+  "student_name": "park mireya",
+  "started_at": 1759574364,
+  "answers": {
+    "1": "A",
+    "2": "D",
+    "3": "B",
+    "4": "C",
+    "5": "A",
+    "6": "D",
+    "7": "B"
+  },
+  "current_q": 8,
+  "total_q": 30,
+  "wrong_attempts": {},
+  "excluded_options": {
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": [],
+    "7": []
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759574448
+}

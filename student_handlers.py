@@ -40,6 +40,145 @@ _FENCE_RE = re.compile(
 )
 
 _CODEBLOCK_RE = re.compile(r'(<pre><code[^>]*>.*?</code></pre>)', re.IGNORECASE | re.DOTALL)
+# --- HTML chunking helpers (kod bloklarini buzmasdan) ---
+
+_MAX_TG_CHUNK = 3900  # 4096 limitdan xavfsiz zaxira bilan
+
+def _split_plain_text_preserving_paragraphs(text: str, max_len: int = _MAX_TG_CHUNK) -> list:
+    """Oddiy tekst bo'lagini (HTML TAGsiz) paragraflar bo'yicha bo'lib chiqarish."""
+    parts = []
+    for para in text.split("\n\n"):
+        para = para.strip()
+        if not para:
+            continue
+        if len(para) <= max_len:
+            parts.append(para)
+        else:
+            # Juda uzun bo'lsa satrlar bo'yicha bo'lamiz
+            lines = para.splitlines()
+            buf, cur = [], 0
+            for ln in lines:
+                add = (len(ln) + 1)
+                if cur + add > max_len and buf:
+                    parts.append("\n".join(buf))
+                    buf, cur = [ln], len(ln) + 1
+                else:
+                    buf.append(ln); cur += add
+            if buf:
+                parts.append("\n".join(buf))
+    return parts
+
+def _split_codeblock_into_chunks(code_html: str, max_len: int = _MAX_TG_CHUNK) -> list:
+    """
+    <pre><code ...> ... </code></pre> blokini hajmga qarab bo'lish.
+    Kod ichini satr bo'yicha bo'lib, har bo'lakni alohida <pre><code>...</code></pre> qilib qaytaramiz.
+    """
+    # code_html: to'liq <pre><code ...>...</code></pre>
+    m = re.match(r'(?is)<pre><code([^>]*)>(.*)</code></pre>', code_html)
+    if not m:
+        # Format kutilgandek bo'lmasa, o'zi bo'lib yuboramiz (lekin bu kam uchraydi)
+        return _split_plain_text_preserving_paragraphs(code_html, max_len=max_len)
+
+    code_attrs = m.group(1) or ""
+    inner = m.group(2) or ""
+    if len(code_html) <= max_len:
+        return [code_html]
+
+    # Kodni satrlar bo'yicha bo'limiz
+    lines = inner.splitlines()
+    chunks, buf, cur = [], [], 0
+    # 50 belgi zaxira: <pre><code ...></code></pre> teglari uchun
+    inner_limit = max(200, max_len - 50)
+
+    for ln in lines:
+        add = len(ln) + 1
+        if cur + add > inner_limit and buf:
+            piece = "\n".join(buf)
+            chunks.append(f"<pre><code{code_attrs}>{piece}</code></pre>")
+            buf, cur = [ln], len(ln) + 1
+        else:
+            buf.append(ln); cur += add
+    if buf:
+        piece = "\n".join(buf)
+        chunks.append(f"<pre><code{code_attrs}>{piece}</code></pre>")
+    return chunks
+
+def _split_html_preserving_codeblocks(text: str, max_len: int = _MAX_TG_CHUNK) -> list:
+    """
+    Matnni kod bloklarini atom sifatida ko'rib bo'lish:
+      - Kod bloklarini (_CODEBLOCK_RE) topamiz, ularni bo'lak sifatida olamiz
+      - Kod bloklari orasidagi oddiy tekstni paragraflar/satrlar bo'yicha bo'lamiz
+      - Juda katta kod bloklarni ham alohida bo'lamiz
+    """
+    parts = []
+    pos = 0
+    for m in _CODEBLOCK_RE.finditer(text):
+        pre_text = text[pos:m.start()]
+        if pre_text:
+            parts.extend(_split_plain_text_preserving_paragraphs(pre_text, max_len=max_len))
+
+        code_html = m.group(1)
+        if len(code_html) <= max_len:
+            parts.append(code_html)
+        else:
+            parts.extend(_split_codeblock_into_chunks(code_html, max_len=max_len))
+
+        pos = m.end()
+
+    tail = text[pos:]
+    if tail:
+        parts.extend(_split_plain_text_preserving_paragraphs(tail, max_len=max_len))
+
+    # Endi parts bo'laklarini _MAX_TG_CHUNK ga "paketlab" birlashtiramiz
+    chunks, buf, cur = [], [], 0
+    for p in parts:
+        add = len(p) + 1
+        if cur + add > max_len and buf:
+            chunks.append("\n\n".join(buf).strip())
+            buf, cur = [p], len(p) + 1
+        else:
+            buf.append(p); cur += add
+    if buf:
+        chunks.append("\n\n".join(buf).strip())
+
+    return [c for c in chunks if c]
+
+async def _send_html_chunked(bot, chat_id: int, text: str, max_len: int = _MAX_TG_CHUNK):
+    """
+    HTML matnni (Telegram HTML qoidalari bo'yicha) xavfsiz bo'laklab jo'natish.
+    Kod bloklari buzilmaydi. Juda ko'p bo'lak bo'lsa, fayl sifatida jo'natishga ham tushamiz.
+    """
+    chunks = _split_html_preserving_codeblocks(text, max_len=max_len)
+
+    # Juda ko'p bo'lak bo'lib ketgan bo'lsa (masalan, >6), xabar o'rniga fayl sifatida yuboramiz
+    if len(chunks) > 6:
+        # HTML fayl sifatida saqlab, jo'natamiz
+        ts = int(time.time())
+        out_dir = Path("data/reviews")
+        out_dir.mkdir(parents=True, exist_ok=True)
+        file_path = out_dir / f"review_{chat_id}_{ts}.html"
+        file_path.write_text(text, encoding="utf-8")
+        try:
+            await bot.send_document(chat_id, types.InputFile(str(file_path)), caption="📎 To‘liq natijalar ilovada (HTML).")
+        except Exception as e:
+            # Zaxira varianti sifatida qisqa xabar yuboramiz
+            short = "Natijalar juda uzun. Ilovani ochishda muammo bo'lsa, admin bilan bog'laning."
+            await bot.send_message(chat_id, short, disable_web_page_preview=True)
+        return
+
+    # Oddiy holat: bo'laklab yuboramiz
+    for i, ch in enumerate(chunks, 1):
+        try:
+            await bot.send_message(chat_id, ch, disable_web_page_preview=True)
+        except Exception:
+            # Agar baribir xatolik bo'lsa, qolganini fayl qilib jo'natamiz
+            ts = int(time.time())
+            out_dir = Path("data/reviews"); out_dir.mkdir(parents=True, exist_ok=True)
+            file_path = out_dir / f"review_{chat_id}_{ts}.html"
+            file_path.write_text(text, encoding="utf-8")
+            await bot.send_document(chat_id, types.InputFile(str(file_path)), caption="📎 To‘liq natijalar ilovada (HTML).")
+            return
+
 
 def _normalize_fenced_code_to_html(text: str) -> str:
     """
@@ -537,19 +676,24 @@ async def _load_session(user_id: int, test_id: str) -> Optional[dict]:
             return None
 
 async def _finish_test(cb: types.CallbackQuery, state: FSMContext, test: dict):
-    """Finish test and show results"""
+    """Finish test and show results — SAFE CHUNKED SENDING"""
     s = await state.get_data()
     answers = s.get("answers", {})
     wrong_attempts = s.get("wrong_attempts", {})
     test_id = s.get("active_test_id")
-    
-    review, (ok, total) = _review_lines(answers, test)
-    
-    review.append("")
-    review.append("<b>📊 Urinishlar statistikasi:</b>")
-    for q_idx, attempts in wrong_attempts.items():
-        review.append(f"Savol {q_idx}: {attempts + 1} ta urinish")
-    
+
+    # 1) Review chiziqlarini tayyorlaymiz
+    review_lines, (ok, total) = _review_lines(answers, test)
+
+    # Urinishlar statistikasi
+    review_lines.append("")
+    review_lines.append("<b>📊 Urinishlar statistikasi:</b>")
+    for q_idx, attempts in (wrong_attempts or {}).items():
+        review_lines.append(f"Savol {q_idx}: {attempts + 1} ta urinish")
+
+    full_review_html = "\n".join(review_lines)
+
+    # 2) Talabaning profilini saqlash (har holda)
     try:
         save_student_data(cb.from_user.id, {
             "full_name": s.get("student_name"),
@@ -561,68 +705,71 @@ async def _finish_test(cb: types.CallbackQuery, state: FSMContext, test: dict):
         })
     except Exception as e:
         log.error(f"save_student_data failed: {e}")
-    
-    await cb.message.answer("\n".join(review))
-    
+
+    # 3) Talabaga natijani yuborish — HTMLni xavfsiz bo'laklab yuboramiz
+    try:
+        from config import bot
+        await _send_html_chunked(bot, cb.message.chat.id, full_review_html, max_len=_MAX_TG_CHUNK)
+    except Exception as e:
+        log.error(f"Student review send failed: {e}")
+        # Zaxira: qisqa sarlavha + to‘liq HTML fayl
+        try:
+            header = f"📊 <b>Yakuniy natija:</b> {ok}/{total}\n\nTo‘liq tafsilotlar ilovada."
+            await cb.message.answer(header)
+            ts = int(time.time())
+            out_dir = Path("data/reviews"); out_dir.mkdir(parents=True, exist_ok=True)
+            file_path = out_dir / f"review_{cb.from_user.id}_{test_id}_{ts}.html"
+            file_path.write_text(full_review_html, encoding="utf-8")
+            await cb.message.answer_document(types.InputFile(str(file_path)), caption="📎 To‘liq natijalar (HTML)")
+        except Exception as e2:
+            log.error(f"Fallback document send failed: {e2}")
+
+    # 4) Admin/Ownerlarga xabar — xavfsiz bo‘laklash bilan
     try:
         from config import bot, OWNER_ID
-        s = await state.get_data()
-        ok, total = score_user_answers(answers, test.get("answers", {}))
-        pct = round((ok/total)*100, 1) if total else 0
+        pct = round((ok / total) * 100, 1) if total else 0
+        duration_min = int((time.time() - s.get('started_at', 0)) / 60)
 
         header = (
             "📊 <b>Test yakunlandi</b>\n\n"
             f"👤 Talaba: {s.get('student_name')} (@{cb.from_user.username or 'username_yoq'})\n"
             f"🧪 Test: {test.get('test_name')}\n"
             f"📈 Natija: {ok}/{total} ({pct}%)\n"
-            f"⏱ Vaqt: {int((time.time() - s.get('started_at', 0)) / 60)} daqiqa\n\n"
+            f"⏱ Vaqt: {duration_min} daqiqa\n\n"
             "<b>— Batafsil natijalar —</b>\n"
         )
-        admin_detailed = header + "\n".join(review)
+        admin_payload = header + full_review_html
 
-        # who to notify
-        admin_ids = set(get_student_admins(cb.from_user.id) or [])  # admins of student's groups
-        admin_ids.add(int(OWNER_ID))                                 # always include owner
-        admin_ids.discard(cb.from_user.id)                           # never DM the student again
-
-        # send (chunk if needed)
-        async def _send_long(chat_id: int, text: str):
-            if len(text) <= 3900:
-                await bot.send_message(chat_id, text, disable_web_page_preview=True)
-                return
-            # split by lines to respect Telegram 4096 limit
-            lines, chunk = text.splitlines(), []
-            cur = 0
-            for ln in lines:
-                if cur + len(ln) + 1 > 3900:
-                    await bot.send_message(chat_id, "\n".join(chunk), disable_web_page_preview=True)
-                    chunk, cur = [ln], len(ln) + 1
-                else:
-                    chunk.append(ln); cur += len(ln) + 1
-            if chunk:
-                await bot.send_message(chat_id, "\n".join(chunk), disable_web_page_preview=True)
+        admin_ids = set(get_student_admins(cb.from_user.id) or [])
+        admin_ids.add(int(OWNER_ID))
+        admin_ids.discard(cb.from_user.id)
 
         for admin_id in admin_ids:
             try:
-                await _send_long(admin_id, admin_detailed)
+                await _send_html_chunked(bot, admin_id, admin_payload, max_len=_MAX_TG_CHUNK)
             except Exception as e:
                 log.warning(f"Admin notify failed for {admin_id}: {e}")
-
     except Exception as e:
         log.error(f"Failed to notify admins/owner with full results: {e}")
-    
+
+    # 5) Sessiyani tozalash (har qanday holatda)
     if test_id:
         try:
             session_path = get_session_file_path(cb.from_user.id, test_id)
             if session_path.exists():
                 session_path.unlink()
-        except:
+        except Exception:
             pass
-        # Fallback cleanup
         delete_test_session(cb.from_user.id, test_id)
-    
-    await cb.answer("Test yakunlandi!")
+
+    # 6) Final javob va state yakunlash
+    try:
+        await cb.answer("Test yakunlandi!")
+    except Exception:
+        # Agar callback allaqachon kech bo'lsa, jim
+        pass
     await state.finish()
+
 
 # ------------------------------------------------------------------------------
 # Main handlers
@@ -877,7 +1024,7 @@ async def handle_new_test(cb: types.CallbackQuery, state: FSMContext):
     await cb.answer()
 
 async def handle_resume(cb: types.CallbackQuery, state: FSMContext):
-    """Handle test resume"""
+    """Handle test resume with improved recovery"""
     if not cb.data or not cb.data.startswith("resume:"):
         return await cb.answer("Noto'g'ri format")
     
@@ -887,34 +1034,56 @@ async def handle_resume(cb: types.CallbackQuery, state: FSMContext):
     if not validate_test_id(test_id):
         return await cb.answer("Noto'g'ri test ID", show_alert=True)
     
-    session = await _load_session(user_id, test_id)
-    if not session:
-        await cb.answer("Sessiya topilmadi", show_alert=True)
-        return await show_available_tests(cb.message, state)
-    
-    test = read_test(test_id)
-    if not test:
-        await cb.answer("Test topilmadi", show_alert=True)
-        try:
-            session_path = get_session_file_path(user_id, test_id)
-            if session_path.exists():
-                session_path.unlink()
-        except:
-            pass
-        delete_test_session(user_id, test_id)
-        return await show_available_tests(cb.message, state)
-    
-    await state.update_data(**session)
-    await StudentStates.Answering.set()
-    
-    current_q = session.get("current_q", 1)
-    excluded_options = session.get("excluded_options", {})
-    q_key = str(current_q)
-    excluded_for_q = excluded_options.get(q_key, [])
-    
-    await cb.message.answer(f"Test davom ettirilmoqda: <b>{test.get('test_name')}</b>")
-    await _send_question(cb, test, current_q, excluded_for_q)
-    await cb.answer()
+    try:
+        # Attempt session recovery
+        if not await recover_session_state(user_id, test_id, state):
+            await cb.answer("❌ Sessiya topilmadi yoki buzilgan", show_alert=True)
+            # Clean up corrupted session
+            try:
+                session_path = get_session_file_path(user_id, test_id)
+                if session_path.exists():
+                    session_path.unlink()
+            except:
+                pass
+            delete_test_session(user_id, test_id)
+            return await show_available_tests(cb.message, state)
+        
+        # Get recovered data
+        s = await state.get_data()
+        test = read_test(test_id)
+        
+        if not test:
+            await cb.answer("Test topilmadi yoki o'chirilgan", show_alert=True)
+            await state.finish()
+            return await show_available_tests(cb.message, state)
+        
+        # Validate test access
+        can_access, reason = await validate_user_access(user_id, test_id)
+        if not can_access:
+            await cb.answer(f"❌ {reason}", show_alert=True)
+            await state.finish()
+            return await show_available_tests(cb.message, state)
+        
+        current_q = s.get("current_q", 1)
+        total_q = s.get("total_q", 0)
+        
+        await cb.message.answer(
+            f"✅ Test davom ettirilmoqda: <b>{test.get('test_name')}</b>\n"
+            f"📊 Progress: {current_q}/{total_q}"
+        )
+        
+        # Send current question with recovery support
+        await safe_send_question_with_recovery(cb, user_id, test_id, state)
+        await cb.answer()
+        
+    except Exception as e:
+        log.error(f"Error in handle_resume: {e}", exc_info=True)
+        await cb.answer(
+            "❌ Xatolik yuz berdi. Yangi test boshlang.",
+            show_alert=True
+        )
+        await state.finish()
+        await show_available_tests(cb.message, state)
 
 async def handle_test_selection(cb: types.CallbackQuery, state: FSMContext):
     """Handle test selection with enhanced validation"""
@@ -1067,6 +1236,81 @@ async def student_confirming_name(cb: types.CallbackQuery, state: FSMContext):
         log.error(f"Error in student_confirming_name: {e}")
         await cb.answer("Xatolik yuz berdi")
 
+
+async def recover_session_state(user_id: int, test_id: str, state: FSMContext) -> bool:
+    """
+    Attempt to recover session from persistent storage and restore FSM state.
+    Returns True if recovery successful, False otherwise.
+    """
+    try:
+        log.info(f"Attempting session recovery for user {user_id}, test {test_id}")
+        
+        # Try to load from file
+        session_data = await _load_session(user_id, test_id)
+        
+        if not session_data:
+            log.warning(f"No session data found for user {user_id}, test {test_id}")
+            return False
+        
+        # Validate session data
+        required_keys = ["active_test_id", "current_q", "total_q", "answers", "student_name"]
+        if not all(key in session_data for key in required_keys):
+            log.error(f"Session data incomplete for user {user_id}, test {test_id}")
+            return False
+        
+        # Verify test still exists and is valid
+        test = read_test(test_id)
+        if not test or not test.get("questions"):
+            log.error(f"Test {test_id} no longer valid")
+            return False
+        
+        # Restore state
+        await state.update_data(**session_data)
+        await StudentStates.Answering.set()
+        
+        log.info(f"✅ Session recovered for user {user_id}, test {test_id}")
+        return True
+        
+    except Exception as e:
+        log.error(f"Session recovery failed for user {user_id}, test {test_id}: {e}", exc_info=True)
+        return False
+
+
+async def safe_send_question_with_recovery(sender, user_id: int, test_id: str, state: FSMContext):
+    """
+    Safely send current question, with automatic session recovery if needed.
+    """
+    try:
+        # Get current state
+        s = await state.get_data()
+        
+        if not s or not s.get("active_test_id"):
+            # Try to recover
+            log.warning(f"No state data, attempting recovery for user {user_id}")
+            if await recover_session_state(user_id, test_id, state):
+                s = await state.get_data()
+            else:
+                raise Exception("Session recovery failed")
+        
+        test = read_test(test_id)
+        if not test:
+            raise Exception("Test not found")
+        
+        current_q = int(s.get("current_q", 1))
+        excluded_options = s.get("excluded_options", {})
+        q_key = str(current_q)
+        excluded_for_q = excluded_options.get(q_key, [])
+        
+        # Send question
+        await _send_question(sender, test, current_q, excluded_for_q)
+        
+    except Exception as e:
+        log.error(f"Failed to send question for user {user_id}: {e}")
+        raise
+
+
+
+
 async def process_understanding(cb: types.CallbackQuery, state: FSMContext):
     """Start the test with improved error handling"""
     if (cb.data or "") != "st:understood":
@@ -1108,25 +1352,97 @@ async def process_understanding(cb: types.CallbackQuery, state: FSMContext):
         await cb.answer("Xatolik yuz berdi")
 
 async def on_answer(cb: types.CallbackQuery, state: FSMContext):
-    """Handle answer selection with validation"""
+    """
+    Handle answer selection with improved error recovery.
+    """
     data = cb.data or ""
     if not data.startswith("ans:"):
         return
     
     parts = data.split(":")
     if len(parts) != 3:
-        return await cb.answer("Noto'g'ri format")
+        log.warning(f"Invalid answer format: {data}")
+        return await cb.answer("Noto'g'ri format. /start ni bosing.", show_alert=True)
     
     # Input validation
     valid, qidx = validate_question_index(parts[1])
     if not valid:
-        return await cb.answer("Noto'g'ri savol raqami")
+        return await cb.answer("Noto'g'ri savol raqami. /start ni bosing.", show_alert=True)
     
     opt = parts[2].upper()
     if opt not in ["A", "B", "C", "D"]:
-        return await cb.answer("Noto'g'ri javob varianti")
+        return await cb.answer("Noto'g'ri javob varianti", show_alert=True)
     
-    await _process_answer(cb, state, qidx, opt)
+    user_id = cb.from_user.id
+    
+    try:
+        # Get current state
+        s = await state.get_data()
+        tid = s.get("active_test_id")
+        
+        # If no state, try to recover from session
+        if not tid or not s:
+            log.warning(f"No FSM state for user {user_id}, attempting recovery")
+            
+            # Try to find recent session
+            user_sessions = get_user_sessions(user_id)
+            if user_sessions:
+                recent_test_id = user_sessions[0]["test_id"]
+                
+                if await recover_session_state(user_id, recent_test_id, state):
+                    s = await state.get_data()
+                    tid = s.get("active_test_id")
+                    
+                    await cb.message.answer(
+                        "✅ Sessiya tiklandi. Testni davom ettirishingiz mumkin."
+                    )
+                else:
+                    return await cb.answer(
+                        "❌ Sessiyani tiklashda xatolik. /start ni bosib qaytadan boshlang.",
+                        show_alert=True
+                    )
+            else:
+                return await cb.answer(
+                    "Sessiya topilmadi. /start ni bosib yangi test boshlang.",
+                    show_alert=True
+                )
+        
+        # Process answer
+        await _process_answer(cb, state, qidx, opt)
+        
+    except Exception as e:
+        log.error(f"Error in on_answer for user {user_id}: {e}", exc_info=True)
+        
+        # Try to recover and continue
+        try:
+            s = await state.get_data()
+            tid = s.get("active_test_id")
+            
+            if tid:
+                # Save current state first
+                await _save_session(user_id, tid, s)
+                
+                # Try to recover and continue
+                if await recover_session_state(user_id, tid, state):
+                    await cb.message.answer(
+                        "⚠️ Xatolik yuz berdi, lekin sessiya saqlandi.\n"
+                        "Testni davom ettirish uchun /start ni bosing."
+                    )
+                else:
+                    await cb.message.answer(
+                        "❌ Xatolik yuz berdi. Sessiya saqlanmagan.\n"
+                        "/start ni bosib qaytadan urinib ko'ring."
+                    )
+            else:
+                await cb.message.answer(
+                    "❌ Xatolik yuz berdi. /start ni bosib qaytadan boshlang."
+                )
+                
+        except Exception as recovery_error:
+            log.error(f"Recovery also failed: {recovery_error}")
+            await cb.message.answer(
+                "❌ Jiddiy xatolik yuz berdi. /start ni bosing."
+            )
 
 async def _process_answer(cb: types.CallbackQuery, state: FSMContext, qidx: int, opt: str):
     """

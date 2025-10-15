@@ -1,0 +1,33 @@
+{
+  "active_test_id": "a2074a13-f7e5-459f-9fd4-c509fb078295",
+  "student_name": "sdfa",
+  "started_at": 1760372900,
+  "answers": {
+    "1": "C",
+    "2": "A",
+    "3": "C",
+    "4": "A"
+  },
+  "current_q": 4,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1,
+    "3": 1,
+    "4": 1
+  },
+  "excluded_options": {
+    "1": [
+      "C"
+    ],
+    "2": [],
+    "3": [
+      "C"
+    ],
+    "4": [
+      "A"
+    ]
+  },
+  "waiting_understanding": true,
+  "current_reference": "Asosiy qoida: <a> tegida href qiymati to'g'ri yoziladi (nisbiy yoki to'liq manzil). Xato: XATO: href qiymati qo'shtirnoqsiz yozilgan. To'g'ri: aynan xatoga sabab bo'lgan joyni tuzatish. Misol: <a href=\"/aloqa\">Bog'lanish</a> To'g'ri (c): href qiymati qo'shtirnoqda. Noto'g'ri variantlar: a: atribut nomi xato; b: manzil yo'q; d: matn yo'q.",
+  "last_updated": 1760372930
+}

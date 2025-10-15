@@ -1,0 +1,50 @@
+{
+  "active_test_id": "d272dc7f-17d0-41ab-a1c2-39555451da35",
+  "student_name": "Shavkatov Davlat",
+  "started_at": 1759577121,
+  "answers": {
+    "1": "A",
+    "2": "A",
+    "3": "A",
+    "4": "A",
+    "5": "A",
+    "6": "A",
+    "7": "D"
+  },
+  "current_q": 8,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 3,
+    "3": 2,
+    "4": 1,
+    "6": 3,
+    "7": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "A",
+      "B",
+      "C"
+    ],
+    "3": [
+      "A",
+      "D"
+    ],
+    "4": [
+      "A"
+    ],
+    "5": [],
+    "6": [
+      "A",
+      "C",
+      "B"
+    ],
+    "7": [
+      "D"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759933929
+}

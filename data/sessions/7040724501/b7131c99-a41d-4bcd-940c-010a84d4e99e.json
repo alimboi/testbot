@@ -1,0 +1,18 @@
+{
+  "current_q": 5,
+  "answers": {
+    "1": "A",
+    "2": "C",
+    "3": "B",
+    "4": "A"
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": []
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759563546
+}

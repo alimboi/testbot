@@ -1,3 +1,5 @@
+# config.py (FULL DROP-IN)
+
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -31,9 +33,6 @@ try:
 except ValueError:
     raise ValueError("TELETHON_API_ID must be a valid integer")
 
-# Legacy compatibility
-API_TOKEN = BOT_TOKEN
-
 # Admin users
 ADMIN_USER_IDS = []
 admin_ids_str = os.getenv("ADMIN_USER_IDS", "")
@@ -47,7 +46,9 @@ if OWNER_ID not in ADMIN_USER_IDS:
     ADMIN_USER_IDS.append(OWNER_ID)
 
 # Create bot instance
-bot = Bot(token=BOT_TOKEN, parse_mode="HTML")
+# NOTE: aiogram 2.x da 'session' parametri yo'q.
+# Timeoutni shu yerda berib barqarorlikni biroz oshiramiz.
+bot = Bot(token=BOT_TOKEN, parse_mode="HTML", timeout=60)
 
 # Directory configuration
 DATA_DIR = os.getenv("DATA_DIR", "data")

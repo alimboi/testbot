@@ -1,0 +1,51 @@
+{
+  "active_test_id": "d272dc7f-17d0-41ab-a1c2-39555451da35",
+  "student_name": "Doniyorbek",
+  "started_at": 1759595851,
+  "answers": {
+    "1": "A",
+    "2": "B",
+    "3": "D",
+    "4": "B",
+    "5": "C",
+    "6": "A",
+    "7": "B"
+  },
+  "current_q": 8,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 3,
+    "3": 2,
+    "4": 1,
+    "5": 3,
+    "6": 2
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "B",
+      "A",
+      "C"
+    ],
+    "3": [
+      "D",
+      "A"
+    ],
+    "4": [
+      "B"
+    ],
+    "5": [
+      "C",
+      "B",
+      "D"
+    ],
+    "6": [
+      "A",
+      "C"
+    ],
+    "7": []
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759596032
+}

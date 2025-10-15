@@ -1,0 +1,22 @@
+{
+  "active_test_id": "d24394c6-5526-4b9c-bed1-49164473eb19",
+  "student_name": "А.б.и",
+  "started_at": 1759506112,
+  "answers": {
+    "1": "B"
+  },
+  "current_q": 2,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 2
+  },
+  "excluded_options": {
+    "1": [
+      "B",
+      "C"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759506354
+}

@@ -1,0 +1,22 @@
+{
+  "active_test_id": "54a3467e-9f5a-45e7-b4af-b9d6258a5828",
+  "student_name": "saf",
+  "started_at": 1760460857,
+  "answers": {
+    "1": "B"
+  },
+  "current_q": 2,
+  "total_q": 20,
+  "wrong_attempts": {
+    "1": 2
+  },
+  "excluded_options": {
+    "1": [
+      "B",
+      "D"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1760460878
+}

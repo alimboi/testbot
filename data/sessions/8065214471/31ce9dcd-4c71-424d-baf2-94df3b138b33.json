@@ -1,0 +1,29 @@
+{
+  "active_test_id": "31ce9dcd-4c71-424d-baf2-94df3b138b33",
+  "student_name": "Rahmatulloh",
+  "started_at": 1759252634,
+  "answers": {
+    "1": "B",
+    "2": "C",
+    "3": "D",
+    "4": "B",
+    "5": "B"
+  },
+  "current_q": 6,
+  "total_q": 30,
+  "wrong_attempts": {
+    "5": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": [],
+    "5": [
+      "B"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759252894
+}

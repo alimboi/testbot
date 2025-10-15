@@ -36,13 +36,6 @@
       "active_test_id": "4d52b514-9228-4754-9a61-bffceb0ed9a9"
     }
   },
-  "-4770290796:5445910637": {
-    "state": "StudentStates:Understanding",
-    "data": {
-      "active_test_id": "0040febb-a5ce-4251-b934-8bd70bf30c22",
-      "student_name": "Hop"
-    }
-  },
   "8042345748:8042345748": {
     "state": "StudentStates:Choosing",
     "data": {}
@@ -85,391 +78,9 @@
       "excluded_options": {}
     }
   },
-  "7809172034:7809172034": {
-    "state": "StudentStates:Choosing",
-    "data": {}
-  },
-  "6903723204:6903723204": {
-    "state": "StudentStates:Choosing",
-    "data": {}
-  },
   "962685584:962685584": {
     "state": "StudentStates:Choosing",
     "data": {}
-  },
-  "6109323365:6109323365": {
-    "state": "StudentStates:Answering",
-    "data": {
-      "active_test_id": "40d23a3f-6e0c-46b8-847a-39138f84d4c8",
-      "student_name": "Dilshod",
-      "started_at": 1759084763,
-      "answers": {},
-      "current_q": 1,
-      "total_q": 30,
-      "wrong_attempts": {},
-      "excluded_options": {}
-    }
-  },
-  "5718626045:5718626045": {
-    "state": "StudentStates:Answering",
-    "data": {
-      "active_test_id": "40d23a3f-6e0c-46b8-847a-39138f84d4c8",
-      "student_name": "...",
-      "started_at": 1759085103,
-      "answers": {
-        "1": "D",
-        "2": "A",
-        "3": "C",
-        "4": "B",
-        "5": "B",
-        "6": "B",
-        "7": "D"
-      },
-      "current_q": 8,
-      "total_q": 30,
-      "wrong_attempts": {
-        "1": 1,
-        "2": 1,
-        "4": 1,
-        "5": 1,
-        "6": 1,
-        "7": 1
-      },
-      "excluded_options": {
-        "1": [
-          "D"
-        ],
-        "2": [
-          "A"
-        ],
-        "3": [],
-        "4": [
-          "B"
-        ],
-        "5": [
-          "B"
-        ],
-        "6": [
-          "B"
-        ],
-        "7": [
-          "D"
-        ]
-      },
-      "waiting_understanding": false,
-      "current_reference": null
-    }
-  },
-  "7935288458:7935288458": {
-    "state": "StudentStates:Answering",
-    "data": {
-      "active_test_id": "7c63a1b0-5cc0-4258-bf16-02d0cb99ec18",
-      "student_name": "Jamshid",
-      "started_at": 1759129067,
-      "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "C",
-        "4": "D",
-        "5": "A",
-        "6": "B",
-        "7": "B",
-        "8": "C",
-        "9": "D",
-        "10": "A",
-        "11": "D"
-      },
-      "current_q": 12,
-      "total_q": 30,
-      "wrong_attempts": {
-        "6": 1,
-        "11": 1
-      },
-      "excluded_options": {
-        "1": [],
-        "2": [],
-        "3": [],
-        "4": [],
-        "5": [],
-        "6": [
-          "B"
-        ],
-        "7": [],
-        "8": [],
-        "9": [],
-        "10": [],
-        "11": [
-          "D"
-        ]
-      },
-      "waiting_understanding": false,
-      "current_reference": null
-    }
-  },
-  "7537365577:7537365577": {
-    "state": "StudentStates:EnteringName",
-    "data": {
-      "active_test_id": "7c63a1b0-5cc0-4258-bf16-02d0cb99ec18"
-    }
-  },
-  "6613661192:6613661192": {
-    "state": "StudentStates:Answering",
-    "data": {
-      "active_test_id": "7c63a1b0-5cc0-4258-bf16-02d0cb99ec18",
-      "student_name": "Ozodbek",
-      "started_at": 1759138191,
-      "answers": {},
-      "current_q": 1,
-      "total_q": 30,
-      "wrong_attempts": {},
-      "excluded_options": {}
-    }
-  },
-  "7090189650:7090189650": {
-    "state": "StudentStates:Answering",
-    "data": {
-      "active_test_id": "f773dfdc-0de7-400f-8e53-0411c43e9ef0",
-      "student_name": "Dpstonbek xamroqulov",
-      "started_at": 1759145797,
-      "answers": {
-        "1": "D",
-        "2": "C",
-        "3": "D",
-        "4": "C",
-        "5": "D",
-        "6": "A",
-        "7": "A",
-        "8": "C",
-        "9": "A",
-        "10": "A",
-        "11": "B"
-      },
-      "current_q": 11,
-      "total_q": 30,
-      "wrong_attempts": {
-        "6": 1,
-        "9": 3,
-        "11": 1
-      },
-      "excluded_options": {
-        "1": [],
-        "2": [],
-        "3": [],
-        "4": [],
-        "5": [],
-        "6": [
-          "A"
-        ],
-        "7": [],
-        "8": [],
-        "9": [
-          "A",
-          "B",
-          "C"
-        ],
-        "10": [],
-        "11": [
-          "B"
-        ]
-      },
-      "waiting_understanding": true,
-      "current_reference": "shift() birinchi elementni olib tashlab, massivni o‘zgartiradi. slice() nusxa qaytaradi, asl massivni o‘zgartirmaydi. join() satr qaytaradi, massiv tarkibini o‘zgartirmaydi. Shuning uchun to‘g‘ri javob: arr.shift()."
-    }
-  },
-  "6001055370:6001055370": {
-    "state": "StudentStates:Answering",
-    "data": {
-      "active_test_id": "f773dfdc-0de7-400f-8e53-0411c43e9ef0",
-      "student_name": "Diyor",
-      "started_at": 1759147378,
-      "answers": {
-        "1": "B",
-        "2": "C",
-        "3": "D",
-        "4": "A",
-        "5": "C",
-        "6": "D",
-        "7": "D"
-      },
-      "current_q": 8,
-      "total_q": 30,
-      "wrong_attempts": {
-        "1": 2,
-        "4": 2,
-        "5": 1,
-        "6": 1,
-        "7": 1
-      },
-      "excluded_options": {
-        "1": [
-          "B",
-          "A"
-        ],
-        "2": [],
-        "3": [],
-        "4": [
-          "A",
-          "D"
-        ],
-        "5": [
-          "C"
-        ],
-        "6": [
-          "D"
-        ],
-        "7": [
-          "D"
-        ]
-      },
-      "waiting_understanding": false,
-      "current_reference": null
-    }
-  },
-  "7786750407:7786750407": {
-    "state": "StudentStates:Answering",
-    "data": {
-      "active_test_id": "f773dfdc-0de7-400f-8e53-0411c43e9ef0",
-      "student_name": "Husnora",
-      "started_at": 1759146505,
-      "answers": {
-        "1": "A",
-        "2": "B",
-        "3": "D",
-        "4": "C",
-        "5": "D",
-        "6": "D",
-        "7": "A",
-        "8": "A",
-        "9": "D",
-        "10": "A",
-        "11": "C",
-        "12": "B",
-        "13": "B",
-        "14": "D",
-        "15": "D",
-        "16": "D",
-        "17": "B",
-        "18": "D",
-        "19": "C",
-        "20": "B",
-        "21": "B",
-        "22": "D",
-        "23": "A",
-        "24": "A",
-        "25": "C",
-        "26": "A",
-        "27": "C",
-        "28": "D",
-        "29": "B",
-        "30": "B"
-      },
-      "current_q": 30,
-      "total_q": 30,
-      "wrong_attempts": {
-        "1": 1,
-        "2": 1,
-        "6": 1,
-        "8": 1,
-        "11": 1,
-        "12": 1,
-        "15": 1,
-        "17": 1,
-        "21": 1,
-        "23": 1,
-        "26": 1,
-        "28": 1,
-        "29": 1,
-        "30": 3
-      },
-      "excluded_options": {
-        "1": [
-          "A"
-        ],
-        "2": [
-          "B"
-        ],
-        "3": [],
-        "4": [],
-        "5": [],
-        "6": [
-          "D"
-        ],
-        "7": [],
-        "8": [
-          "A"
-        ],
-        "9": [],
-        "10": [],
-        "11": [
-          "C"
-        ],
-        "12": [
-          "B"
-        ],
-        "13": [],
-        "14": [],
-        "15": [
-          "D"
-        ],
-        "16": [],
-        "17": [
-          "B"
-        ],
-        "18": [],
-        "19": [],
-        "20": [],
-        "21": [
-          "B"
-        ],
-        "22": [],
-        "23": [
-          "A"
-        ],
-        "24": [],
-        "25": [],
-        "26": [
-          "A"
-        ],
-        "27": [],
-        "28": [
-          "D"
-        ],
-        "29": [
-          "B"
-        ],
-        "30": [
-          "B",
-          "D",
-          "A"
-        ]
-      },
-      "waiting_understanding": true,
-      "current_reference": "trim() faqat bosh-oxirdagi bo‘sh joylarni kesadi: 'a,b , c'. split(',') bo‘yicha ajratilganda bo‘sh joylar element ichida saqlanadi. Shunday qilib: ['a','b ',' c']. Ichki bo‘sh joylarni tozalash uchun keyin yana trim qilish kerak.",
-      "last_updated": 1759147699
-    }
-  },
-  "7040724501:7040724501": {
-    "state": "StudentStates:Answering",
-    "data": {
-      "active_test_id": "b473429f-2b2f-4b55-8747-9f3aff1b76fc",
-      "student_name": "Hshshah",
-      "started_at": 1759165541,
-      "answers": {
-        "1": "C"
-      },
-      "current_q": 2,
-      "total_q": 30,
-      "wrong_attempts": {
-        "1": 1
-      },
-      "excluded_options": {
-        "1": [
-          "C"
-        ]
-      },
-      "waiting_understanding": false,
-      "current_reference": null
-    }
   },
   "8128753260:8128753260": {
     "state": "StudentStates:Answering",
@@ -482,61 +93,6 @@
       "total_q": 30,
       "wrong_attempts": {},
       "excluded_options": {}
-    }
-  },
-  "7383492402:7383492402": {
-    "state": "StudentStates:Answering",
-    "data": {
-      "active_test_id": "b473429f-2b2f-4b55-8747-9f3aff1b76fc",
-      "student_name": "Ismoil",
-      "started_at": 1759165732,
-      "answers": {
-        "1": "B",
-        "2": "C",
-        "3": "B",
-        "4": "A",
-        "5": "B"
-      },
-      "current_q": 6,
-      "total_q": 30,
-      "wrong_attempts": {
-        "1": 1,
-        "4": 1
-      },
-      "excluded_options": {
-        "1": [
-          "B"
-        ],
-        "2": [],
-        "3": [],
-        "4": [
-          "A"
-        ],
-        "5": []
-      },
-      "waiting_understanding": false,
-      "current_reference": null
-    }
-  },
-  "8065214471:8065214471": {
-    "state": "StudentStates:Answering",
-    "data": {
-      "active_test_id": "b473429f-2b2f-4b55-8747-9f3aff1b76fc",
-      "student_name": "Rahmatulloh",
-      "started_at": 1759165865,
-      "answers": {
-        "1": "A",
-        "2": "C"
-      },
-      "current_q": 3,
-      "total_q": 30,
-      "wrong_attempts": {},
-      "excluded_options": {
-        "1": [],
-        "2": []
-      },
-      "waiting_understanding": false,
-      "current_reference": null
     }
   },
   "1031716071:1031716071": {
@@ -563,48 +119,107 @@
       "current_reference": null
     }
   },
-  "6899786711:6899786711": {
-    "state": "StudentStates:Choosing",
-    "data": {}
-  },
-  "5445910637:5445910637": {
-    "state": "StudentStates:Answering",
-    "data": {
-      "active_test_id": "b473429f-2b2f-4b55-8747-9f3aff1b76fc",
-      "student_name": "А.б.и",
-      "started_at": 1759168876,
-      "answers": {
-        "1": "B",
-        "2": "A"
-      },
-      "current_q": 2,
-      "total_q": 30,
-      "wrong_attempts": {
-        "1": 3,
-        "2": 1
-      },
-      "excluded_options": {
-        "1": [
-          "B",
-          "C",
-          "D"
-        ],
-        "2": [
-          "A"
-        ]
-      },
-      "waiting_understanding": false,
-      "current_reference": "map har bir elementni o‘zgartirib YANGI massiv qaytaradi. r = [2,4,6], demak r[1] = 4. map asl massiv uzunligini o‘zgartirmaydi, arr.length = 3. Shu bois natija 4 va 3."
-    }
-  },
   "7569958631:7569958631": {
     "state": "StudentStates:Answering",
     "data": {
-      "active_test_id": "b473429f-2b2f-4b55-8747-9f3aff1b76fc",
+      "active_test_id": "6fc034a4-2b2c-478e-83ab-4e78da9fc337",
       "student_name": "Nurmuhammad",
-      "started_at": 1759209351,
+      "started_at": 1759426616,
       "answers": {
-        "1": "C"
+        "1": "B",
+        "2": "D",
+        "3": "A",
+        "4": "C",
+        "5": "A",
+        "6": "A",
+        "7": "D",
+        "8": "C",
+        "9": "C",
+        "10": "B"
+      },
+      "current_q": 11,
+      "total_q": 30,
+      "wrong_attempts": {
+        "5": 4,
+        "9": 3
+      },
+      "excluded_options": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [
+          "A",
+          "D"
+        ],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [
+          "C",
+          "D",
+          "B"
+        ],
+        "10": []
+      },
+      "waiting_understanding": false,
+      "current_reference": null
+    }
+  },
+  "6613661192:6613661192": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "6fc034a4-2b2c-478e-83ab-4e78da9fc337",
+      "student_name": "Ejdh",
+      "started_at": 1759427320,
+      "answers": {
+        "1": "B",
+        "2": "C"
+      },
+      "current_q": 3,
+      "total_q": 30,
+      "wrong_attempts": {
+        "2": 3
+      },
+      "excluded_options": {
+        "1": [],
+        "2": [
+          "C",
+          "A",
+          "B"
+        ]
+      },
+      "waiting_understanding": false,
+      "current_reference": "clearInterval ni callback ichida shart bajarilganda chaqirish kerak. A to‘g‘ri; B -1 ko‘rsatadi; C tashqarida tekshiruv ishlamaydi; D umuman to‘xtatmaydi."
+    }
+  },
+  "5718626045:5718626045": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "6fc034a4-2b2c-478e-83ab-4e78da9fc337",
+      "student_name": "..",
+      "started_at": 1759427886,
+      "answers": {
+        "1": "B"
+      },
+      "current_q": 2,
+      "total_q": 30,
+      "wrong_attempts": {},
+      "excluded_options": {
+        "1": []
+      },
+      "waiting_understanding": false,
+      "current_reference": null
+    }
+  },
+  "6109323365:6109323365": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "4282c3a7-69ae-4cdd-905a-7af048f8b543",
+      "student_name": "Dilshod",
+      "started_at": 1759428276,
+      "answers": {
+        "1": "D"
       },
       "current_q": 1,
       "total_q": 30,
@@ -613,11 +228,526 @@
       },
       "excluded_options": {
         "1": [
-          "C"
+          "D"
         ]
       },
       "waiting_understanding": true,
-      "current_reference": "forEach hech qanday qiymat qaytarmaydi, ya’ni natija undefined bo‘ladi. U massivni aylanish uchun ishlatiladi, qaytgan massiv bermaydi. Berilgan kodda arr o‘zgarmaydi va [1,2,3] bo‘lib qoladi. Shuning uchun console.log(undefined, [1,2,3])."
+      "current_reference": "Qoida: tanlangan konstruksiya bilan aniq 2 qadamni bajaring. Shartni to‘g‘ri yozish va tipni moslashtirish muhim. (b) to‘g‘ri."
+    }
+  },
+  "2090700141:2090700141": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "4282c3a7-69ae-4cdd-905a-7af048f8b543",
+      "student_name": "Azizbek",
+      "started_at": 1759428340,
+      "answers": {
+        "1": "B",
+        "2": "D",
+        "3": "A",
+        "4": "C",
+        "5": "B",
+        "6": "A"
+      },
+      "current_q": 7,
+      "total_q": 30,
+      "wrong_attempts": {},
+      "excluded_options": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": []
+      },
+      "waiting_understanding": false,
+      "current_reference": null,
+      "last_updated": 1759428478
+    }
+  },
+  "6903723204:6903723204": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "e82814e0-5229-4181-a27f-046e59eddf81",
+      "student_name": "Alisher Navoiy",
+      "started_at": 1759558485,
+      "answers": {
+        "1": "B",
+        "2": "C"
+      },
+      "current_q": 2,
+      "total_q": 30,
+      "wrong_attempts": {
+        "2": 1
+      },
+      "excluded_options": {
+        "1": [],
+        "2": [
+          "C"
+        ]
+      },
+      "waiting_understanding": false,
+      "current_reference": "filter tanlangan elementlarni qaytaradi. B da return yo‘q; C map booleanlar qaytaradi; D filter natijasini qaytarmaydi. A to‘g‘ri: shartni qoldirib, massiv qaytaradi. Return oqimi zarur."
+    }
+  },
+  "5445910637:5445910637": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "9cfb35d9-4bd0-4631-96c1-d71d2ce82803",
+      "student_name": "A.B.I",
+      "started_at": 1759568014,
+      "answers": {
+        "1": "A"
+      },
+      "current_q": 2,
+      "total_q": 30,
+      "wrong_attempts": {
+        "1": 1
+      },
+      "excluded_options": {
+        "1": [
+          "A"
+        ]
+      },
+      "waiting_understanding": false,
+      "current_reference": null
+    }
+  },
+  "7809172034:7809172034": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "9cfb35d9-4bd0-4631-96c1-d71d2ce82803",
+      "student_name": "Yaxyo",
+      "started_at": 1759568815,
+      "answers": {
+        "1": "C",
+        "2": "A"
+      },
+      "current_q": 3,
+      "total_q": 30,
+      "wrong_attempts": {},
+      "excluded_options": {
+        "1": [],
+        "2": []
+      },
+      "waiting_understanding": false,
+      "current_reference": null
+    }
+  },
+  "7537365577:7537365577": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "9cfb35d9-4bd0-4631-96c1-d71d2ce82803",
+      "student_name": "Mirzabek",
+      "started_at": 1759571072,
+      "answers": {
+        "1": "A",
+        "2": "C",
+        "3": "D",
+        "4": "B",
+        "5": "C",
+        "6": "D",
+        "7": "C",
+        "8": "A",
+        "9": "A",
+        "10": "D",
+        "11": "B"
+      },
+      "current_q": 11,
+      "total_q": 30,
+      "wrong_attempts": {
+        "1": 2,
+        "2": 1,
+        "6": 1,
+        "7": 3,
+        "8": 2,
+        "9": 3,
+        "11": 2
+      },
+      "excluded_options": {
+        "1": [
+          "A",
+          "B"
+        ],
+        "2": [
+          "C"
+        ],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [
+          "D"
+        ],
+        "7": [
+          "C",
+          "D",
+          "B"
+        ],
+        "8": [
+          "A",
+          "B"
+        ],
+        "9": [
+          "A",
+          "D",
+          "B"
+        ],
+        "10": [],
+        "11": [
+          "B",
+          "D"
+        ]
+      },
+      "waiting_understanding": true,
+      "current_reference": "Qisqa qoida: forEach metodini vazifaga mos qo‘llash. Qisqa misol: arr.filter(x=&gt;x%2===0).length; setInterval(...); clearInterval(id). Nega to‘g‘ri: to‘g‘ri variant aniq natija qaytaradi yoki to‘g‘ri to‘xtatadi. Nozik xato: map/filter chalkashuvi, forEach return yo‘qligi, id ni saqlamaslik."
+    }
+  },
+  "6459767305:6459767305": {
+    "state": "StudentStates:Choosing",
+    "data": {}
+  },
+  "7906412099:7906412099": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "9cfb35d9-4bd0-4631-96c1-d71d2ce82803",
+      "student_name": "Bahrom",
+      "started_at": 1759579217,
+      "answers": {
+        "1": "C",
+        "2": "A",
+        "3": "B",
+        "4": "B",
+        "5": "D",
+        "6": "A",
+        "7": "A",
+        "8": "B",
+        "9": "A"
+      },
+      "current_q": 10,
+      "total_q": 30,
+      "wrong_attempts": {
+        "3": 3,
+        "5": 2,
+        "6": 4,
+        "8": 1,
+        "9": 1
+      },
+      "excluded_options": {
+        "1": [],
+        "2": [],
+        "3": [
+          "B",
+          "C",
+          "A"
+        ],
+        "4": [],
+        "5": [
+          "D",
+          "B"
+        ],
+        "6": [
+          "A",
+          "C",
+          "D"
+        ],
+        "7": [],
+        "8": [
+          "B"
+        ],
+        "9": [
+          "A"
+        ]
+      },
+      "waiting_understanding": false,
+      "current_reference": null
+    }
+  },
+  "7935288458:7935288458": {
+    "state": "StudentStates:Choosing",
+    "data": {}
+  },
+  "6001055370:6001055370": {
+    "state": "StudentStates:Choosing",
+    "data": {}
+  },
+  "8065214471:8065214471": {
+    "state": "StudentStates:Choosing",
+    "data": {}
+  },
+  "5046362374:5046362374": {
+    "state": "StudentStates:Choosing",
+    "data": {}
+  },
+  "7509286392:7509286392": {
+    "state": "StudentStates:Choosing",
+    "data": {}
+  },
+  "754856016:754856016": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "29a76e39-6119-4115-a4fc-0e60c8f0e53b",
+      "student_name": "Shavkatov Davlat",
+      "started_at": 1759936091,
+      "answers": {
+        "1": "A"
+      },
+      "current_q": 2,
+      "total_q": 30,
+      "wrong_attempts": {
+        "1": 3
+      },
+      "excluded_options": {
+        "1": [
+          "A",
+          "D",
+          "B"
+        ]
+      },
+      "waiting_understanding": false,
+      "current_reference": "Har ochilgan teg yopilishi kerak; teg nomi mos bo'lishi shart. To'g'ri yozilishi: Matn. b) yopilish nomi mos emas; c) atribut sintaksisi xato; d) yopilish yo'q."
+    }
+  },
+  "6366017049:6366017049": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "started_at": 1759937064,
+      "answers": {
+        "1": "B",
+        "2": "B",
+        "3": "D",
+        "4": "A",
+        "5": "C",
+        "6": "A",
+        "7": "B",
+        "8": "B",
+        "9": "D",
+        "10": "A",
+        "11": "B"
+      },
+      "current_q": 12,
+      "total_q": 30,
+      "wrong_attempts": {
+        "1": 1,
+        "7": 1,
+        "11": 1
+      },
+      "excluded_options": {
+        "1": [
+          "B"
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [
+          "B"
+        ],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": [
+          "B"
+        ]
+      },
+      "student_name": "Nigina",
+      "active_test_id": "29a76e39-6119-4115-a4fc-0e60c8f0e53b",
+      "last_updated": 1759937064,
+      "waiting_understanding": false,
+      "current_reference": null
+    }
+  },
+  "7753996741:7753996741": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "02b04554-0a1b-41f4-8090-0e98d1565641",
+      "student_name": "Haaa",
+      "started_at": 1759940111,
+      "answers": {
+        "1": "D"
+      },
+      "current_q": 2,
+      "total_q": 30,
+      "wrong_attempts": {
+        "1": 3
+      },
+      "excluded_options": {
+        "1": [
+          "D",
+          "B",
+          "A"
+        ]
+      },
+      "waiting_understanding": false,
+      "current_reference": "Открытый тег нужно закрывать тем же именем. Правильно: Текст. b) имя закрывающего тега не совпадает; c) неверный синтаксис атрибута; d) нет закрытия."
+    }
+  },
+  "8471213050:8471213050": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "5cb54e15-e80e-4643-8193-32a0e7a88595",
+      "student_name": "камила байбусиновна",
+      "started_at": 1760114791,
+      "answers": {
+        "1": "A",
+        "2": "D",
+        "3": "C",
+        "4": "C",
+        "5": "C",
+        "6": "D",
+        "7": "C",
+        "8": "C",
+        "9": "A",
+        "10": "A",
+        "11": "A",
+        "12": "B",
+        "13": "C",
+        "14": "B",
+        "15": "A",
+        "16": "B",
+        "17": "C",
+        "18": "D",
+        "19": "A",
+        "20": "C",
+        "21": "C",
+        "22": "D",
+        "23": "A",
+        "24": "A",
+        "25": "C",
+        "26": "D",
+        "27": "A",
+        "28": "B"
+      },
+      "current_q": 29,
+      "total_q": 30,
+      "wrong_attempts": {
+        "3": 1,
+        "5": 1,
+        "7": 1,
+        "10": 1,
+        "14": 1,
+        "20": 3,
+        "24": 2
+      },
+      "excluded_options": {
+        "1": [],
+        "2": [],
+        "3": [
+          "C"
+        ],
+        "4": [],
+        "5": [
+          "C"
+        ],
+        "6": [],
+        "7": [
+          "C"
+        ],
+        "8": [],
+        "9": [],
+        "10": [
+          "A"
+        ],
+        "11": [],
+        "12": [],
+        "13": [],
+        "14": [
+          "B"
+        ],
+        "15": [],
+        "16": [],
+        "17": [],
+        "18": [],
+        "19": [],
+        "20": [
+          "C",
+          "A",
+          "D"
+        ],
+        "21": [],
+        "22": [],
+        "23": [],
+        "24": [
+          "A",
+          "D"
+        ],
+        "25": [],
+        "26": [],
+        "27": [],
+        "28": []
+      },
+      "waiting_understanding": false,
+      "current_reference": null
+    }
+  },
+  "8003699630:8003699630": {
+    "state": "StudentStates:EnteringName",
+    "data": {
+      "active_test_id": "a2074a13-f7e5-459f-9fd4-c509fb078295"
+    }
+  },
+  "497887129:497887129": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "a2074a13-f7e5-459f-9fd4-c509fb078295",
+      "student_name": "Doniyorbek",
+      "started_at": 1760374466,
+      "answers": {},
+      "current_q": 1,
+      "total_q": 30,
+      "wrong_attempts": {},
+      "excluded_options": {}
+    }
+  },
+  "7040724501:7040724501": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "e4b7e950-4112-4905-8e89-20e9085cf54d",
+      "student_name": "sjaldfkj",
+      "started_at": 1760504546,
+      "answers": {
+        "1": "A"
+      },
+      "current_q": 2,
+      "total_q": 30,
+      "wrong_attempts": {},
+      "excluded_options": {
+        "1": []
+      },
+      "waiting_understanding": false,
+      "current_reference": null
+    }
+  },
+  "6899786711:6899786711": {
+    "state": "StudentStates:Answering",
+    "data": {
+      "active_test_id": "e4b7e950-4112-4905-8e89-20e9085cf54d",
+      "student_name": "Alisher ortiqboyev",
+      "started_at": 1760504704,
+      "answers": {
+        "1": "B",
+        "2": "D",
+        "3": "C",
+        "4": "D"
+      },
+      "current_q": 5,
+      "total_q": 30,
+      "wrong_attempts": {
+        "1": 1,
+        "2": 1
+      },
+      "excluded_options": {
+        "1": [
+          "B"
+        ],
+        "2": [
+          "D"
+        ],
+        "3": [],
+        "4": []
+      },
+      "waiting_understanding": false,
+      "current_reference": null
     }
   }
 }

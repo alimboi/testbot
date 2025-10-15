@@ -1,0 +1,377 @@
+{
+  "test_id": "c10cfab4-3d5c-45ca-af49-63284c1a89a9",
+  "test_name": "h1pbahrefinlineblockidclass",
+  "questions": [
+    {
+      "index": 1,
+      "text": "Matn elementlari yonma-yon chiqishi uchun qaysi turdagi elementlar tabiatan mos keladi?",
+      "options": {
+        "A": "Block elementlar (masalan, p, h1) yonma-yon keladi",
+        "B": "Inline elementlar (masalan, a, b) yonma-yon keladi",
+        "C": "Block element bir qatorda ikki marta chiqadi",
+        "D": "Inline element har doim butun kenglikni egallaydi"
+      }
+    },
+    {
+      "index": 2,
+      "text": "Quyidagi tuzilma kerak: bir qatorda ikki havola yonma-yon; keyingi qatorda matn p ko‘rinishida.\n```html\n<h1 id=\"sarlavha\">Do‘kon</h1>\n<a href=\"/narxlar\">Narxlar</a>\n<a href=\"/aloqa\">Aloqa</a>\n<p class=\"lead\">Xush kelibsiz</p>\n```",
+      "options": {
+        "A": "```html\n<p>Narxlar</p>\n<p>Aloqa</p>\n```",
+        "B": "```html\n<p class=\"lead\">Matn</p>\n<a href=\"/narxlar\">Narxlar</a>\n```",
+        "C": "```html\n<a href=\"/narxlar\">Narxlar</a>\n<a href=\"/aloqa\">Aloqa</a>\n```",
+        "D": "```html\n<h1>Narxlar</h1>\n<h1>Aloqa</h1>\n```"
+      }
+    },
+    {
+      "index": 3,
+      "text": "Quyidagi kod bloki istalgan natijani qaytarmaydi yoki xato ishlaydi. Xato to‘g‘rilangan variantni tanlang.\n```html\n<h1 id=\"title\">Do‘kon</h2>\n<p class=\"lead\">Xush kelibsiz</p>\n<b>Chegirma</b>\n<a href=\"/narxlar\">Ko‘rish</a>\n```",
+      "options": {
+        "A": "```html\n<h1 id=\"title\">Do‘kon</h1>\n```",
+        "B": "```html\n<h2 id=\"title\">Do‘kon</h2>\n```",
+        "C": "```html\n<h1 id=\"title\">Do‘kon</h1>\n<p>Xush kelibsiz</p>\n```",
+        "D": "```html\n<h1>Do‘kon</h1 id=\"title\">\n```"
+      }
+    },
+    {
+      "index": 4,
+      "text": "Foydalanuvchi 'Bizga yozing' havolasini bosganda pochta dasturi ochilsin: user@example.com. To‘g‘ri variantni tanlang.",
+      "options": {
+        "A": "```html\n<a href=\"mail:user@example.com\">Bizga yozing</a>\n```",
+        "B": "```html\n<a href=\"mailto:user@example.com\" target=\"-blank\">Bizga yozing</a>\n```",
+        "C": "```html\n<a href=\"mailto:user@example.com\">Bizga yozing</a>\n```",
+        "D": "```html\n<a href=\"mailto:user@@example.com\">Bizga yozing</a>\n```"
+      }
+    },
+    {
+      "index": 5,
+      "text": "id va class nomlash bo‘yicha to‘g‘ri qoida qaysi?",
+      "options": {
+        "A": "class noyob; id ko‘p elementga beriladi",
+        "B": "id va class har doim bir xil qiymat bo‘lishi shart",
+        "C": "id faqat raqamlardan iborat bo‘lishi kerak",
+        "D": "id sahifada noyob bo‘lishi kerak; class bir nechta elementga berilishi mumkin"
+      }
+    },
+    {
+      "index": 6,
+      "text": "Quyidagi CSS selektorlari nomi to‘g‘ri yozilgan bo‘lishi kerak: #title va .lead. Kerakli elementlarni qo‘shing.\n```html\n<style>\n#title{}\n.lead{}\n</style>\n<h1>Do‘kon</h1>\n<p>Matn</p>\n```",
+      "options": {
+        "A": "```html\n<h1 id=\"title\">Do‘kon</h1>\n<p class=\"lead\">Matn</p>\n```",
+        "B": "```html\n<h1 class=\"title\">Do‘kon</h1>\n<p id=\"lead\">Matn</p>\n```",
+        "C": "```html\n<h1 id=\"lead\">Do‘kon</h1>\n<p class=\"title\">Matn</p>\n```",
+        "D": "```html\n<h1 id=\"#title\">Do‘kon</h1>\n<p class=\".lead\">Matn</p>\n```"
+      }
+    },
+    {
+      "index": 7,
+      "text": "Tashqi saytga havolani yangi oynada ochish uchun qaysi atribut qiymati ishlatiladi?",
+      "options": {
+        "A": "target=\"blank\"",
+        "B": "target=\"_blank\"",
+        "C": "target=\"new\"",
+        "D": "open=\"_blank\""
+      }
+    },
+    {
+      "index": 8,
+      "text": "Quyidagi kod bloki istalgan natijani qaytarmaydi yoki xato ishlaydi. Xato to‘g‘rilangan variantni tanlang.\n```html\n<a href=\"https://example.com\" target=\"-blank\">Sayt</a>\n<p>Yangiliklar</p>\n<b>Kirish</b>\n<a href=\"/aloqa\">Aloqa</a>\n```",
+      "options": {
+        "A": "```html\n<a href=\"https://example.com\" target=\"_blank\">Sayt</a>\n```",
+        "B": "```html\n<a href=\"https://example.com\" target=\"blank\">Sayt</a>\n```",
+        "C": "```html\n<a target=\"_blank\">Sayt</a>\n```",
+        "D": "```html\n<a href=\"https://example.com\" target=\"_new\">Sayt</a>\n```"
+      }
+    },
+    {
+      "index": 9,
+      "text": "Telefon raqamiga qo‘ng‘iroq qilish uchun to‘g‘ri havolani tanlang: +998901234567",
+      "options": {
+        "A": "```html\n<a href=\"tel: +998901234567\">Qo‘ng‘iroq qilish</a>\n```",
+        "B": "```html\n<a href=\"call:+998901234567\">Qo‘ng‘iroq qilish</a>\n```",
+        "C": "```html\n<a href=\"tel:998901234567\">Qo‘ng‘iroq qilish</a>\n```",
+        "D": "```html\n<a href=\"tel:+998901234567\">Qo‘ng‘iroq qilish</a>\n```"
+      }
+    },
+    {
+      "index": 10,
+      "text": "Sahifadagi eng yuqori darajali sarlavha qaysi teg bilan belgilanadi?",
+      "options": {
+        "A": "h6",
+        "B": "p",
+        "C": "h1",
+        "D": "b"
+      }
+    },
+    {
+      "index": 11,
+      "text": "Ikki qator: avval p (to‘liq kenglik), keyin yonma-yon ikkita a. To‘g‘ri variantni tanlang.\n```html\n<p id=\"intro\">Assalomu alaykum</p>\n<!-- quyida ikki havola yonma-yon bo‘lsin -->\n<a href=\"/kurslar\">Kurslar</a>\n<a href=\"/aloqa\">Aloqa</a>\n```",
+      "options": {
+        "A": "```html\n<a href=\"/kurslar\">Kurslar</a>\n<a href=\"/aloqa\">Aloqa</a>\n```",
+        "B": "```html\n<p>Assalomu alaykum</p>\n```",
+        "C": "```html\n<h1>Assalomu alaykum</h1>\n```",
+        "D": "```html\n<p>Kurslar</p>\n<p>Aloqa</p>\n```"
+      }
+    },
+    {
+      "index": 12,
+      "text": "Quyidagi kod bloki istalgan natijani qaytarmaydi yoki xato ishlaydi. Xato to‘g‘rilangan variantni tanlang.\n```html\n<a href=\"mailto:user@@example.com\">Yozish</a>\n<p>Biz bilan bog‘laning</p>\n<a href=\"tel:+998901234567\">Qo‘ng‘iroq</a>\n```",
+      "options": {
+        "A": "```html\n<a href=\"mail:user@example.com\">Yozish</a>\n```",
+        "B": "```html\n<a href=\"mailto:user@example\">Yozish</a>\n```",
+        "C": "```html\n<a href=\"mailto:user@example.com\">Yozish</a>\n```",
+        "D": "```html\n<a href=\"mailto:userexample.com\">Yozish</a>\n```"
+      }
+    },
+    {
+      "index": 13,
+      "text": "CSS selektorida class va id qanday belgilanadi?",
+      "options": {
+        "A": "class uchun .nom, id uchun #nom",
+        "B": "class uchun #nom, id uchun .nom",
+        "C": "class va id ikkalasi ham @nom",
+        "D": "class va id farqsiz ishlatiladi"
+      }
+    },
+    {
+      "index": 14,
+      "text": "Kontakt blokida uchta havola kerak: email, telefon, tashqi sayt yangi oynada.\n```html\n<p id=\"contact\">Kontakt</p>\n<!-- email -->\n<!-- telefon -->\n<!-- tashqi sayt -->\n```",
+      "options": {
+        "A": "```html\n<a href=\"mail:support@example.com\">Email</a>\n<a href=\"tel: +998901112233\">Telefon</a>\n<a href=\"https://example.com\" target=\"blank\">Sayt</a>\n```",
+        "B": "```html\n<a href=\"mailto:support@example.com\">Email</a>\n<a href=\"tel:+998901112233\">Telefon</a>\n<a href=\"https://example.com\" target=\"_blank\">Sayt</a>\n```",
+        "C": "```html\n<a href=\"mailto:support@example\">Email</a>\n<a href=\"call:+998901112233\">Telefon</a>\n<a href=\"https://example.com\">Sayt</a>\n```",
+        "D": "```html\n<a href=\"mailto:support@@example.com\">Email</a>\n<a href=\"tel:+998901112233\">Telefon</a>\n<a target=\"_blank\">Sayt</a>\n```"
+      }
+    },
+    {
+      "index": 15,
+      "text": "Sarlavha pastida bir jumlada b ichida 'Yangi' so‘zi qalin bo‘lsin. To‘g‘ri variantni tanlang.\n```html\n<h1 id=\"title\">Yangiliklar</h1>\n<p class=\"lead\">\nBugun <b>Yangi</b> kurs boshlangan.\n</p>\n```",
+      "options": {
+        "A": "```html\n<p><b>Bugun</b> Yangi kurs boshlangan.</p>\n```",
+        "B": "```html\n<b><p>Bugun Yangi kurs boshlangan.</p></b>\n```",
+        "C": "```html\n<p>Bugun <b>Yangi</b> kurs boshlangan.</p>\n```",
+        "D": "```html\n<p>Bugun Yangi kurs boshlangan.</p><b></b>\n```"
+      }
+    },
+    {
+      "index": 16,
+      "text": "Quyidagi kod bloki istalgan natijani qaytarmaydi yoki xato ishlaydi. Xato to‘g‘rilangan variantni tanlang.\n```html\n<h1>Yangiliklar</h1>\n<p class=\"lead\">Bugun ochildi</h2>\n<a href=\"/batafsil\">Batafsil</a>\n<b>Muqova</b>\n```",
+      "options": {
+        "A": "```html\n<h2 class=\"lead\">Bugun ochildi</h2>\n```",
+        "B": "```html\n<p>Bugun ochildi</p>\n<h1>Yangiliklar</h1>\n```",
+        "C": "```html\n<p class=lead>Bugun ochildi</p>\n```",
+        "D": "```html\n<p class=\"lead\">Bugun ochildi</p>\n```"
+      }
+    },
+    {
+      "index": 17,
+      "text": "Block elementlar odatda qanday joylashadi?",
+      "options": {
+        "A": "Yangi qatordan boshlanib, butun satr kengligini egallaydi",
+        "B": "Har doim yonma-yon keladi",
+        "C": "Faqat ichida inline bo‘lishi mumkin",
+        "D": "Faqat h1–h6 block hisoblanadi, p block emas"
+      }
+    },
+    {
+      "index": 18,
+      "text": "Quyida sarlavha va ikki paragraf ketma-ket yangi qatordan chiqishi kerak.\n```html\n<h1 id=\"news\">Yangiliklar</h1>\n<p class=\"lead\">Kirish</p>\n<p>Ma’lumot</p>\n```",
+      "options": {
+        "A": "```html\n<a>Yangiliklar</a>\n<a>Kirish</a>\n<a>Ma’lumot</a>\n```",
+        "B": "```html\n<h1>Yangiliklar</h1>\n<p>Kirish</p>\n<p>Ma’lumot</p>\n```",
+        "C": "```html\n<b>Yangiliklar</b>\n<b>Kirish</b>\n<b>Ma’lumot</b>\n```",
+        "D": "```html\n<p>Yangiliklar</p>\n<p>Kirish</p>\n```"
+      }
+    },
+    {
+      "index": 19,
+      "text": "Quyidagi kod bloki istalgan natijani qaytarmaydi yoki xato ishlaydi. Xato to‘g‘rilangan variantni tanlang.\n```html\n<p>Kontakt</p>\n<a href=\"tel: 998901234567\">Qo‘ng‘iroq</a>\n<a href=\"mailto:sales@example.com\">Email</a>\n```",
+      "options": {
+        "A": "```html\n<a href=\"call:+998901234567\">Qo‘ng‘iroq</a>\n```",
+        "B": "```html\n<a href=\"tel:998901234567\">Qo‘ng‘iroq</a>\n```",
+        "C": "```html\n<a href=\"tel:+998 901234567\">Qo‘ng‘iroq</a>\n```",
+        "D": "```html\n<a href=\"tel:+998901234567\">Qo‘ng‘iroq</a>\n```"
+      }
+    },
+    {
+      "index": 20,
+      "text": "Quyidagi selektorlarga mos atributlarni tanlang: #hero va .note.\n```html\n<style>\n#hero{}\n.note{}\n</style>\n```",
+      "options": {
+        "A": "```html\n<h1 class=\"hero\">Sarlavha</h1>\n<p id=\"note\">Izoh</p>\n```",
+        "B": "```html\n<h1 id=\"hero\">Sarlavha</h1>\n<p class=\"note\">Izoh</p>\n```",
+        "C": "```html\n<h1 id=\"#hero\">Sarlavha</h1>\n<p class=\".note\">Izoh</p>\n```",
+        "D": "```html\n<p id=\"note\">Izoh</p>\n<h1 class=\"hero\">Sarlavha</h1>\n```"
+      }
+    },
+    {
+      "index": 21,
+      "text": "Teglarni to‘g‘ri yopish bo‘yicha qaysi bayon to‘g‘ri?",
+      "options": {
+        "A": "Har qanday tegni </p> bilan yopsa bo‘ladi",
+        "B": "Yopish tegi shart emas",
+        "C": "Ochililgan teg ayni nomdagi yopish tegi bilan yopiladi",
+        "D": "Yopish tegi atributlar bilan boshlanadi"
+      }
+    },
+    {
+      "index": 22,
+      "text": "Tashqi saytga havola yangi oynada ochilsin va matn 'Rasmiy sayt' bo‘lsin.\n```html\n<p>Ma’lumot</p>\n<!-- havola shu yerda bo‘lsin -->\n<p>Rahmat</p>\n```",
+      "options": {
+        "A": "```html\n<a href=\"https://gov.example\" target=\"_blank\">Rasmiy sayt</a>\n```",
+        "B": "```html\n<a href=\"https://gov.example\" target=\"blank\">Rasmiy sayt</a>\n```",
+        "C": "```html\n<a target=\"_blank\">Rasmiy sayt</a>\n```",
+        "D": "```html\n<a href=\"https://gov.example\" target=\"_new\">Rasmiy sayt</a>\n```"
+      }
+    },
+    {
+      "index": 23,
+      "text": "Bo‘lim sarlavhasi h2 bo‘lsin va class=\"title\" yozilsin. To‘g‘ri yozuvni tanlang.\n```html\n<p>Bo‘limlar</p>\n```",
+      "options": {
+        "A": "```html\n<h3 class=\"title\">Bo‘lim</h3>\n```",
+        "B": "```html\n<h2 id=\"title\">Bo‘lim</h2>\n```",
+        "C": "```html\n<h2 class=\"title\">Bo‘lim</h2>\n```",
+        "D": "```html\n<h2 class=\"title\">Bo‘lim</h2>\n<p></p>\n```"
+      }
+    },
+    {
+      "index": 24,
+      "text": "Kontakt bo‘limida email va telefon havolalari keltirilsin.\n```html\n<p>Kontakt</p>\n<!-- shu yerga havolalar -->\n```",
+      "options": {
+        "A": "```html\n<a href=\"mail:info@example.com\">Email</a>\n<a href=\"tel: +998909998877\">Telefon</a>\n```",
+        "B": "```html\n<a href=\"mailto:info@@example.com\">Email</a>\n<a href=\"call:+998909998877\">Telefon</a>\n```",
+        "C": "```html\n<a href=\"mailto:info@example.com\">Email</a>\n<a href=\"tel:998909998877\">Telefon</a>\n```",
+        "D": "```html\n<a href=\"mailto:info@example.com\">Email</a>\n<a href=\"tel:+998909998877\">Telefon</a>\n```"
+      }
+    },
+    {
+      "index": 25,
+      "text": "Matn ichida faqat 'Muhim' so‘zi qalin ko‘rinsin. To‘g‘ri HTML yozuvini tanlang.\n```html\n<p>Bu xabar Muhim va e’tiborli</p>\n```",
+      "options": {
+        "A": "```html\n<b><p>Bu xabar Muhim va e’tiborli</p></b>\n```",
+        "B": "```html\n<p>Bu xabar <b>Muhim</b> va e’tiborli</p>\n```",
+        "C": "```html\n<p><h2>Muhim</h2> Bu xabar e’tiborli</p>\n```",
+        "D": "```html\n<p>Bu xabar <b></b>Muhim va e’tiborli</p>\n```"
+      }
+    },
+    {
+      "index": 26,
+      "text": "Quyida 'Aloqa' va 'Narxlar' yonma-yon, keyin bitta p bo‘lsin.\n```html\n<h1>Do‘kon</h1>\n<!-- havolalar va p -->\n```",
+      "options": {
+        "A": "```html\n<p>Aloqa</p>\n<p>Narxlar</p>\n<a>Manzil</a>\n```",
+        "B": "```html\n<b>Aloqa</b>\n<b>Narxlar</b>\n<b>Manzil</b>\n```",
+        "C": "```html\n<h1>Aloqa</h1>\n<h1>Narxlar</h1>\n<p>Manzil</p>\n```",
+        "D": "```html\n<a href=\"/aloqa\">Aloqa</a>\n<a href=\"/narxlar\">Narxlar</a>\n<p>Manzil</p>\n```"
+      }
+    },
+    {
+      "index": 27,
+      "text": "Quyidagi kod bloki istalgan natijani qaytarmaydi yoki xato ishlaydi. Xato to‘g‘rilangan variantni tanlang.\n```html\n<h1>Hujjat</h1>\n<a target=\"_blank\">Yuklab olish</a>\n<p>Izoh</p>\n<b>Oxiri</b>\n```",
+      "options": {
+        "A": "```html\n<a href=\"/file.pdf\" target=\"blank\">Yuklab olish</a>\n```",
+        "B": "```html\n<a href=\"/file.pdf\" target=\"_blank\">Yuklab olish</a>\n```",
+        "C": "```html\n<a target=\"_blank\" href>Yuklab olish</a>\n```",
+        "D": "```html\n<a href=\"/file.pdf\">Yuklab olish</a>\n<p></p>\n```"
+      }
+    },
+    {
+      "index": 28,
+      "text": "Sarlavha h2, matnda so‘z 'Muhim' qalin ko‘rinsin.\n```html\n<!-- sarlavha va matn -->\n```",
+      "options": {
+        "A": "```html\n<h2>Yangilik</h2>\n<p>Bu <b>Muhim</b> xabar</p>\n```",
+        "B": "```html\n<h1>Yangilik</h1>\n<p>Bu <b>Muhim</b> xabar</p>\n```",
+        "C": "```html\n<h2>Yangilik</h2>\n<b>Bu Muhim xabar</b>\n```",
+        "D": "```html\n<p><h2>Yangilik</h2>Bu <b>Muhim</b> xabar</p>\n```"
+      }
+    },
+    {
+      "index": 29,
+      "text": "Quyidagi kod bloki istalgan natijani qaytarmaydi yoki xato ishlaydi. Xato to‘g‘rilangan variantni tanlang.\n```html\n<style>\n#banner{}\n.note{}\n</style>\n<h1 class=\"banner\">Sarlavha</h1>\n<p id=\"note\">Izoh</p>\n```",
+      "options": {
+        "A": "```html\n<h1 id=\"#banner\">Sarlavha</h1>\n<p class=\".note\">Izoh</p>\n```",
+        "B": "```html\n<h1 class=\"banner\">Sarlavha</h1>\n<p class=\"note\">Izoh</p>\n```",
+        "C": "```html\n<h1 id=\"banner\">Sarlavha</h1>\n<p id=\"note\">Izoh</p>\n```",
+        "D": "```html\n<h1 id=\"banner\">Sarlavha</h1>\n<p class=\"note\">Izoh</p>\n```"
+      }
+    },
+    {
+      "index": 30,
+      "text": "Sahifada: 1) 'Bosh sahifa' va 'Aloqa' yonma-yon; 2) 'Rasmiy sayt' yangi oynada; 3) pastda bitta paragraf.\n```html\n<!-- kerakli tuzilma -->\n```",
+      "options": {
+        "A": "```html\n<p>Bosh sahifa</p>\n<p>Aloqa</p>\n<a href=\"https://gov.example\" target=\"_blank\">Rasmiy sayt</a>\n```",
+        "B": "```html\n<a href=\"/\">Bosh sahifa</a>\n<a href=\"/aloqa\">Aloqa</a>\n<a href=\"https://gov.example\" target=\"_blank\">Rasmiy sayt</a>\n<p>Rahmat</p>\n```",
+        "C": "```html\n<a href=\"/\">Bosh sahifa</a>\n<a href=\"/aloqa\">Aloqa</a>\n<a href=\"https://gov.example\" target=\"blank\">Rasmiy sayt</a>\n<p>Rahmat</p>\n```",
+        "D": "```html\n<a href=\"/\">Bosh sahifa</a>\n<p>Aloqa</p>\n<p>Rahmat</p>\n```"
+      }
+    }
+  ],
+  "answers": {
+    "1": "B",
+    "2": "C",
+    "3": "A",
+    "4": "C",
+    "5": "D",
+    "6": "A",
+    "7": "B",
+    "8": "A",
+    "9": "D",
+    "10": "C",
+    "11": "A",
+    "12": "C",
+    "13": "A",
+    "14": "B",
+    "15": "C",
+    "16": "D",
+    "17": "A",
+    "18": "B",
+    "19": "D",
+    "20": "B",
+    "21": "C",
+    "22": "A",
+    "23": "C",
+    "24": "D",
+    "25": "B",
+    "26": "D",
+    "27": "B",
+    "28": "A",
+    "29": "D",
+    "30": "B"
+  },
+  "references": {
+    "1": "Asosiy qoida: Inline elementlar yonma-yon joylashadi; block elementlar esa yangi qatordan boshlanib, odatda butun satrni egallaydi. Nega to‘g‘ri: b) Inline elementlar yonma-yon yaxshi joylashadi. Noto‘g‘ri variant(lar): a) Block elementlar odatda yangi qatordan boshlanadi. | c) Inline element butun kenglikni egallamaydi. | d)",
+    "2": "Asosiy qoida: Inline (a) elementlar yonma-yon chiqadi; p block bo‘lib keyingi qatordan tushadi. Nega to‘g‘ri: c) Ikki a yonma-yon, so‘ng p pastga tushadi — talabga mos. Noto‘g‘ri variant(lar): a) p block; ikkisi yonma-yon chiqmaydi. | b) Tartib buziladi: p avval, a keyin. | d)",
+    "3": "Asosiy qoida: Teglar to‘g‘ri ochilib-yopilishi shart. Nega to‘g‘ri: a) h1 ochilib, </h1> bilan yopilishi kerak. Noto‘g‘ri variant(lar): b) Ortiqcha p qo‘shish shart emas. | c) Atributni noto‘g‘ri joyga qo‘yish. | d)",
+    "4": "Asosiy qoida: mailto: sxemasi bilan to‘g‘ri e-pochta yoziladi. Nega to‘g‘ri: c) mailto:user@example.com to‘g‘ri sxema va manzil. Noto‘g‘ri variant(lar): a) mail: sxemasi mavjud emas. | b) target qiymati noto‘g‘ri va kerak emas. | d)",
+    "5": "Asosiy qoida: id — noyob; class — qayta ishlatiladigan guruh. Nega to‘g‘ri: d) Bu HTML amaliy qoida. Noto‘g‘ri variant(lar): a) Aksincha yozilgan. | b) Bir xil bo‘lishi shart emas. | c) id harflar bilan boshlanishi tavsiya etiladi; faqat raqam emas.",
+    "6": "Asosiy qoida: CSS da id — #title; class — .lead. HTMLda mos ravishda id va class atributlari beriladi. Nega to‘g‘ri: a) id=\"title\" va class=\"lead\" mos keladi. Noto‘g‘ri variant(lar): b) Id va class noto‘g‘ri elementlarda. | c) Atribut qiymatlarida # va . yozilmaydi. | d)",
+    "7": "Asosiy qoida: Yangi oynada ochish uchun _blank qiymati kerak. Nega to‘g‘ri: b) target=\"_blank\" to‘g‘ri. Noto‘g‘ri variant(lar): a) Underscore yo‘q — noto‘g‘ri. | c) Bunday atribut yo‘q. | d)",
+    "8": "Asosiy qoida: target atributida _blank qiymati ishlatiladi. Nega to‘g‘ri: a) target=\"_blank\" to‘g‘ri qiymat. Noto‘g‘ri variant(lar): b) href yetishmayapti. | c) Bunday maxsus qiymat yo‘q. | d)",
+    "9": "Asosiy qoida: tel: sxemasi bilan bo‘shliq yo‘q; xalqaro format yaxshi amaliyot. Nega to‘g‘ri: d) tel:+998901234567 to‘g‘ri. Noto‘g‘ri variant(lar): a) Bo‘shliq tufayli xato. | b) call: sxemasi yo‘q. | c) Plus belgisi yetishmaydi.",
+    "10": "Asosiy qoida: h1 — eng yuqori darajali sarlavha. Nega to‘g‘ri: c) h1 to‘g‘ri. Noto‘g‘ri variant(lar): a) h6 eng kichik sarlavha. | b) p matn paragrafi. | d)",
+    "11": "Asosiy qoida: p block bo‘lib butun satrni egallaydi; a inline bo‘lib yonma-yon keladi. Nega to‘g‘ri: a) Ikki a yonma-yon joylashadi. Noto‘g‘ri variant(lar): b) h1 ham block; talab ikki a yonma-yon edi. | c) p block; yonma-yon chiqmaydi. | d)",
+    "12": "Asosiy qoida: mailto: sxemasi va to‘g‘ri email sintaksisi kerak. Nega to‘g‘ri: c) user@example.com to‘g‘ri format. Noto‘g‘ri variant(lar): a) mail: noto‘g‘ri sxema. | b) Domen zonasiz (masalan, .com) — noto‘g‘ri. | d)",
+    "13": "Asosiy qoida: CSS: .class va #id belgilari. Nega to‘g‘ri: a) To‘g‘ri belgilar. Noto‘g‘ri variant(lar): b) @ selektor emas. | c) Farqlanadi. | d)",
+    "14": "Asosiy qoida: mailto:, tel:, va target=\"_blank\" to‘g‘ri qo‘llanadi. Nega to‘g‘ri: b) Barcha uch havola talabga mos. Noto‘g‘ri variant(lar): a) Har uchalasida bittadan xato bor. | c) Email va tashqi linkda xatolar bor. | d)",
+    "15": "Asosiy qoida: b inline bo‘lib p ichida ishlatiladi. Nega to‘g‘ri: c) b ni p ichida so‘z atrofida qo‘llash to‘g‘ri. Noto‘g‘ri variant(lar): a) Ma’no o‘zgargan; talab 'Yangi' qalin bo‘lishi edi. | b) b ichiga block p joylanmaydi. | d)",
+    "16": "Asosiy qoida: Teg ochilishi va yopilishi bir xil bo‘lishi shart. Nega to‘g‘ri: d) p ... </p> bilan yopiladi. Noto‘g‘ri variant(lar): a) Tag o‘zgartirish talab qilinmagan. | b) Tartibni o‘zgartirish shart emas. | c) Atribut qiymatini qo‘shtirnoqsiz yozish tavsiya etilmaydi.",
+    "17": "Asosiy qoida: Block element yangi qatordan boshlanadi, kenglikni egallaydi. Nega to‘g‘ri: a) Ta’rif to‘g‘ri. Noto‘g‘ri variant(lar): b) Ichida block ham bo‘lishi mumkin (boshqa holatlar). | c) p ham block. | d)",
+    "18": "Asosiy qoida: h1 va p — block; yangi qatordan chiqadi. Nega to‘g‘ri: b) h1, p, p ketma-ket block chiqadi. Noto‘g‘ri variant(lar): a) a inline; yonma-yon kelishi mumkin. | c) Sarlavha yo‘q. | d)",
+    "19": "Asosiy qoida: tel: da bo‘shliq bo‘lmasin; xalqaro format tavsiya etiladi. Nega to‘g‘ri: d) Bo‘shliqsiz va + bilan yozilgan variant to‘g‘ri. Noto‘g‘ri variant(lar): a) call: sxemasi yo‘q. | b) Plus belgisiz. | c) Bo‘shliq bor.",
+    "20": "Asosiy qoida: #hero -> id=\"hero\"; .note -> class=\"note\". Nega to‘g‘ri: b) Mos tushadi. Noto‘g‘ri variant(lar): a) Id/class almashib ketgan. | c) Tartib va atribut mos emas. | d)",
+    "21": "Asosiy qoida: Ochilishga mos yopish teg kerak. Nega to‘g‘ri: c) Asosiy qoida to‘g‘ri. Noto‘g‘ri variant(lar): a) Har teg o‘z nomi bilan yopiladi. | b) Ko‘pi uchun yopish shart. | d)",
+    "22": "Asosiy qoida: _blank yangi oynada ochadi. Nega to‘g‘ri: a) To‘g‘ri yozuv. Noto‘g‘ri variant(lar): b) href yo‘q. | c) Nostandart qiymat. | d)",
+    "23": "Asosiy qoida: h2 ... </h2> bilan yopiladi; class atributi mos yoziladi. Nega to‘g‘ri: c) h2 ochilib, </h2> bilan yopildi; class=\"title\" to‘g‘ri qo‘yildi. Noto‘g‘ri variant(lar): a) Daraja h3 bo‘lib ketgan. | b) Atribut id bo‘lib ketgan. | d)",
+    "24": "Asosiy qoida: mailto: va tel: sxemalari. Nega to‘g‘ri: d) Ikkalasi ham to‘g‘ri yozilgan. Noto‘g‘ri variant(lar): a) Ikkalasida xato bor. | b) Ikkalasida sxema/bo‘shliq muammosi. | c) Telefon formatida plus yo‘q.",
+    "25": "Asosiy qoida: b inline; p ichida so‘z(lar)ni qalin qiladi. Nega to‘g‘ri: b) b ni faqat 'Muhim' atrofida qo‘llash to‘g‘ri. Noto‘g‘ri variant(lar): a) b ichiga block p joylanmaydi. | c) Bo‘sh b natija bermaydi. | d)",
+    "26": "Asosiy qoida: a inline; p block. Nega to‘g‘ri: d) Talabga aynan mos. Noto‘g‘ri variant(lar): a) p block; yonma-yon emas. | b) b inline bo‘lsa-da, havola emas va semantika noto‘g‘ri. | c) h1 block; yonma-yon chiqmaydi.",
+    "27": "Asosiy qoida: a uchun href talab qilinadi; _blank to‘g‘ri. Nega to‘g‘ri: b) href qo‘shildi va target to‘g‘ri. Noto‘g‘ri variant(lar): a) Underscore yo‘q. | c) Ortiqcha bo‘sh p qo‘shildi. | d)",
+    "28": "Asosiy qoida: h2 — sarlavha; b — inline ta’kid p ichida. Nega to‘g‘ri: a) Mos yozuv. Noto‘g‘ri variant(lar): b) b block o‘rnida ishlatilgan. | c) Taglar joylashuvi noto‘g‘ri. | d)",
+    "29": "Asosiy qoida: #banner id; .note class bo‘lishi kerak. Nega to‘g‘ri: d) id/class moslashtirildi. Noto‘g‘ri variant(lar): a) Qiymatlarda #/. yozilmaydi. | b) h1 to‘g‘ri, lekin p hali noto‘g‘ri. | c) Ikkalasi id bo‘lib qoldi.",
+    "30": "Asosiy qoida: a inline yonma-yon; tashqi link _blank; p block pastda. Nega to‘g‘ri: b) Talablar to‘liq bajarilgan. Noto‘g‘ri variant(lar): a) Havolalar block bo‘lib ketgan. | c) Tartib va teglar noto‘g‘ri aralashgan. | d)"
+  },
+  "groups": [
+    -1003055538272,
+    -4985387326
+  ],
+  "group_id": -1003055538272,
+  "created_by": 7040724501,
+  "creator_name": "Abdurahmon"
+}

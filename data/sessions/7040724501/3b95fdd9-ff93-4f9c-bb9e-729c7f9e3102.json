@@ -1,0 +1,26 @@
+{
+  "active_test_id": "3b95fdd9-ff93-4f9c-bb9e-729c7f9e3102",
+  "student_name": "lksf",
+  "started_at": 1759561931,
+  "answers": {
+    "1": "B",
+    "2": "D"
+  },
+  "current_q": 3,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1,
+    "2": 1
+  },
+  "excluded_options": {
+    "1": [
+      "B"
+    ],
+    "2": [
+      "D"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759562126
+}

@@ -1,0 +1,30 @@
+{
+  "active_test_id": "6fc034a4-2b2c-478e-83ab-4e78da9fc337",
+  "student_name": "saldkfj",
+  "started_at": 1759426304,
+  "answers": {
+    "1": "A",
+    "2": "A",
+    "3": "A",
+    "4": "C"
+  },
+  "current_q": 5,
+  "total_q": 30,
+  "wrong_attempts": {
+    "1": 1,
+    "2": 1
+  },
+  "excluded_options": {
+    "1": [
+      "A"
+    ],
+    "2": [
+      "A"
+    ],
+    "3": [],
+    "4": []
+  },
+  "waiting_understanding": false,
+  "current_reference": null,
+  "last_updated": 1759427264
+}

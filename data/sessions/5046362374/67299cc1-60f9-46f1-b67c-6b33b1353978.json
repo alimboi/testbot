@@ -1,0 +1,30 @@
+{
+  "active_test_id": "67299cc1-60f9-46f1-b67c-6b33b1353978",
+  "student_name": "Park Mireya",
+  "started_at": 1759483071,
+  "answers": {
+    "1": "B",
+    "2": "B",
+    "3": "B"
+  },
+  "current_q": 3,
+  "total_q": 30,
+  "wrong_attempts": {
+    "2": 3,
+    "3": 1
+  },
+  "excluded_options": {
+    "1": [],
+    "2": [
+      "B",
+      "C",
+      "A"
+    ],
+    "3": [
+      "B"
+    ]
+  },
+  "waiting_understanding": false,
+  "current_reference": "Argument sifatida berilgan konteynerga (container) qo‘shish kerak. A varianti to‘g‘ri: trim qilib, aynan container.appendChild(li). B — body ga qo‘shadi; C — noto‘g‘ri idga; D — appendChild ga string berib yuboradi.",
+  "last_updated": 1759484619
+}
