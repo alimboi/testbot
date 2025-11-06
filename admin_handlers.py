@@ -1627,22 +1627,26 @@ async def callbacks_router(cb: types.CallbackQuery, state: FSMContext):
         return
 
     # NEW PANEL CALLBACKS (results, analytics, activity sub-actions)
-    elif data.startswith("results:") or data.startswith("test_results:") or data.startswith("student_results:") or data.startswith("export_"):
+    elif data.startswith("results:") or data.startswith("test_results:") or data.startswith("student_results:") or data.startswith("group_results:") or data.startswith("export_"):
         # Import all results panel handlers
         from new_panels import (
             results_all, results_by_test, results_by_student,
             show_test_results, show_student_results,
             export_results_csv, export_test_csv, export_student_csv
         )
+        from new_panels_extra import results_by_group, show_group_results, export_group_csv
 
         if data == "results:all": return await results_all(cb)
         if data == "results:by_test": return await results_by_test(cb)
         if data == "results:by_student": return await results_by_student(cb)
+        if data == "results:by_group": return await results_by_group(cb)
         if data.startswith("test_results:"): return await show_test_results(cb)
         if data.startswith("student_results:"): return await show_student_results(cb)
+        if data.startswith("group_results:"): return await show_group_results(cb)
         if data == "results:export": return await export_results_csv(cb)
         if data.startswith("export_test:"): return await export_test_csv(cb)
         if data.startswith("export_student:"): return await export_student_csv(cb)
+        if data.startswith("export_group:"): return await export_group_csv(cb)
 
     elif data.startswith("analytics:"):
         # Import analytics handlers
@@ -1650,33 +1654,25 @@ async def callbacks_router(cb: types.CallbackQuery, state: FSMContext):
             analytics_overview, analytics_tests, analytics_students,
             analytics_top_performers
         )
+        from new_panels_extra import analytics_trends, analytics_low_performers
 
         if data == "analytics:overview": return await analytics_overview(cb)
         if data == "analytics:tests": return await analytics_tests(cb)
         if data == "analytics:students": return await analytics_students(cb)
         if data == "analytics:top": return await analytics_top_performers(cb)
-        if data == "analytics:trends":
-            await cb.answer("Coming soon!", show_alert=True)
-            return
-        if data == "analytics:low":
-            await cb.answer("Coming soon!", show_alert=True)
-            return
+        if data == "analytics:trends": return await analytics_trends(cb)
+        if data == "analytics:low": return await analytics_low_performers(cb)
 
     elif data.startswith("activity:"):
         # Import activity handlers
         from new_panels import activity_recent, activity_export
+        from new_panels_extra import activity_students, activity_tests, activity_admins
 
         if data == "activity:recent": return await activity_recent(cb)
         if data == "activity:export": return await activity_export(cb)
-        if data == "activity:students":
-            await cb.answer("Coming soon!", show_alert=True)
-            return
-        if data == "activity:tests":
-            await cb.answer("Coming soon!", show_alert=True)
-            return
-        if data == "activity:admins":
-            await cb.answer("Coming soon!", show_alert=True)
-            return
+        if data == "activity:students": return await activity_students(cb)
+        if data == "activity:tests": return await activity_tests(cb)
+        if data == "activity:admins": return await activity_admins(cb)
 
     elif data.startswith("g:"):
         return await cb_groups_action(cb, state)

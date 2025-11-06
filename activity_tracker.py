@@ -373,6 +373,8 @@ def get_overall_statistics() -> dict:
             "total_students": 0,
             "total_tests": 0,
             "average_score": 0,
+            "pass_rate": 0,
+            "attempts_today": 0,
             "total_activities": len(all_logs),
         }
 
