@@ -1848,8 +1848,8 @@ async def _results_by_student(cb: types.CallbackQuery):
 
 @dp.callback_query_handler(lambda c: c.data == "results:by_group")
 async def _results_by_group(cb: types.CallbackQuery):
-    # TODO: Implement group results view
-    await cb.answer("Coming soon!", show_alert=True)
+    from new_panels_extra import results_by_group
+    await results_by_group(cb)
 
 @dp.callback_query_handler(lambda c: c.data and c.data.startswith("test_results:"))
 async def _show_test_results(cb: types.CallbackQuery):
@@ -1890,8 +1890,8 @@ async def _analytics_students(cb: types.CallbackQuery):
 
 @dp.callback_query_handler(lambda c: c.data == "analytics:trends")
 async def _analytics_trends(cb: types.CallbackQuery):
-    # TODO: Implement trends view with charts
-    await cb.answer("Coming soon!", show_alert=True)
+    from new_panels_extra import analytics_trends
+    await analytics_trends(cb)
 
 @dp.callback_query_handler(lambda c: c.data == "analytics:top")
 async def _analytics_top(cb: types.CallbackQuery):
@@ -1899,8 +1899,8 @@ async def _analytics_top(cb: types.CallbackQuery):
 
 @dp.callback_query_handler(lambda c: c.data == "analytics:low")
 async def _analytics_low(cb: types.CallbackQuery):
-    # Similar to top but show students who need help
-    await cb.answer("Coming soon!", show_alert=True)
+    from new_panels_extra import analytics_low_performers
+    await analytics_low_performers(cb)
 
 # Activity Logs Panel Handlers
 @dp.callback_query_handler(lambda c: c.data == "panel:activity")
@@ -1913,18 +1913,18 @@ async def _activity_recent(cb: types.CallbackQuery):
 
 @dp.callback_query_handler(lambda c: c.data == "activity:students")
 async def _activity_students(cb: types.CallbackQuery):
-    # TODO: Implement student-specific activity view
-    await cb.answer("Coming soon!", show_alert=True)
+    from new_panels_extra import activity_students
+    await activity_students(cb)
 
 @dp.callback_query_handler(lambda c: c.data == "activity:tests")
 async def _activity_tests(cb: types.CallbackQuery):
-    # TODO: Implement test-specific activity view
-    await cb.answer("Coming soon!", show_alert=True)
+    from new_panels_extra import activity_tests
+    await activity_tests(cb)
 
 @dp.callback_query_handler(lambda c: c.data == "activity:admins")
 async def _activity_admins(cb: types.CallbackQuery):
-    # TODO: Implement admin activity tracking
-    await cb.answer("Coming soon!", show_alert=True)
+    from new_panels_extra import activity_admins
+    await activity_admins(cb)
 
 @dp.callback_query_handler(lambda c: c.data == "activity:export")
 async def _activity_export(cb: types.CallbackQuery):
