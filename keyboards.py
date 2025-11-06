@@ -146,14 +146,15 @@ def activity_logs_kb():
     """Keyboard for Activity Logs Panel"""
     kb = InlineKeyboardMarkup(row_width=2)
     kb.add(
+        InlineKeyboardButton("🔴 Live Tests", callback_data="activity:live"),
         InlineKeyboardButton("📋 Recent Activity", callback_data="activity:recent"),
+    )
+    kb.add(
         InlineKeyboardButton("🎓 Student Activity", callback_data="activity:students"),
-    )
-    kb.add(
         InlineKeyboardButton("🧪 Test Activity", callback_data="activity:tests"),
-        InlineKeyboardButton("👑 Admin Activity", callback_data="activity:admins"),
     )
     kb.add(
+        InlineKeyboardButton("👑 Admin Activity", callback_data="activity:admins"),
         InlineKeyboardButton("📥 Export Logs", callback_data="activity:export"),
     )
     kb.add(

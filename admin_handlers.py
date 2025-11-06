@@ -1666,10 +1666,11 @@ async def callbacks_router(cb: types.CallbackQuery, state: FSMContext):
     elif data.startswith("activity:"):
         # Import activity handlers
         from new_panels import activity_recent, activity_export
-        from new_panels_extra import activity_students, activity_tests, activity_admins
+        from new_panels_extra import activity_students, activity_tests, activity_admins, activity_live
 
         if data == "activity:recent": return await activity_recent(cb)
         if data == "activity:export": return await activity_export(cb)
+        if data == "activity:live": return await activity_live(cb)
         if data == "activity:students": return await activity_students(cb)
         if data == "activity:tests": return await activity_tests(cb)
         if data == "activity:admins": return await activity_admins(cb)
