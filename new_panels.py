@@ -38,7 +38,7 @@ from utils import (
     load_tests_index,
     load_group_titles,
     read_test,
-    load_students_json,
+    load_students,
 )
 
 from keyboards import (
@@ -220,7 +220,7 @@ async def results_by_student(cb: types.CallbackQuery):
         return await cb.answer("⛔ Access denied", show_alert=True)
 
     # Get all students
-    students = load_students_json()
+    students = load_students()
 
     if not students:
         text = "👥 No students found in the system."
@@ -501,7 +501,7 @@ async def analytics_students(cb: types.CallbackQuery):
     if not is_owner(cb.from_user.id):
         return await cb.answer("⛔ Access denied", show_alert=True)
 
-    students = load_students_json()
+    students = load_students()
 
     if not students:
         text = "👥 No students found."
@@ -542,7 +542,7 @@ async def analytics_top_performers(cb: types.CallbackQuery):
     if not is_owner(cb.from_user.id):
         return await cb.answer("⛔ Access denied", show_alert=True)
 
-    students = load_students_json()
+    students = load_students()
 
     if not students:
         text = "👥 No students found."
