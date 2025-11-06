@@ -703,20 +703,49 @@ async def cb_panel_admins(cb: types.CallbackQuery):
     if not is_owner(cb.from_user.id):
         await cb.answer("Ruxsat yo'q", show_alert=True)
         return
-    
+
     from utils import load_admins
     from keyboards import back_kb
-    
+
     data = load_admins()
     owner = data.get("owner_id") or OWNER_ID
 
-    lines = [f"<b>Owner:</b> <code>{owner}</code>", "", "<b>Panel Admins:</b>"]
+    lines = [f"👑 <b>ADMINS PANEL</b>\n"]
+    lines.append(f"<b>Owner:</b> <code>{owner}</code>\n")
+
+    # Panel Admins (global admins)
+    lines.append("<b>Panel Admins:</b>")
     if not data.get("admins"):
-        lines.append("— none —")
+        lines.append("— none —\n")
     else:
         for uid, rec in data["admins"].items():
             scope = "global" if rec.get("global") else (", ".join(rec.get("groups", [])) or "—")
             lines.append(f"• <code>{uid}</code> — {scope}")
+        lines.append("")
+
+    # Group Admins
+    lines.append("<b>Group Admins:</b>")
+    group_admins = data.get("group_admins", {})
+    if not group_admins:
+        lines.append("— none —")
+    else:
+        for uid, rec in group_admins.items():
+            name = rec.get("name", f"User {uid}")
+            username = rec.get("username", "")
+            groups = rec.get("groups", [])
+            perms = []
+            if rec.get("can_create"):
+                perms.append("create")
+            if rec.get("can_activate"):
+                perms.append("activate")
+
+            lines.append(f"• {name} <code>{uid}</code>")
+            if username:
+                lines.append(f"  @{username}")
+            lines.append(f"  Groups: {len(groups)}")
+            if perms:
+                lines.append(f"  Permissions: {', '.join(perms)}")
+            lines.append("")
 
     try:
         await cb.message.edit_text("\n".join(lines), reply_markup=back_kb())
