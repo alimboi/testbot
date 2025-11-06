@@ -1603,22 +1603,22 @@ def parse_questions_from_text_enhanced(block: str) -> List[dict]:
 
 # Replace the existing parse_combined_file function
 def parse_combined_file_enhanced(file_path: str) -> Optional[dict]:
-    """Enhanced DOCX parser with better code block handling"""
+    """Enhanced DOCX parser with better code block handling - now uses ultimate parsing"""
     try:
         doc = Document(file_path)
     except Exception as e:
         raise ValueError(f"Cannot open DOCX: {e}")
 
     qtxt, atxt, rtxt = _split_sections_from_doc(doc)
-    
-    # Use enhanced parser
-    questions = smart_parse_questions_v2(qtxt)
-    answers = parse_answers_from_text(atxt)
+
+    # Use ultimate parser that tries both AI and classic approaches
+    questions = parse_questions_ultimate_smart(qtxt)
+    answers = parse_answers_ai_smart(atxt)  # Use new AI-like answer parser
     refs = parse_references_from_text(rtxt)
 
     if not questions:
         raise ValueError("No questions parsed. Ensure 'Savollar' section and proper numbering.")
-    
+
     # Validate answers
     for k, v in answers.items():
         if v not in {"A", "B", "C", "D"}:
@@ -1639,20 +1639,9 @@ def parse_combined_file_enhanced(file_path: str) -> Optional[dict]:
     }
 
 def parse_docx_bytes_enhanced(raw: bytes) -> Tuple[str, dict]:
-    """Enhanced DOCX parser wrapper"""
-    with tempfile.NamedTemporaryFile(suffix=".docx", delete=False) as tmp:
-        tmp.write(raw)
-        tmp.flush()
-        tmp_path = tmp.name
-    try:
-        parsed = parse_combined_file_enhanced(tmp_path)
-        name = parsed.get("test_name") or "Test"
-        return name, parsed
-    finally:
-        try:
-            os.unlink(tmp_path)
-        except Exception:
-            pass
+    """Enhanced DOCX parser wrapper - now uses ultimate smart parsing"""
+    # Use the ultimate parser which tries AI-like parser first, then falls back
+    return parse_docx_bytes_ultimate(raw)
 
 def parse_references_from_text(block: str) -> Dict[str, str]:
     """Enhanced reference parser that preserves code formatting"""
@@ -1760,8 +1749,7 @@ def parse_combined_file(file_path: str) -> Optional[dict]:
       - Javoblar: mapping of question number -> correct option letter
       - Izohlar (optional): references/notes
 
-    This version intentionally routes question parsing through the "smart" parser and
-    then post-fixes questions to avoid truncation of multi-line/code questions.
+    Now uses ultimate smart parsing with AI-like capabilities.
     """
     try:
         doc = Document(file_path)
@@ -1770,11 +1758,12 @@ def parse_combined_file(file_path: str) -> Optional[dict]:
 
     qtxt, atxt, rtxt = _split_sections_from_doc(doc)
 
-    # Use the safer pipeline to avoid cutting off question text (e.g., Q3).
-    questions = smart_parse_questions(qtxt)
+    # Use ultimate smart parser that tries both AI and classic approaches
+    questions = parse_questions_ultimate_smart(qtxt)
     questions = validate_and_fix_questions(questions, qtxt)
 
-    answers = parse_answers_from_text(atxt)
+    # Use AI-like answer parser
+    answers = parse_answers_ai_smart(atxt)
     refs = parse_references_from_text(rtxt)
 
     if not questions:
@@ -1835,6 +1824,517 @@ def validate_and_fix_questions(questions: List[dict], raw_q_text: str) -> List[d
 def parse_docx_bytes(raw: bytes) -> Tuple[str, dict]:
     """Compat wrapper: eski nom → parse_docx_bytes_enhanced."""
     return parse_docx_bytes_enhanced(raw)
+
+
+# ==================================================================================
+# NEW AI-LIKE SMART PARSING SYSTEM
+# ==================================================================================
+# This system is designed to handle ANY question/option format intelligently
+# by analyzing patterns and context, similar to how an AI would understand text
+# ==================================================================================
+
+class SmartTextAnalyzer:
+    """
+    AI-like text analyzer that identifies questions, options, and answers
+    by recognizing patterns and using context clues
+    """
+
+    # Pattern definitions for flexible matching
+    QUESTION_PATTERNS = [
+        r'^\s*(\d+)\s*\)\s*(.*)',      # 1) Question
+        r'^\s*(\d+)\s*\.\s*(.*)',      # 1. Question
+        r'^\s*(\d+)\s*-\s*(.*)',       # 1- Question
+        r'^\s*(\d+)\s*:\s*(.*)',       # 1: Question
+        r'^\s*(\d+)\s+(.*)',           # 1 Question (just number and space)
+        r'^\s*Question\s+(\d+)\s*[:\)\.\-]?\s*(.*)',  # Question 1: or Question 1)
+    ]
+
+    OPTION_PATTERNS = [
+        r'^\s*([A-Da-d])\s*\)\s*(.*)',    # a) Option
+        r'^\s*([A-Da-d])\s*\.\s*(.*)',    # a. Option
+        r'^\s*([A-Da-d])\s*-\s*(.*)',     # a- Option
+        r'^\s*([A-Da-d])\s*:\s*(.*)',     # a: Option
+        r'^\s*([A-Da-d])\s+(.*)',         # a Option (just letter and space)
+        r'^\s*([A-Da-d])\)(.*)',          # a)Option (no space after))
+        r'^\s*([A-Da-d])\.(.*)',          # a.Option (no space after dot)
+    ]
+
+    ANSWER_PATTERNS = [
+        r'^\s*(\d+)\s*[\.\)\-:]\s*([A-Da-d])\s*$',  # 1. a or 1) a or 1- a
+        r'^\s*(\d+)\s*([A-Da-d])\s*$',               # 1a
+        r'^\s*(\d+)\s*[\.\)\-:]\s*([A-Da-d])\b',     # 1. a (with possible trailing text)
+    ]
+
+    def __init__(self):
+        self.compiled_question_patterns = [re.compile(p, re.IGNORECASE) for p in self.QUESTION_PATTERNS]
+        self.compiled_option_patterns = [re.compile(p, re.IGNORECASE) for p in self.OPTION_PATTERNS]
+        self.compiled_answer_patterns = [re.compile(p, re.IGNORECASE) for p in self.ANSWER_PATTERNS]
+
+    def detect_line_type(self, line: str, context: dict = None) -> Tuple[str, dict]:
+        """
+        Detect what type of line this is: 'question', 'option', 'answer', 'text', or 'empty'
+        Returns: (type, data_dict)
+        """
+        stripped = line.strip()
+
+        if not stripped:
+            return 'empty', {}
+
+        # Check for code fence markers
+        if re.match(r'^\s*```', line):
+            return 'code_fence', {'line': line}
+
+        # IMPORTANT: Check answer patterns FIRST for short lines
+        # This prevents "2.b" from being detected as a question instead of an answer
+        if len(stripped) <= 10:  # Short lines are likely answers
+            for pattern in self.compiled_answer_patterns:
+                match = pattern.match(line)
+                if match:
+                    return 'answer', {
+                        'number': int(match.group(1)),
+                        'letter': match.group(2).upper(),
+                        'original_line': line
+                    }
+
+        # Try to match question patterns
+        for pattern in self.compiled_question_patterns:
+            match = pattern.match(line)
+            if match:
+                return 'question', {
+                    'number': int(match.group(1)),
+                    'text': match.group(2).strip() if len(match.groups()) > 1 else '',
+                    'original_line': line
+                }
+
+        # Try to match option patterns
+        for pattern in self.compiled_option_patterns:
+            match = pattern.match(line)
+            if match:
+                letter = match.group(1).upper()
+                text = match.group(2).strip() if len(match.groups()) > 1 else ''
+                return 'option', {
+                    'letter': letter,
+                    'text': text,
+                    'original_line': line
+                }
+
+        # Try to match answer patterns (for longer lines that might be answers)
+        for pattern in self.compiled_answer_patterns:
+            match = pattern.match(line)
+            if match:
+                return 'answer', {
+                    'number': int(match.group(1)),
+                    'letter': match.group(2).upper(),
+                    'original_line': line
+                }
+
+        # Default to text content
+        return 'text', {'line': line}
+
+    def is_likely_question_start(self, line: str, next_lines: List[str] = None) -> bool:
+        """
+        Determine if this line is likely a question start by looking ahead
+        """
+        line_type, data = self.detect_line_type(line)
+
+        if line_type != 'question':
+            return False
+
+        # If we have next lines, check if options appear soon
+        if next_lines:
+            for i, next_line in enumerate(next_lines[:15]):  # Look ahead up to 15 lines
+                next_type, _ = self.detect_line_type(next_line)
+                if next_type == 'option':
+                    return True
+                if next_type == 'question':
+                    # Another question appeared before options - not a real question
+                    return False
+
+        return True
+
+    def is_likely_option(self, line: str, current_question: dict = None) -> bool:
+        """
+        Determine if this line is likely an option for the current question
+        """
+        line_type, data = self.detect_line_type(line)
+
+        if line_type != 'option':
+            return False
+
+        # If we have a current question, we're likely in the options section
+        if current_question:
+            return True
+
+        return False
+
+
+def parse_questions_ai_smart(text: str) -> List[dict]:
+    """
+    NEW AI-LIKE SMART PARSER
+
+    This parser intelligently identifies questions and options by:
+    1. Analyzing line patterns using multiple regex strategies
+    2. Using context clues (what comes before/after)
+    3. Handling code blocks gracefully
+    4. Working with ANY format of questions/options
+
+    Returns: List of question dicts with format:
+        {"index": int, "text": str, "options": {"A": str, "B": str, ...}}
+    """
+    analyzer = SmartTextAnalyzer()
+
+    # Normalize line endings and split
+    text = (text or "").replace("\r\n", "\n").replace("\r", "\n")
+    lines = [ln.rstrip() for ln in text.split("\n")]
+
+    questions = []
+    current_question = None
+    current_option_key = None
+    in_code_block = False
+    code_block_lines = []
+
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+
+        # Get lookahead lines for context
+        next_lines = lines[i+1:i+16] if i+1 < len(lines) else []
+
+        # Detect line type
+        line_type, data = analyzer.detect_line_type(line, {'in_code': in_code_block})
+
+        # Handle code fence toggling
+        if line_type == 'code_fence':
+            if in_code_block:
+                # End of code block
+                in_code_block = False
+                code_block_lines.append(line)
+
+                # Add accumulated code to current context
+                code_text = '\n'.join(code_block_lines)
+                if current_option_key and current_question:
+                    # Add to current option
+                    current_question['options'][current_option_key] += '\n' + code_text
+                elif current_question:
+                    # Add to question text
+                    current_question['text'] += '\n' + code_text
+
+                code_block_lines = []
+            else:
+                # Start of code block
+                in_code_block = True
+                code_block_lines = [line]
+
+            i += 1
+            continue
+
+        # If we're inside a code block, accumulate lines
+        if in_code_block:
+            code_block_lines.append(line)
+            i += 1
+            continue
+
+        # Handle different line types
+        if line_type == 'question':
+            # Check if this is really a question start (look ahead for options)
+            if analyzer.is_likely_question_start(line, next_lines):
+                # Save previous question if exists
+                if current_question and current_question.get('text') and len(current_question.get('options', {})) >= 2:
+                    questions.append(current_question)
+
+                # Start new question
+                current_question = {
+                    'index': data['number'],
+                    'text': data['text'],
+                    'options': {}
+                }
+                current_option_key = None
+            else:
+                # Not a real question, treat as text
+                if current_question:
+                    if current_option_key:
+                        current_question['options'][current_option_key] += '\n' + line
+                    else:
+                        current_question['text'] += '\n' + line
+
+        elif line_type == 'option':
+            if current_question is not None:
+                # Start new option
+                option_letter = data['letter']
+                option_text = data['text']
+
+                current_question['options'][option_letter] = option_text
+                current_option_key = option_letter
+            # If no current question, this might be a stray option, skip it
+
+        elif line_type == 'text' or line_type == 'empty':
+            # Add to current context (question text or option text)
+            if current_question:
+                if current_option_key:
+                    # Add to current option
+                    if line_type == 'text':
+                        current_question['options'][current_option_key] += '\n' + data['line']
+                    elif line_type == 'empty':
+                        # Preserve empty lines in options if they're meaningful
+                        if current_question['options'][current_option_key]:
+                            current_question['options'][current_option_key] += '\n'
+                else:
+                    # Add to question text
+                    if line_type == 'text':
+                        current_question['text'] += '\n' + data['line']
+                    elif line_type == 'empty':
+                        # Preserve empty lines in questions
+                        if current_question['text']:
+                            current_question['text'] += '\n'
+
+        i += 1
+
+    # Don't forget the last question
+    if current_question and current_question.get('text') and len(current_question.get('options', {})) >= 2:
+        questions.append(current_question)
+
+    # Clean up and validate
+    cleaned_questions = []
+    for q in questions:
+        # Trim excessive whitespace but preserve intentional formatting
+        q['text'] = q['text'].strip()
+
+        # Clean up options
+        cleaned_options = {}
+        for key in ['A', 'B', 'C', 'D']:
+            if key in q['options']:
+                cleaned_options[key] = q['options'][key].strip()
+
+        # Only include if we have at least 2 options
+        if len(cleaned_options) >= 2:
+            q['options'] = cleaned_options
+            cleaned_questions.append(q)
+
+    # Re-number sequentially
+    for idx, q in enumerate(cleaned_questions, 1):
+        q['index'] = idx
+
+    return cleaned_questions
+
+
+def parse_answers_ai_smart(text: str) -> Dict[str, str]:
+    """
+    NEW AI-LIKE SMART ANSWER PARSER
+
+    This parser can handle answers in ANY format:
+    - After all questions (e.g., 30 questions followed by 30 answers)
+    - In various formats: "1.a", "1)a", "1-a", "1a", etc.
+    - Even handles comma-separated answers: "1a, 2b, 3c, 4d"
+    - Handles answers on multiple lines or single line
+    """
+    analyzer = SmartTextAnalyzer()
+    answers = {}
+
+    # Normalize text
+    text = (text or "").replace("\r\n", "\n").replace("\r", "\n")
+    lines = text.split("\n")
+
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+
+        # Try to extract multiple answers from a single line (comma/space separated)
+        # e.g., "1a, 2b, 3c" or "1.a 2.b 3.c"
+        tokens = re.split(r'[,\s]+', line)
+
+        for token in tokens:
+            token = token.strip()
+            if not token:
+                continue
+
+            # Try each answer pattern
+            for pattern in analyzer.compiled_answer_patterns:
+                match = pattern.match(token)
+                if match:
+                    question_num = str(int(match.group(1)))
+                    answer_letter = match.group(2).upper()
+
+                    # Validate it's A, B, C, or D
+                    if answer_letter in ['A', 'B', 'C', 'D']:
+                        answers[question_num] = answer_letter
+                    break
+
+        # Also try the whole line as a single answer
+        line_type, data = analyzer.detect_line_type(line)
+        if line_type == 'answer':
+            question_num = str(data['number'])
+            answer_letter = data['letter']
+            if answer_letter in ['A', 'B', 'C', 'D']:
+                answers[question_num] = answer_letter
+
+    return answers
+
+
+def parse_combined_file_ai_smart(file_path: str) -> Optional[dict]:
+    """
+    NEW AI-LIKE SMART DOCX PARSER
+
+    This is the main entry point for parsing DOCX files using the new AI-like system.
+    It intelligently handles:
+    - Questions in any format
+    - Options in any format (with or without code blocks)
+    - Answers that come after all questions
+    - Different DOCX layouts and structures
+    """
+    try:
+        doc = Document(file_path)
+    except Exception as e:
+        raise ValueError(f"Cannot open DOCX: {e}")
+
+    # Split sections using existing function (it works well)
+    qtxt, atxt, rtxt = _split_sections_from_doc(doc)
+
+    # Use new AI-like parsers
+    questions = parse_questions_ai_smart(qtxt)
+    answers = parse_answers_ai_smart(atxt)
+    refs = parse_references_from_text(rtxt)  # Keep existing reference parser
+
+    if not questions:
+        raise ValueError("No questions parsed. Please check the document format.")
+
+    # Validate answers
+    for k, v in answers.items():
+        if v not in {"A", "B", "C", "D"}:
+            raise ValueError(f"Answer {k} has invalid option '{v}'")
+
+    # Generate test name
+    test_name = Path(file_path).stem
+    if questions and questions[0]["text"]:
+        first_q_text = questions[0]["text"][:50].replace('\n', ' ').strip()
+        if first_q_text:
+            test_name = first_q_text
+
+    return {
+        "test_name": test_name,
+        "questions": questions,
+        "answers": answers,
+        "references": refs,
+    }
+
+
+def parse_docx_bytes_ai_smart(raw: bytes) -> Tuple[str, dict]:
+    """
+    AI-LIKE SMART PARSER for DOCX bytes
+    """
+    with tempfile.NamedTemporaryFile(suffix=".docx", delete=False) as tmp:
+        tmp.write(raw)
+        tmp.flush()
+        tmp_path = tmp.name
+    try:
+        parsed = parse_combined_file_ai_smart(tmp_path)
+        name = parsed.get("test_name") or "Test"
+        return name, parsed
+    finally:
+        try:
+            os.unlink(tmp_path)
+        except Exception:
+            pass
+
+
+def parse_questions_ultimate_smart(text: str) -> List[dict]:
+    """
+    ULTIMATE SMART PARSER - Tries multiple strategies and picks the best result
+
+    This function:
+    1. Tries the new AI-like parser
+    2. Tries the existing smart parser
+    3. Compares results and picks the best one
+    4. "Best" = most valid questions (with text + 2+ options)
+    """
+    def score_result(questions: List[dict]) -> Tuple[int, int, int]:
+        """
+        Score parsing result:
+        Returns: (valid_count, total_count, total_options)
+        """
+        valid = 0
+        total_options = 0
+
+        for q in questions or []:
+            has_text = bool((q.get("text") or "").strip())
+            option_count = len(q.get("options") or {})
+            total_options += option_count
+
+            if has_text and option_count >= 2:
+                valid += 1
+
+        return valid, len(questions or []), total_options
+
+    # Try new AI-like parser
+    result_ai = []
+    try:
+        result_ai = parse_questions_ai_smart(text)
+    except Exception as e:
+        log.warning(f"AI parser failed: {e}")
+
+    # Try existing smart parser
+    result_classic = []
+    try:
+        result_classic = smart_parse_questions(text)
+    except Exception as e:
+        log.warning(f"Classic parser failed: {e}")
+
+    # Score both results
+    score_ai = score_result(result_ai)
+    score_classic = score_result(result_classic)
+
+    # Pick the best result
+    # Priority: 1) More valid questions, 2) More total questions, 3) More total options
+    if score_ai > score_classic:
+        log.info(f"Using AI parser: {score_ai[0]} valid questions")
+        return result_ai
+    elif score_classic > score_ai:
+        log.info(f"Using classic parser: {score_classic[0]} valid questions")
+        return result_classic
+    else:
+        # Tie - prefer AI parser as it's more flexible
+        log.info(f"Tie - using AI parser: {score_ai[0]} valid questions")
+        return result_ai if result_ai else result_classic
+
+
+# ==================================================================================
+# UPDATE EXISTING FUNCTIONS TO USE NEW PARSERS
+# ==================================================================================
+
+def parse_docx_bytes_ultimate(raw: bytes) -> Tuple[str, dict]:
+    """
+    ULTIMATE PARSER - Uses best available parsing strategy
+
+    This is the recommended function to use for new implementations.
+    It will try the AI-like parser first, then fall back to classic if needed.
+    """
+    with tempfile.NamedTemporaryFile(suffix=".docx", delete=False) as tmp:
+        tmp.write(raw)
+        tmp.flush()
+        tmp_path = tmp.name
+    try:
+        # Try AI-like parser first
+        try:
+            parsed = parse_combined_file_ai_smart(tmp_path)
+            name = parsed.get("test_name") or "Test"
+            log.info("Successfully parsed using AI-like parser")
+            return name, parsed
+        except Exception as e1:
+            log.warning(f"AI parser failed: {e1}, trying classic parser")
+            # Fall back to classic parser
+            try:
+                parsed = parse_combined_file_enhanced(tmp_path)
+                name = parsed.get("test_name") or "Test"
+                log.info("Successfully parsed using classic parser")
+                return name, parsed
+            except Exception as e2:
+                log.error(f"Both parsers failed. AI: {e1}, Classic: {e2}")
+                raise ValueError(f"Failed to parse document. AI parser error: {e1}")
+    finally:
+        try:
+            os.unlink(tmp_path)
+        except Exception:
+            pass
 
 def score_user_answers(user_answers: Dict[str, str], correct: Dict[str, str]) -> Tuple[int, int]:
     total = len(correct or {})
