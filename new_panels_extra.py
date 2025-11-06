@@ -22,6 +22,9 @@ from utils import (
     load_tests_index,
     load_group_titles,
     load_students,
+    get_users_with_active_sessions,
+    get_user_sessions,
+    read_test,
 )
 
 from keyboards import back_kb
@@ -441,6 +444,90 @@ async def activity_admins(cb: types.CallbackQuery):
         lines.append(f"{i}. {icon} {action_name}\n   {date_str}\n")
 
     text = "\n".join(lines)
+
+    await cb.message.edit_text(text, reply_markup=back_kb("panel:activity"))
+    await cb.answer()
+
+
+# ==================================================================================
+# ACTIVITY - LIVE (Real-time active test sessions)
+# ==================================================================================
+
+async def activity_live(cb: types.CallbackQuery):
+    """Show who is currently taking tests right now"""
+    if not is_owner(cb.from_user.id):
+        return await cb.answer("⛔ Access denied", show_alert=True)
+
+    await cb.answer()
+
+    # Get users with active sessions (within last 6 hours)
+    active_user_ids = get_users_with_active_sessions(max_age_hours=6)
+
+    if not active_user_ids:
+        text = (
+            "🔴 <b>LIVE ACTIVITY</b>\n\n"
+            "No students are currently taking tests.\n\n"
+            "ℹ️ This shows sessions active within the last 6 hours."
+        )
+        await cb.message.edit_text(text, reply_markup=back_kb("panel:activity"))
+        return
+
+    # Load student data to get names
+    students_data = load_students()
+
+    lines = ["🔴 <b>LIVE ACTIVITY - Students Taking Tests</b>\n"]
+
+    active_count = 0
+    now = datetime.now()
+
+    for user_id in active_user_ids:
+        # Get session details for this user
+        sessions = get_user_sessions(user_id)
+
+        if not sessions:
+            continue
+
+        # Get student name
+        student_info = students_data.get(str(user_id), {})
+        student_name = student_info.get("student_name", f"User {user_id}")
+
+        for session in sessions:
+            active_count += 1
+
+            test_name = session.get("test_name", "Unknown Test")
+            progress = session.get("progress", "0/0")
+            started_at = session.get("started_at", 0)
+
+            # Calculate time elapsed
+            if started_at:
+                elapsed_seconds = int(now.timestamp() - started_at)
+                if elapsed_seconds < 60:
+                    time_str = f"{elapsed_seconds}s ago"
+                elif elapsed_seconds < 3600:
+                    time_str = f"{elapsed_seconds // 60}m ago"
+                else:
+                    hours = elapsed_seconds // 3600
+                    mins = (elapsed_seconds % 3600) // 60
+                    time_str = f"{hours}h {mins}m ago"
+            else:
+                time_str = "Unknown"
+
+            lines.append(
+                f"👤 <b>{student_name}</b>\n"
+                f"   📝 {test_name}\n"
+                f"   📊 Progress: {progress}\n"
+                f"   ⏱️ Started: {time_str}\n"
+            )
+
+    if active_count == 0:
+        text = (
+            "🔴 <b>LIVE ACTIVITY</b>\n\n"
+            "No active test sessions found.\n\n"
+            "ℹ️ Sessions are cleared after completion or timeout."
+        )
+    else:
+        lines.insert(1, f"<b>Active Sessions: {active_count}</b>\n")
+        text = "\n".join(lines)
 
     await cb.message.edit_text(text, reply_markup=back_kb("panel:activity"))
     await cb.answer()
