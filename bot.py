@@ -34,6 +34,7 @@ try:
     from audit import log_action
     from utils import ensure_data, is_owner
     from states import StudentStates, AdminStates
+    import activity_tracker  # Import at startup to ensure directories are created
 except ImportError as e:
     print(f"Critical import error: {e}", file=sys.stderr)
     print("Please ensure all required modules are present and config.py is properly configured", file=sys.stderr)
@@ -1982,18 +1983,24 @@ async def on_startup(dp: Dispatcher):
     """Minimal startup without automatic syncing"""
     try:
         ensure_data()
-        
+
+        # Initialize activity tracking system (creates directories)
+        activity_tracker.log_activity("bot_started", user_id=OWNER_ID, details={
+            "timestamp": time.time()
+        })
+        log.info("✅ Activity tracking initialized")
+
         asyncio.create_task(_heartbeat_watchdog())
         log.info("Watchdog started")
         owner_telethon = await get_user_telethon_service()
-        
+
         if owner_telethon:
             log.info("✅ Owner Telethon initialized")
         else:
             log.warning("⚠️ Owner Telethon not available")
-        
+
         log.info("Bot started successfully")
-        
+
     except Exception as e:
         log.error(f"Startup failed: {e}")
         log.warning(f"Watchdog not started: {e}")

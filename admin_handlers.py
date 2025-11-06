@@ -11,6 +11,7 @@ import uuid
 
 from states import AdminStates
 from audit import log_action
+from activity_tracker import log_activity
 from utils import (
     is_owner, ensure_data,
     load_group_ids, load_group_members,
@@ -19,7 +20,7 @@ from utils import (
     set_test_active, assign_test_groups, test_path,
     read_test,
     # ADD THESE NEW IMPORTS:
-    get_user_admin_groups, can_user_create_test, 
+    get_user_admin_groups, can_user_create_test,
     can_user_manage_test, is_admin, is_group_admin,
     load_group_titles,
     parse_docx_bytes, add_test_index, save_test_content, assign_test_groups, set_test_active, notify_groups_and_members,
@@ -1117,12 +1118,20 @@ async def owner_receive_docx(message: types.Message, state: FSMContext):
     tid = str(uuid.uuid4())
     add_test_index(tid, test_name)
     save_test_content(tid, content)
-    
+
     # Store creator info
     test_data = read_test(tid)
     test_data['created_by'] = message.from_user.id
     test_data['creator_name'] = message.from_user.full_name
     write_test(tid, test_data)
+
+    # Log activity
+    log_activity("test_created", user_id=message.from_user.id, details={
+        "test_id": tid,
+        "test_name": test_name,
+        "creator_name": message.from_user.full_name,
+        "total_questions": len(content.get('questions', []))
+    })
     
     await state.update_data(new_test_id=tid, new_test_name=test_name)
     
@@ -1302,12 +1311,20 @@ async def cb_new_test_action(cb: types.CallbackQuery, state: FSMContext):
         
         # Assign to groups
         assign_test_groups(tid, list(selected))
-        
+
         # Activate test
         set_test_active(tid, True)
-        
+
         test_name = s.get("new_test_name", "Test")
-        
+
+        # Log activity
+        log_activity("test_activated", user_id=cb.from_user.id, details={
+            "test_id": tid,
+            "test_name": test_name,
+            "groups": list(selected),
+            "group_count": len(selected)
+        })
+
         # Start notification process
         await cb.message.answer(f"⏳ Test faollashtirilmoqda va xabarlar yuborilmoqda...")
         
@@ -1407,6 +1424,9 @@ async def cb_test_action(cb: types.CallbackQuery, state: FSMContext):
     if action == "delconfirm":
         idx = load_tests_index()
         tests = idx.get("tests", {})
+        test_info = tests.get(tid, {})
+        test_name = test_info.get("test_name", "Unknown Test")
+
         tests.pop(tid, None)
         save_tests_index(idx)
         try:
@@ -1415,9 +1435,17 @@ async def cb_test_action(cb: types.CallbackQuery, state: FSMContext):
                 os.remove(p)
         except Exception as e:
             logging.getLogger("admin_handlers").warning(f"Could not delete test file: {e}")
+
         log_action(cb.from_user.id, "test_delete", ok=True, test_id=tid)
+
+        # Log activity
+        log_activity("test_deleted", user_id=cb.from_user.id, details={
+            "test_id": tid,
+            "test_name": test_name
+        })
+
         await cb.message.answer("🗑 Test o'chirildi")
-        await cb.answer("O‘chirildi")
+        await cb.answer("O'chirildi")
         return await cb_panel_tests(cb)
 
     # ----- assign (OPEN UI) -----
