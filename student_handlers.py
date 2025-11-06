@@ -706,6 +706,39 @@ async def _finish_test(cb: types.CallbackQuery, state: FSMContext, test: dict):
     except Exception as e:
         log.error(f"save_student_data failed: {e}")
 
+    # NEW: Comprehensive activity tracking - save ALL test attempts
+    try:
+        from activity_tracker import save_test_attempt
+        pct = round((ok / total) * 100, 2) if total else 0
+        started_at = s.get('started_at', time.time())
+        finished_at = time.time()
+        time_spent = int(finished_at - started_at)
+
+        # Get group_id from user groups
+        from utils import get_user_groups
+        user_groups = get_user_groups(cb.from_user.id)
+        group_id = user_groups[0] if user_groups else None
+
+        save_test_attempt(
+            user_id=cb.from_user.id,
+            test_id=test_id,
+            test_name=test.get('test_name', 'Unknown Test'),
+            student_name=s.get("student_name", "Unknown"),
+            score=ok,
+            total_questions=total,
+            percentage=pct,
+            answers=answers,
+            correct_answers=test.get('answers', {}),
+            wrong_attempts=wrong_attempts,
+            group_id=group_id,
+            time_spent_seconds=time_spent,
+            started_at=started_at,
+            finished_at=finished_at
+        )
+        log.info(f"Saved comprehensive test attempt for user {cb.from_user.id}")
+    except Exception as e:
+        log.error(f"Failed to save comprehensive test attempt: {e}")
+
     # 3) Talabaga natijani yuborish — HTMLni xavfsiz bo'laklab yuboramiz
     try:
         from config import bot

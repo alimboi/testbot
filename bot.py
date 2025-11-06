@@ -1812,8 +1812,125 @@ async def sync_single_user_background(group_id: int, user_id: int):
                 log.error(f"Failed to get user info for {user_id}: {e}")
     except Exception as e:
         log.error(f"Background user sync failed: {e}")
+# ==================================================================================
+# NEW ENHANCED ADMIN PANELS - COMPREHENSIVE MONITORING & ANALYTICS
+# ==================================================================================
 
+# Import new panel handlers
+from new_panels import (
+    # Results Panel
+    panel_results, results_all, results_by_test, results_by_student,
+    show_test_results, show_student_results, export_results_csv,
+    export_test_csv, export_student_csv,
+    # Analytics Panel
+    panel_analytics, analytics_overview, analytics_tests, analytics_students,
+    analytics_top_performers,
+    # Activity Logs Panel
+    panel_activity, activity_recent, activity_export,
+)
 
+# Results Panel Handlers
+@dp.callback_query_handler(lambda c: c.data == "panel:results")
+async def _panel_results(cb: types.CallbackQuery):
+    await panel_results(cb)
+
+@dp.callback_query_handler(lambda c: c.data == "results:all")
+async def _results_all(cb: types.CallbackQuery):
+    await results_all(cb)
+
+@dp.callback_query_handler(lambda c: c.data == "results:by_test")
+async def _results_by_test(cb: types.CallbackQuery):
+    await results_by_test(cb)
+
+@dp.callback_query_handler(lambda c: c.data == "results:by_student")
+async def _results_by_student(cb: types.CallbackQuery):
+    await results_by_student(cb)
+
+@dp.callback_query_handler(lambda c: c.data == "results:by_group")
+async def _results_by_group(cb: types.CallbackQuery):
+    # TODO: Implement group results view
+    await cb.answer("Coming soon!", show_alert=True)
+
+@dp.callback_query_handler(lambda c: c.data and c.data.startswith("test_results:"))
+async def _show_test_results(cb: types.CallbackQuery):
+    await show_test_results(cb)
+
+@dp.callback_query_handler(lambda c: c.data and c.data.startswith("student_results:"))
+async def _show_student_results(cb: types.CallbackQuery):
+    await show_student_results(cb)
+
+@dp.callback_query_handler(lambda c: c.data == "results:export")
+async def _export_results_csv(cb: types.CallbackQuery):
+    await export_results_csv(cb)
+
+@dp.callback_query_handler(lambda c: c.data and c.data.startswith("export_test:"))
+async def _export_test_csv(cb: types.CallbackQuery):
+    await export_test_csv(cb)
+
+@dp.callback_query_handler(lambda c: c.data and c.data.startswith("export_student:"))
+async def _export_student_csv(cb: types.CallbackQuery):
+    await export_student_csv(cb)
+
+# Analytics Panel Handlers
+@dp.callback_query_handler(lambda c: c.data == "panel:analytics")
+async def _panel_analytics(cb: types.CallbackQuery):
+    await panel_analytics(cb)
+
+@dp.callback_query_handler(lambda c: c.data == "analytics:overview")
+async def _analytics_overview(cb: types.CallbackQuery):
+    await analytics_overview(cb)
+
+@dp.callback_query_handler(lambda c: c.data == "analytics:tests")
+async def _analytics_tests(cb: types.CallbackQuery):
+    await analytics_tests(cb)
+
+@dp.callback_query_handler(lambda c: c.data == "analytics:students")
+async def _analytics_students(cb: types.CallbackQuery):
+    await analytics_students(cb)
+
+@dp.callback_query_handler(lambda c: c.data == "analytics:trends")
+async def _analytics_trends(cb: types.CallbackQuery):
+    # TODO: Implement trends view with charts
+    await cb.answer("Coming soon!", show_alert=True)
+
+@dp.callback_query_handler(lambda c: c.data == "analytics:top")
+async def _analytics_top(cb: types.CallbackQuery):
+    await analytics_top_performers(cb)
+
+@dp.callback_query_handler(lambda c: c.data == "analytics:low")
+async def _analytics_low(cb: types.CallbackQuery):
+    # Similar to top but show students who need help
+    await cb.answer("Coming soon!", show_alert=True)
+
+# Activity Logs Panel Handlers
+@dp.callback_query_handler(lambda c: c.data == "panel:activity")
+async def _panel_activity(cb: types.CallbackQuery):
+    await panel_activity(cb)
+
+@dp.callback_query_handler(lambda c: c.data == "activity:recent")
+async def _activity_recent(cb: types.CallbackQuery):
+    await activity_recent(cb)
+
+@dp.callback_query_handler(lambda c: c.data == "activity:students")
+async def _activity_students(cb: types.CallbackQuery):
+    # TODO: Implement student-specific activity view
+    await cb.answer("Coming soon!", show_alert=True)
+
+@dp.callback_query_handler(lambda c: c.data == "activity:tests")
+async def _activity_tests(cb: types.CallbackQuery):
+    # TODO: Implement test-specific activity view
+    await cb.answer("Coming soon!", show_alert=True)
+
+@dp.callback_query_handler(lambda c: c.data == "activity:admins")
+async def _activity_admins(cb: types.CallbackQuery):
+    # TODO: Implement admin activity tracking
+    await cb.answer("Coming soon!", show_alert=True)
+
+@dp.callback_query_handler(lambda c: c.data == "activity:export")
+async def _activity_export(cb: types.CallbackQuery):
+    await activity_export(cb)
+
+log.info("✅ New enhanced admin panels registered successfully")
 
 
 # -------------------------
